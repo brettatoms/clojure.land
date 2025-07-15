@@ -1,0 +1,18 @@
+{
+  "name": "clojure.land",
+  "version": "0.0.0",
+  "license": "AGPL",
+  "type": "module",
+  "dependencies": {
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/vite": "^4.1.11",
+    "htmx.org": "^2.0.6",
+    "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.13",
+    "prettier": "^3.6.2",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.2"
+  }
+}

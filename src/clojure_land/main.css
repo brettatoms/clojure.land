@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+
+@import "./fonts/css/satoshi.css";
+
+body {
+    font-family: "Satoshi-Medium", sans-serif;
+    letter-spacing: 0.07rem;
+}

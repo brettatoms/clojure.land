@@ -1,0 +1,13 @@
+{
+  "packages": {
+    "clj-kondo":   "latest",
+    "cljfmt":      "latest",
+    "clojure-lsp": "latest",
+    "clojure":     "latest",
+    "nodejs":      "24.2.0",
+    "glibcLocales": {
+      "version":            "latest",
+      "excluded_platforms": ["aarch64-darwin", "x86_64-darwin"]
+    }
+  }
+}
