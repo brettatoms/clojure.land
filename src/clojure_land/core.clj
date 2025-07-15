@@ -137,11 +137,11 @@
   ["/" {:get #'handler}])
 
 (defmethod ig/init-key ::zodiac [_ _]
-  (let [project-root (-> *file* fs/parent fs/parent fs/parent str)
+  (let [project-root "./"
         assets-ext (z.assets/init {:config-file (str (fs/path project-root "vite.config.js"))
                                    :package-json-dir project-root
-                                   :manifest-path  "clojure.land/.vite/manifest.json"
-                                   :asset-resource-path "clojure.land/assets"})
+                                   :manifest-path  "clojure.land/build/.vite/manifest.json"
+                                   :asset-resource-path "clojure.land/build/assets"})
         ;; TODO: setup jdbc options to automatically convert org.h2.jdbc.JdbcArray to a seq
         sql-ext (z.sql/init {:spec {:jdbcUrl "jdbc:h2:mem:clojure-land;DB_CLOSE_DELAY=-1"}})]
     (z/start {:extensions [assets-ext sql-ext]
