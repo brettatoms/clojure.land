@@ -2,9 +2,8 @@
   (:require [babashka.fs :as fs]
             [camel-snake-kebab.core :as csk]
             [clojure-land.icons :as icons]
+            [clojure-land.system :as system]
             [clojure.data.json :as json]
-            [clojure.edn :as edn]
-            [clojure.java.io :as io]
             [clojure.string :as str]
             [clojure.tools.logging :as log]
             [hato.client :as hc]
@@ -89,13 +88,6 @@
    [:tags [:sequential :string]]
    [:platforms [:enum :clj :cljs]]])
 
-(comment
-  (m/coerce QueryParams {})
-
-  (m/coerce QueryParams {:page 1} params-transformer)
-  (m/decode QueryParams {} params-transformer)
-  ())
-
 (defn handler [{:keys [headers params ::z/context] :as _request}]
   (let [{::z.assets/keys [assets]
          ::z.sql/keys [db]} context
@@ -138,63 +130,29 @@
   [["/" {:get #'handler}]
    ["/_status" {:get (constantly {:status 204})}]])
 
-(defmethod ig/init-key ::zodiac [_ _]
-  (let [project-root "./"
+(defmethod ig/init-key ::zodiac [_ config]
+  (let [{:keys [build-assets? reload-per-request? port]} config
+        project-root "./"
         assets-ext (z.assets/init {;; We use vite.config.js in the Dockerfile
                                    :config-file (str (fs/path project-root "vite.config.dev.ts"))
                                    :package-json-dir project-root
                                    :manifest-path  "clojure.land/build/.vite/manifest.json"
-                                   ;; build by default unless ZODIAC_ASSETS_BUILD set to "false"
-                                   :build? (not= (System/getenv "ZODIAC_ASSETS_BUILD") "false")
+                                   :build? build-assets?
                                    :asset-resource-path "clojure.land/build/assets"})
         ;; TODO: setup jdbc options to automatically convert org.h2.jdbc.JdbcArray to a seq
         sql-ext (z.sql/init {:spec {:jdbcUrl "jdbc:h2:mem:clojure-land;DB_CLOSE_DELAY=-1"}})]
     (z/start {:extensions [assets-ext sql-ext]
-              :reload-per-request? (= (System/getenv "RELOAD_PER_REQUEST") "true")
+              :reload-per-request? reload-per-request?
               :jetty {:join? false
                       :host "0.0.0.0"
-                      :port (or (some-> (System/getenv "PORT") (parse-long))
-                                3000)}
+                      :port port}
               :routes #'routes})))
 
 (defmethod ig/halt-key! ::zodiac [_ system]
   (z/stop system))
 
-(defmethod ig/init-key ::init-db [_ {:keys [zodiac]}]
-  (let [db (::z.sql/db zodiac) ;; get the database connection from zodiac
-        data (-> (io/resource "clojure.land/projects.edn")
-                 (slurp)
-                 (clojure.edn/read-string))
-        ;; The columns need to be in the same order as the :with-columns when creating the table
-        columns [#_:key :description :platforms :name :repo-url :tags :title :url]
-        empty-row  (zipmap columns (repeat nil))
-        normalize (fn [p]
-                    (-> (merge empty-row p)
-                        (update :tags to-array)
-                        (update :platforms to-array)))
-        values (->> data
-                    (remove :hide)
-                    (map normalize)
-                    ;; get the columns values in order (without the keys)
-                    (map #(map % columns)))]
-    (z.sql/execute! db {:drop-table [:if-exists :projects]})
-    (z.sql/execute! db {:create-table [:project :if-not-exists]
-                        :with-columns [[:description :text]
-                                       #_["key" :text [:not nil]]
-                                       [:platforms :text :array]
-                                       [:name :text [:not nil]]
-                                       [:repo-url :text]
-                                       [:tags :text :array]
-                                       [:title :text [:not nil]]
-                                       [:url :text [:not nil]]]})
-    (z.sql/execute! db {:insert-into :project
-                        ;; :columns columns
-                        :values values})))
 (defn start! []
-  (let [config {::zodiac {}
-                ::init-db {:zodiac (ig/ref ::zodiac)}}]
-    (ig/load-namespaces config)
-    (ig/init config)))
+  (system/start!))
 
 (comment
   (do

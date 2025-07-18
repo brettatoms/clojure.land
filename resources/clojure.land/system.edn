@@ -1,0 +1,4 @@
+{:clojure-land.core/zodiac {:build-assets? #boolean #or [#env ZODIAC_ASSETS_BUILD "true"]
+                            :reload-per-request? #boolean #or [#env RELOAD_PER_REQUEST "false"]
+                            :port #long #or [#env PORT "3000"]}
+ :clojure-land.db/init {:zodiac #ig/ref :clojure-land.core/zodiac}}
