@@ -11,7 +11,6 @@ export default defineConfig({
         },
     },
     build: {
-        watch: {},
         outDir: __dirname.concat("/resources/clojure.land/build"),
         manifest: true,
         rollupOptions: {

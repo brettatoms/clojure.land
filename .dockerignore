@@ -1,0 +1,13 @@
+.DS_Store
+.clj-kondo/
+.cpcache/
+.devbox/
+.env.local
+.env*
+.git/
+.lsp/
+.nrepl-port
+devbox.json
+devbox.lock
+node_modules/
+target/

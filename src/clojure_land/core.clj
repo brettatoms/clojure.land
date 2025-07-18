@@ -6,6 +6,7 @@
             [clojure.edn :as edn]
             [clojure.java.io :as io]
             [clojure.string :as str]
+            [clojure.tools.logging :as log]
             [hato.client :as hc]
             [integrant.core :as ig]
             [malli.core :as m]
@@ -134,20 +135,27 @@
       (project-list-items projects next-page))))
 
 (defn routes []
-  ["/" {:get #'handler}])
+  [["/" {:get #'handler}]
+   ["/_status" {:get (constantly {:status 204})}]])
 
 (defmethod ig/init-key ::zodiac [_ _]
   (let [project-root "./"
-        assets-ext (z.assets/init {:config-file (str (fs/path project-root "vite.config.js"))
+        assets-ext (z.assets/init {;; We use vite.config.js in the Dockerfile
+                                   :config-file (str (fs/path project-root "vite.config.dev.ts"))
                                    :package-json-dir project-root
                                    :manifest-path  "clojure.land/build/.vite/manifest.json"
+                                   ;; build by default unless ZODIAC_ASSETS_BUILD set to "false"
+                                   :build? (not= (System/getenv "ZODIAC_ASSETS_BUILD") "false")
                                    :asset-resource-path "clojure.land/build/assets"})
         ;; TODO: setup jdbc options to automatically convert org.h2.jdbc.JdbcArray to a seq
         sql-ext (z.sql/init {:spec {:jdbcUrl "jdbc:h2:mem:clojure-land;DB_CLOSE_DELAY=-1"}})]
     (z/start {:extensions [assets-ext sql-ext]
               :reload-per-request? (= (System/getenv "RELOAD_PER_REQUEST") "true")
-              :join? false
-              :routes routes})))
+              :jetty {:join? false
+                      :host "0.0.0.0"
+                      :port (or (some-> (System/getenv "PORT") (parse-long))
+                                3000)}
+              :routes #'routes})))
 
 (defmethod ig/halt-key! ::zodiac [_ system]
   (z/stop system))
@@ -188,12 +196,6 @@
     (ig/load-namespaces config)
     (ig/init config)))
 
-(defn -main [& _]
-  (start!)
-  ;; block until process is killed
-  (while true
-    (Thread/sleep 1000)))
-
 (comment
   (do
     (add-tap println)
@@ -201,7 +203,6 @@
 
   ;; start
   (let [system (start!)]
-    (tap> (str "system: " system))
     (alter-var-root #'*system* (constantly system)))
 
   ;; stop

@@ -4,7 +4,7 @@
         babashka/fs {:mvn/version "0.5.26"}
         camel-snake-kebab/camel-snake-kebab {:mvn/version "0.4.3"}
         com.github.brettatoms/zodiac {:mvn/version "0.6.66"}
-        com.github.brettatoms/zodiac-assets {:mvn/version "0.3.23"}
+        com.github.brettatoms/zodiac-assets {:mvn/version "0.3.28"}
         com.github.brettatoms/zodiac-sql {:mvn/version "0.1.10"}
         com.taoensso/telemere {:mvn/version "1.0.1"}
         com.taoensso/telemere-slf4j {:mvn/version "1.0.1"}
@@ -14,5 +14,8 @@
         org.clojure/tools.logging {:mvn/version "1.3.0"}
         org.slf4j/slf4j-api {:mvn/version "2.0.17"}
         com.h2database/h2 {:mvn/version "2.3.232"}}
- :aliases {:main {:jvm-opts ["-Duser.timezone=UTC"]
-                  :main-opts ["-m" "clojure-land.core"]}}}
+ :aliases {:build {:deps {io.github.clojure/tools.build {:mvn/version "0.10.7"}
+                          slipset/deps-deploy {:mvn/version "0.2.2"}}
+                   :ns-default build}
+           :main {:jvm-opts ["-Duser.timezone=UTC"]
+                  :main-opts ["-m" "clojure-land.main"]}}}

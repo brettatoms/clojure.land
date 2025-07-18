@@ -1,0 +1,30 @@
+app = "clojure-land"
+primary_region = "atl"
+
+[env]
+  ZODIAC_ASSETS_BUILD=false
+  JAVA_TOOL_OPTIONS="-Duser.timezone=UTC -Xmx900m"
+  PORT=8080
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory = "1024mb"
+  size = "shared-cpu-1x"
+
+[http_service]
+  auto_start_machines = true
+  auto_stop_machines = "stop"
+  force_https = true
+  internal_port = 8080
+  min_machines_running = 0
+  [http_service.concurrency]
+    type = "requests"
+    soft_limit = 200
+    hard_limit = 250
+  [[http_service.checks]]
+    grace_period = "10s"
+    interval = "30s"
+    method = "GET"
+    timeout = "5s"
+    path = "/_status"

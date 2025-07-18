@@ -193,6 +193,102 @@
         }
       }
     },
+    "docker@28.2.2": {
+      "last_modified": "2025-07-01T15:05:04Z",
+      "resolved": "github:NixOS/nixpkgs/d31a91c9b3bee464d054633d5f8b84e17a637862#docker",
+      "source": "devbox-search",
+      "version": "28.2.2",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/qp5lb2djarp434svbnzqi7n2pkb5vqf3-docker-28.2.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/qp5lb2djarp434svbnzqi7n2pkb5vqf3-docker-28.2.2"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/if4llwrb9xnhr3hv5flnh07g2p6kaf4w-docker-28.2.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/if4llwrb9xnhr3hv5flnh07g2p6kaf4w-docker-28.2.2"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/nrslgsq8110ndvs8kp0sjhj9ay7mr3xd-docker-28.2.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/nrslgsq8110ndvs8kp0sjhj9ay7mr3xd-docker-28.2.2"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/1ran9jynr9fi24mdc7ayaar1sg8h7nsl-docker-28.2.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/1ran9jynr9fi24mdc7ayaar1sg8h7nsl-docker-28.2.2"
+        }
+      }
+    },
+    "flyctl@latest": {
+      "last_modified": "2025-07-08T22:16:38Z",
+      "resolved": "github:NixOS/nixpkgs/2a2130494ad647f953593c4e84ea4df839fbd68c#flyctl",
+      "source": "devbox-search",
+      "version": "0.3.149",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/arb83zm9fws15mdr4i5jx8sqp6s6fykm-flyctl-0.3.149",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/arb83zm9fws15mdr4i5jx8sqp6s6fykm-flyctl-0.3.149"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/s63hswm6i8sfdn208aydz4n6bbm7gmqi-flyctl-0.3.149",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/s63hswm6i8sfdn208aydz4n6bbm7gmqi-flyctl-0.3.149"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/yyf5rivwz5ph17mr6m99vyx14kmvr8hb-flyctl-0.3.149",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/yyf5rivwz5ph17mr6m99vyx14kmvr8hb-flyctl-0.3.149"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/1pb0glip36y5aav6m2iqybx7bh19m2dn-flyctl-0.3.149",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/1pb0glip36y5aav6m2iqybx7bh19m2dn-flyctl-0.3.149"
+        }
+      }
+    },
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
       "last_modified": "2025-06-14T12:19:57Z",
       "resolved": "github:NixOS/nixpkgs/41da1e3ea8e23e094e5e3eeb1e6b830468a7399e?lastModified=1749903597&narHash=sha256-jp0D4vzBcRKwNZwfY4BcWHemLGUs4JrS3X9w5k%2FJYDA%3D"
