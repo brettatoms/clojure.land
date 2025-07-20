@@ -11,13 +11,14 @@
   :title "aave",
   :key :aave,
   :tags #{"Dynamic Typing"},
-  :repo-url "https://github.com/teknql/aave"}
+  :repo-url "https://github.com/teknql/aave"
+  :ignore true}
  {:name "Abracad",
   :url "https://github.com/damballa/abracad",
   :platforms #{"clj"},
   :title "Abracad",
   :key :abracad,
-  :tags #{"Data Serialization" "Schema"},
+  :tags #{"serialization" "Schema"},
   :repo-url "https://github.com/damballa/abracad"}
  {:name "accountant",
   :url "https://github.com/venantius/accountant",
@@ -52,7 +53,7 @@
   :platforms #{"clj"},
   :title "Aggregate",
   :key :aggregate,
-  :tags #{"SQL Abstraction"},
+  :tags #{"sql"},
   :repo-url "https://github.com/friemen/aggregate"}
  {:name "alda",
   :url "https://github.com/alda-lang/alda",
@@ -96,7 +97,7 @@
   "Cassandra CQL3 client for Clojure, datastax/java-driver wrapper",
   :title "Alia",
   :key :alia,
-  :tags #{"Cassandra Clients"},
+  :tags #{"cassandra"},
   :repo-url "https://github.com/mpenet/alia"}
  {:name "almonds",
   :url "https://github.com/murtaza52/almonds",
@@ -182,7 +183,8 @@
   :title "Arachne",
   :key :arachne,
   :tags #{"Web Frameworks"},
-  :repo-url "https://github.com/arachne-framework/arachne-core"}
+  :repo-url "https://github.com/arachne-framework/arachne-core"
+  :ignore true}
  {:name "Artemis",
   :url "https://github.com/workframers/artemis",
   :platforms #{"cljs"},
@@ -409,7 +411,7 @@
   :platforms #{"clj"},
   :title "Bishop",
   :key :bishop,
-  :tags #{"RESTful Web Services"},
+  :tags #{"rest"},
   :repo-url "https://github.com/cmiles74/bishop"}
  {:name "Bogus",
   :url "https://github.com/igrishaev/bogus",
@@ -606,7 +608,7 @@
   :platforms #{"clj"},
   :title "Carbonite",
   :key :carbonite,
-  :tags #{"Data Serialization"},
+  :tags #{"serialization"},
   :repo-url "https://github.com/sritchie/carbonite"}
  {:name "Caribou",
   :url "https://github.com/caribou/caribou",
@@ -651,7 +653,7 @@
   :description "A young Clojure client for Apache Cassandra",
   :title "Cassaforte",
   :key :cassaforte,
-  :tags #{"Cassandra Clients"},
+  :tags #{"cassandra"},
   :repo-url "https://github.com/clojurewerkz/cassaforte"}
  {:name "Castra",
   :url "https://github.com/hoplon/castra",
@@ -665,7 +667,7 @@
   :platforms #{"clj"},
   :title "Casyn",
   :key :casyn,
-  :tags #{"Cassandra Clients"},
+  :tags #{"cassandra"},
   :repo-url "https://github.com/mpenet/casyn"}
  {:name "Catacumba",
   :url "https://github.com/funcool/catacumba",
@@ -675,7 +677,7 @@
   :tags
   #{"Asynchronous HTTP"
     "HTTP Servers"
-    "RESTful Web Services"
+    "rest"
     "Web Frameworks"
     "Web Server Abstraction"},
   :repo-url "https://github.com/funcool/catacumba"}
@@ -698,7 +700,7 @@
   :platforms #{"clj"},
   :title "cawasser/protobuf",
   :key :cawasser_protobuf,
-  :tags #{"Data Serialization" "Schema"},
+  :tags #{"serialization" "Schema"},
   :repo-url "https://github.com/cawasser/protobuf"}
  {:name "cbass",
   :url "https://github.com/tolitius/cbass",
@@ -919,7 +921,7 @@
   :platforms #{"clj"},
   :title "clj-alpakka-kafka",
   :key :clj_alpakka_kafka,
-  :tags #{"Kafka Clients"},
+  :tags #{"kafka"},
   :repo-url "https://github.com/fr33m0nk/clj-alpakka-kafka"}
  {:name "clj-async-profiler",
   :url "https://github.com/clojure-goes-fast/clj-async-profiler",
@@ -1405,7 +1407,7 @@
   :platforms #{"clj"},
   :title "clojure-msgpack",
   :key :clojure_msgpack,
-  :tags #{"Data Serialization"},
+  :tags #{"serialization"},
   :repo-url "https://github.com/edma2/clojure-msgpack"}
  {:name "Clojure-OpenNLP",
   :url "https://github.com/dakrone/clojure-opennlp",
@@ -1426,7 +1428,7 @@
   :platforms #{"clj"},
   :title "clojurebot",
   :key :clojurebot,
-  :tags #{"IRC Bots"},
+  :tags #{"irc"},
   :repo-url "https://github.com/hiredman/clojurebot"}
  {:name "ClojureCL",
   :url "http://clojurecl.uncomplicate.org/",
@@ -1447,7 +1449,7 @@
   :platforms #{"clj"},
   :title "ClojureQL",
   :key :clojureql,
-  :tags #{"SQL Abstraction"},
+  :tags #{"sql"},
   :repo-url "https://github.com/LauJensen/clojureql"}
  {:name "clojurescript.csv",
   :url "https://github.com/testdouble/clojurescript.csv",
@@ -1640,7 +1642,7 @@
   :platforms #{"clj"},
   :title "Compojure-api",
   :key :compojure_api,
-  :tags #{"RESTful Web Services" "Web Frameworks"},
+  :tags #{"rest" "Web Frameworks"},
   :repo-url "https://github.com/metosin/compojure-api"}
  {:name "Component",
   :url "https://github.com/stuartsierra/component",
@@ -2169,14 +2171,14 @@
   "Fast, flexible, 0-deps (de)serialization library for Clojure",
   :title "Deed",
   :key :deed,
-  :tags #{"Data Serialization"},
+  :tags #{"serialization"},
   :repo-url "https://github.com/igrishaev/deed"}
  {:name "Deep Freeze",
   :url "https://github.com/halgari/deep-freeze",
   :platforms #{"clj"},
   :title "Deep Freeze",
   :key :deep_freeze,
-  :tags #{"Data Serialization"},
+  :tags #{"serialization"},
   :repo-url "https://github.com/halgari/deep-freeze"}
  {:name "defun",
   :url "https://github.com/killme2008/defun",
@@ -2704,7 +2706,7 @@
   :platforms #{"clj"},
   :title "Franzy",
   :key :franzy,
-  :tags #{"Kafka Clients"},
+  :tags #{"kafka"},
   :repo-url "https://github.com/ymilky/franzy"}
  {:name "freerange",
   :url "https://github.com/nextjournal/freerange",
@@ -2900,7 +2902,7 @@
   :platforms #{"clj"},
   :title "Gregor",
   :key :gregor,
-  :tags #{"Kafka Clients"},
+  :tags #{"kafka"},
   :repo-url "https://github.com/ccann/gregor"}
  {:name "Grenchman",
   :url "https://github.com/technomancy/grenchman",
@@ -2941,7 +2943,7 @@
   :tags
   #{"Connection Pools"
     "Database Migrations"
-    "SQL Abstraction"
+    "sql"
     "SQL Clients"
     "Schema"
     "Validation"},
@@ -3071,14 +3073,14 @@
   :platforms #{"clj" "cljs"},
   :title "Honey SQL",
   :key :honey_sql,
-  :tags #{"SQL Abstraction"},
+  :tags #{"sql"},
   :repo-url "https://github.com/seancorfield/honeysql"}
  {:name "HoneyEQL",
   :url "https://github.com/graphqlize/honeyeql",
   :platforms #{"clj"},
   :title "HoneyEQL",
   :key :honeyeql,
-  :tags #{"SQL Abstraction"},
+  :tags #{"sql"},
   :repo-url "https://github.com/graphqlize/honeyeql"}
  {:name "Hoplon",
   :url "https://hoplon.io",
@@ -3123,7 +3125,7 @@
   :platforms #{"clj"},
   :title "HugSQL",
   :key :hugsql,
-  :tags #{"SQL Abstraction"},
+  :tags #{"sql"},
   :repo-url nil}
  {:name "Hum",
   :url "https://github.com/mathias/hum",
@@ -3151,7 +3153,7 @@
   :platforms #{"clj"},
   :title "Hyperion",
   :key :hyperion,
-  :tags #{"SQL Abstraction"},
+  :tags #{"sql"},
   :repo-url "https://github.com/8thlight/hyperion"}
  {:name "ike.cljj",
   :url "https://github.com/ike-tools/ike.cljj",
@@ -3293,7 +3295,7 @@
   :platforms #{"clj"},
   :title "irclj",
   :key :irclj,
-  :tags #{"IRC Bots"},
+  :tags #{"irc"},
   :repo-url "https://github.com/flatland/irclj"}
  {:name "Ittyon",
   :url "https://github.com/weavejester/ittyon",
@@ -3314,7 +3316,7 @@
   :platforms #{"clj"},
   :title "Jackdaw",
   :key :jackdaw,
-  :tags #{"Kafka Clients"},
+  :tags #{"kafka"},
   :repo-url "https://github.com/FundingCircle/jackdaw/"}
  {:name "java-http-clj",
   :url "https://github.com/schmee/java-http-clj",
@@ -3486,14 +3488,14 @@
   :platforms #{"clj"},
   :title "kafka.clj",
   :key :kafka_clj,
-  :tags #{"Kafka Clients"},
+  :tags #{"kafka"},
   :repo-url "https://github.com/helins/kafka.clj"}
  {:name "kafka-streams-clojure",
   :url "https://github.com/bobby/kafka-streams-clojure",
   :platforms #{"clj"},
   :title "kafka-streams-clojure",
   :key :kafka_streams_clojure,
-  :tags #{"Kafka Clients"},
+  :tags #{"kafka"},
   :repo-url "https://github.com/bobby/kafka-streams-clojure"}
  {:name "kamera",
   :url "https://github.com/oliyh/kamera",
@@ -3584,7 +3586,7 @@
   :platforms #{"clj"},
   :title "Ketu",
   :key :ketu,
-  :tags #{"Kafka Clients"},
+  :tags #{"kafka"},
   :repo-url "https://github.com/AppsFlyer/ketu"}
  {:name "Keycloak-Clojure",
   :url "https://github.com/jgrodziski/keycloak-clojure",
@@ -3619,7 +3621,7 @@
   :platforms #{"clj"},
   :title "Kinsky",
   :key :kinsky,
-  :tags #{"Kafka Clients"},
+  :tags #{"kafka"},
   :repo-url "https://github.com/pyr/kinsky"}
  {:name "Kioo",
   :url "https://github.com/ckirkendall/kioo",
@@ -3668,7 +3670,7 @@
   :platforms #{"clj"},
   :title "Korma",
   :key :korma,
-  :tags #{"SQL Abstraction"},
+  :tags #{"sql"},
   :repo-url "https://github.com/korma/Korma"}
  {:name "krell",
   :url "https://github.com/vouch-opensource/krell",
@@ -3682,7 +3684,7 @@
   :platforms #{"clj"},
   :title "ksml",
   :key :ksml,
-  :tags #{"Kafka Clients"},
+  :tags #{"kafka"},
   :repo-url "https://github.com/cddr/ksml"}
  {:name "Lacinia",
   :url "https://github.com/walmartlabs/lacinia",
@@ -3725,7 +3727,7 @@
   :platforms #{"clj" "cljs"},
   :title "Lancaster",
   :key :lancaster,
-  :tags #{"Data Serialization" "Schema"},
+  :tags #{"serialization" "Schema"},
   :repo-url "https://github.com/deercreeklabs/lancaster"}
  {:name "Langohr",
   :url "https://github.com/michaelklishin/langohr",
@@ -3755,7 +3757,7 @@
   :platforms #{"clj"},
   :title "lazybot",
   :key :lazybot,
-  :tags #{"IRC Bots"},
+  :tags #{"irc"},
   :repo-url "https://github.com/Raynes/lazybot"}
  {:name "Least",
   :url "https://github.com/Raynes/least",
@@ -3989,7 +3991,7 @@
   :description "A Clojure library for building RESTful applications",
   :title "Liberator",
   :key :liberator,
-  :tags #{"Content Negotiation" "RESTful Web Services"},
+  :tags #{"Content Negotiation" "rest"},
   :repo-url "http://clojure-liberator.github.io/liberator"}
  {:name "lifted",
   :url "https://github.com/aroemers/lifted",
@@ -4024,7 +4026,7 @@
   :platforms #{"clj"},
   :title "Lobos",
   :key :lobos,
-  :tags #{"Database Migrations" "SQL Abstraction"},
+  :tags #{"Database Migrations" "sql"},
   :repo-url "https://github.com/budu/lobos"}
  {:name "log4j2-clojure",
   :url "https://github.com/funcool/log4j2-clojure",
@@ -4583,14 +4585,14 @@
   :description "High-performance serialization library for Clojure",
   :title "Nippy",
   :key :nippy,
-  :tags #{"Data Serialization"},
+  :tags #{"serialization"},
   :repo-url nil}
  {:name "noah",
   :url "https://github.com/blak3mill3r/noah",
   :platforms #{"clj"},
   :title "noah",
   :key :noah,
-  :tags #{"Kafka Clients"},
+  :tags #{"kafka"},
   :repo-url "https://github.com/blak3mill3r/noah"}
  {:name "Nomad",
   :url "https://github.com/james-henderson/nomad",
@@ -4653,7 +4655,7 @@
   :platforms #{"clj"},
   :title "OJ",
   :key :oj,
-  :tags #{"SQL Abstraction"},
+  :tags #{"sql"},
   :repo-url "https://github.com/taylorlapeyre/oj"}
  {:name "Ojo",
   :url "https://github.com/rplevy/ojo",
@@ -4667,7 +4669,7 @@
   :platforms #{"clj"},
   :title "oksql",
   :key :oksql,
-  :tags #{"SQL Abstraction"},
+  :tags #{"sql"},
   :repo-url "https://github.com/swlkr/oksql"}
  {:name "Om",
   :url "https://github.com/omcljs/om",
@@ -4781,7 +4783,7 @@
   :platforms #{"clj"},
   :title "Ottla",
   :key :ottla,
-  :tags #{"Kafka Clients"},
+  :tags #{"kafka"},
   :repo-url "https://github.com/chartbeat-labs/ottla"}
  {:name "overload-middleware",
   :url "https://github.com/rkday/overload-middleware",
@@ -4933,7 +4935,7 @@
   :platforms #{"clj"},
   :title "Penkala",
   :key :penkala,
-  :tags #{"PostgreSQL Integration" "SQL Abstraction"},
+  :tags #{"PostgreSQL Integration" "sql"},
   :repo-url "https://github.com/retro/penkala"}
  {:name "Penumbra",
   :url "https://github.com/ztellman/penumbra",
@@ -5193,7 +5195,7 @@
   "Native Clojure support for Google Protocol Buffers and GRPC",
   :title "Protojure",
   :key :protojure,
-  :tags #{"Data Serialization" "RPC"},
+  :tags #{"serialization" "RPC"},
   :repo-url nil}
  {:name "Puget",
   :url "https://github.com/greglook/puget",
@@ -5249,7 +5251,7 @@
   :platforms #{"clj"},
   :title "qseq",
   :key :qseq,
-  :tags #{"SQL Abstraction"},
+  :tags #{"sql"},
   :repo-url "https://github.com/mccraigmccraig/qseq"}
  {:name "Quartzite",
   :url "https://github.com/michaelklishin/quartzite",
@@ -5427,7 +5429,7 @@
   :tags
   #{"Asynchronous HTTP"
     "HTTP Routing"
-    "RESTful Web Services"
+    "rest"
     "Web Frameworks"},
   :repo-url "https://github.com/metosin/reitit"}
  {:name "Relational Mapper",
@@ -5435,7 +5437,7 @@
   :platforms #{"clj"},
   :title "Relational Mapper",
   :key :relational_mapper,
-  :tags #{"SQL Abstraction"},
+  :tags #{"sql"},
   :repo-url "https://github.com/netizer/relational_mapper"}
  {:name "reloaded.repl",
   :url "https://github.com/weavejester/reloaded.repl",
@@ -5762,7 +5764,7 @@
   :platforms #{"clj"},
   :title "Rook",
   :key :rook,
-  :tags #{"Asynchronous HTTP" "RESTful Web Services"},
+  :tags #{"Asynchronous HTTP" "rest"},
   :repo-url "https://github.com/AvisoNovate/rook"}
  {:name "Rotary",
   :url "https://github.com/weavejester/rotary",
@@ -5799,7 +5801,7 @@
   :platforms #{"clj"},
   :title "rp-jackdaw-clj",
   :key :rp_jackdaw_clj,
-  :tags #{"Kafka Clients"},
+  :tags #{"kafka"},
   :repo-url "https://github.com/rentpath/rp-jackdaw-clj"}
  {:name "RRSS",
   :url "https://github.com/paraseba/rrss",
@@ -6016,7 +6018,7 @@
   :platforms #{"clj"},
   :title "seql",
   :key :seql,
-  :tags #{"SQL Abstraction"},
+  :tags #{"sql"},
   :repo-url "https://github.com/exoscale/seql"}
  {:name "Servant",
   :url "https://github.com/MarcoPolo/servant",
@@ -6270,7 +6272,7 @@
   :platforms #{"clj" "cljs"},
   :title "specql",
   :key :specql,
-  :tags #{"SQL Abstraction"},
+  :tags #{"sql"},
   :repo-url "https://github.com/tatut/specql"}
  {:name "Specter",
   :url "https://github.com/nathanmarz/specter",
@@ -6365,7 +6367,7 @@
   :platforms #{"clj"},
   :title "SQLingvo",
   :key :sqlingvo,
-  :tags #{"SQL Abstraction"},
+  :tags #{"sql"},
   :repo-url "https://github.com/r0man/sqlingvo"}
  {:name "squarepeg",
   :url "https://github.com/ericnormand/squarepeg",
@@ -6428,7 +6430,7 @@
   :platforms #{"clj"},
   :title "stch.sql",
   :key :stch_sql,
-  :tags #{"SQL Abstraction"},
+  :tags #{"sql"},
   :repo-url "https://github.com/stch-library/sql"}
  {:name "stch.stateful",
   :url "https://github.com/stch-library/stateful",
@@ -6521,7 +6523,7 @@
   :platforms #{"clj"},
   :title "suricatta",
   :key :suricatta,
-  :tags #{"SQL Abstraction" "SQL Clients"},
+  :tags #{"sql" "SQL Clients"},
   :repo-url "https://github.com/funcool/suricatta"}
  {:name "swarmiji",
   :url "https://github.com/amitrathore/swarmiji",
@@ -6535,7 +6537,7 @@
   :platforms #{"clj"},
   :title "Sweet Liberty",
   :key :sweet_liberty,
-  :tags #{"RESTful Web Services"},
+  :tags #{"rest"},
   :repo-url "https://github.com/RJMetrics/sweet-liberty"}
  {:name "swindon",
   :url "https://github.com/AeroNotix/swindon",
@@ -6898,7 +6900,7 @@
   :platforms #{"clj"},
   :title "tools.reader",
   :key :tools_reader,
-  :tags #{"Data Serialization"},
+  :tags #{"serialization"},
   :repo-url "https://github.com/clojure/tools.reader"}
  {:name "tools.trace",
   :url "https://github.com/clojure/tools.trace",
@@ -6913,7 +6915,7 @@
   :platforms #{"clj"},
   :title "Toucan",
   :key :toucan,
-  :tags #{"SQL Abstraction"},
+  :tags #{"sql"},
   :repo-url "https://github.com/metabase/toucan"}
  {:name "Touchstone",
   :url "https://www.taoensso.com/touchstone",
@@ -6942,14 +6944,14 @@
   :platforms #{"clj"},
   :title "transit-clj",
   :key :transit_clj,
-  :tags #{"Data Serialization"},
+  :tags #{"serialization"},
   :repo-url "https://github.com/cognitect/transit-clj"}
  {:name "transit-cljs",
   :url "https://github.com/cognitect/transit-cljs",
   :platforms #{"cljs"},
   :title "transit-cljs",
   :key :transit_cljs,
-  :tags #{"Data Serialization"},
+  :tags #{"serialization"},
   :repo-url "https://github.com/cognitect/transit-cljs"}
  {:name "Trapperkeeper",
   :url "https://github.com/puppetlabs/trapperkeeper",
@@ -7140,7 +7142,7 @@
   :platforms #{"clj"},
   :title "Vase",
   :key :vase,
-  :tags #{"Datomic" "RESTful Web Services"},
+  :tags #{"Datomic" "rest"},
   :repo-url "https://github.com/cognitect-labs/vase"}
  {:name "vectops",
   :url "https://github.com/strojure/vectops",
@@ -7266,7 +7268,7 @@
   :platforms #{"clj" "cljs"},
   :title "Walkable",
   :key :walkable,
-  :tags #{"SQL Abstraction"},
+  :tags #{"sql"},
   :repo-url "https://github.com/walkable-server/walkable"}
  {:name "watchman",
   :url "https://github.com/pyr/watchman",
@@ -7315,7 +7317,7 @@
   :platforms #{"clj"},
   :title "willa",
   :key :willa,
-  :tags #{"Kafka Clients"},
+  :tags #{"kafka"},
   :repo-url "https://github.com/DaveWM/willa"}
  {:name "witchcraft",
   :url "https://github.com/lambdaisland/witchcraft",
@@ -7360,8 +7362,7 @@
   :platforms #{"clj"},
   :title "Yada",
   :key :yada,
-  :tags
-  #{"Content Negotiation" "RESTful Web Services" "Web Frameworks"},
+  :tags #{"Content Negotiation" "rest" "Web Frameworks"},
   :repo-url "https://github.com/juxt/yada"}
  {:name "yagni",
   :url "https://github.com/venantius/yagni",
@@ -7382,21 +7383,21 @@
   :platforms #{"clj"},
   :title "Yesql",
   :key :yesql,
-  :tags #{"SQL Abstraction"},
+  :tags #{"sql"},
   :repo-url "https://github.com/krisajenkins/yesql"}
  {:name "Yetibot",
   :url "https://github.com/devth/yetibot",
   :platforms #{"clj"},
   :title "Yetibot",
   :key :yetibot,
-  :tags #{"IRC Bots" "Slack Bots"},
+  :tags #{"irc" "slack"},
   :repo-url "https://github.com/devth/yetibot"}
  {:name "Ziggurat",
   :url "https://github.com/gojek/ziggurat",
   :platforms #{"clj"},
   :title "Ziggurat",
   :key :ziggurat,
-  :tags #{"Kafka Clients"},
+  :tags #{"kafka"},
   :repo-url "https://github.com/gojek/ziggurat"}
  {:name "zip-visit",
   :url "https://github.com/akhudek/zip-visit",
