@@ -118,8 +118,8 @@
                       :where [:and true]}
                (seq q)
                (update :where #(conj % [:or
-                                        [:like :name (str "%" q "%")]
-                                        [:like :description (str "%" q "%")]])))
+                                        [:ilike :name (str "%" (str/lower-case q) "%")]
+                                        [:ilike :description (str "%" (str/lower-case q) "%")]])))
         projects (z.sql/execute! db (assoc stmt
                                            :offset offset
                                            :limit page-size))
