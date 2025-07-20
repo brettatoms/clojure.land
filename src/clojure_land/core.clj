@@ -42,7 +42,7 @@
    [:div {:class "flex flex-row"}
     [:div {:class "flex flex-col gap-2"}
      [:div {:class "flex flex-row gap-4"}
-      [:span {:class "font-bold text-2xl"} name]
+      [:a {:class "font-bold text-2xl hover:underline" :href url} name]
       [:div {:class "flex flex-row gap-2 flex-wrap overflow-hidden"}
        (mapv platform-chip (some->> (.getArray platforms)))]]
      [:span {:class "text-lg text-neutral-600"} description]
