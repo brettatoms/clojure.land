@@ -18,7 +18,7 @@
                         (update :tags to-array)
                         (update :platforms to-array)))
         values (->> data
-                    (remove :hide)
+                    (remove :ignore)
                     (map normalize)
                     ;; get the columns values in order (without the keys)
                     (map #(map % columns)))]

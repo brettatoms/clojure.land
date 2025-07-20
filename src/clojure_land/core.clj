@@ -17,6 +17,7 @@
             [zodiac.ext.assets :as z.assets]
             [zodiac.ext.sql :as z.sql]))
 
+;; Send clojure.tools.logging message to telemere
 (tools-logging->telemere!)
 
 (defn github-repo! [repo & {:keys [api-key]}]
@@ -48,23 +49,40 @@
      [:div {:class "flex flex-row gap-2 flex-wrap overflow-hidden"}
       (mapv tag-chip (some->> (.getArray tags)))]]]])
 
-(defn project-list-items [projects next-page]
-  (vec (map-indexed (fn [idx p]
-                      (let [attrs (when (= idx (- (count projects) 2))
-                                    {:hx-target "#project-list"
-                                     :hx-swap "beforeend"
-                                     :hx-get (str "/?page=" next-page)
-                                     :hx-trigger "revealed"})]
-                        (project-list-item p :attrs attrs)))
-                    projects)))
+(defn js
+  "This function is mostly used for passing a clojure map as a js object in html
+  attributes"
+  [data]
+  (json/write-str data :escape-slash false))
 
-(defn form []
+(defn project-list-items [projects & {:keys [next-page q]}]
+  (let [num-projects (count projects)]
+    (vec (map-indexed (fn [idx p]
+                        (let [attrs (when (and (= idx (- num-projects 2))
+                                               (> num-projects 10))
+                                      {:hx-target "#project-list"
+                                       :hx-swap "beforeend"
+                                       :hx-vals (js (cond-> {}
+                                                      (seq q) (assoc :q q)
+                                                      (some? next-page) (assoc :page next-page)))
+                                       :hx-get "/"
+                                       :hx-trigger "revealed"})]
+                          (project-list-item p :attrs attrs)))
+                      projects))))
+
+(defn form [params]
   [:form {:class "flex flex-row col-span-4 col-start-2 w-full gap-4 w-full"}
    [:div {:class "mt-2 flex w-full"}
     [:div {:class "-mr-px grid grow grid-cols-1 focus-within:relative"}
      [:input {:type "text",
               :name "q",
-              :class "col-start-1 row-start-1 block w-full rounded-l-md bg-white py-1.5 pr-3 pl-10 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:pl-9 sm:text-sm/6"}]]
+              :class "col-start-1 row-start-1 block w-full rounded-l-md bg-white py-1.5 pr-3 pl-10 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:pl-9 sm:text-sm/6"
+              :hx-get "/"
+              :hx-target "#project-list"
+              :hx-replace-url "true"
+              :hx-swap "innerHTML"
+              :hx-trigger "input changed delay:500ms, keyup[key=='Enter']"
+              :value (:q params)}]]
     [:button {:type "submit",
               :class
               "flex shrink-0 items-center gap-x-1.5 rounded-r-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 outline-1 -outline-offset-1 outline-gray-300 hover:bg-gray-50 focus:relative focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"}
@@ -92,13 +110,20 @@
   (let [{::z.assets/keys [assets]
          ::z.sql/keys [db]} context
         hx-request? (= (get headers "hx-request") "true")
-        {:keys [q page page-size tags platforms]} (m/decode QueryParams params params-transformer)
+        {:keys [q page page-size tags platforms]
+         :as params} (m/decode QueryParams params params-transformer)
         offset (* (dec page) page-size)
-        projects (z.sql/execute! db {:select [:*]
-                                     :from :project
-                                     :offset offset
-                                     :limit page-size})
-        total (z.sql/count db {:select :* :from :project})
+        stmt (cond-> {:select [:*]
+                      :from :project
+                      :where [:and true]}
+               (seq q)
+               (update :where #(conj % [:or
+                                        [:like :name (str "%" q "%")]
+                                        [:like :description (str "%" q "%")]])))
+        projects (z.sql/execute! db (assoc stmt
+                                           :offset offset
+                                           :limit page-size))
+        total (z.sql/count db stmt)
         next-page (when (< offset total)
                     (inc page))]
     (if-not hx-request?
@@ -118,13 +143,17 @@
                  :class "max-h-32"}]]
 
          [:div {:class "grid grid-cols-6 "}
-          (form)]
+          (form params)]
          [:ul {:id "project-list"
                :class "grid grid-cols-6 gap-8 divide-y divide-gray-100 "}
-          (project-list-items projects next-page)]]]]
+          (project-list-items projects
+                              :next-page next-page
+                              :q q)]]]]
 
       ;; Return only the project list for htmx requests
-      (project-list-items projects next-page))))
+      (project-list-items projects
+                          :next-page next-page
+                          :q q))))
 
 (defn routes []
   [["/" {:get #'handler}]
