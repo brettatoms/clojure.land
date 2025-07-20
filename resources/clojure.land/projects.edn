@@ -7414,6 +7414,14 @@
   :key :zippo,
   :tags #{"Zippers"},
   :repo-url "https://github.com/igrishaev/zippo"}
+ {:name "Zodiac",
+  :url "https://github.com/brettatoms/zodiac",
+  :platforms #{"clj"},
+  :description "",
+  :title "Zodiac",
+  :key :zodiac,
+  :tags #{"web"},
+  :repo-url "https://github.com/brettatoms/zodiac"}
  {:name "zprint",
   :url "https://github.com/kkinnear/zprint",
   :platforms #{"clj" "cljs"},
