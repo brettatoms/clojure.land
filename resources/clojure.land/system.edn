@@ -1,4 +1,13 @@
 {:clojure-land.core/zodiac {:build-assets? #boolean #or [#env ZODIAC_ASSETS_BUILD "true"]
                             :reload-per-request? #boolean #or [#env RELOAD_PER_REQUEST "false"]
+                            :request-context {:github #ig/ref :clojure-land.github/client}
                             :port #long #or [#env PORT "3000"]}
- :clojure-land.db/init {:zodiac #ig/ref :clojure-land.core/zodiac}}
+ :clojure-land.github/client {:api-token #env GITHUB_API_TOKEN}
+ :clojure-land.s3/client {:endpoint-url #env AWS_ENDPOINT_URL_S3
+                          :access-key-id #env AWS_ACCESS_KEY_ID
+                          :secret-access-key #env AWS_SECRET_ACCESS_KEY}
+ :clojure-land.db/create {:zodiac #ig/ref :clojure-land.core/zodiac}
+ :clojure-land.db/populate {:bucket-name #env BUCKET_NAME
+                            :s3 #ig/ref :clojure-land.s3/client
+                            :zodiac #ig/ref :clojure-land.core/zodiac
+                            :__ #ig/ref :clojure-land.db/create}}

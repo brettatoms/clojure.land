@@ -4,19 +4,25 @@
         aero/aero {:mvn/version "1.1.6"}
         babashka/fs {:mvn/version "0.5.26"}
         camel-snake-kebab/camel-snake-kebab {:mvn/version "0.4.3"}
+        com.cognitect.aws/api       {:mvn/version "0.8.741"}
+        com.cognitect.aws/endpoints {:mvn/version "871.2.32.2"}
+        com.cognitect.aws/s3        {:mvn/version "871.2.32.2"}
         com.github.brettatoms/zodiac {:mvn/version "0.6.66"}
         com.github.brettatoms/zodiac-assets {:mvn/version "0.3.28"}
         com.github.brettatoms/zodiac-sql {:mvn/version "0.1.10"}
+        com.h2database/h2 {:mvn/version "2.3.232"}
         com.taoensso/telemere {:mvn/version "1.0.1"}
         com.taoensso/telemere-slf4j {:mvn/version "1.0.1"}
         hato/hato {:mvn/version "1.0.0"}
+        lambdaisland/uri {:mvn/version "1.19.155"}
         metosin/malli {:mvn/version "0.19.1"}
         org.clojure/data.json {:mvn/version "2.5.1"}
         org.clojure/tools.logging {:mvn/version "1.3.0"}
-        org.slf4j/slf4j-api {:mvn/version "2.0.17"}
-        com.h2database/h2 {:mvn/version "2.3.232"}}
- :aliases {:build {:deps {io.github.clojure/tools.build {:mvn/version "0.10.7"}
+        org.slf4j/slf4j-api {:mvn/version "2.0.17"}}
+ :aliases {:dev {:extra-paths ["development/src"]}
+           :build {:deps {io.github.clojure/tools.build {:mvn/version "0.10.7"}
                           slipset/deps-deploy {:mvn/version "0.2.2"}}
                    :ns-default build}
+           :sync-projects {:exec-fn clojure-land.projects/sync-remote-projects-edn}
            :main {:jvm-opts ["-Duser.timezone=UTC"]
                   :main-opts ["-m" "clojure-land.main"]}}}

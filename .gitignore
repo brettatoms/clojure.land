@@ -11,12 +11,11 @@ tmp/
 .nrepl-port
 .lsp/.cache
 .clj-kondo/
-.env.*
 .rebl
 .dir-locals.el
 .projectile-cache.eld
 node_modules
-.envrc
+.env*
 resources/clojure.land/.vite/
 resources/clojure.land/assets/
 resources/clojure.land/build/

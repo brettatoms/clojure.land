@@ -6,11 +6,9 @@
             [clojure.data.json :as json]
             [clojure.string :as str]
             [clojure.tools.logging :as log]
-            [hato.client :as hc]
             [integrant.core :as ig]
             [malli.core :as m]
             [malli.transform :as mt]
-            [malli.util :as mu]
             [taoensso.telemere] ;; setup logging side-effects
             [taoensso.telemere.tools-logging :refer [tools-logging->telemere!]]
             [zodiac.core :as z]
@@ -20,12 +18,6 @@
 ;; Send clojure.tools.logging message to telemere
 (tools-logging->telemere!)
 
-(defn github-repo! [repo & {:keys [api-key]}]
-  (-> (hc/get (str "https://api.github.com/repos/" repo)
-              {:as :json
-               :oauth-token api-key})
-      :body
-      (json/read-str :key-fn keyword)))
 
 (defn platform-chip [platform]
   [:span {:class "rounded-lg text-white text-sm bg-slate-600 px-2 py-1 text-nowrap lowercase"}
@@ -160,7 +152,7 @@
    ["/_status" {:get (constantly {:status 204})}]])
 
 (defmethod ig/init-key ::zodiac [_ config]
-  (let [{:keys [build-assets? reload-per-request? port]} config
+  (let [{:keys [build-assets? reload-per-request? request-context port]} config
         project-root "./"
         assets-ext (z.assets/init {;; We use vite.config.js in the Dockerfile
                                    :config-file (str (fs/path project-root "vite.config.dev.ts"))
@@ -172,6 +164,7 @@
         sql-ext (z.sql/init {:spec {:jdbcUrl "jdbc:h2:mem:clojure-land;DB_CLOSE_DELAY=-1"}})]
     (z/start {:extensions [assets-ext sql-ext]
               :reload-per-request? reload-per-request?
+              :request-context request-context
               :jetty {:join? false
                       :host "0.0.0.0"
                       :port port}
@@ -182,17 +175,3 @@
 
 (defn start! []
   (system/start!))
-
-(comment
-  (do
-    (add-tap println)
-    (defonce ^:dynamic *system* nil))
-
-  ;; start
-  (let [system (start!)]
-    (alter-var-root #'*system* (constantly system)))
-
-  ;; stop
-  (when *system*
-    (alter-var-root #'*system* ig/halt!))
-  ())

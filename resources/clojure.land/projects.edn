@@ -441,7 +441,7 @@
   :title "Boot",
   :key :boot,
   :tags #{"Build Tools"},
-  :repo-url "https://boot-clj.github.io/"}
+  :repo-url "https://github.com/boot-clj/boot"}
  {:name "borneo",
   :url "https://github.com/wagjo/borneo",
   :platforms #{"clj"},
@@ -595,7 +595,7 @@
   :title "Cambium",
   :key :cambium,
   :tags #{"Logging"},
-  :repo-url "https://cambium-clojure.github.io/"}
+  :repo-url "https://github.com/cambium-clojure/cambium.core"}
  {:name "camel-snake-kebab",
   :url "https://github.com/clj-commons/camel-snake-kebab",
   :platforms #{"clj" "cljs"},
@@ -794,7 +794,7 @@
   :title "ClojureHomePage",
   :key :chp,
   :tags #{"Web Frameworks"},
-  :repo-url "https://github.com/runexec/chp/"}
+  :repo-url "https://github.com/runexec/chp"}
  {:name "Chromex",
   :url "https://github.com/binaryage/chromex",
   :platforms #{"cljs"},
@@ -1003,12 +1003,12 @@
   :tags #{"Code Analysis"},
   :repo-url "https://github.com/borkdude/clj-kondo"}
  {:name "clj-loga",
-  :url "https://github.com/FundingCircle/clj-loga",
+  :url "https://github.com/FundingCircle/loga",
   :platforms #{"clj"},
   :title "clj-loga",
   :key :clj_loga,
   :tags #{"Logging"},
-  :repo-url "https://github.com/FundingCircle/clj-loga"}
+  :repo-url "https://github.com/FundingCircle/loga"}
  {:name "clj-mail",
   :url "https://github.com/MayDaniel/clj-mail",
   :platforms #{"clj"},
@@ -1175,12 +1175,13 @@
   :tags #{"Template Languages"},
   :repo-url "https://github.com/plakat/clj-thymeleaf"}
  {:name "clj-time",
-  :url "https://github.com/seancorfield/clj-time",
+  :url "https://github.com/clj-time/clj-time",
   :platforms #{"clj"},
   :title "clj-time",
   :key :clj_time,
   :tags #{"Date and Time"},
-  :repo-url "https://github.com/seancorfield/clj-time"}
+  :deprecated true
+  :repo-url "https://github.com/clj-time/clj-time"}
  {:name "clj-tuple",
   :url "https://github.com/ztellman/clj-tuple",
   :platforms #{"clj"},
@@ -1345,7 +1346,8 @@
   :title "clojure-android",
   :key :clojure_android,
   :tags #{"Android"},
-  :repo-url "https://github.com/clojure-android"}
+  :deprecated true
+  :ignore true}
  {:name "Clojure Code",
   :url "https://github.com/indiejames/vscode-clojure-debug",
   :platforms #{"clj"},
@@ -1523,12 +1525,12 @@
   :tags #{"Mustache Syntax" "Template Languages"},
   :repo-url "https://github.com/fhd/clostache"}
  {:name "Clout",
-  :url "http://github.com/weavejester/clout",
+  :url "https://github.com/weavejester/clout",
   :platforms #{"clj"},
   :title "Clout",
   :key :clout,
   :tags #{"HTTP Routing"},
-  :repo-url "http://github.com/weavejester/clout"}
+  :repo-url "https://github.com/weavejester/clout"}
  {:name "cloverage",
   :url "https://github.com/cloverage/cloverage",
   :platforms #{"clj"},
@@ -1713,12 +1715,12 @@
   :tags #{"MongoDB Clients"},
   :repo-url "https://github.com/aboekhoff/congomongo"}
  {:name "Conjure",
-  :url "http://github.com/macourtney/Conjure",
+  :url "https://github.com/macourtney/Conjure",
   :platforms #{"clj"},
   :title "Conjure",
   :key :conjure,
   :tags #{"Web Frameworks"},
-  :repo-url "http://github.com/macourtney/Conjure"}
+  :repo-url "https://github.com/macourtney/Conjure"}
  {:name "Conjure",
   :url "https://github.com/Olical/conjure",
   :platforms #{"clj" "cljs"},
@@ -1854,6 +1856,7 @@
   :title "Crispin",
   :key :crispin,
   :tags #{"Configuration"},
+  :ignore true
   :repo-url "https://github.com/dunaj-project/crispin"}
  {:name "Criterium",
   :url "https://github.com/hugoduncan/criterium",
@@ -2141,6 +2144,7 @@
   :platforms #{"clj"},
   :title "dda-pallet",
   :key :dda_pallet,
+  :ignore true
   :tags #{"Infrastructure Provisioning"},
   :repo-url "https://github.com/DomainDrivenArchitecture/dda-pallet"}
  {:name "debug-repl",
@@ -2551,7 +2555,7 @@
   :title "Expectations",
   :key :expectations,
   :tags #{"Unit Testing"},
-  :repo-url "https://clojure-expectations.github.io"}
+  :repo-url "https://github.com/clojure-expectations/expectations"}
  {:name "Expound",
   :url "https://github.com/bhb/expound",
   :platforms #{"clj" "cljs"},
@@ -3312,12 +3316,12 @@
   :tags #{"Internationalization"},
   :repo-url nil}
  {:name "Jackdaw",
-  :url "https://github.com/FundingCircle/jackdaw/",
+  :url "https://github.com/FundingCircle/jackdaw",
   :platforms #{"clj"},
   :title "Jackdaw",
   :key :jackdaw,
   :tags #{"kafka"},
-  :repo-url "https://github.com/FundingCircle/jackdaw/"}
+  :repo-url "https://github.com/FundingCircle/jackdaw"}
  {:name "java-http-clj",
   :url "https://github.com/schmee/java-http-clj",
   :platforms #{"clj"},
@@ -3636,7 +3640,7 @@
   :title "Kit",
   :key :kit,
   :tags #{"Application Frameworks"},
-  :repo-url "https://kit-clj.github.io/"}
+  :repo-url "https://github.com/kit-clj/kit"}
  {:name "kitchen-async",
   :url "https://github.com/athos/kitchen-async",
   :platforms #{"cljs"},
@@ -3835,6 +3839,7 @@
   :title "lein-diagnostics",
   :key :lein_diagnostics,
   :tags #{"Dependency Management" "Leiningen Plugins"},
+  :ignore true
   :repo-url "https://github.com/robwolfe/lein-diagnostics"}
  {:name "lein-docstring-checker",
   :url "https://github.com/camsaul/lein-docstring-checker",
@@ -3992,7 +3997,7 @@
   :title "Liberator",
   :key :liberator,
   :tags #{"Content Negotiation" "rest"},
-  :repo-url "http://clojure-liberator.github.io/liberator"}
+  :repo-url "https://github.com/clojure-liberator/liberator"}
  {:name "lifted",
   :url "https://github.com/aroemers/lifted",
   :platforms #{"clj"},
@@ -4064,14 +4069,16 @@
   :title "Macchiato",
   :key :macchiato,
   :tags #{"Project Templates" "Web Frameworks"},
-  :repo-url "https://github.com/macchiato-framework"}
+  :repo-url "macchiato-framework/macchiato-core"}
  {:name "Madness",
   :url "https://github.com/algernon/madness",
   :platforms #{"clj"},
   :title "Madness",
   :key :madness,
   :tags #{"Static Site Generation"},
-  :repo-url "https://github.com/algernon/madness"}
+  :archived true
+  :deprecated true
+  :repo-url "https://git.madhouse-project.org/algernon/madness"}
  {:name "Mailer",
   :url "https://github.com/clojurewerkz/mailer",
   :platforms #{"clj"},
@@ -4870,14 +4877,14 @@
   :title "parse_struct",
   :key :parse_struct,
   :tags #{"Binary Data" "Parsing"},
-  :repo-url "https://github.com/fctorial/parse_struct"}
+  :repo-url nil}
  {:name "Pathom",
-  :url "https://github.com/wilkerlucio/pathom/",
+  :url "https://github.com/wilkerlucio/pathom",
   :platforms #{"clj" "cljs"},
   :title "Pathom",
   :key :pathom,
   :tags #{"Graphs"},
-  :repo-url "https://github.com/wilkerlucio/pathom/"}
+  :repo-url "https://github.com/wilkerlucio/pathom"}
  {:name "Pathom 3",
   :url "https://github.com/wilkerlucio/pathom3",
   :platforms #{"clj" "cljs"},
@@ -5348,7 +5355,7 @@
   :title "Reagent",
   :key :reagent,
   :tags #{"Hiccup Syntax" "React Interfaces"},
-  :repo-url "https://reagent-project.github.io/"}
+  :repo-url "https://github.com/reagent-project/reagent"}
  {:name "Reagi",
   :url "https://github.com/weavejester/reagi",
   :platforms #{"clj" "cljs"},
@@ -5797,12 +5804,12 @@
   :tags #{"Condition Systems"},
   :repo-url "https://github.com/rentpath/rp-condition-clj"}
  {:name "rp-jackdaw-clj",
-  :url "https://github.com/rentpath/rp-jackdaw-clj",
+  :url "https://cljdoc.org/d/com.rentpath/rp-jackdaw-clj",
   :platforms #{"clj"},
   :title "rp-jackdaw-clj",
   :key :rp_jackdaw_clj,
   :tags #{"kafka"},
-  :repo-url "https://github.com/rentpath/rp-jackdaw-clj"}
+  :repo-url nil}
  {:name "RRSS",
   :url "https://github.com/paraseba/rrss",
   :platforms #{"clj"},
@@ -5878,12 +5885,11 @@
   :platforms #{"clj" "cljs"},
   :title "Schema",
   :key :schema,
-  :tags
-  #{"Dynamic Typing"
-    "Random Data Generation"
-    "Schema"
-    "Syntax Extensions"
-    "Validation"},
+  :tags #{"Dynamic Typing"
+          "Random Data Generation"
+          "Schema"
+          "Syntax Extensions"
+          "Validation"},
   :repo-url "https://github.com/plumatic/schema"}
  {:name "Schema-Tools",
   :url "https://github.com/metosin/schema-tools",
@@ -6573,7 +6579,8 @@
   :title "syntax-rules",
   :key :syntax_rules,
   :tags #{"Macros"},
-  :repo-url "https://github.com/qbg/syntax-rules"}
+  :ignore true
+  :repo-url nil}
  {:name "SynThread",
   :url "https://github.com/LonoCloud/synthread",
   :platforms #{"clj"},
@@ -6689,9 +6696,8 @@
   "A framework for authoring Temporal Workflows and Activities in Clojure",
   :title "Temporal SDK",
   :key :temporal_clojure_sdk,
-  :tags
-  #{"Application Frameworks" "Retrying Failures" "Workflow Engines"},
-  :repo-url "https://cljdoc.org/d/io.github.manetu/temporal-sdk"}
+  :tags #{"Application Frameworks" "Retrying Failures" "Workflow Engines"},
+  :repo-url "https://github.com/manetu/temporal-clojure-sdk"}
  {:name "Tempura",
   :url "https://www.taoensso.com/tempura",
   :platforms #{"clj" "cljs"},
@@ -6995,7 +7001,8 @@
   :title "tst",
   :key :tst,
   :tags #{"Continuous Testing" "Unit Testing"},
-  :repo-url "https://github.com/fctorial/tst"}
+  :ignore true
+  :repo-url nil}
  {:name "tubax",
   :url "https://github.com/funcool/tubax",
   :platforms #{"cljs"},
