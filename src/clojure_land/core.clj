@@ -20,26 +20,37 @@
 
 
 (defn platform-chip [platform]
-  [:span {:class "rounded-lg text-white text-sm bg-slate-600 px-2 py-1 text-nowrap lowercase"}
-   platform])
+  (let [bg-color (case platform
+                   "clj" "bg-[#63b132]"
+                   "cljs" "bg-[#5881d8]"
+                   "bg-black")]
+    [:span {:class (str "rounded-lg text-white text-sm font-bold px-2 py-1 text-nowrap lowercase "
+                        bg-color)}
+     platform]))
 
 (defn tag-chip [category]
-  [:span {:class "rounded-lg text-white text-sm bg-slate-600 px-2 py-1 text-nowrap lowercase"}
+  [:span {:class "rounded-lg text-white text-sm bg-slate-600 font-bold px-2 py-1 text-nowrap lowercase"}
    category])
 
-(defn project-list-item [{:project/keys [url name description platforms tags repo-url]}
+(defn project-list-item [{:project/keys [url name description platforms repo-url stars tags]}
                          & {:keys [attrs]}]
   [:li (merge {:class "relative flex justify-between gap-x-6 py-5 col-span-4 col-start-2"}
               attrs)
-   [:div {:class "flex flex-row"}
-    [:div {:class "flex flex-col gap-2"}
-     [:div {:class "flex flex-row gap-4"}
+   [:div {:class "flex flex-row w-full"}
+    [:div {:class "flex flex-col gap-2 w-full"}
+     [:div {:class "flex flex-row gap-4 items-center"}
       [:a {:class "font-bold text-2xl hover:underline" :href url} name]
+      (when stars
+        [:a {:class "flex flex-row flex-1 justify-end gap-2 hover:underline"
+             :href repo-url}
+         (icons/star)
+         [:span stars]])]
+     [:span {:class "text-lg text-neutral-800 pb-4"} description]
+     [:div {:class "flex flex-row justify-between"}
       [:div {:class "flex flex-row gap-2 flex-wrap overflow-hidden"}
-       (mapv platform-chip (some->> (.getArray platforms)))]]
-     [:span {:class "text-lg text-neutral-600"} description]
-     [:div {:class "flex flex-row gap-2 flex-wrap overflow-hidden"}
-      (mapv tag-chip (some->> (.getArray tags)))]]]])
+       (mapv platform-chip (some->> (.getArray platforms) (sort)))]
+      [:div {:class "flex flex-row gap-2 flex-wrap overflow-hidden"}
+       (mapv tag-chip (some->> (.getArray tags)))]]]]])
 
 (defn js
   "This function is mostly used for passing a clojure map as a js object in html
@@ -140,7 +151,10 @@
                :class "grid grid-cols-6 gap-8 divide-y divide-gray-100 "}
           (project-list-items projects
                               :next-page next-page
-                              :q q)]]]]
+                              :q q)]
+         [:div {:class "flex flex-row justify-center items-center mt-32 mb-32"}
+          [:img {:src (assets "the-end-4.png")
+                 :class "max-h-8"}]]]]]
 
       ;; Return only the project list for htmx requests
       (project-list-items projects

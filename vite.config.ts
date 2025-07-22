@@ -14,7 +14,12 @@ export default defineConfig({
         outDir: __dirname.concat("/resources/clojure.land/build"),
         manifest: true,
         rollupOptions: {
-            input: ["~/main.css", "~/main.ts", "~/clojure-land-logo-small.jpg"],
+            input: [
+                "~/main.css",
+                "~/main.ts",
+                "~/clojure-land-logo-small.jpg",
+                "~/the-end-4.png",
+            ],
         },
     },
 });

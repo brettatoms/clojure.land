@@ -1374,7 +1374,7 @@
   :platforms #{"clj"},
   :title "clojure.java.jdbc",
   :key :clojure_java_jdbc,
-  :tags #{"SQL Clients"},
+  :tags #{"sql"},
   :repo-url "https://github.com/clojure/java.jdbc"}
  {:name "Clojure.Joda-Time",
   :url "https://github.com/dm3/clojure.joda-time",
@@ -2703,7 +2703,7 @@
   :platforms #{"clj"},
   :title "Foundation/PG",
   :key :foundation_pg,
-  :tags #{"PostgreSQL Integration"},
+  :tags #{"postgresql"},
   :repo-url "https://github.com/mikeball/foundation"}
  {:name "Franzy",
   :url "https://github.com/ymilky/franzy",
@@ -2948,7 +2948,7 @@
   #{"Connection Pools"
     "Database Migrations"
     "sql"
-    "SQL Clients"
+    "sql"
     "Schema"
     "Validation"},
   :repo-url "https://github.com/kwrooijen/gungnir"}
@@ -3363,7 +3363,7 @@
   :platforms #{"clj"},
   :title "jdbc-pg-sanity",
   :key :jdbc_pg_sanity,
-  :tags #{"PostgreSQL Integration"},
+  :tags #{"postgresql"},
   :repo-url "https://github.com/ShaneKilkelly/clj-jdbc-pg-sanity"}
  {:name "Jig",
   :url "https://github.com/juxt/jig",
@@ -4570,7 +4570,7 @@
   "Modern wrapper for JDBC. Works with all JDBC databases",
   :title "next-jdbc",
   :key :next_jdbc,
-  :tags #{"SQL Clients"},
+  :tags #{"sql"},
   :repo-url "https://github.com/seancorfield/next-jdbc"}
  {:name "clojure-mode",
   :url "https://github.com/nextjournal/clojure-mode",
@@ -4942,7 +4942,7 @@
   :platforms #{"clj"},
   :title "Penkala",
   :key :penkala,
-  :tags #{"PostgreSQL Integration" "sql"},
+  :tags #{"postgresql" "sql"},
   :repo-url "https://github.com/retro/penkala"}
  {:name "Penumbra",
   :url "https://github.com/ztellman/penumbra",
@@ -4978,7 +4978,7 @@
   :description "A fast PostgreSQL driver for Clojure",
   :title "pg2",
   :key :pg2,
-  :tags #{"SQL Clients"},
+  :tags #{"sql" "postgresql"},
   :repo-url "https://github.com/igrishaev/pg2"}
  {:name "phlegyas",
   :url "https://github.com/dspearson/phlegyas",
@@ -6529,7 +6529,7 @@
   :platforms #{"clj"},
   :title "suricatta",
   :key :suricatta,
-  :tags #{"sql" "SQL Clients"},
+  :tags #{"sql" "sql"},
   :repo-url "https://github.com/funcool/suricatta"}
  {:name "swarmiji",
   :url "https://github.com/amitrathore/swarmiji",
