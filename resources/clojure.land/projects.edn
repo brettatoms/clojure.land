@@ -2537,12 +2537,7 @@
   :platforms #{"clj"},
   :key :gungnir,
   :tags
-  #{"Connection Pools"
-    "Database Migrations"
-    "sql"
-    "sql"
-    "Schema"
-    "Validation"},
+  #{"Connection Pools" "Database Migrations" "sql" "Schema" "Validation"},
   :repo-url "https://github.com/kwrooijen/gungnir"}
  {:name "Hanami",
   :url "https://github.com/jsa-aerial/hanami",
