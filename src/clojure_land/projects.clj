@@ -30,10 +30,11 @@
                        (remove :ignore)
                        (filter #(some? (:repo-url %)))
                        (filter #(re-matches #".*?github.*?" (:repo-url %)))
-                       ;; TODO: add debug logging for each project update
-                       (pmap (fn [project]
-                               (log/debug "Updating project: " (:key project))
-                               (github/update-project-from-repo github-client project))))
+                       (pmap (fn [{:keys [key repo-url] :as project}]
+                               (log/debug "Updating project: " key)
+                               (if (re-matches #".*?github.*?" repo-url)
+                                 (github/update-project-from-repo github-client project)
+                                 project))))
          s3-client (s3/client {:endpoint-url (System/getenv "AWS_ENDPOINT_URL_S3")
                                :access-key-id (System/getenv "AWS_ACCESS_KEY_ID")
                                :secret-access-key (System/getenv "AWS_SECRET_ACCESS_KEY")})]
