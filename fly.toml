@@ -14,7 +14,7 @@ primary_region = "atl"
 
 [http_service]
   auto_start_machines = true
-  auto_stop_machines = "stop"
+  auto_stop_machines = "suspend"
   force_https = true
   internal_port = 8080
   min_machines_running = 0
