@@ -319,7 +319,7 @@
   :platforms #{"clj"},
   :key :biff,
   :tags #{"Web Frameworks"},
-  :repo-url nil}
+  :repo-url "https://github.com/jacobobryant/biff"}
  {:name "bifurcan",
   :url "https://github.com/lacuna/bifurcan",
   :platforms #{"clj"},
