@@ -5622,7 +5622,7 @@
   :url "https://github.com/funcool/suricatta",
   :platforms #{"clj"},
   :key :suricatta,
-  :tags #{"sql" "sql"},
+  :tags #{"sql"},
   :repo-url "https://github.com/funcool/suricatta"}
  {:name "swarmiji",
   :url "https://github.com/amitrathore/swarmiji",
