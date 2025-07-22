@@ -13,7 +13,6 @@
                                        [:name :text [:not nil]]
                                        [:repo-url :text]
                                        [:tags :text :array]
-                                       [:title :text [:not nil]]
                                        [:stars :int]
                                        [:url :text [:not nil]]]})))
 
@@ -24,7 +23,7 @@
         ;;          (clojure.edn/read-string))
         data (projects/fetch-remote-projects s3 bucket-name)
         ;; The columns need to be in the same order as the :with-columns when creating the table
-        columns [#_:key :description :platforms :name :repo-url :stars :tags :title :url]
+        columns [#_:key :description :platforms :name :repo-url :stars :tags :url]
         empty-row  (zipmap columns (repeat nil))
         normalize (fn [p]
                     (-> (merge empty-row p)
