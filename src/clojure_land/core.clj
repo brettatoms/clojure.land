@@ -113,7 +113,8 @@
         offset (* (dec page) page-size)
         stmt (cond-> {:select [:*]
                       :from :project
-                      :where [:and true]}
+                      :where [:and true]
+                      :order-by [:name]}
                (seq q)
                (update :where #(conj % [:or
                                         [:ilike :name (str "%" (str/lower-case q) "%")]
