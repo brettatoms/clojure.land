@@ -1,11 +1,14 @@
 name: Sync Projects
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       skip_restart:
         description: Skip restarting Fly.io apps?
-        type: string
+        type: choice
+        options:
+          - "true"
+          - "false"
         default: "false"
   schedule:
     # Run every Sunday at 2am
