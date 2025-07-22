@@ -34,7 +34,7 @@
 
 (defn project-list-item [{:project/keys [url name description platforms repo-url stars tags]}
                          & {:keys [attrs]}]
-  [:li (merge {:class "relative flex justify-between gap-x-6 py-5 col-span-4 col-start-2"}
+  [:li (merge {:class "relative flex justify-between gap-x-6 py-5 col-span-6 md:col-span-4 mx-6 md:mx-2 md:col-start-2"}
               attrs)
    [:div {:class "flex flex-row w-full"}
     [:div {:class "flex flex-col gap-2 w-full"}
@@ -46,11 +46,11 @@
          (icons/star)
          [:span stars]])]
      [:span {:class "text-lg text-neutral-800 pb-4"} description]
-     [:div {:class "flex flex-row justify-between"}
+     [:div {:class "flex flex-col md:flex-row justify-between gap-4"}
       [:div {:class "flex flex-row gap-2 flex-wrap overflow-hidden"}
        (mapv platform-chip (some->> (.getArray platforms) (sort)))]
       [:div {:class "flex flex-row gap-2 flex-wrap overflow-hidden"}
-       (mapv tag-chip (some->> (.getArray tags)))]]]]])
+       (mapv tag-chip (some->> (.getArray tags) (take 4) (sort)))]]]]])
 
 (defn js
   "This function is mostly used for passing a clojure map as a js object in html
@@ -74,22 +74,17 @@
                       projects))))
 
 (defn form [params]
-  [:form {:class "flex flex-row col-span-4 col-start-2 w-full gap-4 w-full"}
-   [:div {:class "mt-2 flex w-full"}
-    [:div {:class "-mr-px grid grow grid-cols-1 focus-within:relative"}
-     [:input {:type "text",
-              :name "q",
-              :class "col-start-1 row-start-1 block w-full rounded-l-md bg-white py-1.5 pr-3 pl-10 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:pl-9 sm:text-sm/6"
-              :hx-get "/"
-              :hx-target "#project-list"
-              :hx-replace-url "true"
-              :hx-swap "innerHTML"
-              :hx-trigger "input changed delay:500ms, keyup[key=='Enter']"
-              :value (:q params)}]]
-    [:button {:type "submit",
-              :class
-              "flex shrink-0 items-center gap-x-1.5 rounded-r-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 outline-1 -outline-offset-1 outline-gray-300 hover:bg-gray-50 focus:relative focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"}
-     "Search"]]])
+  [:form {:class "col-span-6 md:col-span-4 md:col-start-2 px-6 md:px-2 md:pt-2 w-full"}
+   [:input {:type "text",
+            :name "q",
+            :class "block w-full rounded-md bg-white py-1.5 pr-3 pl-10 text-base text-gray-900 outline-1 outline-gray-300 focus:outline-offset-0 focus:outline-2 placeholder:text-gray-500 focus:outline-blue-600 sm:pl-9 sm:text-sm/6 border-0"
+            :placeholder "Search for projects..."
+            :hx-get "/"
+            :hx-target "#project-list"
+            :hx-replace-url "true"
+            :hx-swap "innerHTML"
+            :hx-trigger "input changed delay:500ms, keyup[key=='Enter']"
+            :value (:q params)}]])
 
 (def params-transformer (mt/transformer
                          (mt/key-transformer {:decode (fn [k]
@@ -141,7 +136,7 @@
         [:link {:rel "stylesheet" :href (assets "main.css")}]]
        [:body
         [:div {:class "flex flex-col gap-8"}
-         [:div {:class "self-center pt-8"}
+         [:div {:class "self-center pt-8 px-4 md:px-0"}
           [:img {:src (assets "clojure-land-logo-small.jpg")
                  :class "max-h-32"}]]
 
