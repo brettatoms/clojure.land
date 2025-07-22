@@ -24,7 +24,7 @@ jobs:
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - uses: DeLaGuardo/setup-clojure@13.4
         with:
-          cli: 1.12.1
+          cli: 1.12.1.1550
       - name: Sync projects
         run: clojure -X:sync-projects
       - name: Restart App
