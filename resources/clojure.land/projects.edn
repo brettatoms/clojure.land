@@ -51,7 +51,7 @@
   :url "https://github.com/alda-lang/alda",
   :platforms #{"clj"},
   :key :alda,
-  :tags #{"Music &amp; Sound Synthesis"},
+  :tags #{"music" "audio"},
   :repo-url "https://github.com/alda-lang/alda"}
  {:name "Aleph",
   :url "https://github.com/clj-commons/aleph",
@@ -556,7 +556,7 @@
   :platforms #{"clj"},
   :description "Data processing on Hadoop without the hassle",
   :key :cascalog,
-  :tags #{"Distributed Programming" "Hadoop Clients"},
+  :tags #{"Distributed Programming" "hadoop"},
   :repo-url "https://github.com/nathanmarz/cascalog"}
  {:name "Cassaforte",
   :url "https://github.com/clojurewerkz/cassaforte",
@@ -2092,7 +2092,7 @@
   :url "https://github.com/oakes/edna",
   :platforms #{"clj" "cljs"},
   :key :edna,
-  :tags #{"Music &amp; Sound Synthesis"},
+  :tags #{"music" "audio"},
   :repo-url "https://github.com/oakes/edna"}
  {:name "Eftest",
   :url "https://github.com/weavejester/eftest",
@@ -2697,7 +2697,7 @@
   :url "https://github.com/mathias/hum",
   :platforms #{"cljs"},
   :key :hum,
-  :tags #{"Music &amp; Sound Synthesis"},
+  :tags #{"music" "audio"},
   :repo-url "https://github.com/mathias/hum"}
  {:name "Humane Test Output",
   :url "https://github.com/pjstadig/humane-test-output",
@@ -2849,7 +2849,7 @@
   :url "https://bitbucket.org/kotarak/j18n",
   :platforms #{"clj"},
   :key :j18n,
-  :tags #{"Internationalization"},
+  :tags #{"i18n"},
   :repo-url nil}
  {:name "Jackdaw",
   :url "https://github.com/FundingCircle/jackdaw",
@@ -3562,7 +3562,7 @@
   :url "https://github.com/daveyarwood/mantra",
   :platforms #{"cljs"},
   :key :mantra,
-  :tags #{"Music &amp; Sound Synthesis"},
+  :tags #{"music" "audio"},
   :repo-url "https://github.com/daveyarwood/mantra"}
  {:name "Marginalia",
   :url "https://github.com/fogus/marginalia",
@@ -3866,7 +3866,7 @@
   :url "https://github.com/daveyarwood/music-theory",
   :platforms #{"clj" "cljs"},
   :key :music_theory,
-  :tags #{"Music &amp; Sound Synthesis"},
+  :tags #{"music" "audio"},
   :repo-url "https://github.com/daveyarwood/music-theory"}
  {:name "Muuntaja",
   :url "https://github.com/metosin/muuntaja",
@@ -4132,7 +4132,7 @@
   :url "https://github.com/overtone/overtone",
   :platforms #{"clj"},
   :key :overtone,
-  :tags #{"Music &amp; Sound Synthesis"},
+  :tags #{"music" "audio"},
   :repo-url "https://github.com/overtone/overtone"}
  {:name "Oz",
   :url "https://github.com/metasoarous/oz",
@@ -4176,7 +4176,7 @@
   :url "https://github.com/damballa/parkour",
   :platforms #{"clj"},
   :key :parkour,
-  :tags #{"Distributed Programming" "Hadoop Clients"},
+  :tags #{"Distributed Programming" "hadoop"},
   :repo-url "https://github.com/damballa/parkour"}
  {:name "Parsargs",
   :url "https://github.com/friemen/parsargs",
@@ -4312,7 +4312,7 @@
   :url "https://github.com/Netflix/PigPen",
   :platforms #{"clj"},
   :key :pigpen,
-  :tags #{"Distributed Programming" "Hadoop Clients"},
+  :tags #{"Distributed Programming" "hadoop"},
   :repo-url "https://github.com/Netflix/PigPen"}
  {:name "pisto",
   :url "https://github.com/molst/pisto",
@@ -5045,7 +5045,7 @@
   :url "https://github.com/Vincit/satakieli",
   :platforms #{"clj" "cljs"},
   :key :satakieli,
-  :tags #{"Internationalization"},
+  :tags #{"i18n"},
   :repo-url "https://github.com/Vincit/satakieli"}
  {:name "Sayid",
   :url "https://github.com/clojure-emacs/sayid",
@@ -5768,7 +5768,7 @@
   :platforms #{"clj" "cljs"},
   :description "Simple text localization library for Clojure/Script",
   :key :tempura,
-  :tags #{"Internationalization"},
+  :tags #{"i18n"},
   :repo-url nil}
  {:name "Tengen",
   :url "https://www.taoensso.com/tengen",
@@ -5793,7 +5793,7 @@
   :url "https://github.com/aphyr/tesser",
   :platforms #{"clj"},
   :key :tesser,
-  :tags #{"Distributed Programming" "Hadoop Clients"},
+  :tags #{"Distributed Programming" "hadoop"},
   :repo-url "https://github.com/aphyr/tesser"}
  {:name "test.check",
   :url "https://github.com/clojure/test.check",
@@ -5892,7 +5892,7 @@
   :url "https://github.com/tonsky/tongue",
   :platforms #{"clj" "cljs"},
   :key :tongue,
-  :tags #{"Internationalization"},
+  :tags #{"i18n"},
   :repo-url "https://github.com/tonsky/tongue"}
  {:name "tools.build",
   :url "https://github.com/clojure/tools.build",
