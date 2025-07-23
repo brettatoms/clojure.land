@@ -5,10 +5,19 @@
             [clojure.edn :as edn]
             [clojure.tools.logging :as log]))
 
+;; TODO: Consider also using the name, website and topics from the github repo. Topics
+;; might be problem b/c every project would probably include "Clojure" but I guess we
+;; could filter that out.
+
 (defn read-projects-edn []
   (-> (io/resource "clojure.land/projects.edn")
       (slurp)
       (edn/read-string)))
+
+(comment
+  (->> (read-projects-edn)
+       (filter #(= (:name %) "Biff")))
+  ())
 
 (defn fetch-remote-projects [s3-client bucket-name]
   (-> (s3/get-object s3-client {:Bucket bucket-name
@@ -17,6 +26,12 @@
       :Body
       slurp
       edn/read-string))
+
+;; TODO: We need to restart the machines afterwards
+;;
+;; TODO: If we ever get over >5000 projects then we'll need to chunk these updates to
+;; avoid the GitHub API rate limit
+
 (defn sync-remote-projects-edn
   "Update the local projects.edn file with the repo data and store in Tigris/S3."
   ([]

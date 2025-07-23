@@ -1487,7 +1487,7 @@
   :url "https://github.com/Olical/conjure",
   :platforms #{"clj" "cljs"},
   :key :conjure_nvim,
-  :tags #{"Vim Integration"},
+  :tags #{"vim"},
   :repo-url "https://github.com/Olical/conjure"}
  {:name "constance",
   :url "https://github.com/pyr/constance",
@@ -2274,7 +2274,7 @@
   :url "https://github.com/tpope/vim-fireplace",
   :platforms #{"clj"},
   :key :fireplace_vim,
-  :tags #{"Vim Integration"},
+  :tags #{"vim"},
   :repo-url "https://github.com/tpope/vim-fireplace"}
  {:name "firestore-clj",
   :url "https://github.com/polvotech/firestore-clj",
@@ -6186,40 +6186,40 @@
   :tags #{"Asynchronous I/O" "Asynchronous Programming"},
   :repo-url "https://github.com/ane/vigil"}
  {:name "vim-cider",
-  :url "https://github.com/Deraen/vim-cider",
+  :url "https://github.com/clojure-vim/vim-cider",
   :platforms #{"clj"},
-  :key :vim_cider,
-  :tags #{"Vim Integration"},
-  :repo-url "https://github.com/Deraen/vim-cider"}
+  :key :vim-cider,
+  :tags #{"vim"},
+  :repo-url "https://github.com/clojure-vim/vim-cider"}
  {:name "vim-cljfmt",
   :url "https://github.com/venantius/vim-cljfmt",
   :platforms #{"clj"},
   :key :vim_cljfmt,
-  :tags #{"Vim Integration"},
+  :tags #{"vim"},
   :repo-url "https://github.com/venantius/vim-cljfmt"}
  {:name "vim-eastwood",
   :url "https://github.com/venantius/vim-eastwood",
   :platforms #{"clj"},
   :key :vim_eastwood,
-  :tags #{"Vim Integration"},
+  :tags #{"vim"},
   :repo-url "https://github.com/venantius/vim-eastwood"}
  {:name "vim-iced",
   :url "https://github.com/liquidz/vim-iced",
   :platforms #{"clj"},
   :key :vim_iced,
-  :tags #{"Vim Integration"},
+  :tags #{"vim"},
   :repo-url "https://github.com/liquidz/vim-iced"}
  {:name "vim-salve",
   :url "https://github.com/tpope/vim-salve",
   :platforms #{"clj"},
   :key :vim_salve,
-  :tags #{"Vim Integration"},
+  :tags #{"vim"},
   :repo-url "https://github.com/tpope/vim-salve"}
  {:name "VimClojure",
   :url "https://github.com/vim-scripts/VimClojure",
   :platforms #{"clj"},
-  :key :vimclojure,
-  :tags #{"Vim Integration"},
+  :key :vim-clojure,
+  :tags #{"vim"},
   :repo-url "https://github.com/vim-scripts/VimClojure"}
  {:name "Viscous",
   :url "https://github.com/phronmophobic/viscous",

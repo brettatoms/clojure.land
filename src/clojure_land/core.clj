@@ -18,6 +18,19 @@
 ;; Send clojure.tools.logging message to telemere
 (tools-logging->telemere!)
 
+(comment
+  (let [db (-> user/*system* ::zodiac :zodiac.ext.sql/db)
+        stmt {:select [:*]
+              :from :project
+              :where [:and true [:or [:like :name "%system%"] [:like :description "%system%"]]]}]
+    (z.sql/execute! db stmt))
+  ())
+
+(defn js
+  "This function is mostly used for passing a clojure map as a js object in html
+  attributes"
+  [data]
+  (json/write-str data :escape-slash false))
 
 (defn platform-chip [platform]
   (let [bg-color (case platform
@@ -47,28 +60,40 @@
          [:span stars]])]
      [:span {:class "text-lg text-neutral-800 pb-4"} description]
      [:div {:class "flex flex-col md:flex-row justify-between gap-4"}
-      [:div {:class "flex flex-row gap-2 flex-wrap overflow-hidden"}
-       (mapv platform-chip (some->> (.getArray platforms) (sort)))]
-      [:div {:class "flex flex-row gap-2 flex-wrap overflow-hidden"}
-       (mapv tag-chip (some->> (.getArray tags) (take 4) (sort)))]]]]])
-
-(defn js
-  "This function is mostly used for passing a clojure map as a js object in html
-  attributes"
-  [data]
-  (json/write-str data :escape-slash false))
+      [:div {:class "flex flex-row gap-2 flex-wrap"}
+       (mapv (fn [platform]
+               [:a {:class "cursor-pointer"
+                    ;; TODO: Need to also swap the filter list
+                    :hx-get "/"
+                    :hx-target "#project-list"
+                    :hx-swap "innerHTML"
+                    :hx-replace-url "true"
+                    :hx-vals (js {"platforms" platform})}
+                (platform-chip platform)])
+             (some->> (.getArray platforms) (sort)))]
+      [:div {:class "flex flex-row gap-2 flex-wrap"}
+       (mapv (fn [tag]
+               [:a {:class "cursor-pointer"
+                    ;; TODO: Need to also swap the filter list
+                    :hx-get "/"
+                    :hx-target "#project-list"
+                    :hx-swap "innerHTML"
+                    :hx-replace-url "true"
+                    :hx-vals (js {"tags" tag})}
+                (tag-chip tag)])
+             (some->> (.getArray tags) (take 4) (sort)))]]]]])
 
 (defn project-list-items [projects & {:keys [next-page q]}]
   (let [num-projects (count projects)]
     (vec (map-indexed (fn [idx p]
                         (let [attrs (when (and (= idx (- num-projects 2))
                                                (> num-projects 10))
-                                      {:hx-target "#project-list"
+                                      {:hx-get "/"
+                                       :hx-target "#project-list"
                                        :hx-swap "beforeend"
                                        :hx-vals (js (cond-> {}
                                                       (seq q) (assoc :q q)
                                                       (some? next-page) (assoc :page next-page)))
-                                       :hx-get "/"
                                        :hx-trigger "revealed"})]
                           (project-list-item p :attrs attrs)))
                       projects))))
@@ -101,8 +126,28 @@
    [:q :string]
    [:page [:int {:min 1 :default 1}]]
    [:page-size {:default 20} [:int {:min 10}]]
-   [:tags [:sequential :string]]
-   [:platforms [:enum :clj :cljs]]])
+   [:tags {:decode/params (fn [v]
+                            (cond
+                              (string? v) [v]
+                              :else v))}
+    [:sequential :string]]
+   [:platforms {:decode/params (fn [v]
+                                 (cond
+                                   (string? v) [v]
+                                   :else v))}
+    [:enum "clj" "cljs"]]])
+
+(comment
+  (let [db (-> user/*system* ::zodiac ::z.sql/db)
+        q "Biff"]
+    (z.sql/execute! db {:select [:*]
+                        :from :project
+                        :where [:and
+                                [:array_contains :platforms ["cljs"]]
+                                [:or
+                                 [:ilike :name (str "%" (str/lower-case q) "%")]
+                                 [:ilike :description (str "%" (str/lower-case q) "%")]]]}))
+  ())
 
 (defn handler [{:keys [headers params ::z/context] :as _request}]
   (let [{::z.assets/keys [assets]
@@ -110,6 +155,7 @@
         hx-request? (= (get headers "hx-request") "true")
         {:keys [q page page-size tags platforms]
          :as params} (m/decode QueryParams params params-transformer)
+        _ (tap> (str "params: " params))
         offset (* (dec page) page-size)
         stmt (cond-> {:select [:*]
                       :from :project
@@ -118,13 +164,22 @@
                (seq q)
                (update :where #(conj % [:or
                                         [:ilike :name (str "%" (str/lower-case q) "%")]
-                                        [:ilike :description (str "%" (str/lower-case q) "%")]])))
+                                        [:ilike :description (str "%" (str/lower-case q) "%")]]))
+               (seq platforms)
+               (update :where #(conj % [:array_contains :platforms platforms]))
+
+               (seq tags)
+               (update :where #(conj % [:array_contains :tags tags])))
         projects (z.sql/execute! db (assoc stmt
                                            :offset offset
                                            :limit page-size))
         total (z.sql/count db stmt)
         next-page (when (< offset total)
                     (inc page))]
+    (tap> (str "stmt: " stmt))
+    (tap> (str "(count projects): " (count projects)))
+    (tap> (str "(first projects): " (first projects)))
+
     (if-not hx-request?
       [:html
        [:head
@@ -141,8 +196,15 @@
           [:img {:src (assets "clojure-land-logo-small.jpg")
                  :class "max-h-32"}]]
 
-         [:div {:class "grid grid-cols-6 "}
-          (form params)]
+         [:div {:class "grid grid-cols-6"}
+          (form params)
+          [:div {:class "flex flex-row gap-4 col-span-6 md:col-span-4 mx-6 md:mx-2 md:col-start-2 mt-4"}
+           (mapv (fn [platform]
+                   [:div {:class "flex flex-row gap-2"}
+                    (platform-chip platform)
+                    [:button {:type "button"} "x"]])
+                 platforms)
+           (mapv tag-chip tags)]]
          [:ul {:id "project-list"
                :class "grid grid-cols-6 gap-8 divide-y divide-gray-100 "}
           (project-list-items projects
