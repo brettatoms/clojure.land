@@ -19,4 +19,4 @@ To add a new project open a PR to edit  [resources/clojure.land/projects.edn](./
 
 ### Acknowledgements
 
-- [weavejester](https://github.com/weavejester/): This site was inspired by the [The Clojure Toolbox](https://www.clojure-toolbox.com/) and provided starting point for the project data.
+- [weavejester](https://github.com/weavejester/): This site was inspired by the [The Clojure Toolbox](https://www.clojure-toolbox.com/) and provided starting point for the the project data.
