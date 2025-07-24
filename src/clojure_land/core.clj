@@ -104,7 +104,7 @@
             :hx-get "/"
             :hx-target "#content"
             :hx-replace-url "true"
-            :hx-trigger "input changed delay:500ms, keyup[key=='Enter']"
+            :hx-trigger "input changed delay:250ms, keyup[key=='Enter']"
             :value q
             :hx-vals (js (dissoc current-vals "q"))}]])
 
