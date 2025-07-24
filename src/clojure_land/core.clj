@@ -1,11 +1,11 @@
 (ns clojure-land.core
   (:require [babashka.fs :as fs]
+            [dev.onionpancakes.chassis.core :as chassis]
             [camel-snake-kebab.core :as csk]
             [clojure-land.icons :as icons]
             [clojure-land.system :as system]
             [clojure.data.json :as json]
             [clojure.string :as str]
-            [clojure.tools.logging :as log]
             [integrant.core :as ig]
             [malli.core :as m]
             [malli.transform :as mt]
@@ -18,6 +18,11 @@
 ;; Send clojure.tools.logging message to telemere
 (tools-logging->telemere!)
 
+(defn js
+  "This function is mostly used for passing a clojure map as a js object in html
+  attributes"
+  [data]
+  (json/write-str data :escape-slash false))
 
 (defn platform-chip [platform]
   (let [bg-color (case platform
@@ -33,7 +38,7 @@
    category])
 
 (defn project-list-item [{:project/keys [url name description platforms repo-url stars tags]}
-                         & {:keys [attrs]}]
+                         & {:keys [attrs current-vals]}]
   [:li (merge {:class "relative flex justify-between gap-x-6 py-5 col-span-6 md:col-span-4 mx-6 md:mx-2 md:col-start-2"}
               attrs)
    [:div {:class "flex flex-row w-full"}
@@ -47,44 +52,61 @@
          [:span stars]])]
      [:span {:class "text-lg text-neutral-800 pb-4"} description]
      [:div {:class "flex flex-col md:flex-row justify-between gap-4"}
-      [:div {:class "flex flex-row gap-2 flex-wrap overflow-hidden"}
-       (mapv platform-chip (some->> (.getArray platforms) (sort)))]
-      [:div {:class "flex flex-row gap-2 flex-wrap overflow-hidden"}
-       (mapv tag-chip (some->> (.getArray tags) (take 4) (sort)))]]]]])
+      [:div {:class "flex flex-row gap-2 flex-wrap"}
+       (mapv (fn [platform]
+               [:a {:class "cursor-pointer"
+                    ;; TODO: Need to also swap the filter list
+                    :hx-get "/"
+                    :hx-target "#content"
+                    :hx-swap "innerHTML"
+                    :hx-replace-url "true"
+                    :hx-vals (js (update current-vals "platforms" #(conj % platform)))}
+                (platform-chip platform)])
+             (some->> (.getArray platforms) (sort)))]
+      [:div {:class "flex flex-row gap-2 flex-wrap"}
+       (mapv (fn [tag]
+               [:a {:class "cursor-pointer"
+                    ;; TODO: Need to also swap the filter list
+                    :hx-get "/"
+                    :hx-target "#content"
+                    :hx-swap "innerHTML"
+                    :hx-replace-url "true"
+                    :hx-vals (js (update current-vals "tags" #(conj % tag)))}
+                (tag-chip tag)])
+             (some->> (.getArray tags) (take 4) (sort)))]]]]])
 
-(defn js
-  "This function is mostly used for passing a clojure map as a js object in html
-  attributes"
-  [data]
-  (json/write-str data :escape-slash false))
-
-(defn project-list-items [projects & {:keys [next-page q]}]
+(defn project-list [projects & {:keys [next-page current-vals]}]
   (let [num-projects (count projects)]
-    (vec (map-indexed (fn [idx p]
-                        (let [attrs (when (and (= idx (- num-projects 2))
-                                               (> num-projects 10))
-                                      {:hx-target "#project-list"
-                                       :hx-swap "beforeend"
-                                       :hx-vals (js (cond-> {}
-                                                      (seq q) (assoc :q q)
-                                                      (some? next-page) (assoc :page next-page)))
-                                       :hx-get "/"
-                                       :hx-trigger "revealed"})]
-                          (project-list-item p :attrs attrs)))
-                      projects))))
+    [:ul {:id "project-list"
+          :class "grid grid-cols-6 gap-8 divide-y divide-gray-100"}
+     (vec (map-indexed (fn [idx p]
+                         (let [attrs (when (and (= idx (- num-projects 2))
+                                                (> num-projects 10))
+                                       {:hx-get "/"
+                                        :hx-target "#project-list"
+                                        :hx-select "#project-list li"
+                                        :hx-swap "beforeend"
+                                        :hx-vals (js (cond-> current-vals
+                                                       (some? next-page) (assoc :page next-page)))
+                                        :hx-trigger "revealed"})]
+                           (project-list-item p
+                                              :attrs attrs
+                                              :current-vals current-vals)))
+                       projects))]))
 
-(defn form [params]
+(defn search-form [q & {:keys [current-vals]}]
   [:form {:class "col-span-6 md:col-span-4 md:col-start-2 px-6 md:px-2 md:pt-2 w-full"}
    [:input {:type "text",
+            :id "search-input"
             :name "q",
             :class "block w-full rounded-md bg-white py-1.5 pr-3 pl-10 text-base text-gray-900 outline-1 outline-gray-300 focus:outline-offset-0 focus:outline-2 placeholder:text-gray-500 focus:outline-blue-600 sm:pl-9 sm:text-sm/6 border-0"
             :placeholder "Search for projects..."
             :hx-get "/"
-            :hx-target "#project-list"
+            :hx-target "#content"
             :hx-replace-url "true"
-            :hx-swap "innerHTML"
             :hx-trigger "input changed delay:500ms, keyup[key=='Enter']"
-            :value (:q params)}]])
+            :value q
+            :hx-vals (js (dissoc current-vals "q"))}]])
 
 (def params-transformer (mt/transformer
                          (mt/key-transformer {:decode (fn [k]
@@ -101,24 +123,80 @@
    [:q :string]
    [:page [:int {:min 1 :default 1}]]
    [:page-size {:default 20} [:int {:min 10}]]
-   [:tags [:sequential :string]]
-   [:platforms [:enum :clj :cljs]]])
+   [:tags {:decode/params (fn [v]
+                            (cond
+                              (string? v) [v]
+                              :else v))}
+    [:sequential :string]]
+   [:platforms {:decode/params (fn [v]
+                                 (cond
+                                   (string? v) [v]
+                                   :else v))}
+    [:enum "clj" "cljs"]]])
+
+(defn filter-bar [& {:keys [platforms tags current-vals]}]
+  (let [closable-chip (fn [chip vals]
+                        [:button {:type "button"
+                                  :class "cursor-pointer"
+                                  :hx-get "/"
+                                  :hx-target "#content"
+                                  :hx-swap "innerHTML"
+                                  :hx-replace-url "true"
+                                  :hx-vals (js vals)}
+                         [:div {:class "flex flex-row items-center gap-1"}
+                          chip
+                          (chassis/raw "&times;")]])]
+    [:div {:id "filter-bar"
+           :class "flex flex-row gap-4 col-span-6 md:col-span-4 mx-6 md:mx-2 md:col-start-2 mt-4"}
+     (mapv (fn [platform]
+             (closable-chip
+              (platform-chip platform)
+              (update current-vals "platforms" #(remove (partial = platform) %))))
+           platforms)
+     (mapv (fn [tag]
+             (closable-chip
+              (tag-chip tag)
+              (update current-vals "tags" #(remove (partial = tag) %))))
+           tags)]))
+
+(defn projects-stmt [& {:keys [q platforms tags]}]
+  (let [platforms-conds (mapv #(vector :array_contains :platforms %) platforms)
+        tags-conds (mapv #(vector :array_contains :tags %) tags)]
+    (cond-> {:select [:*]
+             :from :project
+             :where [:and true]
+             :order-by [:name]}
+      (seq q)
+      (update :where #(conj % [:or
+                               [:ilike :name (str "%" (str/lower-case q) "%")]
+                               [:ilike :description (str "%" (str/lower-case q) "%")]]))
+      (seq platforms-conds)
+      (update :where #(into % platforms-conds))
+
+      (seq tags-conds)
+      (update :where #(into % tags-conds)))))
+
+(defn content [& {:keys [q platforms tags projects next-page]}]
+  (let [current-vals  (cond-> {}
+                        q (assoc "q" q)
+                        platforms (assoc "platforms" platforms)
+                        tags (assoc "tags" tags))]
+    [:div {:id "content"}
+     [:div {:id "form-container"
+            :class "grid grid-cols-6"}
+      (search-form q :current-vals current-vals)
+      (filter-bar :platforms platforms :tags tags :current-vals current-vals)]
+     (project-list projects :current-vals current-vals :next-page next-page)]))
 
 (defn handler [{:keys [headers params ::z/context] :as _request}]
   (let [{::z.assets/keys [assets]
          ::z.sql/keys [db]} context
         hx-request? (= (get headers "hx-request") "true")
-        {:keys [q page page-size tags platforms]
-         :as params} (m/decode QueryParams params params-transformer)
+        {:keys [q page page-size tags platforms]} (m/decode QueryParams params params-transformer)
+        stmt (projects-stmt :q q
+                            :platforms platforms
+                            :tags tags)
         offset (* (dec page) page-size)
-        stmt (cond-> {:select [:*]
-                      :from :project
-                      :where [:and true]
-                      :order-by [:name]}
-               (seq q)
-               (update :where #(conj % [:or
-                                        [:ilike :name (str "%" (str/lower-case q) "%")]
-                                        [:ilike :description (str "%" (str/lower-case q) "%")]])))
         projects (z.sql/execute! db (assoc stmt
                                            :offset offset
                                            :limit page-size))
@@ -135,27 +213,27 @@
         [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]
         [:script {:src (assets "main.ts")}]
         [:link {:rel "stylesheet" :href (assets "main.css")}]]
-       [:body
+       [:body {"hx-on:htmx:after-swap" "document.getElementById('search-input').focus()"}
         [:div {:class "flex flex-col gap-8"}
          [:div {:class "self-center pt-8 px-4 md:px-0"}
           [:img {:src (assets "clojure-land-logo-small.jpg")
                  :class "max-h-32"}]]
-
-         [:div {:class "grid grid-cols-6 "}
-          (form params)]
-         [:ul {:id "project-list"
-               :class "grid grid-cols-6 gap-8 divide-y divide-gray-100 "}
-          (project-list-items projects
-                              :next-page next-page
-                              :q q)]
+         [:div {:id "content"}
+          (content :q q
+                   :tags tags
+                   :projects projects
+                   :platforms platforms
+                   :next-page next-page)]
          [:div {:class "flex flex-row justify-center items-center mt-32 mb-32"}
           [:img {:src (assets "the-end-4.png")
                  :class "max-h-8"}]]]]]
 
-      ;; Return only the project list for htmx requests
-      (project-list-items projects
-                          :next-page next-page
-                          :q q))))
+      ;; Return only the content for htmx requests
+      (content :q q
+               :tags tags
+               :projects projects
+               :platforms platforms
+               :next-page next-page))))
 
 (defn routes []
   [["/" {:get #'handler}]
