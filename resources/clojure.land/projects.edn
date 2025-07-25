@@ -3194,7 +3194,7 @@
  {:name "Kushi"
   :url "https://kushi.design/"
   :key :kushi
-  :platforms #{cljs}
+  :platforms #{"cljs"}
   :tags #{"css"}
   :repo-url "https://github.com/kushidesign/kushi"}
  {:name "Lacinia"
