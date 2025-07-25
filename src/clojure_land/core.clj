@@ -39,7 +39,8 @@
 
 (defn project-list-item [{:project/keys [url name description platforms repo-url stars tags]}
                          & {:keys [attrs current-vals]}]
-  [:li (merge {:class "relative flex justify-between gap-x-6 py-5 col-span-6 md:col-span-4 mx-6 md:mx-2 md:col-start-2"}
+
+  [:li (merge {:class "relative flex justify-between gap-x-6 py-4 col-span-6 md:col-span-4 mx-6 md:mx-2 md:col-start-2"}
               attrs)
    [:div {:class "flex flex-row w-full"}
     [:div {:class "flex flex-col gap-2 w-full"}
@@ -55,18 +56,16 @@
       [:div {:class "flex flex-row gap-2 flex-wrap"}
        (mapv (fn [platform]
                [:a {:class "cursor-pointer"
-                    ;; TODO: Need to also swap the filter list
                     :hx-get "/"
                     :hx-target "#content"
                     :hx-swap "innerHTML"
                     :hx-replace-url "true"
-                    :hx-vals (js (update current-vals "platforms" #(conj % platform)))}
+                    :hx-vals (update current-vals "platforms" #(conj % platform))}
                 (platform-chip platform)])
              (some->> (.getArray platforms) (sort)))]
       [:div {:class "flex flex-row gap-2 flex-wrap"}
        (mapv (fn [tag]
                [:a {:class "cursor-pointer"
-                    ;; TODO: Need to also swap the filter list
                     :hx-get "/"
                     :hx-target "#content"
                     :hx-swap "innerHTML"
@@ -78,7 +77,7 @@
 (defn project-list [projects & {:keys [next-page current-vals]}]
   (let [num-projects (count projects)]
     [:ul {:id "project-list"
-          :class "grid grid-cols-6 gap-8 divide-y divide-gray-100"}
+          :class "grid grid-cols-6 gap-2 divide-y divide-gray-100 mt-6"}
      (vec (map-indexed (fn [idx p]
                          (let [attrs (when (and (= idx (- num-projects 2))
                                                 (> num-projects 10))
@@ -215,7 +214,7 @@
         [:script {:src (assets "main.ts")}]
         [:link {:rel "stylesheet" :href (assets "main.css")}]]
        [:body {"hx-on:htmx:after-swap" "document.getElementById('search-input').focus()"}
-        [:div {:class "flex flex-col gap-8"}
+        [:div {:class "flex flex-col gap-8 m-auto max-w-[1024px]"}
          [:div {:class "self-center pt-8 px-4 md:px-0"}
           [:img {:src (assets "clojure-land-logo-small.jpg")
                  :class "max-h-32"}]]
