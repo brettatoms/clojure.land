@@ -17,6 +17,7 @@
       :Body
       slurp
       edn/read-string))
+
 (defn sync-remote-projects-edn
   "Update the local projects.edn file with the repo data and store in Tigris/S3."
   ([]

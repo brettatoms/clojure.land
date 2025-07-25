@@ -8,7 +8,7 @@ The project data lives in [resources/clojure.land/projects.edn](./resources/cloj
 - `:key`: A keyword that uniquely identifies the project. Must be unique. Required.
 - `:name`: The display name of that project. Required.
 - `:url`: The URL of the project home page..
-- `:platforms`: A set of platform name strings, usually "clj" or "cljs".
+- `:platforms`: A set of platform name strings. Current support "clj", "cljs" and "babashka".
 - `:tags`: A set of tags strings for the project.  Only the first four tags will be used.
 - `:repo-url`: The URL of the project source repository. If the URL is a GitHub URL then
   the project description and number of stars will be synced weekly.
