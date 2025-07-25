@@ -7,5 +7,4 @@
   (core/start!)
   (log/info "Server started...")
   ;; block until process is killed
-  (while true
-    (Thread/sleep 1000)))
+  (.join (Thread/currentThread)))
