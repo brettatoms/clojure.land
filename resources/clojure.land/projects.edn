@@ -6391,19 +6391,19 @@
   :url "https://github.com/brettatoms/zodiac",
   :platforms #{"clj"},
   :key :zodiac,
-  :tags #{"web"},
+  :tags #{"web frameworks"},
   :repo-url "https://github.com/brettatoms/zodiac"}
  {:name "Zodiac Assets",
   :url "https://github.com/brettatoms/zodiac-assets",
   :platforms #{"clj"},
   :key :zodiac-assets,
-  :tags #{"web" "vite" "assets"},
+  :tags #{"web frameworks" "vite" "assets"},
   :repo-url "https://github.com/brettatoms/zodiac-assets"}
  {:name "Zodiac SQL",
   :url "https://github.com/brettatoms/zodiac-sql",
   :platforms #{"clj"},
   :key :zodiac-sql,
-  :tags #{"web" "sql" "jdbc"},
+  :tags #{"web frameworks" "sql" "jdbc"},
   :repo-url "https://github.com/brettatoms/zodiac-sql"}
  {:name "zprint",
   :url "https://github.com/kkinnear/zprint",
