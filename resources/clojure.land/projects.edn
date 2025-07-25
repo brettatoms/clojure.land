@@ -3173,6 +3173,12 @@
   :key :ksml,
   :tags #{"kafka"},
   :repo-url "https://github.com/cddr/ksml"}
+ {:name "Kushi"
+  :url "https://kushi.design/"
+  :key :kushi
+  :platforms #{cljs}
+  :tags #{"css"}
+  :repo-url "https://github.com/kushidesign/kushi"}
  {:name "Lacinia",
   :url "https://github.com/walmartlabs/lacinia",
   :platforms #{"clj"},
