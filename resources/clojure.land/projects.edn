@@ -6291,6 +6291,12 @@
   :key :wabbitmq
   :tags #{"Message Queues" "RabbitMQ Clients"}
   :repo-url "https://github.com/mefesto/wabbitmq"}
+ {:name "Wagontrain"
+  :url "https://github.com/lambdaisland/wagontrain"
+  :platforms #{"clj"}
+  :key :wagontrain
+  :tags #{"Datomic" "Database migrations"}
+  :repo-url "https://github.com/lambdaisland/wagontrain"}
  {:name "Walkable"
   :url "https://github.com/walkable-server/walkable"
   :platforms #{"clj" "cljs"}
