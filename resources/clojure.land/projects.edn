@@ -4548,6 +4548,12 @@
   :key :pyramid
   :tags #{"EQL" "Graphs"}
   :repo-url "https://github.com/lilactown/pyramid"}
+ {:name "QSlice"
+  :url "https://github.com/favila/qslice"
+  :platforms #{"clj"}
+  :key :qslice
+  :tags #{"Datomic" "Datalog"}
+  :repo-url "https://github.com/favila/qslice"}
  {:name "qseq"
   :url "https://github.com/mccraigmccraig/qseq"
   :platforms #{"clj"}
