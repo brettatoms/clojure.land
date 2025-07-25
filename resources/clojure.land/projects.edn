@@ -922,7 +922,7 @@
   :url "https://github.com/steffan-westcott/clj-otel"
   :platforms #{"clj"}
   :key :clj_otel
-  :tags #{"Tracing"}
+  :tags #{"Tracing" "Metrics"}
   :repo-url "https://github.com/steffan-westcott/clj-otel"}
  {:name "clj-pdf"
   :url "https://github.com/yogthos/clj-pdf"
