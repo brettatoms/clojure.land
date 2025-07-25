@@ -219,11 +219,14 @@
         [:meta {:charset "utf-8"}]
         [:meta {:http-equiv "x-ua-compatible" :content "ie=edge"}]
         [:title "Clojure Land"]
-        [:meta {:name "description" :content "A collection of projects, libraries and frameworks for Clojure."}]
+        [:meta {:name "description" :content "Discover open-source Clojure projects."}]
         [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]
         [:script {:src (assets "main.ts")}]
         [:link {:rel "stylesheet" :href (assets "main.css")}]]
        [:body {"hx-on:htmx:after-swap" "document.getElementById('search-input').focus()"}
+        [:div {:class "absolute -top-4 -right-4 scale-30"}
+         [:a {:href "https://github.com/brettatoms/clojure.land"}
+          (icons/github)]]
         [:div {:class "flex flex-col gap-8 m-auto max-w-[1024px]"}
          [:div {:class "self-center pt-8 px-4 md:px-0"}
           [:img {:src (assets "clojure-land-logo-small.jpg")
