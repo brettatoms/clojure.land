@@ -2294,6 +2294,12 @@
   :key :firestore_clj
   :tags #{"Databases"}
   :repo-url "https://github.com/polvotech/firestore-clj"}
+ {:name "fireworks"
+  :url "https://github.com/paintparty/fireworks"
+  :platforms #{"clj" "cljs" "babashka"}
+  :key :fireworks
+  :tags #{"pretty printing" "debugging" "tap"}
+  :repo-url "https://github.com/paintparty/fireworks"}
  {:name "fitter"
   :url "https://github.com/strojure/fitter"
   :platforms #{"clj"}
