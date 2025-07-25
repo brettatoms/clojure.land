@@ -2294,7 +2294,7 @@
   :key :firestore_clj
   :tags #{"Databases"}
   :repo-url "https://github.com/polvotech/firestore-clj"}
- {:name "fireworks"
+ {:name "Fireworks"
   :url "https://github.com/paintparty/fireworks"
   :platforms #{"clj" "cljs" "babashka"}
   :key :fireworks
@@ -3242,6 +3242,12 @@
   :key :langohr
   :tags #{"Message Queues" "RabbitMQ Clients"}
   :repo-url "https://github.com/michaelklishin/langohr"}
+ {:name "Lasertag"
+  :url "https://github.com/paintparty/lasertag"
+  :platforms #{"clj" "cljs" "babashka"}
+  :key :lasertag
+  :tags #{"taxonomy" "tagging" "pretty printing"}
+  :repo-url "https://github.com/paintparty/lasertag"}
  {:name "lasync"
   :url "https://github.com/tolitius/lasync"
   :platforms #{"clj"}
