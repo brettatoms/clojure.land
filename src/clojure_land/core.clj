@@ -38,6 +38,12 @@
   [:span {:class "rounded-lg text-white text-sm bg-slate-600 font-bold px-2 py-1 text-nowrap lowercase"}
    category])
 
+(defn sort-platforms-keyfn [p]
+  (get {"clj" 0
+        "cljs" 1
+        "babashka" 2}
+       p))
+
 (defn project-list-item [{:project/keys [url name description platforms repo-url stars tags]}
                          & {:keys [attrs current-vals]}]
 
@@ -62,8 +68,11 @@
                     :hx-swap "innerHTML"
                     :hx-replace-url "true"
                     :hx-vals (update current-vals "platforms" #(conj % platform))}
+
                 (platform-chip platform)])
-             (some->> (.getArray platforms) (sort)))]
+             ;; override sort order of platforms
+             (some->> (.getArray platforms)
+                      (sort-by sort-platforms-keyfn)))]
       [:div {:class "flex flex-row gap-2 flex-wrap"}
        (mapv (fn [tag]
                [:a {:class "cursor-pointer"
