@@ -66,8 +66,8 @@
                     :hx-get "/"
                     :hx-target "#content"
                     :hx-swap "innerHTML"
-                    :hx-replace-url "true"
-                    :hx-vals (update current-vals "platforms" #(conj % platform))}
+                    :hx-push-url "true"
+                    :hx-vals (js (update current-vals "platforms" #(conj % platform)))}
 
                 (platform-chip platform)])
              ;; override sort order of platforms
@@ -79,7 +79,7 @@
                     :hx-get "/"
                     :hx-target "#content"
                     :hx-swap "innerHTML"
-                    :hx-replace-url "true"
+                    :hx-push-url "true"
                     :hx-vals (js (update current-vals "tags" #(conj % tag)))}
                 (tag-chip tag)])
              (some->> (.getArray tags) (take 4) (sort)))]]]]])
@@ -151,7 +151,7 @@
                                   :hx-get "/"
                                   :hx-target "#content"
                                   :hx-swap "innerHTML"
-                                  :hx-replace-url "true"
+                                  :hx-push-url "true"
                                   :hx-vals (js vals)}
                          [:div {:class "flex flex-row items-center gap-1"}
                           chip
