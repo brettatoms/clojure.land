@@ -110,6 +110,7 @@
             :name "q",
             :class "block w-full rounded-md bg-white py-1.5 pr-3 pl-10 text-base text-gray-900 outline-1 outline-gray-300 focus:outline-offset-0 focus:outline-2 placeholder:text-gray-500 focus:outline-blue-600 sm:pl-9 sm:text-sm/6 border-0"
             :placeholder "Search for projects..."
+            :autofocus true
             :hx-get "/"
             :hx-target "#content"
             :hx-replace-url "true"
@@ -223,7 +224,7 @@
         [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]
         [:script {:src (assets "main.ts")}]
         [:link {:rel "stylesheet" :href (assets "main.css")}]]
-       [:body {"hx-on:htmx:after-swap" "document.getElementById('search-input').focus()"}
+       [:body
         [:div {:class "absolute -top-4 -right-4 scale-30"}
          [:a {:href "https://github.com/brettatoms/clojure.land"}
           (icons/github)]]
