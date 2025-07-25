@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       skip_restart:
-        description: Skip restarting Fly.io apps?
+        description: Restart Fly.io apps?
         type: choice
         options:
           - "true"
           - "false"
-        default: "false"
+        default: "true"
   schedule:
     # Run every Sunday at 2am
     - cron: "0 2 * * 0"
