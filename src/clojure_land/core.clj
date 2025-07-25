@@ -28,6 +28,7 @@
   (let [bg-color (case platform
                    "clj" "bg-[#63b132]"
                    "cljs" "bg-[#5881d8]"
+                   "babashka" "bg-[#ed474a]"
                    "bg-black")]
     [:span {:class (str "rounded-lg text-white text-sm font-bold px-2 py-1 text-nowrap lowercase "
                         bg-color)}
@@ -132,7 +133,7 @@
                                    (string? v) #{v}
                                    :else (set v)))}
 
-    [:set [:enum "clj" "cljs"]]]])
+    [:set [:enum "clj" "cljs" "babashka"]]]])
 
 (defn filter-bar [& {:keys [platforms tags current-vals]}]
   (let [closable-chip (fn [chip vals]
