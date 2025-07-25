@@ -356,6 +356,12 @@
   :key :bishop
   :tags #{"rest"}
   :repo-url "https://github.com/cmiles74/bishop"}
+ {:name "Bling"
+  :url "https://github.com/paintparty/bling"
+  :platforms #{"clj" "cljs" "babashka"}
+  :key :bling
+  :tags #{"console" "terminal" "rich text"}
+  :repo-url "https://github.com/paintparty/bling"}
  {:name "Bogus"
   :url "https://github.com/igrishaev/bogus"
   :platforms #{"clj"}
