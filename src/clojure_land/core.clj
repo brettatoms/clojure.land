@@ -125,14 +125,15 @@
    [:page-size {:default 20} [:int {:min 10}]]
    [:tags {:decode/params (fn [v]
                             (cond
-                              (string? v) [v]
-                              :else v))}
-    [:sequential :string]]
+                              (string? v) #{v}
+                              :else (set v)))}
+    [:set :string]]
    [:platforms {:decode/params (fn [v]
                                  (cond
-                                   (string? v) [v]
-                                   :else v))}
-    [:enum "clj" "cljs"]]])
+                                   (string? v) #{v}
+                                   :else (set v)))}
+
+    [:set [:enum "clj" "cljs"]]]])
 
 (defn filter-bar [& {:keys [platforms tags current-vals]}]
   (let [closable-chip (fn [chip vals]
