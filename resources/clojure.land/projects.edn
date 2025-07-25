@@ -4238,8 +4238,7 @@
   :description
   "An open source tool set for building web applications in Clojure",
   :key :pedestal,
-  :tags
-  #{"Asynchronous HTTP" "Web Frameworks" "Web Server Abstraction"},
+  :tags #{"Asynchronous HTTP" "Web Frameworks" "Web Server Abstraction"},
   :repo-url nil}
  {:name "pegasus",
   :url "https://github.com/shriphani/pegasus",
@@ -6006,6 +6005,12 @@
   :key :trikl,
   :tags #{"GUIs"},
   :repo-url "https://github.com/lambdaisland/trikl"}
+ {:name "Trove",
+  :url "https://www.taoensso.com/trove",
+  :platforms #{"clj" "cljs"},
+  :key :trove,
+  :tags #{"logging"},
+  :repo-url "https://github.com/taoensso/trove"}
  {:name "True Grit",
   :url "https://github.com/KingMob/TrueGrit",
   :platforms #{"clj"},
@@ -6015,7 +6020,6 @@
  {:name "Truss",
   :url "https://www.taoensso.com/truss",
   :platforms #{"clj" "cljs"},
-  :description "Assertions micro-library for Clojure/Script",
   :key :truss,
   :tags #{"Dynamic Typing" "Schema" "Syntax Extensions" "Validation"},
   :repo-url nil}
