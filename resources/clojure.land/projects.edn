@@ -1992,6 +1992,12 @@
   :key :dommy,
   :tags #{"DOM Events" "DOM Manipulation"},
   :repo-url "https://github.com/Prismatic/dommy"}
+ {:name "Domo",
+  :url "https://github.com/kushidesign/domo",
+  :platforms #{"cljs"},
+  :key :domo,
+  :tags #{"DOM Events" "DOM Manipulation"},
+  :repo-url "https://github.com/kushidesign/domo"}
  {:name "Donkey",
   :url "https://github.com/AppsFlyer/donkey",
   :platforms #{"clj"},
