@@ -4245,6 +4245,7 @@
   :tags #{"Binary Data" "Parsing"}
   :repo-url nil}
  {:name "Papillon"
+  :url "https://github.com/lambda-toolshed/papillon"
   :platforms #{"clj" "cljs"}
   :key :papillon
   :tags #{"Interceptors"}
