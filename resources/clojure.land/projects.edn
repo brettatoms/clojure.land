@@ -550,6 +550,11 @@
   :key :caribou
   :tags #{"Web Frameworks"}
   :repo-url "https://github.com/caribou/caribou"}
+ {:name "Caribou"
+  :key :datomic-caribou
+  :platforms #{"clj" "cljs"}
+  :tags #{"Datomic" "Migration"}
+  :repo-url "https://github.com/recbus/caribou"}
  {:name "Carmine"
   :url "https://www.taoensso.com/carmine"
   :platforms #{"clj"}
@@ -4238,6 +4243,11 @@
   :key :parse_struct
   :tags #{"Binary Data" "Parsing"}
   :repo-url nil}
+ {:name "Papillon"
+  :platforms #{"clj" "cljs"}
+  :key :papillon
+  :tags #{"Interceptors"}
+  :repo-url "https://github.com/lambda-toolshed/papillon"}
  {:name "Pathom"
   :url "https://github.com/wilkerlucio/pathom"
   :platforms #{"clj" "cljs"}
