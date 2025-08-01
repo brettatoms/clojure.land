@@ -227,6 +227,18 @@
   :key :aws_api
   :tags #{"Amazon Web Services (AWS)"}
   :repo-url "https://github.com/cognitect-labs/aws-api"}
+ {:name "aws-simple-sign"
+  :url "https://github.com/jacobemcken/aws-simple-sign"
+  :platforms #{"clj" "babashka"}
+  :key :aws_simple_sign
+  :tags #{"Amazon Web Services (AWS)" "S3"}
+  :repo-url "https://github.com/jacobemcken/aws-simple-sign"}
+ {:name "awyeah-api"
+  :url "https://github.com/grzm/awyeah-api"
+  :platforms #{"clj" "babashka"}
+  :key :awyeah_api
+  :tags #{"Amazon Web Services (AWS)"}
+  :repo-url "https://github.com/grzm/awyeah-api"}
  {:name "babashka"
   :url "https://github.com/borkdude/babashka"
   :platforms #{"clj"}
