@@ -540,6 +540,7 @@
   :repo-url "https://github.com/caribou/caribou"}
  {:name "Caribou"
   :key :datomic-caribou
+  :platforms #{"clj" "cljs"}
   :tags #{"Datomic" "Migration"}
   :repo-url "https://github.com/recbus/caribou"}
  {:name "Carmine"
