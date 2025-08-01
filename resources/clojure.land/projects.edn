@@ -551,6 +551,7 @@
   :tags #{"Web Frameworks"}
   :repo-url "https://github.com/caribou/caribou"}
  {:name "Caribou"
+  :url "https://github.com/recbus/caribou"
   :key :datomic-caribou
   :platforms #{"clj" "cljs"}
   :tags #{"Datomic" "Migration"}
