@@ -3209,6 +3209,12 @@
   :key :ksml
   :tags #{"kafka"}
   :repo-url "https://github.com/cddr/ksml"}
+ {:name "Kubb"
+  :url "https://github.com/jonasseglare/kubb"
+  :key :kubb
+  :platforms #{"babashka"}
+  :tags #{"kubernetes"}
+  :repo-url "https://github.com/jonasseglare/kubb"}
  {:name "Kushi"
   :url "https://kushi.design/"
   :key :kushi
@@ -4486,11 +4492,11 @@
   :tags #{"tools.deps"}
   :repo-url "https://github.com/practicalli/clojure-deps-edn"}
  {:name "Pretty"
-  :url "https://github.com/AvisoNovate/pretty"
+  :url "https://github.com/clj-commons/pretty"
   :platforms #{"clj"}
   :key :pretty
   :tags #{"Exception Handling" "Pretty Printing" "Terminal Utilities"}
-  :repo-url "https://github.com/AvisoNovate/pretty"}
+  :repo-url "https://github.com/clj-commons/pretty"}
  {:name "prism"
   :url "https://github.com/aphyr/prism"
   :platforms #{"clj"}
@@ -4534,7 +4540,7 @@
   :url "https://github.com/greglook/puget"
   :platforms #{"clj"}
   :key :puget
-  :tags #{"Command Line Tools"}
+  :tags #{"Command Line Tools" "Pretty Printing"}
   :repo-url "https://github.com/greglook/puget"}
  {:name "pulley.cps"
   :url "https://github.com/positronic-solutions/pulley.cps"
@@ -6285,6 +6291,12 @@
   :key :vim-clojure
   :tags #{"vim"}
   :repo-url "https://github.com/vim-scripts/VimClojure"}
+ {:name "Virhe"
+  :url "https://github.com/metosin/virhe"
+  :platforms #{"clj" "cljs"}
+  :key :virhe
+  :tags #{"Pretty Printing"}
+  :repo-url "https://github.com/metosin/virhe"}
  {:name "Viscous"
   :url "https://github.com/phronmophobic/viscous"
   :platforms #{"clj" "cljs"}
@@ -6369,6 +6381,12 @@
   :key :where
   :tags #{"Predicates"}
   :repo-url "https://github.com/BrunoBonacci/where"}
+ {:name "Whidbey"
+  :url "https://github.com/greglook/whidbey"
+  :platforms #{"clj"}
+  :key :whidbey
+  :tags #{"Pretty printing" "nREPL Middleware"}
+  :repo-url "https://github.com/greglook/whidbey"}
  {:name "willa"
   :url "https://github.com/DaveWM/willa"
   :platforms #{"clj"}
