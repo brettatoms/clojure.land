@@ -1,0 +1,21 @@
+name: Validate Projects
+
+on:
+  pull_request:
+    types: [opened]
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: Validate projects
+    runs-on: ubuntu-latest
+    concurrency: deploy-group # optional: ensure only one action runs at a time
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeLaGuardo/setup-clojure@13.4
+        with:
+          cli: 1.12.1.1550
+      - name: Validate projects
+        run: clojure -X:validate-projects

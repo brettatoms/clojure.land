@@ -1,9 +1,23 @@
 (ns clojure-land.projects
-  (:require [clojure.java.io :as io]
-            [clojure-land.github :as github]
+  (:require [clojure-land.github :as github]
             [clojure-land.s3 :as s3]
             [clojure.edn :as edn]
-            [clojure.tools.logging :as log]))
+            [clojure.java.io :as io]
+            [clojure.tools.logging :as log]
+            [malli.core :as m]
+            [malli.dev.pretty :as mp]
+            [malli.dev.virhe :as mv]
+            [malli.error :as me]))
+
+(def Project
+  [:map
+   [:name :string]
+   [:url :string]
+   [:key :keyword]
+   [:repo-url {:optional true} [:maybe :string]]
+   [:tags {:optional true} [:set :string]]
+   [:platforms  [:set [:enum "clj" "cljs" "babashka"]]]
+   [:ignore {:optional true} :boolean]])
 
 (defn read-projects-edn []
   (-> (io/resource "clojure.land/projects.edn")
@@ -42,6 +56,28 @@
      (s3/put-object s3-client {:Bucket (System/getenv "BUCKET_NAME")
                                :Key "project.edn"
                                :Body (pr-str projects)}))))
+
+;; override the ::m/explain formatter so we print out the specific project record that
+;; doesn't validate rather than the entire projects.edn map
+(defmethod mv/-format ::m/explain [_ {:keys [errors schema value] :as explanation} printer]
+  {:body [:group
+          (mv/-block "Value" (mv/-visit (get-in value (-> errors first :in butlast)) printer) printer) :break :break
+          (mv/-block "Errors" (mv/-visit (me/humanize (me/with-spell-checking explanation)) printer) printer) :break :break
+          (mv/-block "Schema" (mv/-visit schema printer) printer) :break :break
+          (mv/-block "More information" (mv/-link "https://cljdoc.org/d/metosin/malli/CURRENT" printer) printer)]})
+
+(defn validate-projects
+  ([]
+   (-> (io/resource "clojure.land/projects.edn")
+       (slurp)
+       (edn/read-string)
+       (validate-projects)))
+  ([projects]
+   (mp/explain [:sequential Project] projects)))
+
+(defn -validate-projects-exec-fn [& _]
+  (when (seq (validate-projects))
+    (System/exit 1)))
 
 (comment
   (let [s3-client (s3/client {:endpoint-url (System/getenv "AWS_ENDPOINT_URL_S3")

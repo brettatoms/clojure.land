@@ -28,5 +28,6 @@
                           slipset/deps-deploy {:mvn/version "0.2.2"}}
                    :ns-default build}
            :sync-projects {:exec-fn clojure-land.projects/sync-remote-projects-edn}
+           :validate-projects {:exec-fn clojure-land.projects/-validate-projects-exec-fn}
            :main {:jvm-opts ["-Duser.timezone=UTC"]
                   :main-opts ["-m" "clojure-land.main"]}}}
