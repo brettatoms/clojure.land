@@ -1228,6 +1228,12 @@
   :key :clojure_log4j2
   :tags #{"Logging"}
   :repo-url "https://github.com/henryw374/clojure.log4j2"}
+ {:name "clojure-mcp"
+  :url "https://github.com/bhauman/clojure-mcp"
+  :platforms #{"clj"}
+  :key :clojure-mcp
+  :tags #{"AI" "MCP"}
+  :repo-url "https://github.com/bhauman/clojure-mcp"}
  {:name "Clojure Mode"
   :url "https://github.com/clojure-emacs/clojure-mode"
   :platforms #{"clj" "cljs"}
@@ -1826,6 +1832,12 @@
   :key :datascript
   :tags #{"Databases"}
   :repo-url "https://github.com/tonsky/datascript"}
+ {:name "DataScript MCP Server"
+  :url "https://github.com/xlisp/datascript-mcp-server"
+  :platforms #{"clj"}
+  :key :datascript-mcp-server
+  :tags #{"AI" "MCP"}
+  :repo-url "https://github.com/xlisp/datascript-mcp-server"}
  {:name "datascript-transit"
   :url "https://github.com/tonsky/datascript-transit"
   :platforms #{"clj" "cljs"}
@@ -2113,6 +2125,24 @@
   :key :edamame
   :tags #{"Parsing" "edn"}
   :repo-url "https://github.com/borkdude/edamame"}
+ {:name "ECA (Editor Code Assistant) "
+  :url "https://eca.dev/"
+  :platforms #{"clj"}
+  :key :editor-code-assistant
+  :tags #{"AI" "Code Editors"}
+  :repo-url "https://github.com/editor-code-assistant/eca"}
+ {:name "ECA Emacs"
+  :url "https://github.com/editor-code-assistant/eca-emacs"
+  :platforms #{"clj"}
+  :key :eca-emacs
+  :tags #{"AI" "Code Editors" "Emacs"}
+  :repo-url "https://github.com/editor-code-assistant/eca-emacs"}
+ {:name "ECA VS Code"
+  :url "https://github.com/editor-code-assistant/eca-vscode"
+  :platforms #{"clj"}
+  :key :eca-vscode
+  :tags #{"AI" "Code Editors" "VSCode"}
+  :repo-url "https://github.com/editor-code-assistant/eca-vscode"}
  {:name "EditScript"
   :url "https://github.com/juji-io/editscript"
   :platforms #{"clj" "cljs"}
@@ -2911,6 +2941,12 @@
   :key :java_jmx
   :tags #{"Java Integration"}
   :repo-url "https://github.com/clojure/java.jmx"}
+ {:name "java-probe"
+  :url "https://github.com/fulcrologic/java-probe"
+  :platforms #{"clj"}
+  :key :java-probe
+  :tags #{"Java Integration"}
+  :repo-url "https://github.com/fulcrologic/java-probe"}
  {:name "java-time"
   :url "https://github.com/dm3/clojure.java-time"
   :platforms #{"clj"}
@@ -3656,6 +3692,18 @@
   :key :math_numeric_tower
   :tags #{"Math"}
   :repo-url "https://github.com/clojure/math.numeric-tower"}
+ {:name "MCP Server"
+  :url "https://github.com/RokLenarcic/mcp-server"
+  :platforms #{"clj"}
+  :key :mcp-server
+  :tags #{"AI" "MCP"}
+  :repo-url "https://github.com/RokLenarcic/mcp-server"}
+ {:name "MCP Toolkit"
+  :url "https://github.com/metosin/mcp-toolkit"
+  :platforms #{"clj" "cljs"}
+  :key :mcp-toolkit
+  :tags #{"AI" "MCP"}
+  :repo-url "https://github.com/metosin/mcp-toolkit"}
  {:name "Meander"
   :url "https://github.com/noprompt/meander"
   :platforms #{"clj" "cljs"}
@@ -4573,6 +4621,12 @@
   :key :pyramid
   :tags #{"EQL" "Graphs"}
   :repo-url "https://github.com/lilactown/pyramid"}
+ {:name "QClojure"
+  :url "https://github.com/lsolbach/qclojure"
+  :platforms #{"clj"}
+  :key :qclojure
+  :tags #{"Quantum computing"}
+  :repo-url "https://github.com/lsolbach/qclojure"}
  {:name "QSlice"
   :url "https://github.com/favila/qslice"
   :platforms #{"clj"}
@@ -4765,6 +4819,12 @@
   :key :repetition_hunter
   :tags #{"Code Analysis"}
   :repo-url "https://github.com/mynomoto/repetition-hunter"}
+ {:name "repl-mcp"
+  :url "https://github.com/simm-is/repl-mcp"
+  :platforms #{"clj"}
+  :key :repl-mcp
+  :tags #{"AI" "MCP"}
+  :repo-url "https://github.com/simm-is/repl-mcp"}
  {:name "replikativ"
   :url "https://github.com/replikativ/replikativ"
   :platforms #{"clj" "cljs"}
