@@ -21,4 +21,4 @@ Additional project metadata is synced weekly for repositories with a GitHub repo
 
 ### Acknowledgements
 
-- [weavejester](https://github.com/weavejester/): This site was inspired by the [The Clojure Toolbox](https://www.clojure-toolbox.com/) and provided starting point for the the project data.
+- [weavejester](https://github.com/weavejester/): This site was inspired by the [The Clojure Toolbox](https://www.clojure-toolbox.com/) and provided the starting point for the project data.
