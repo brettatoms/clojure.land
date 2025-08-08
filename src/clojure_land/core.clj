@@ -176,7 +176,7 @@
     (cond-> {:select [:*]
              :from :project
              :where [:and true]
-             :order-by [:name]}
+             :order-by [[[:lower :name]]]}
       (seq q)
       (update :where #(conj % [:or
                                [:ilike :name (str "%" (str/lower-case q) "%")]
