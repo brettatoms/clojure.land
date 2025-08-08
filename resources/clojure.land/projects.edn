@@ -430,7 +430,7 @@
   :tags #{"React Interfaces"}
   :repo-url "https://github.com/weavejester/brutha"}
  {:name "Buddy"
-  :url "https://github.com/niwibe/buddy"
+  :url "https://github.com/funcool/buddy"
   :platforms #{"clj"}
   :key :buddy
   :tags
@@ -439,7 +439,8 @@
     "Cryptography"
     "Hashing"
     "Password Security"}
-  :repo-url "https://github.com/niwibe/buddy"}
+  :deprecated true
+  :repo-url "https://github.com/funcool/buddy"}
  {:name "Buddy-Auth"
   :url "https://github.com/funcool/buddy-auth"
   :platforms #{"clj"}
@@ -1850,6 +1851,12 @@
   :key :datasplash
   :tags #{"Google Dataflow"}
   :repo-url "https://github.com/ngrunwald/datasplash"}
+ {:name "Datastar Clojure SDK"
+  :url "https://github.com/starfederation/datastar-clojure"
+  :platforms #{"clj"}
+  :key :datastar-clojure
+  :tags #{"Datastar" "Web Frameworks"}
+  :repo-url "https://github.com/starfederation/datastar-clojure"}
  {:name "Datawalk"
   :url "https://github.com/eggsyntax/datawalk"
   :platforms #{"clj" "cljs"}
