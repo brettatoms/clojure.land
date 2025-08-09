@@ -43,11 +43,10 @@
          github-client (github/->GitHubClient request)
          projects (->> (read-projects-edn)
                        (remove :ignore)
-                       (filter #(some? (:repo-url %)))
-                       (filter #(re-matches #".*?github.*?" (:repo-url %)))
                        (pmap (fn [{:keys [key repo-url] :as project}]
                                (log/debug "Updating project: " key)
-                               (if (re-matches #".*?github.*?" repo-url)
+                               (if (and repo-url
+                                        (re-matches #".*?github.*?" repo-url))
                                  (github/update-project-from-repo github-client project)
                                  project))))
          s3-client (s3/client {:endpoint-url (System/getenv "AWS_ENDPOINT_URL_S3")
