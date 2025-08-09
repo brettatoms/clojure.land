@@ -10,4 +10,5 @@
  :clojure-land.db/populate {:bucket-name #env BUCKET_NAME
                             :s3 #ig/ref :clojure-land.s3/client
                             :zodiac #ig/ref :clojure-land.core/zodiac
+                            :local-projects? #boolean #or [#env USE_LOCAL_PROJECTS "false"]
                             :__ #ig/ref :clojure-land.db/create}}
