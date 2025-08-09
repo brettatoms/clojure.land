@@ -9,6 +9,7 @@
             [integrant.core :as ig]
             [malli.core :as m]
             [malli.transform :as mt]
+            [ring.middleware.logger :as ring.logger]
             [taoensso.telemere] ;; setup logging side-effects
             [taoensso.telemere.tools-logging :refer [tools-logging->telemere!]]
             [zodiac.core :as z]
@@ -286,7 +287,8 @@
                :sort sort))))
 
 (defn routes []
-  [["/" {:get #'handler}]
+  ["" {:middleware [[ring.logger/wrap-with-logger]]}
+   ["/" {:get #'handler}]
    ["/_status" {:get (constantly {:status 204})}]])
 
 (defmethod ig/init-key ::zodiac [_ config]
