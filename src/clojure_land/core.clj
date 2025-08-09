@@ -44,18 +44,19 @@
         "babashka" 2}
        p))
 
-(defn project-list-item [{:project/keys [archived url name description platforms repo-url stars tags]}
-                         & {:keys [attrs current-vals]}]
+(defn project-list-item [{:project/keys [archived description last-pushed-at name platforms repo-url stars tags url]}
+                         & {:keys [attrs]}]
   [:li (merge {:class "relative flex justify-between gap-x-6 py-4 col-span-6 md:col-span-4 mx-6 md:mx-2 md:col-start-2"}
               attrs)
    [:div {:class "flex flex-row w-full"}
     [:div {:class "flex flex-col gap-2 w-full"}
-     [:div {:class "flex flex-row gap-4 items-center"}
+     [:div {:class "flex flex-row gap-4 items-start md:items-center"}
       [:a {:class "font-bold text-2xl hover:underline" :href url} name]
       (when archived
         [:span {:title "archived"} (icons/lock)])
       (when stars
         [:a {:class "flex flex-row flex-1 justify-end gap-2 hover:underline"
+             :title (str "Last updated " last-pushed-at)
              :href repo-url}
          (icons/star)
          [:span stars]])]
@@ -65,11 +66,12 @@
        (mapv (fn [platform]
                [:a {:class "cursor-pointer"
                     :hx-get "/"
-                    :hx-target "#content"
-                    :hx-swap "innerHTML"
+                    :hx-swap "outerHTML"
                     :hx-push-url "true"
-                    :hx-vals (js (update current-vals "platforms" #(conj % platform)))}
-
+                    :hx-include "inherit"
+                    ;; Add a hidden input so the value is included when the request is
+                    ;; made. This won't exist after the content is swapped.
+                    :hx-on:click (format "appendPlatformInput('%s')" platform)}
                 (platform-chip platform)])
              ;; override sort order of platforms
              (some->> (.getArray platforms)
@@ -78,17 +80,18 @@
        (mapv (fn [tag]
                [:a {:class "cursor-pointer"
                     :hx-get "/"
-                    :hx-target "#content"
-                    :hx-swap "innerHTML"
+                    :hx-swap "outerHTML"
                     :hx-push-url "true"
-                    :hx-vals (js (update current-vals "tags" #(conj % tag)))}
+                    :hx-include "inherit"
+                    ;; Add a hidden input so the value is included when the reques is made
+                    :hx-on:click (format "appendTagInput('%s')" tag)}
                 (tag-chip tag)])
              (some->> (.getArray tags) (take 4) (sort)))]]]]])
 
-(defn project-list [projects & {:keys [next-page current-vals]}]
+(defn project-list [projects & {:keys [next-page]}]
   (let [num-projects (count projects)]
     [:ul {:id "project-list"
-          :class "grid grid-cols-6 gap-2 divide-y divide-gray-100 mt-6"}
+          :class "grid grid-cols-6 gap-2 divide-y divide-gray-100"}
      (vec (map-indexed (fn [idx p]
                          (let [attrs (when (and (= idx (- num-projects 2))
                                                 (> num-projects 10))
@@ -96,28 +99,27 @@
                                         :hx-target "#project-list"
                                         :hx-select "#project-list li"
                                         :hx-swap "beforeend"
-                                        :hx-vals (js (cond-> current-vals
-                                                       (some? next-page) (assoc :page next-page)))
+                                        :hx-include "inherit"
+                                        :hx-vals (js {"page" next-page})
                                         :hx-trigger "revealed"})]
-                           (project-list-item p
-                                              :attrs attrs
-                                              :current-vals current-vals)))
+                           (project-list-item p :attrs attrs)))
                        projects))]))
 
-(defn search-form [q & {:keys [current-vals]}]
-  [:form {:class "col-span-6 md:col-span-4 md:col-start-2 px-6 md:px-2 md:pt-2 w-full"}
-   [:input {:type "text",
-            :id "search-input"
-            :name "q",
-            :class "block w-full rounded-md bg-white py-1.5 pr-3 pl-10 text-base text-gray-900 outline-1 outline-gray-300 focus:outline-offset-0 focus:outline-2 placeholder:text-gray-500 focus:outline-blue-600 sm:pl-9 sm:text-sm/6 border-0"
-            :placeholder "Search for projects..."
-            :autofocus true
-            :hx-get "/"
-            :hx-target "#content"
-            :hx-replace-url "true"
-            :hx-trigger "input changed delay:250ms, keyup[key=='Enter']"
-            :value q
-            :hx-vals (js (dissoc current-vals "q"))}]])
+(defn search-input [q]
+  [:input {:type "text",
+           :id "q"
+           :name "q",
+           :value q
+           :class "block w-full rounded-md bg-white py-1.5 pr-3 pl-10 text-base text-gray-900 outline-1 outline-gray-300 focus:outline-offset-0 focus:outline-2 placeholder:text-gray-500 focus:outline-blue-600 sm:pl-9 sm:text-sm/6 border-0"
+           :placeholder "Search for projects..."
+           :autofocus true
+           :hx-get "/"
+           :hx-replace-url "true"
+           :hx-trigger "input changed delay:250ms, keyup[key=='Enter']"
+           :hx-swap "outerHTML"
+           :hx-include "inherit"
+            ;; prevent the swap from undoing input if the user if typing fast
+           :hx-preserve true}])
 
 (def params-transformer (mt/transformer
                          (mt/key-transformer {:decode (fn [k]
@@ -132,6 +134,7 @@
 (def QueryParams
   [:map
    [:q :string]
+   [:sort {:decode/params keyword} [:enum :date :name :stars]]
    [:page [:int {:min 1 :default 1}]]
    [:page-size {:default 20} [:int {:min 10}]]
    [:tags {:decode/params (fn [v]
@@ -146,38 +149,67 @@
 
     [:set [:enum "clj" "cljs" "babashka"]]]])
 
-(defn filter-bar [& {:keys [platforms tags current-vals]}]
-  (let [closable-chip (fn [chip vals]
+(defn filter-bar [& {:keys [platforms tags]}]
+  (let [closable-chip (fn [name value chip]
+                        ;; TODO: Instead of messing with vals could we use alpine to
+                        ;; remove this button or a hidden input and then submit the form?
                         [:button {:type "button"
                                   :class "cursor-pointer"
                                   :hx-get "/"
-                                  :hx-target "#content"
-                                  :hx-swap "innerHTML"
+                                  :hx-swap "outerHTML"
                                   :hx-push-url "true"
-                                  :hx-vals (js vals)}
+                                  :hx-include "inherit"
+                                  :hx-on:click (format "htmx.remove(htmx.find('input[value=\"%s\"]')); " value)}
                          [:div {:class "flex flex-row items-center gap-1"}
+                          [:input {:type "hidden"
+                                   :name name
+                                   :value value}]
                           chip
                           (chassis/raw "&times;")]])]
     [:div {:id "filter-bar"
            :class "flex flex-row gap-4 col-span-6 md:col-span-4 mx-6 md:mx-2 md:col-start-2 mt-4"}
      (mapv (fn [platform]
              (closable-chip
-              (platform-chip platform)
-              (update current-vals "platforms" #(remove (partial = platform) %))))
+              "platforms"
+              platform
+              (platform-chip platform)))
            platforms)
      (mapv (fn [tag]
              (closable-chip
-              (tag-chip tag)
-              (update current-vals "tags" #(remove (partial = tag) %))))
+              "tags"
+              tag
+              (tag-chip tag)))
            tags)]))
 
-(defn projects-stmt [& {:keys [q platforms tags]}]
+(defn sort-select [value]
+  [:dive {:class "flex justify-end items-center gap-2 col-span-6 md:col-span-4 md:col-start-2"}
+   (icons/bars-arrow-down)
+   [:select {:id "sort"
+             :name "sort"
+             :value (if value (name value) "date")
+             :class "rounded-md outline-1 outline-gray-300 border-0 text-sm/5 min-w-40"
+             :hx-get "/"
+             :hx-swap "outerHTML"
+             :hx-push-url "true"
+             :hx-include "inherit"
+             :hx-trigger "change"
+             :hx-preserve true}
+    [:option {:value "date" :selected (= value :date)} "Last updated"]
+    [:option {:value "name" :selected (= value :name)} "Name"]
+    [:option {:value "stars" :selected (= value :stars)} "Stars"]]])
+
+(defn projects-stmt [& {:keys [q platforms tags sort]}]
   (let [platforms-conds (mapv #(vector :array_contains :platforms %) platforms)
-        tags-conds (mapv #(vector :array_contains :tags %) tags)]
+        tags-conds (mapv #(vector :array_contains :tags %) tags)
+        order-by (case sort
+                   :name [[[:lower :name]]]
+                   :date [[:last-pushed-at  :desc]]
+                   :stars [[:stars  :desc]]
+                   [[:last-pushed-at  :desc]])]
     (cond-> {:select [:*]
              :from :project
              :where [:and true]
-             :order-by [[[:lower :name]]]}
+             :order-by order-by}
       (seq q)
       (update :where #(conj % [:or
                                [:ilike :name (str "%" (str/lower-case q) "%")]
@@ -188,26 +220,28 @@
       (seq tags-conds)
       (update :where #(into % tags-conds)))))
 
-(defn content [& {:keys [q platforms tags projects next-page]}]
-  (let [current-vals  (cond-> {}
-                        q (assoc "q" q)
-                        platforms (assoc "platforms" platforms)
-                        tags (assoc "tags" tags))]
-    [:div {:id "content"}
-     [:div {:id "form-container"
-            :class "grid grid-cols-6"}
-      (search-form q :current-vals current-vals)
-      (filter-bar :platforms platforms :tags tags :current-vals current-vals)]
-     (project-list projects :current-vals current-vals :next-page next-page)]))
+(defn content [& {:keys [q platforms tags projects next-page sort]}]
+  [:main {:id "content"
+          :hx-include "select#sort, input#q, input[name='tags'], input[name='platforms']"
+          :hx-target "#content"}
+   [:div {:id "form-container"
+          :class "grid grid-cols-6"}
+    [:form {:id "form"
+            :class "col-span-6 md:col-span-4 md:col-start-2 px-6 md:px-2 md:pt-2 w-full"}
+     (search-input q)
+     (filter-bar :platforms platforms :tags tags)
+     (sort-select sort)]]
+   (project-list projects :next-page next-page)])
 
 (defn handler [{:keys [headers params ::z/context] :as _request}]
   (let [{::z.assets/keys [assets]
          ::z.sql/keys [db]} context
         hx-request? (= (get headers "hx-request") "true")
-        {:keys [q page page-size tags platforms]} (m/decode QueryParams params params-transformer)
+        {:keys [q page page-size platforms sort tags]} (m/decode QueryParams params params-transformer)
         stmt (projects-stmt :q q
                             :platforms platforms
-                            :tags tags)
+                            :tags tags
+                            :sort sort)
         offset (* (dec page) page-size)
         projects (z.sql/execute! db (assoc stmt
                                            :offset offset
@@ -233,12 +267,12 @@
          [:div {:class "self-center pt-8 px-4 md:px-0"}
           [:img {:src (assets "clojure-land-logo-small.jpg")
                  :class "max-h-32"}]]
-         [:div {:id "content"}
-          (content :q q
-                   :tags tags
-                   :projects projects
-                   :platforms platforms
-                   :next-page next-page)]
+         (content :q q
+                  :tags tags
+                  :projects projects
+                  :platforms platforms
+                  :next-page next-page
+                  :sort sort)
          [:div {:class "flex flex-row justify-center items-center mt-32 mb-32"}
           [:img {:src (assets "the-end-4.png")
                  :class "max-h-8"}]]]]]
@@ -248,7 +282,8 @@
                :tags tags
                :projects projects
                :platforms platforms
-               :next-page next-page))))
+               :next-page next-page
+               :sort sort))))
 
 (defn routes []
   [["/" {:get #'handler}]

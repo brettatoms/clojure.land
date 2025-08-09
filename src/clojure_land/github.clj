@@ -33,11 +33,13 @@
   (let [[_ repo-name] (re-matches #"^https?://github.com/(.*?)/?$" repo-url)
         _ (when-not repo-name (throw (ex-info "Could not get repo name for project" {:project project})))
         repo-name (str/lower-case repo-name)
-        {:keys [archived description stargazers_count]} (.get-repo github-client repo-name)]
+        {:keys [description stargazers_count pushed_at]} (.get-repo github-client repo-name)]
     (cond-> project
       (empty? (:description project))
       (assoc :description description)
 
       :always
+      ;; We only need to explicitly assoc keys if we want them to use a different name in
+      ;; the database
       (assoc :stars stargazers_count
-             :archived archived))))
+             :last-pushed-at pushed_at))))

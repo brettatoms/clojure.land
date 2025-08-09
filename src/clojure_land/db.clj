@@ -7,8 +7,9 @@
   (let [db (::z.sql/db zodiac)]
     (z.sql/execute! db {:drop-table [:if-exists :project]})
     (z.sql/execute! db {:create-table [:project :if-not-exists]
-                        :with-columns [[:description :text]
-                                       [:archived :boolean]
+                        :with-columns [[:archived :boolean]
+                                       [:description :text]
+                                       [:last_pushed_at [:raw "timestamp with time zone"]]
                                        #_["key" :text [:not nil]]
                                        [:platforms :text :array]
                                        [:name :text [:not nil]]
@@ -24,7 +25,8 @@
         ;;          (clojure.edn/read-string))
         data (projects/fetch-remote-projects s3 bucket-name)
         ;; The columns need to be in the same order as the :with-columns when creating the table
-        columns [#_:key :archived :description :platforms :name :repo-url :stars :tags :url]
+        columns [#_:key :archived :description :last-pushed-at :platforms :name :repo-url
+                 :stars :tags :url]
         empty-row  (zipmap columns (repeat nil))
         normalize (fn [p]
                     (-> (merge empty-row p)
