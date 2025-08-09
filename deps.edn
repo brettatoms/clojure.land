@@ -27,7 +27,22 @@
            :build {:deps {io.github.clojure/tools.build {:mvn/version "0.10.7"}
                           slipset/deps-deploy {:mvn/version "0.2.2"}}
                    :ns-default build}
+
+           ;; Update the remote project data
            :sync-projects {:exec-fn clojure-land.projects/sync-remote-projects-edn}
+
+           ;; Validate the project data
            :validate-projects {:exec-fn clojure-land.projects/-validate-projects-exec-fn}
+
+            ;; clojure -M:cljfmt check|fix components bases projects
+           :cljfmt {:extra-deps {dev.weavejester/cljfmt {:mvn/version "0.13.1"}}
+                    :main-opts  ["-m" "cljfmt.main"]}
+
+           ;; Run clj-kondo. Also see ./clj-kondo/config.edn for other configuration
+           ;; settings. clojure -M:clj-kondo
+           :clj-kondo {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2025.07.28"}}
+                       :main-opts  ["-m" "clj-kondo.main"]}
+
+           ;; Start the server
            :main {:jvm-opts ["-Duser.timezone=UTC"]
                   :main-opts ["-m" "clojure-land.main"]}}}

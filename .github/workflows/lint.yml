@@ -9,7 +9,7 @@ on:
 
 jobs:
   deploy:
-    name: Validate projects
+    name: Lint
     runs-on: ubuntu-latest
     concurrency: deploy-group # optional: ensure only one action runs at a time
     steps:
@@ -19,3 +19,7 @@ jobs:
           cli: 1.12.1.1550
       - name: Validate projects
         run: clojure -X:validate-projects
+      - name: cljfmt
+        run: clojure -M:cljfmt check
+      - name: clj-kondo
+        run: clojure -M:clj-kondo --parallel --lint src --fail-level error
