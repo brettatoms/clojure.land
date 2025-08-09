@@ -22,4 +22,4 @@ jobs:
       - name: cljfmt
         run: clojure -M:cljfmt check
       - name: clj-kondo
-        run: clojure -M:clj-kondo --parallel --lint src --fail-level error
+        run: clojure -M:clj-kondo --parallel --fail-level error --lint src

@@ -19,6 +19,27 @@ To add a new project open a PR to edit  [resources/clojure.land/projects.edn](./
 
 Additional project metadata is synced weekly for repositories with a GitHub repo url.
 
-### Acknowledgements
+## Local Development
+
+### Environment variables
+
+- `GITHUB_API_TOKEN`: Needed to update update the local project data with the repo data.
+- `USE_LOCAL_PROJECTS`: Set to `true` if you don't want to use or don't have access to the
+  remote projects.edn when running locally
+
+The following environemnt variables are required to pushed the update project data to an S3 compatible API.
+ - `AWS_ACCESS_KEY_ID`
+ - `AWS_ENDPOINT_URL_S3`
+ - `AWS_REGION`
+ - `AWS_SECRET_ACCESS_KEY`
+ - `BUCKET_NAME`
+
+### Start the server locally
+
+```
+user> (go)
+```
+
+## Acknowledgements
 
 - [weavejester](https://github.com/weavejester/): This site was inspired by the [The Clojure Toolbox](https://www.clojure-toolbox.com/) and provided the starting point for the project data.
