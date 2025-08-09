@@ -563,7 +563,7 @@
   :description "Redis client + message queue for Clojure"
   :key :carmine
   :tags #{"Message Queues" "Redis Clients"}
-  :repo-url nil}
+  :repo-url "https://github.com/taoensso/carmine"}
  {:name "cartus"
   :url "https://github.com/logicblocks/cartus"
   :platforms #{"clj"}
@@ -637,12 +637,12 @@
   :key :cbass
   :tags #{"HBase Clients"}
   :repo-url "https://github.com/tolitius/cbass"}
- {:name "CDT"
+ {:name "CDT - The Clojure Debugging Toolkit"
   :url "http://georgejahad.com/clojure/cdt.html"
   :platforms #{"clj"}
   :key :cdt
   :tags #{"Debugging"}
-  :repo-url nil}
+  :repo-url "https://github.com/georgejahad/cdt"}
  {:name "Cegdown"
   :url "https://github.com/Raynes/cegdown"
   :platforms #{"clj"}
@@ -758,7 +758,7 @@
   :platforms #{"clj" "cljs"}
   :key :clara
   :tags #{"Logic Programming" "Rule Engine"}
-  :repo-url nil}
+  :repo-url "https://github.com/oracle-samples/clara-rules"}
  {:name "clara-eav"
   :url "https://github.com/clyfe/clara-eav"
   :platforms #{"clj" "cljs"}
@@ -1282,7 +1282,7 @@
   :platforms #{"clj"}
   :key :clojurecl
   :tags #{"OpenCL"}
-  :repo-url nil}
+  :repo-url "https://github.com/uncomplicate/clojurecl"}
  {:name "clojurephant"
   :url "https://github.com/clojurephant/clojurephant"
   :platforms #{"clj" "cljs"}
@@ -1393,6 +1393,7 @@
   :platforms #{"clj"}
   :key :cmql
   :tags #{"MongoDB Clients"}
+  :ignore true
   :repo-url nil}
  {:name "Coast"
   :url "https://github.com/coast-framework/coast"
@@ -1732,7 +1733,7 @@
   :platforms #{"clj"}
   :key :cursive
   :tags #{"IDE Integration"}
-  :repo-url nil}
+  :repo-url "https://cursive-ide.com"}
  {:name "cypress-clojurescript-preprocessor"
   :url "https://github.com/viesti/cypress-clojurescript-preprocessor"
   :platforms #{"cljs"}
@@ -2200,7 +2201,7 @@
   :description "Core utils library for Clojure/Script"
   :key :encore
   :tags #{"Misc. Functions"}
-  :repo-url nil}
+  :repo-url "https://github.com/taoensso/encore"}
  {:name "Endophile"
   :url "https://github.com/theJohnnyBrown/endophile"
   :platforms #{"clj"}
@@ -2318,7 +2319,7 @@
   :description "Amazon DynamoDB client for Clojure"
   :key :faraday
   :tags #{"DynamoDB Clients"}
-  :repo-url nil}
+  :repo-url "https://github.com/taoensso/faraday"}
  {:name "fast-zip"
   :url "https://github.com/akhudek/fast-zip"
   :platforms #{"clj"}
@@ -2403,7 +2404,7 @@
   :platforms #{"clj"}
   :key :fluokitten
   :tags #{"Functional Programming" "Monads"}
-  :repo-url nil}
+  :repo-url "https://github.com/uncomplicate/fluokitten"}
  {:name "Flupot"
   :url "https://github.com/weavejester/flupot"
   :platforms #{"cljs"}
@@ -2547,7 +2548,7 @@
   :platforms #{"clj"}
   :key :gorilla_repl
   :tags #{"REPLs"}
-  :repo-url nil}
+  :repo-url "https://github.com/JonyEpsilon/gorilla-repl"}
  {:name "Grafter"
   :url "https://github.com/swirrl/grafter"
   :platforms #{"clj"}
@@ -2571,7 +2572,7 @@
   :platforms #{"clj"}
   :key :graphqlize
   :tags #{"GraphQL"}
-  :repo-url nil}
+  :repo-url "https://github.com/graphqlize/graphqlize"}
  {:name "grasp"
   :url "https://github.com/borkdude/grasp"
   :platforms #{"clj"}
@@ -2749,7 +2750,7 @@
   :platforms #{"clj" "cljs"}
   :key :hoplon
   :tags #{"HTML Generation" "Web Frameworks"}
-  :repo-url nil}
+  :repo-url "https://github.com/hoplon/hoplon"}
  {:name "html-to-hiccup"
   :url "https://github.com/green-coder/html-to-hiccup"
   :platforms #{"clj" "cljs"}
@@ -2782,7 +2783,7 @@
   :platforms #{"clj"}
   :key :hugsql
   :tags #{"sql"}
-  :repo-url nil}
+  :repo-url "https://github.com/layerware/hugsql"}
  {:name "Hum"
   :url "https://github.com/mathias/hum"
   :platforms #{"cljs"}
@@ -2844,13 +2845,13 @@
   "A feature rich and integrated application platform for Clojure from Red Hat"
   :key :immutant
   :tags #{"HTTP Servers"}
-  :repo-url nil}
+  :repo-url "https://github.com/immutant/immutant"}
  {:name "Incanter"
   :url "http://incanter.org/"
   :platforms #{"clj"}
   :key :incanter
   :tags #{"Math" "Statistical Computing"}
-  :repo-url nil}
+  :repo-url "https://github.com/incanter/incanter"}
  {:name "Incise"
   :url "https://github.com/RyanMcG/incise"
   :platforms #{"clj"}
@@ -2940,6 +2941,7 @@
   :platforms #{"clj"}
   :key :j18n
   :tags #{"i18n"}
+  :ignore true
   :repo-url nil}
  {:name "Jackdaw"
   :url "https://github.com/FundingCircle/jackdaw"
@@ -3586,7 +3588,7 @@
   "A Clojure micro-framework based on a set of lightweight libraries"
   :key :luminus
   :tags #{"Project Templates" "Web Frameworks"}
-  :repo-url nil}
+  :repo-url "https://github.com/luminus-framework/luminus-template"}
  {:name "Macchiato"
   :url "https://github.com/macchiato-framework"
   :platforms #{"cljs"}
@@ -3905,7 +3907,7 @@
   "Monger is an idiomatic Clojure MongoDB driver for a more civilized age with solid documentation"
   :key :monger
   :tags #{"MongoDB Clients"}
-  :repo-url nil}
+  :repo-url "https://github.com/michaelklishin/monger"}
  {:name "mongodb-session"
   :url "https://github.com/hozumi/mongodb-session"
   :platforms #{"clj"}
@@ -3930,6 +3932,12 @@
   :key :morph
   :tags #{"Functional Programming" "Monads"}
   :repo-url "https://github.com/blancas/morph"}
+ {:name "Morse"
+  :url "https://github.com/nubank/morse"
+  :platforms #{"clj"}
+  :key :morse
+  :tags #{"Data Exploration"}
+  :repo-url "https://github.com/nubank/morse"}
  {:name "mount"
   :url "https://github.com/tolitius/mount"
   :platforms #{"clj" "cljs"}
@@ -4020,7 +4028,7 @@
   :platforms #{"clj"}
   :key :neanderthal
   :tags #{"Math"}
-  :repo-url nil}
+  :repo-url "https://github.com/uncomplicate/neanderthal"}
  {:name "necessary-evil"
   :url "https://github.com/Vaelatern/necessary-evil"
   :platforms #{"clj"}
@@ -4067,7 +4075,7 @@
   :description "High-performance serialization library for Clojure"
   :key :nippy
   :tags #{"serialization"}
-  :repo-url nil}
+  :repo-url "https://github.com/taoensso/nippy"}
  {:name "noah"
   :url "https://github.com/blak3mill3r/noah"
   :platforms #{"clj"}
@@ -4311,6 +4319,7 @@
   :platforms #{"clj"}
   :key :parse_struct
   :tags #{"Binary Data" "Parsing"}
+  :ignore true
   :repo-url nil}
  {:name "Papillon"
   :url "https://github.com/lambda-toolshed/papillon"
@@ -4357,11 +4366,10 @@
  {:name "Pedestal"
   :url "http://pedestal.io/"
   :platforms #{"clj"}
-  :description
-  "An open source tool set for building web applications in Clojure"
+  :description "An open source tool set for building web applications in Clojure"
   :key :pedestal
   :tags #{"Asynchronous HTTP" "Web Frameworks" "Web Server Abstraction"}
-  :repo-url nil}
+  :repo-url "https://github.com/pedestal/pedestal"}
  {:name "pegasus"
   :url "https://github.com/shriphani/pegasus"
   :platforms #{"clj"}
@@ -4446,7 +4454,7 @@
   :platforms #{"cljs"}
   :key :planck
   :tags #{"REPLs"}
-  :repo-url nil}
+  :repo-url "https://github.com/planck-repl/planck"}
  {:name "play-clj"
   :url "https://github.com/oakes/play-clj"
   :platforms #{"clj"}
@@ -4591,7 +4599,7 @@
   "Native Clojure support for Google Protocol Buffers and GRPC"
   :key :protojure
   :tags #{"serialization" "RPC"}
-  :repo-url nil}
+  :repo-url "https://github.com/protojure/lib"}
  {:name "Puget"
   :url "https://github.com/greglook/puget"
   :platforms #{"clj"}
@@ -4609,7 +4617,7 @@
   :platforms #{"clj"}
   :key :pulsar
   :tags #{"Asynchronous Programming" "Syntax Extensions"}
-  :repo-url nil}
+  :repo-url "https://github.com/puniverse/pulsar"}
  {:name "pulumi-cljs"
   :url "https://github.com/modern-energy/pulumi-cljs"
   :platforms #{"cljs"}
@@ -4760,7 +4768,7 @@
   :platforms #{"clj"}
   :key :rebl
   :tags #{"Data Exploration" "Datomic"}
-  :repo-url nil}
+  :repo-url "https://github.com/cognitect-labs/REBL-distro"}
  {:name "reclur"
   :url "https://github.com/kjkostlan/reclur"
   :platforms #{"clj"}
@@ -4894,7 +4902,7 @@
   :description "A network event stream processing system, in Clojure"
   :key :riemann
   :tags #{"Metrics" "Monitoring"}
-  :repo-url nil}
+  :repo-url "https://github.com/riemann/riemann"}
  {:name "Ring"
   :url "https://github.com/ring-clojure/ring"
   :platforms #{"clj"}
@@ -5303,7 +5311,7 @@
   :description "Realtime web comms library for Clojure/Script"
   :key :sente
   :tags #{"Websockets"}
-  :repo-url nil}
+  :repo-url "https://github.com/taoensso/sente"}
  {:name "seqex"
   :url "https://github.com/jclaggett/seqex"
   :platforms #{"clj"}
@@ -5701,7 +5709,8 @@
   :platforms #{"clj"}
   :key :storm
   :tags #{"Distributed Programming"}
-  :repo-url nil}
+  :repo-url "https://github.com/apache/storm"
+  :ignore true}
  {:name "Strowger"
   :url "https://github.com/weavejester/strowger"
   :platforms #{"cljs"}
@@ -5824,11 +5833,11 @@
   :tags #{"Application Frameworks"}
   :repo-url "https://github.com/teknql/systemic"}
  {:name "Tadam"
-  :url "https://www.tadam-framework.dev/"
+  :url "https://tadam-framework.andros.dev/"
   :platforms #{"clj"}
   :key :tadam
   :tags #{"Project Templates" "Web Frameworks"}
-  :repo-url nil}
+  :repo-url "https://github.com/tadam-framework/tadam-core"}
  {:name "Tagged"
   :url "https://github.com/miner/tagged"
   :platforms #{"clj"}
@@ -5877,7 +5886,7 @@
   :description "Structured telemetry library for Clojure/Script"
   :key :telemere
   :tags #{"Logging" "Metrics" "Tracing"}
-  :repo-url nil}
+  :repo-url "https://github.com/taoensso/telemere"}
  {:name "Teleward"
   :url "https://github.com/igrishaev/teleward"
   :platforms #{"clj"}
@@ -5891,7 +5900,7 @@
   :description "Data security framework for Clojure"
   :key :tempel
   :tags #{"Authentication" "Cryptography" "Password Security"}
-  :repo-url nil}
+  :repo-url "https://github.com/taoensso/tempel"}
  {:name "Temporal SDK"
   :url "https://cljdoc.org/d/io.github.manetu/temporal-sdk"
   :platforms #{"clj"}
@@ -5906,14 +5915,14 @@
   :description "Simple text localization library for Clojure/Script"
   :key :tempura
   :tags #{"i18n"}
-  :repo-url nil}
+  :repo-url "https://github.com/taoensso/tempura"}
  {:name "Tengen"
   :url "https://www.taoensso.com/tengen"
   :platforms #{"cljs"}
   :description "Simple React component DSL for Clojure/Script"
   :key :tengen
   :tags #{"React Frameworks"}
-  :repo-url nil}
+  :repo-url "https://github.com/taoensso/tengen"}
  {:name "Tentacles"
   :url "https://github.com/clj-commons/tentacles"
   :platforms #{"clj"}
@@ -6006,7 +6015,7 @@
   :description "Pure Clojure/Script logging library"
   :key :timbre
   :tags #{"Logging"}
-  :repo-url nil}
+  :repo-url "https://github.com/taoensso/timbre"}
  {:name "timbre-json-appender"
   :url "https://github.com/viesti/timbre-json-appender"
   :platforms #{"clj"}
@@ -6112,7 +6121,7 @@
   :description "Simple A/B testing library for Clojure"
   :key :touchstone
   :tags #{"A/B Testing"}
-  :repo-url nil}
+  :repo-url "https://github.com/taoensso/touchstone"}
  {:name "tracks"
   :url "https://github.com/escherize/tracks"
   :platforms #{"clj"}
@@ -6172,7 +6181,7 @@
   :platforms #{"clj" "cljs"}
   :key :truss
   :tags #{"Dynamic Typing" "Schema" "Syntax Extensions" "Validation"}
-  :repo-url nil}
+  :repo-url "https://github.com/taoensso/truss"}
  {:name "tst"
   :url "https://github.com/fctorial/tst"
   :platforms #{"clj" "cljs"}
@@ -6199,7 +6208,7 @@
   "Simple performance monitoring library for Clojure/Script"
   :key :tufte
   :tags #{"Benchmarking" "Profiling"}
-  :repo-url nil}
+  :repo-url "https://github.com/taoensso/tufte"}
  {:name "Tupelo"
   :url "https://github.com/cloojure/tupelo"
   :platforms #{"clj" "cljs"}
@@ -6455,11 +6464,11 @@
   :tags #{"HTML Parsers"}
   :repo-url "https://github.com/tol/webmine"}
  {:name "Welle"
-  :url "http://clojureriak.info/"
+  :url "https://github.com/michaelklishin/welle"
   :platforms #{"clj"}
   :key :welle
   :tags #{"Riak Clients"}
-  :repo-url nil}
+  :repo-url "https://github.com/michaelklishin/welle"}
  {:name "where"
   :url "https://github.com/BrunoBonacci/where"
   :platforms #{"clj" "cljs"}
