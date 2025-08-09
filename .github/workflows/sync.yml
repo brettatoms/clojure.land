@@ -11,7 +11,7 @@ on:
           - "false"
         default: "true"
   schedule:
-    # Run every Sunday at 2am
+    # Run every day at 2am
     - cron: "0 2 * * *"
 
 jobs:
