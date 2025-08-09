@@ -1,0 +1,3 @@
+{:sort-ns-references? true
+ :parallel? true
+ :paths ["src"]}

@@ -1,8 +1,8 @@
 (ns clojure-land.s3
   (:require [cognitect.aws.client.api :as aws]
             [cognitect.aws.credentials :as credentials]
-            [lambdaisland.uri :as uri]
-            [integrant.core :as ig]))
+            [integrant.core :as ig]
+            [lambdaisland.uri :as uri]))
 
 (defn client [{:keys [endpoint-url access-key-id secret-access-key]}]
   (let [{hostname :host
