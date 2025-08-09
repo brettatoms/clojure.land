@@ -240,11 +240,11 @@
   :tags #{"Amazon Web Services (AWS)"}
   :repo-url "https://github.com/grzm/awyeah-api"}
  {:name "babashka"
-  :url "https://github.com/borkdude/babashka"
+  :url "https://github.com/babashka/babashka"
   :platforms #{"clj"}
   :key :babashka
   :tags #{"Scripting"}
-  :repo-url "https://github.com/borkdude/babashka"}
+  :repo-url "https://github.com/babashka/babashka"}
  {:name "babashka.fs"
   :url "https://github.com/babashka/fs"
   :platforms #{"clj"}
@@ -270,11 +270,11 @@
   :tags #{"Code Generation" "Macros"}
   :repo-url "https://github.com/brandonbloom/backtick"}
  {:name "Bacwn"
-  :url "https://github.com/tailrecursion/bacwn"
+  :url "https://github.com/fogus/bacwn"
   :platforms #{"clj"}
   :key :bacwn
   :tags #{"Datalog"}
-  :repo-url "https://github.com/tailrecursion/bacwn"}
+  :repo-url "https://github.com/fogus/bacwn"}
  {:name "Bandalore"
   :url "https://github.com/cemerick/bandalore"
   :platforms #{"clj"}
@@ -406,11 +406,11 @@
   :tags #{"Neo4j Clients"}
   :repo-url "https://github.com/wagjo/borneo"}
  {:name "Bouncer"
-  :url "https://github.com/leonardoborges/bouncer"
+  :url "https://github.com/theleoborges/bouncer"
   :platforms #{"clj" "cljs"}
   :key :bouncer
   :tags #{"Validation"}
-  :repo-url "https://github.com/leonardoborges/bouncer"}
+  :repo-url "https://github.com/theleoborges/bouncer"}
  {:name "Broch"
   :url "https://github.com/anteoas/broch"
   :platforms #{"clj"}
@@ -620,11 +620,11 @@
   :tags #{"Data Transformation" "Functional Programming" "Monads"}
   :repo-url "https://github.com/funcool/cats"}
  {:name "Cause"
-  :url "https://github.com/smothers/cause"
+  :url "https://github.com/crs48/cause"
   :platforms #{"clj" "cljs"}
   :key :cause
   :tags #{"Data Structures"}
-  :repo-url "https://github.com/smothers/cause"}
+  :repo-url "https://github.com/crs48/cause"}
  {:name "cawasser/protobuf"
   :url "https://github.com/cawasser/protobuf"
   :platforms #{"clj"}
@@ -688,11 +688,11 @@
   :tags #{"Project Templates"}
   :repo-url "https://github.com/plexus/chestnut"}
  {:name "Chime"
-  :url "https://github.com/james-henderson/chime"
+  :url "https://github.com/jarohen/chime"
   :platforms #{"clj"}
   :key :chime
   :tags #{"Scheduling"}
-  :repo-url "https://github.com/james-henderson/chime"}
+  :repo-url "https://github.com/jarohen/chime"}
  {:name "chlorinejs"
   :url "https://github.com/chlorinejs/chlorine"
   :platforms #{"clj"}
@@ -727,7 +727,7 @@
   :url "https://github.com/clojure-emacs/cider"
   :platforms #{"clj" "cljs"}
   :key :cider
-  :tags #{"Emacs Integration"}
+  :tags #{"emacs"}
   :repo-url "https://github.com/clojure-emacs/cider"}
  {:name "CIDER nREPL"
   :url "https://github.com/clojure-emacs/cider-nrepl"
@@ -846,11 +846,11 @@
   :tags #{"Compression"}
   :repo-url "https://github.com/mikeananev/clj-compress"}
  {:name "clj-digest"
-  :url "https://github.com/tebeka/clj-digest"
+  :url "https://github.com/clj-commons/digest"
   :platforms #{"clj"}
   :key :clj_digest
   :tags #{"Cryptography" "Hashing"}
-  :repo-url "https://github.com/tebeka/clj-digest"}
+  :repo-url "https://github.com/clj-commons/digest"}
  {:name "clj-docker-client"
   :url "https://github.com/into-docker/clj-docker-client"
   :platforms #{"clj"}
@@ -869,6 +869,12 @@
   :key :clj_hclust
   :tags #{"Machine Learning"}
   :repo-url "https://github.com/lerouxrgd/clj-hclust"}
+ {:name "clj-hiera"
+  :url "https://github.com/greglook/clj-hiera"
+  :platforms #{"clj"}
+  :key :clj-hiera
+  :tags #{"Code Analysis"}
+  :repo-url "https://github.com/greglook/clj-hiera"}
  {:name "clj-http"
   :url "https://github.com/dakrone/clj-http"
   :platforms #{"clj"}
@@ -966,7 +972,7 @@
   :url "https://github.com/clojure-emacs/clj-refactor.el"
   :platforms #{"clj" "cljs"}
   :key :clj_refactor
-  :tags #{"Emacs Integration"}
+  :tags #{"emacs"}
   :repo-url "https://github.com/clojure-emacs/clj-refactor.el"}
  {:name "clj-rethinkdb"
   :url "https://github.com/apa512/clj-rethinkdb"
@@ -1187,6 +1193,12 @@
   :tags #{"Android"}
   :deprecated true
   :ignore true}
+ {:name "clojure-cli-config"
+  :url "https://github.com/practicalli/clojure-cli-config"
+  :platforms #{"clj"}
+  :key :clojure-cli-config
+  :tags #{"tools.deps"}
+  :repo-url "https://github.com/practicalli/clojure-cli-config"}
  {:name "Clojure Code"
   :url "https://github.com/indiejames/vscode-clojure-debug"
   :platforms #{"clj"}
@@ -1239,7 +1251,7 @@
   :url "https://github.com/clojure-emacs/clojure-mode"
   :platforms #{"clj" "cljs"}
   :key :clojure_mode
-  :tags #{"Emacs Integration"}
+  :tags #{"emacs"}
   :repo-url "https://github.com/clojure-emacs/clojure-mode"}
  {:name "clojure-msgpack"
   :url "https://github.com/edma2/clojure-msgpack"
@@ -1314,11 +1326,11 @@
   :tags #{"Configuration"}
   :repo-url "https://github.com/mccraigmccraig/clonfig"}
  {:name "clooj"
-  :url "https://github.com/arthuredelstein/clooj"
+  :url "https://github.com/clj-commons/clooj"
   :platforms #{"clj"}
   :key :clooj
   :tags #{"Code Editors"}
-  :repo-url "https://github.com/arthuredelstein/clooj"}
+  :repo-url "https://github.com/clj-commons/clooj"}
  {:name "clope"
   :url "https://github.com/leonoel/clope"
   :platforms #{"clj" "cljs"}
@@ -2073,11 +2085,11 @@
   :tags #{"Preloaders"}
   :repo-url "https://github.com/ninjudd/drip"}
  {:name "Duckling"
-  :url "https://github.com/facebook/duckling"
+  :url "https://github.com/facebookarchive/duckling_old"
   :platforms #{"clj"}
   :key :duckling
   :tags #{"Date and Time" "Natural Language"}
-  :repo-url "https://github.com/facebook/duckling"}
+  :repo-url "https://github.com/facebookarchive/duckling_old"}
  {:name "Duct"
   :url "https://github.com/duct-framework/duct"
   :platforms #{"clj" "cljs"}
@@ -2085,17 +2097,17 @@
   :tags #{"Project Templates" "Web Frameworks"}
   :repo-url "https://github.com/duct-framework/duct"}
  {:name "Duct-Figwheel-Component"
-  :url "https://github.com/weavejester/duct-figwheel-component"
+  :url "https://github.com/duct-framework/duct-figwheel-component"
   :platforms #{"clj"}
   :key :duct_figwheel_component
   :tags #{"Components"}
-  :repo-url "https://github.com/weavejester/duct-figwheel-component"}
+  :repo-url "https://github.com/duct-framework/duct-figwheel-component"}
  {:name "Duct-HikariCP-Component"
-  :url "https://github.com/weavejester/duct-hikaricp-component"
+  :url "https://github.com/duct-framework/duct-hikaricp-component"
   :platforms #{"clj"}
   :key :duct_hikaricp_component
   :tags #{"Components"}
-  :repo-url "https://github.com/weavejester/duct-hikaricp-component"}
+  :repo-url "https://github.com/duct-framework/duct-hikaricp-component"}
  {:name "Duct-Ragtime-Component"
   :url "https://github.com/weavejester/duct-ragtime-component"
   :platforms #{"clj"}
@@ -2103,11 +2115,11 @@
   :tags #{"Components"}
   :repo-url "https://github.com/weavejester/duct-ragtime-component"}
  {:name "durable-queue"
-  :url "https://github.com/Factual/durable-queue"
+  :url "https://github.com/clj-commons/durable-queue"
   :platforms #{"clj"}
   :key :durable_queue
   :tags #{"Message Queues"}
-  :repo-url "https://github.com/Factual/durable-queue"}
+  :repo-url "https://github.com/clj-commons/durable-queue"}
  {:name "dyn-edn"
   :url "https://github.com/walmartlabs/dyn-edn"
   :platforms #{"clj"}
@@ -3402,12 +3414,6 @@
   :key :lein_docstring_checker
   :tags #{"Code Analysis" "Leiningen Plugins"}
   :repo-url "https://github.com/camsaul/lein-docstring-checker"}
- {:name "lein-hiera"
-  :url "https://github.com/greglook/lein-hiera"
-  :platforms #{"clj"}
-  :key :lein_hiera
-  :tags #{"Code Analysis" "Leiningen Plugins"}
-  :repo-url "https://github.com/greglook/lein-hiera"}
  {:name "lein-js"
   :url "https://github.com/maravillas/lein-js"
   :platforms #{"clj"}
@@ -3603,6 +3609,12 @@
   :key :mailer
   :tags #{"Email Sending"}
   :repo-url "https://github.com/clojurewerkz/mailer"}
+ {:name "Mailman"
+  :url "https://github.com/monkey-projects/mailman"
+  :platforms #{"clj"}
+  :key :mailman
+  :tags #{"events"}
+  :repo-url "https://github.com/monkey-projects/mailman"}
  {:name "malapropism"
   :url "https://github.com/dpassen/malapropism"
   :platforms #{"clj"}
@@ -3904,7 +3916,7 @@
   :url "https://github.com/sanel/monroe"
   :platforms #{"clj"}
   :key :monroe
-  :tags #{"Emacs Integration"}
+  :tags #{"emacs"}
   :repo-url "https://github.com/sanel/monroe"}
  {:name "more.async"
   :url "https://github.com/bsless/more.async"
@@ -4535,12 +4547,6 @@
   :key :pp_grid
   :tags #{"Pretty Printing" "Terminal Utilities" "Visualization"}
   :repo-url "https://github.com/rorokimdim/pp-grid"}
- {:name "practicalli-clojure-deps-edn"
-  :url "https://github.com/practicalli/clojure-deps-edn"
-  :platforms #{"clj"}
-  :key :practicalli_clojure_deps_edn
-  :tags #{"tools.deps"}
-  :repo-url "https://github.com/practicalli/clojure-deps-edn"}
  {:name "Pretty"
   :url "https://github.com/clj-commons/pretty"
   :platforms #{"clj"}
@@ -4943,7 +4949,8 @@
   :platforms #{"clj"}
   :key :ring_etag_middleware
   :tags #{"Request Middleware"}
-  :repo-url "https://github.com/mikejs/ring-etag-middleware"}
+  :repo-url "https://github.com/mikejs/ring-etag-middleware"
+  :ignore true}
  {:name "ring-gzip-middleware"
   :url "https://github.com/clj-commons/ring-gzip-middleware"
   :platforms #{"clj"}
