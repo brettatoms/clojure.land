@@ -513,8 +513,14 @@
   :url "https://github.com/BetterThanTomorrow/calva"
   :platforms #{"clj" "cljs"}
   :key :calva
-  :tags #{"IDE Integration"}
+  :tags #{"IDE Integration" "VSCode"}
   :repo-url "https://github.com/BetterThanTomorrow/calva"}
+ {:name "calva-backseat-driver"
+  :url "https://github.com/BetterThanTomorrow/calva-backseat-driver"
+  :platforms #{"clj"}
+  :key :calva-backseat-driver
+  :tags #{"VSCode"}
+  :repo-url "https://github.com/BetterThanTomorrow/calva-backseat-driver"}
  {:name "Calx"
   :url "https://github.com/ztellman/calx"
   :platforms #{"clj"}
@@ -3046,6 +3052,12 @@
   :key :joplin
   :tags #{"Database Migrations"}
   :repo-url "https://github.com/juxt/joplin"}
+ {:name "Joyride"
+  :url "https://github.com/BetterThanTomorrow/joyride"
+  :platforms #{"clj"}
+  :key :joyride
+  :tags #{"VSCode"}
+  :repo-url "https://github.com/BetterThanTomorrow/joyride"}
  {:name "js-interop"
   :url "https://github.com/applied-science/js-interop"
   :platforms #{"cljs"}
