@@ -783,6 +783,12 @@
   :key :clavatar
   :tags #{"Web API Clients"}
   :repo-url "https://github.com/Raynes/clavatar"}
+ {:name "Clay"
+  :url "https://scicloj.github.io/clay/"
+  :platforms #{"clj"}
+  :key :clay
+  :tags #{"Visualization" "Literate programming" "Notebook"}
+  :repo-url "https://github.com/scicloj/clay"}
  {:name "Claypoole"
   :url "https://github.com/clj-commons/claypoole"
   :platforms #{"clj"}
