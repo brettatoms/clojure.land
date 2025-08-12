@@ -653,7 +653,7 @@
   :url "https://github.com/Raynes/cegdown"
   :platforms #{"clj"}
   :key :cegdown
-  :tags #{"Markdown Parsers"}
+  :tags #{"Markdown"}
   :repo-url "https://github.com/Raynes/cegdown"}
  {:name "celtuce"
   :url "https://github.com/lerouxrgd/celtuce"
@@ -2212,7 +2212,7 @@
   :url "https://github.com/theJohnnyBrown/endophile"
   :platforms #{"clj"}
   :key :endophile
-  :tags #{"Markdown Parsers"}
+  :tags #{"Markdown"}
   :repo-url "https://github.com/theJohnnyBrown/endophile"}
  {:name "Enfocus"
   :url "https://github.com/ckirkendall/enfocus"
@@ -3687,11 +3687,16 @@
  {:name "markdown-clj"
   :url "https://github.com/yogthos/markdown-clj"
   :platforms #{"clj" "cljs"}
-  :description
-  "Clojure based Markdown parsers for both Clojure and ClojureScript"
+  :description "Clojure based Markdown parsers for both Clojure and ClojureScript"
   :key :markdown_clj
-  :tags #{"Markdown Parsers"}
+  :tags #{"Markdown"}
   :repo-url "https://github.com/yogthos/markdown-clj"}
+ {:name "Markdown"
+  :url "https://github.com/nextjournal/markdown"
+  :platforms #{"clj" "cljs"}
+  :key :nextjournal-markdown
+  :tags #{"Markdown"}
+  :repo-url "https://github.com/nextjournal/markdown"}
  {:name "Martian"
   :url "https://github.com/oliyh/martian"
   :platforms #{"clj" "cljs"}
