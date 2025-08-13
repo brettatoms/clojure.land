@@ -2473,9 +2473,10 @@
   :key :innuendo
   :tags #{"Web API Clients"}}
  {:name "Instaparse"
-  :url "https://github.com/Engelberg/instaparse"
-  :platforms #{"clj" "cljs"}
   :key :instaparse
+  :url "https://github.com/Engelberg/instaparse"
+  :description "Build parsers in Clojure."
+  :platforms #{"clj" "cljs"}
   :tags #{"Parsing"}}
  {:name "Instar"
   :url "https://github.com/boxed/instar"
