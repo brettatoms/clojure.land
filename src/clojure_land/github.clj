@@ -29,8 +29,11 @@
 (defmethod ig/init-key ::client [_ {:keys [api-token]}]
   (->GitHubClient (request-factory api-token)))
 
-(defn update-project-from-repo [github-client {:keys [repo-url] :as project}]
-  (let [[_ repo-name] (re-matches #"^https?://github.com/(.*?)/?$" repo-url)
+(defn update-project-from-repo [github-client {:keys [repo-url url] :as project}]
+  (let [url-rx #"^https?://github.com/(.*?)/?$"
+        [_ repo-name] (cond
+                        repo-url (re-matches url-rx repo-url)
+                        url (re-matches url-rx url))
         _ (when-not repo-name (throw (ex-info "Could not get repo name for project" {:project project})))
         repo-name (str/lower-case repo-name)
         {:keys [description stargazers_count pushed_at]} (.get-repo github-client repo-name)]

@@ -15,7 +15,7 @@
    [:url :string]
    [:key :keyword]
    [:repo-url {:optional true} [:maybe :string]]
-   [:tags {:optional true} [:set :string]]
+   [:tags {:optional true} [:maybe [:set :string]]]
    [:platforms  [:set [:enum "clj" "cljs" "babashka"]]]
    [:ignore {:optional true} :boolean]])
 
