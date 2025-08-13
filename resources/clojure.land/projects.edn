@@ -881,6 +881,12 @@
   :key :clj_hclust
   :tags #{"Machine Learning"}
   :repo-url "https://github.com/lerouxrgd/clj-hclust"}
+ {:name "clj-djl"
+  :key :clj-djl
+  :url "https://github.com/scicloj/clj-djl"
+  :repo-url "https://github.com/scicloj/clj-djl"
+  :platforms #{"clj"}
+  :tags #{"AI"}}
  {:name "clj-hiera"
   :url "https://github.com/greglook/clj-hiera"
   :platforms #{"clj"}
@@ -1186,6 +1192,12 @@
   :key :clojail
   :tags #{"Sandboxes"}
   :repo-url "https://github.com/flatland/clojail"}
+ {:name "ClojisR"
+  :key :clojisr
+  :url "https://github.com/scicloj/clojisr"
+  :repo-url "https://github.com/scicloj/clojisr"
+  :platforms #{"clj"}
+  :tags #{"statistics" "data science" "r"}}
  {:name "clojupyter"
   :url "https://github.com/clojupyter/clojupyter"
   :platforms #{"clj"}
@@ -4105,6 +4117,12 @@
   :key :noah
   :tags #{"kafka"}
   :repo-url "https://github.com/blak3mill3r/noah"}
+ {:name "Noj"
+  :key :noj
+  :url "https://github.com/scicloj/noj"
+  :repo-url "https://github.com/scicloj/noj"
+  :platforms #{"clj"}
+  :tags #{"data science"}}
  {:name "Nomad"
   :url "https://github.com/jarohen/nomad"
   :platforms #{"clj"}
@@ -5855,6 +5873,12 @@
   :key :systemic
   :tags #{"Application Frameworks"}
   :repo-url "https://github.com/teknql/systemic"}
+ {:name "Tablecloth"
+  :key :tablecloth
+  :url "https://github.com/scicloj/tablecloth"
+  :platforms #{"clj"}
+  :tags #{"dataset" "data science" "dataframe"}
+  :repo-url "https://github.com/scicloj/tablecloth"}
  {:name "Tadam"
   :url "https://tadam-framework.andros.dev/"
   :platforms #{"clj"}
@@ -5897,6 +5921,13 @@
   :key :tawny_owl
   :tags #{"Linked Data &amp; RDF"}
   :repo-url "https://github.com/phillord/tawny-owl"}
+ {:name "tech.ml.dataset"
+  :key :tech-ml-dataset
+  :url "https://github.com/techascent/tech.ml.dataset"
+  :platforms #{"clj"}
+  :tags #{"dataset" "data science" "dataframe"}
+  :repo-url "https://github.com/techascent/tech.ml.dataset"
+  }
  {:name "telegenic"
   :url "https://github.com/mikera/telegenic"
   :platforms #{"clj"}
