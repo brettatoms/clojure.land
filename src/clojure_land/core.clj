@@ -265,7 +265,8 @@
          [:a {:href "https://github.com/brettatoms/clojure.land"}
           (icons/github)]]
         [:div {:class "flex flex-col gap-8 m-auto max-w-[1024px]"}
-         [:div {:class "self-center pt-8 px-4 md:px-0"}
+         [:a {:class "self-center pt-8 px-4 md:px-0"
+              :href "/"}
           [:img {:src (assets "clojure-land-logo-small.jpg")
                  :class "max-h-32"}]]
          (content :q q
