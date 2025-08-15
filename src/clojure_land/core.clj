@@ -251,36 +251,33 @@
         next-page (when (< offset total)
                     (inc page))]
     (if-not hx-request?
-      (-> [:html
-           [:head
-            [:meta {:charset "utf-8"}]
-            [:meta {:http-equiv "x-ua-compatible" :content "ie=edge"}]
-            [:title "Clojure Land"]
-            [:meta {:name "description" :content "Discover open-source Clojure projects."}]
-            [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]
-            [:script {:src (assets "main.ts")}]
-            [:link {:rel "stylesheet" :href (assets "main.css")}]]
-           [:body
-            [:div {:class "absolute -top-4 -right-4 scale-30"}
-             [:a {:href "https://github.com/brettatoms/clojure.land"}
-              (icons/github)]]
-            [:div {:class "flex flex-col gap-8 m-auto max-w-[1024px]"}
-             [:a {:class "self-center pt-8 px-4 md:px-0"
-                  :href "/"}
-              [:img {:src (assets "clojure-land-logo-small.jpg")
-                     :class "max-h-32"}]]
-             (content :q q
-                      :tags tags
-                      :projects projects
-                      :platforms platforms
-                      :next-page next-page
-                      :sort sort)
-             [:div {:class "flex flex-row justify-center items-center mt-32 mb-32"}
-              [:img {:src (assets "the-end-4.png")
-                     :class "max-h-8"}]]]]]
-          (z/html-response)
-          ;; Cache response for 24 hours
-          (assoc-in [:headers "cache-control"] (str "public, max-age=" (* 60 60 24))))
+      [:html
+       [:head
+        [:meta {:charset "utf-8"}]
+        [:meta {:http-equiv "x-ua-compatible" :content "ie=edge"}]
+        [:title "Clojure Land"]
+        [:meta {:name "description" :content "Discover open-source Clojure projects."}]
+        [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]
+        [:script {:src (assets "main.ts")}]
+        [:link {:rel "stylesheet" :href (assets "main.css")}]]
+       [:body
+        [:div {:class "absolute -top-4 -right-4 scale-30"}
+         [:a {:href "https://github.com/brettatoms/clojure.land"}
+          (icons/github)]]
+        [:div {:class "flex flex-col gap-8 m-auto max-w-[1024px]"}
+         [:a {:class "self-center pt-8 px-4 md:px-0"
+              :href "/"}
+          [:img {:src (assets "clojure-land-logo-small.jpg")
+                 :class "max-h-32"}]]
+         (content :q q
+                  :tags tags
+                  :projects projects
+                  :platforms platforms
+                  :next-page next-page
+                  :sort sort)
+         [:div {:class "flex flex-row justify-center items-center mt-32 mb-32"}
+          [:img {:src (assets "the-end-4.png")
+                 :class "max-h-8"}]]]]]
 
       ;; Return only the content for htmx requests
       (content :q q
