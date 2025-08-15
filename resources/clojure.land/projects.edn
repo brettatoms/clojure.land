@@ -4627,6 +4627,11 @@
   :platforms #{"clj" "cljs"}
   :key :silk
   :tags #{"HTTP Routing"}}
+ {:name "Simulflow"
+  :key :simulflow
+  :url "https://github.com/shipclojure/simulflow"
+  :platforms #{"clj"}
+  :tags #{"AI" "Speech recognition" "Audio"}}
  {:name "sketchy"
   :url "https://github.com/bigmlcom/sketchy"
   :platforms #{"clj"}
