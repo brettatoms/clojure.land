@@ -2860,7 +2860,7 @@
   :tags #{"Schema" "serialization"}}
  {:name "Langohr"
   :url "https://github.com/michaelklishin/langohr"
-  :platforms #{"clj"}
+  :platforms #{"clj" "rabbitmq" "ampq"}
   :description
   "A feature complete RabbitMQ client that embraces AMQP 0.9.1 model and learns from others"
   :key :langohr
