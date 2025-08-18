@@ -687,6 +687,11 @@
   :platforms #{"clj"}
   :key :clecs
   :tags #{"Game Development"}}
+ {:name "client-ip"
+  :url "https://github.com/outskirtslabs/client-ip"
+  :platforms #{"clj"}
+  :key :client-ip
+  :tags #{"Request middleware"}}
  {:name "Clip"
   :url "https://github.com/juxt/clip"
   :platforms #{"clj" "cljs"}
