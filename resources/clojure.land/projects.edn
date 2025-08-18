@@ -1687,6 +1687,11 @@
   :platforms #{"clj"}
   :key :depot
   :tags #{"tools.deps"}}
+ {:name "deps.clj"
+  :url "https://github.com/borkdude/deps.clj"
+  :platforms #{"clj" "babashka"}
+  :key :deps-clj
+  :tags #{"tools.deps" "cli"}}
  {:name "deps-new"
   :url "https://github.com/seancorfield/deps-new"
   :platforms #{"clj"}
