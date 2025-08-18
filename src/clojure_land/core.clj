@@ -18,7 +18,6 @@
             [zodiac.ext.assets :as z.assets]
             [zodiac.ext.sql :as z.sql]))
 
-
 (defn js
   "This function is mostly used for passing a clojure map as a js object in html
   attributes"
