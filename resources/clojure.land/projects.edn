@@ -1204,7 +1204,8 @@
   :ignore true
   :repo-url nil}
  {:name "Coast"
-  :url "https://github.com/coast-framework/coast"
+  :url "https://coast.swlkr.com/"
+  :repo-url "https://github.com/coast-framework/coast"
   :platforms #{"clj"}
   :key :coast
   :tags #{"Web Frameworks"}}
