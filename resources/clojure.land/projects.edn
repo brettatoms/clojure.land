@@ -3340,6 +3340,11 @@
   :platforms #{"clj" "cljs"}
   :key :mockfn
   :tags #{"Mocking" "Unit Testing"}}
+ {:name "Modex"
+  :key :modex
+  :url "https://github.com/theronic/modex"
+  :platforms #{"clj"}
+  :tags #{"AI" "MCP"}}
  {:name "Modular"
   :url "https://github.com/juxt/modular"
   :platforms #{"clj"}
