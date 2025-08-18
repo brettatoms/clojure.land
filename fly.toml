@@ -9,7 +9,7 @@ primary_region = "atl"
 [[vm]]
   cpu_kind = "shared"
   cpus = 1
-  memory = "1024mb"
+  memory = "512mb"
   size = "shared-cpu-1x"
 
 [http_service]
