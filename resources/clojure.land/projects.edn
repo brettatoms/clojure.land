@@ -1577,6 +1577,11 @@
   :platforms #{"clj" "cljs"}
   :key :datalog_rules
   :tags #{"Datomic"}}
+ {:name "datapotato"
+  :key :datapotato
+  :url "https://github.com/donut-party/datapotato"
+  :platforms #{"clj"}
+  :tags #{"Database fixtures"}}
  {:name "DataScript"
   :url "https://github.com/tonsky/datascript"
   :platforms #{"clj" "cljs"}
@@ -1628,6 +1633,11 @@
   :platforms #{"clj"}
   :key :datoteka
   :tags #{"Filesystem Utilities"}}
+ {:name "dbxray"
+  :key :dbxray
+  :url "https://github.com/donut-party/dbxray"
+  :platforms #{"clj"}
+  :tags #{"Databases"}}
  {:name "dda-pallet"
   :url "https://github.com/DomainDrivenArchitecture/dda-pallet"
   :platforms #{"clj"}
@@ -1763,6 +1773,11 @@
   :platforms #{"clj"}
   :key :donkey
   :tags #{"Asynchronous HTTP" "HTTP Clients" "HTTP Servers"}}
+ {:name "donut.system"
+  :key :donut.system
+  :url "https://github.com/donut-party/system"
+  :platforms #{"clj" "cljs"}
+  :tags #{"Components" "Reloaded Workflow" "Dependency injection"}}
  {:name "dot-clojure-deps.edn"
   :url "https://github.com/seancorfield/dot-clojure"
   :platforms #{"clj"}
