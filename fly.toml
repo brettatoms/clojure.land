@@ -3,7 +3,7 @@ primary_region = "atl"
 
 [env]
   ZODIAC_ASSETS_BUILD=false
-  JAVA_TOOL_OPTIONS="-Duser.timezone=UTC -Xmx900m"
+  JAVA_TOOL_OPTIONS="-Duser.timezone=UTC"
   PORT=8080
 
 [[vm]]
