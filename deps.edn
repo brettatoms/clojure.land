@@ -7,9 +7,9 @@
         com.cognitect.aws/api       {:mvn/version "0.8.741"}
         com.cognitect.aws/endpoints {:mvn/version "871.2.32.2"}
         com.cognitect.aws/s3        {:mvn/version "871.2.32.2"}
-        com.github.brettatoms/zodiac {:mvn/version "0.6.66"}
+        com.github.brettatoms/zodiac {:mvn/version "0.6.69"}
         com.github.brettatoms/zodiac-assets {:mvn/version "0.3.28"}
-        com.github.brettatoms/zodiac-sql {:mvn/version "0.1.10"}
+        com.github.brettatoms/zodiac-sql {:mvn/version "0.1.12"}
         com.h2database/h2 {:mvn/version "2.3.232"}
         com.taoensso/telemere {:mvn/version "1.0.1"}
         com.taoensso/telemere-slf4j {:mvn/version "1.0.1"}
