@@ -482,7 +482,7 @@
   :platforms #{"clj"}
   :description "Redis client + message queue for Clojure"
   :key :carmine
-  :tags #{"Message Queues" "Redis Clients"}
+  :tags #{"Message Queues" "Redis"}
   :repo-url "https://github.com/taoensso/carmine"}
  {:name "cartus"
   :url "https://github.com/logicblocks/cartus"
@@ -561,7 +561,7 @@
   :url "https://github.com/lerouxrgd/celtuce"
   :platforms #{"clj"}
   :key :celtuce
-  :tags #{"Redis Clients"}}
+  :tags #{"Redis"}}
  {:name "certificaat"
   :url "https://github.com/danielsz/certificaat"
   :platforms #{"clj"}
@@ -836,7 +836,7 @@
   :url "https://github.com/mmcgrana/clj-redis"
   :platforms #{"clj"}
   :key :clj_redis
-  :tags #{"Redis Clients"}}
+  :tags #{"Redis"}}
  {:name "clj-refactor"
   :url "https://github.com/clojure-emacs/clj-refactor.el"
   :platforms #{"clj" "cljs"}
@@ -1066,7 +1066,7 @@
   :url "https://github.com/exoscale/clojure-kubernetes-client"
   :platforms #{"clj"}
   :key :clojure_kubernetes_client
-  :tags #{"Kubernetes Clients"}}
+  :tags #{"Kubernetes"}}
  {:name "clojure.log4j2"
   :url "https://github.com/henryw374/clojure.log4j2"
   :platforms #{"clj"}
@@ -1200,7 +1200,7 @@
   :url "https://cmql.org/documentation/"
   :platforms #{"clj"}
   :key :cmql
-  :tags #{"MongoDB Clients"}
+  :tags #{"MongoDB"}
   :ignore true
   :repo-url nil}
  {:name "Coast"
@@ -1309,7 +1309,7 @@
   :platforms #{"clj"}
   :description "Basic wrapper for the MongoDB Java driver"
   :key :congo_mongo
-  :tags #{"MongoDB Clients"}}
+  :tags #{"MongoDB"}}
  {:name "Conjure"
   :url "https://github.com/macourtney/Conjure"
   :platforms #{"clj"}
@@ -2669,7 +2669,7 @@
   :url "https://github.com/nubank/k8s-api"
   :platforms #{"clj"}
   :key :k8s_api
-  :tags #{"Kubernetes Clients"}}
+  :tags #{"Kubernetes"}}
  {:name "kafka.clj"
   :url "https://github.com/helins/kafka.clj"
   :platforms #{"clj"}
@@ -2709,7 +2709,7 @@
   :url "https://github.com/wilkes/karras"
   :platforms #{"clj"}
   :key :karras
-  :tags #{"MongoDB Clients"}}
+  :tags #{"MongoDB"}}
  {:name "kee-frame"
   :url "https://github.com/ingesolvoll/kee-frame"
   :platforms #{"cljs"}
@@ -2724,7 +2724,7 @@
   :url "https://github.com/blak3mill3r/keenest-rube"
   :platforms #{"clj"}
   :key :keenest_rube
-  :tags #{"Kubernetes Clients"}}
+  :tags #{"Kubernetes"}}
  {:name "ken"
   :url "https://github.com/amperity/ken"
   :platforms #{"clj"}
@@ -2790,7 +2790,7 @@
   :url "https://github.com/xsc/kithara"
   :platforms #{"clj"}
   :key :kithara
-  :tags #{"Message Queues" "RabbitMQ Clients"}}
+  :tags #{"Message Queues" "RabbitMQ"}}
  {:name "Klipse Web App"
   :url "https://github.com/viebel/klipse"
   :platforms #{"cljs"}
@@ -2841,7 +2841,7 @@
   :url "https://github.com/brosenan/lambda-kube"
   :platforms #{"clj"}
   :key :lambda_kube
-  :tags #{"Kubernetes Clients"}}
+  :tags #{"Kubernetes"}}
  {:name "lambda-ml"
   :url "https://github.com/cloudkj/lambda-ml"
   :platforms #{"clj"}
@@ -3369,7 +3369,7 @@
   :description
   "Monger is an idiomatic Clojure MongoDB driver for a more civilized age with solid documentation"
   :key :monger
-  :tags #{"MongoDB Clients"}
+  :tags #{"MongoDB"}
   :repo-url "https://github.com/michaelklishin/monger"}
  {:name "mongodb-session"
   :url "https://github.com/hozumi/mongodb-session"
@@ -5535,7 +5535,7 @@
   :url "https://github.com/mefesto/wabbitmq",
   :platforms #{"clj"},
   :key :wabbitmq,
-  :tags #{"Message Queues" "RabbitMQ Clients"}}
+  :tags #{"Message Queues" "RabbitMQ"}}
  {:name "Wagontrain",
   :url "https://github.com/lambdaisland/wagontrain",
   :platforms #{"clj"},
