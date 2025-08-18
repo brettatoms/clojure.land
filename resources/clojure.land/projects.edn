@@ -2450,13 +2450,12 @@
   :key :immutable_int_map
   :tags #{"Data Structures" "Performance"}}
  {:name "Immutant"
-  :url "http://immutant.org/"
+  :url "https://github.com/immutant/immutant"
   :platforms #{"clj"}
   :description
   "A feature rich and integrated application platform for Clojure from Red Hat"
   :key :immutant
-  :tags #{"HTTP Servers"}
-  :repo-url "https://github.com/immutant/immutant"}
+  :tags #{"HTTP Servers"}}
  {:name "Incanter"
   :url "http://incanter.org/"
   :platforms #{"clj"}
