@@ -2859,12 +2859,10 @@
   :key :lancaster
   :tags #{"Schema" "serialization"}}
  {:name "Langohr"
-  :url "https://github.com/michaelklishin/langohr"
-  :platforms #{"clj" "rabbitmq" "ampq"}
-  :description
-  "A feature complete RabbitMQ client that embraces AMQP 0.9.1 model and learns from others"
   :key :langohr
-  :tags #{"Message Queues" "RabbitMQ Clients"}}
+  :url "https://github.com/michaelklishin/langohr"
+  :platforms #{"clj"}
+  :tags #{"rabbitmq" "ampq" "message queues"}}
  {:name "Lasertag"
   :url "https://github.com/paintparty/lasertag"
   :platforms #{"babashka" "clj" "cljs"}
