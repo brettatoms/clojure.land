@@ -5,10 +5,12 @@
             [clojure-land.system :as system]
             [clojure.data.json :as json]
             [clojure.string :as str]
+            [clojure.tools.logging :as log]
             [dev.onionpancakes.chassis.core :as chassis]
             [integrant.core :as ig]
             [malli.core :as m]
             [malli.transform :as mt]
+            [reitit.ring]
             [ring.middleware.logger :as ring.logger]
             [taoensso.telemere] ;; setup logging side-effects
             [taoensso.telemere.tools-logging :refer [tools-logging->telemere!]]
@@ -16,8 +18,6 @@
             [zodiac.ext.assets :as z.assets]
             [zodiac.ext.sql :as z.sql]))
 
-;; Send clojure.tools.logging message to telemere
-(tools-logging->telemere!)
 
 (defn js
   "This function is mostly used for passing a clojure map as a js object in html
@@ -292,6 +292,18 @@
    ["/" {:get #'handler}]
    ["/_status" {:get (constantly {:status 204})}]])
 
+(defn default-handler []
+  (reitit.ring/create-default-handler
+   {:not-found (fn [{:keys [uri]}]
+                 (log/debug (str "404 Not found: " uri))
+                 {:status 404, :body "", :headers {}})}))
+
+(defmethod ig/init-key ::logging [_ {:keys [level]}]
+  ;; Send clojure.tools.logging message to telemere
+  (tools-logging->telemere!)
+  (taoensso.telemere/set-min-level! :default "clojure-land.*"
+                                    (some-> level str/lower-case keyword)))
+
 (defmethod ig/init-key ::zodiac [_ config]
   (let [{:keys [build-assets? reload-per-request? request-context port]} config
         project-root "./"
@@ -305,6 +317,7 @@
         sql-ext (z.sql/init {:spec {:jdbcUrl "jdbc:h2:mem:clojure-land;DB_CLOSE_DELAY=-1"}})]
     (z/start {:extensions [assets-ext sql-ext]
               :reload-per-request? reload-per-request?
+              :default-handler (default-handler)
               :request-context request-context
               :jetty {:join? false
                       :host "0.0.0.0"
