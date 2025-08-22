@@ -4722,6 +4722,11 @@
   :platforms #{"clj"}
   :key :snowball_stemmer
   :tags #{"Text Search"}}
+ {:name "snowpark-clj"
+  :key :snowpark-clj
+  :url "https://github.com/alza-bitz/snowpark-clj"
+  :platforms #{"clj"}
+  :tags #{"Snowpark" "Snowflake"}}
  {:name "Spandex"
   :url "https://github.com/mpenet/spandex"
   :platforms #{"clj"}
