@@ -1612,6 +1612,11 @@
   :platforms #{"clj"}
   :key :datastar-clojure
   :tags #{"Datastar" "Web Frameworks"}}
+ {:name "datastar.wow"
+  :url "https://github.com/brianium/datastar.wow"
+  :platforms #{"clj"}
+  :key :datastar.wow
+  :tags #{"Datastar" "Web Frameworks"}}
  {:name "Datawalk"
   :url "https://github.com/eggsyntax/datawalk"
   :platforms #{"clj" "cljs"}
@@ -2385,6 +2390,11 @@
   :platforms #{"clj" "cljs"}
   :key :html_to_hiccup
   :tags #{"HTML Parsers"}}
+ {:name "html.yeah"
+  :key :html.yeah
+  :url "https://github.com/brianium/html.yeah"
+  :platforms #{"clj"}
+  :tags #{"HTML" "Hiccup Syntax"}}
  {:name "http.async.client"
   :url "https://github.com/cch1/http.async.client"
   :platforms #{"clj"}
@@ -2398,6 +2408,11 @@
   :key :http_kit
   :tags
   #{"Asynchronous HTTP" "HTTP Clients" "HTTP Servers" "Websockets"}}
+ {:name "http-server"
+  :key :http-server
+  :url "https://github.com/babashka/http-server"
+  :platforms #{"clj" "babashka"}
+  :tags #{"HTTP Servers"}}
  {:name "httpurr"
   :url "https://github.com/funcool/httpurr"
   :platforms #{"clj" "cljs"}
@@ -3507,6 +3522,11 @@
   :platforms #{"cljs"}
   :key :nextjournal_clojure_mode
   :tags #{"Code Editors"}}
+ {:name "Nexus"
+  :url "https://github.com/cjohansen/nexus"
+  :platforms #{"clj" "cljs"}
+  :key :nexus
+  :tags #{}}
  {:name "Nginx-Clojure"
   :url "https://github.com/nginx-clojure/nginx-clojure"
   :platforms #{"clj"}
