@@ -4195,6 +4195,12 @@
   :platforms #{"clj"}
   :key :repl-mcp
   :tags #{"AI" "MCP"}}
+ {:name "Replicant"
+  :url "https://replicant.fun"
+  :repo-url "https://github.com/cjohansen/replicant"
+  :platforms #{"clj" "cljs"}
+  :key :replicant
+  :tags #{"Web frameworks" "Hiccup"}}
  {:name "replikativ"
   :url "https://github.com/replikativ/replikativ"
   :platforms #{"clj" "cljs"}
