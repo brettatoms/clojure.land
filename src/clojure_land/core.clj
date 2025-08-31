@@ -258,6 +258,8 @@
         [:meta {:name "description" :content "Discover open-source Clojure projects."}]
         [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]
         [:script {:src (assets "main.ts")}]
+        [:script {:async true
+                  :src "https://scripts.simpleanalyticscdn.com/latest.js"}]
         [:link {:rel "stylesheet" :href (assets "main.css")}]]
        [:body
         [:div {:class "absolute -top-4 -right-4 scale-30"}
