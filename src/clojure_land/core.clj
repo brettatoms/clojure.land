@@ -260,6 +260,7 @@
         [:link {:rel "stylesheet" :href (assets "main.css")}]
         [:script {:src (assets "main.ts")}]
         [:script {:async true
+                  :data-collect-dnt "true"
                   :src "https://scripts.simpleanalyticscdn.com/latest.js"}]]
        [:body
         [:div {:class "absolute -top-4 -right-4 scale-30"}
