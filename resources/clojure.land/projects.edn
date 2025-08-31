@@ -724,6 +724,11 @@
   :platforms #{"clj"}
   :key :clj_bigml
   :tags #{"Machine Learning"}}
+ {:name "clj-biosequence"
+  :key :clj-biosequence
+  :url "https://github.com/s312569/clj-biosequence"
+  :platforms #{"clj"}
+  :tags #{"Bioinformatics"}}
  {:name "clj-camel"
   :url "https://github.com/TakeoffTech/clj-camel"
   :platforms #{"clj"}
@@ -749,16 +754,16 @@
   :platforms #{"clj"}
   :key :clj_excel
   :tags #{"MS Office Documents"}}
- {:name "clj-hclust"
-  :url "https://github.com/lerouxrgd/clj-hclust"
-  :platforms #{"clj"}
-  :key :clj_hclust
-  :tags #{"Machine Learning"}}
  {:name "clj-djl"
   :key :clj-djl
   :url "https://github.com/scicloj/clj-djl"
   :platforms #{"clj"}
   :tags #{"AI"}}
+ {:name "clj-hclust"
+  :url "https://github.com/lerouxrgd/clj-hclust"
+  :platforms #{"clj"}
+  :key :clj_hclust
+  :tags #{"Machine Learning"}}
  {:name "clj-hiera"
   :url "https://github.com/greglook/clj-hiera"
   :platforms #{"clj"}
