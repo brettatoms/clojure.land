@@ -1874,6 +1874,11 @@
   :platforms #{"clj"}
   :key :eca-emacs
   :tags #{"AI" "Code Editors" "Emacs"}}
+ {:name "ECA IntelliJ"
+  :key :eca-intellij
+  :url "https://github.com/editor-code-assistant/eca-intellij"
+  :platforms #{"clj"}
+  :tags #{"AI" "Code Editors" "IntelliJ"}}
  {:name "ECA VS Code"
   :url "https://github.com/editor-code-assistant/eca-vscode"
   :platforms #{"clj"}
@@ -2133,6 +2138,11 @@
   :platforms #{"clj" "cljs"}
   :key :fulcro
   :tags #{"React Frameworks" "Web Frameworks"}}
+ {:name "Fulcro RAD"
+  :url "https://github.com/fulcrologic/fulcro-rad"
+  :platforms #{"clj" "cljs"}
+  :key :fulcro-rad
+  :tags #{"Web Frameworks"}}
  {:name "full.async"
   :url "https://github.com/fullcontact/full.async"
   :platforms #{"clj" "cljs"}
@@ -2369,6 +2379,11 @@
   :platforms #{"clj"}
   :key :hiphip
   :tags #{"Java Integration" "Performance"}}
+ {:name "Holy Lambda"
+  :key :holy-lambda
+  :url "https://github.com/kwojcik-blockether/holy-lambda"
+  :platforms #{"clj" "babashka"}
+  :tags #{"Amazon Web Services (AWS)" "AWS Lambda"}}
  {:name "Honey SQL"
   :url "https://github.com/seancorfield/honeysql"
   :platforms #{"clj" "cljs"}
@@ -5423,6 +5438,11 @@
   :description "A simple ClojureScript interface to React."
   :key :uix
   :tags #{"Hiccup Syntax" "React Interfaces"}}
+ {:name "UIX.CSS"
+  :url "https://github.com/roman01la/uix.css"
+  :platforms #{"cljs"}
+  :key :uix.css
+  :tags #{"CSS"}}
  {:name "Ultra"
   :url "https://github.com/venantius/ultra"
   :platforms #{"clj"}
