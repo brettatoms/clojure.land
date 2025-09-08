@@ -6,11 +6,12 @@ in
 {
   # https://devenv.sh/packages/
   packages = [
-    pkgs.git
-    pkgs-unstable.cljfmt
     pkgs-unstable.clj-kondo
+    pkgs-unstable.cljfmt
+    pkgs-unstable.emacs-lsp-booster
     pkgs-unstable.flyctl
     pkgs.docker
+    pkgs.git
   ];
 
   languages.clojure.enable = true;

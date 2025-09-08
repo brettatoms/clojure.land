@@ -21,6 +21,12 @@ Additional project metadata is synced weekly for repositories with a GitHub repo
 
 ## Local Development
 
+### Using [Devenv](https://devenv.sh/)
+
+1. Install Nix. I recommend [DeterminateSystems/nix-installer](https://github.com/DeterminateSystems/nix-installer)
+2. `nix profile install nixpkgs#devenv`
+3. `ln -s .envrc.devenv .envrc`
+
 ### Environment variables
 
 - `GITHUB_API_TOKEN`: Needed to update update the local project data with the repo data.

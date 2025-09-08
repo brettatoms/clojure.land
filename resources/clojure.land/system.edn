@@ -4,7 +4,7 @@
                             :port #long #or [#env PORT "3000"]}
  :clojure-land.core/logging {:level #or [#env LOG_LEVEL "DEBUG"]}
  :clojure-land.github/client {:api-token #env GITHUB_API_TOKEN}
- :clojure-land.s3/client {:endpoint-url #env AWS_ENDPOINT_URL_S3
+ :clojure-land.s3/client {:endpoint-url #or [#env AWS_ENDPOINT_URL_S3 "https://fly.storage.tigris.dev"]
                           :access-key-id #env AWS_ACCESS_KEY_ID
                           :secret-access-key #env AWS_SECRET_ACCESS_KEY}
  :clojure-land.db/create {:zodiac #ig/ref :clojure-land.core/zodiac}
