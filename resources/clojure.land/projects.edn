@@ -1633,6 +1633,11 @@
   :key :datomic
   :tags #{"Databases"}
   :repo-url nil}
+ {:name "Datomic MCP Server"
+  :key :datomic-mcp-server
+  :url "https://github.com/xlisp/datomic-mcp-server"
+  :platforms #{"clj"}
+  :tags #{"Datomic", "AI", "MCP"}}
  {:name "datomic-schema"
   :url "https://github.com/Yuppiechef/datomic-schema"
   :platforms #{"clj"}
