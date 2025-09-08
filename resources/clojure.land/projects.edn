@@ -4967,6 +4967,11 @@
   :tags #{"Distributed Programming"}
   :repo-url "https://github.com/apache/storm"
   :ignore true}
+ {:name "Stripe Clojure SDK"
+  :key :stripe-clojure
+  :url "https://github.com/yonureker/stripe-clojure"
+  :platforms #{"clj"}
+  :tags #{"Stripe"}}
  {:name "Strowger"
   :url "https://github.com/weavejester/strowger"
   :platforms #{"cljs"}
