@@ -5469,6 +5469,11 @@
   :platforms #{"clj"}
   :key :unilog
   :tags #{"Logging"}}
+ {:name "Unused-deps"
+  :key :unused-deps
+  :url "https://github.com/borkdude/unused-deps"
+  :platforms #{"clj"}
+  :tags #{}}
  {:name "uri"
   :url "https://github.com/lambdaisland/uri"
   :platforms #{"clj" "cljs"}
