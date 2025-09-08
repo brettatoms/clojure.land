@@ -729,6 +729,11 @@
   :url "https://github.com/s312569/clj-biosequence"
   :platforms #{"clj"}
   :tags #{"Bioinformatics"}}
+{:name "clj-check"
+  :key :clj-check
+  :url "https://github.com/athos/clj-check"
+  :platforms #{"clj"}
+  :tags #{"Code analysis" "Linter"}}
  {:name "clj-camel"
   :url "https://github.com/TakeoffTech/clj-camel"
   :platforms #{"clj"}
@@ -785,7 +790,7 @@
   :url "https://github.com/clj-kondo/clj-kondo"
   :platforms #{"clj" "cljs"}
   :key :clj_kondo
-  :tags #{"Code Analysis"}}
+  :tags #{"Code Analysis" "Linter"}}
  {:name "clj-loga"
   :url "https://github.com/FundingCircle/loga"
   :platforms #{"clj"}
@@ -1867,7 +1872,7 @@
   :url "https://github.com/jonase/eastwood"
   :platforms #{"clj"}
   :key :eastwood
-  :tags #{"Code Analysis" "Leiningen Plugins"}}
+  :tags #{"Code Analysis" "Leiningen Plugins" "Linter"}}
  {:name "Edamame"
   :url "https://github.com/borkdude/edamame"
   :platforms #{"clj" "cljs"}
@@ -4875,7 +4880,7 @@
   :description
   "Linter for Clojure/script focused on style and code shape."
   :key :splint
-  :tags #{"Code Analysis"}}
+  :tags #{"Code Analysis" "Linter"}}
  {:name "spreadmap"
   :url "https://github.com/cgrand/spreadmap"
   :platforms #{"clj"}
