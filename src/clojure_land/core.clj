@@ -66,25 +66,20 @@
        (mapv (fn [platform]
                [:a {:class "cursor-pointer"
                     :hx-get "/"
-                    :hx-swap "outerHTML"
                     :hx-push-url "true"
                     :hx-include "inherit"
-                    ;; Add a hidden input so the value is included when the request is
-                    ;; made. This won't exist after the content is swapped.
-                    :hx-on:click (format "appendPlatformInput('%s')" platform)}
+                    :hx-on:htmx:config-request (format "appendPlatformParameter(event, '%s')" platform)}
                 (platform-chip platform)])
              ;; override sort order of platforms
-             (some->> (.getArray platforms)
+             (some->> (.getArray (or platforms (array-map)))
                       (sort-by sort-platforms-keyfn)))]
       [:div {:class "flex flex-row gap-2 flex-wrap"}
        (mapv (fn [tag]
                [:a {:class "cursor-pointer"
                     :hx-get "/"
-                    :hx-swap "outerHTML"
                     :hx-push-url "true"
                     :hx-include "inherit"
-                    ;; Add a hidden input so the value is included when the reques is made
-                    :hx-on:click (format "appendTagInput('%s')" tag)}
+                    :hx-on:htmx:config-request (format "appendTagParameter(event, '%s')" tag)}
                 (tag-chip tag)])
              (some->> (.getArray tags) (take 4) (sort)))]]]]])
 
@@ -95,7 +90,9 @@
      (vec (map-indexed (fn [idx p]
                          (let [attrs (when (and (= idx (- num-projects 2))
                                                 (> num-projects 10))
+                                       ;; Load next page on revealed
                                        {:hx-get "/"
+                                        ;; Override hx-target, hx-select, etc from <main>
                                         :hx-target "#project-list"
                                         :hx-select "#project-list li"
                                         :hx-swap "beforeend"
@@ -116,8 +113,6 @@
            :hx-get "/"
            :hx-replace-url "true"
            :hx-trigger "input changed delay:250ms, keyup[key=='Enter']"
-           :hx-swap "outerHTML"
-           :hx-include "inherit"
             ;; prevent the swap from undoing input if the user if typing fast
            :hx-preserve true}])
 
@@ -156,7 +151,6 @@
                         [:button {:type "button"
                                   :class "cursor-pointer"
                                   :hx-get "/"
-                                  :hx-swap "outerHTML"
                                   :hx-push-url "true"
                                   :hx-include "inherit"
                                   :hx-on:click (format "htmx.remove(htmx.find('input[value=\"%s\"]')); " value)}
@@ -168,30 +162,19 @@
                           (chassis/raw "&times;")]])]
     [:div {:id "filter-bar"
            :class "flex flex-row gap-4 col-span-6 md:col-span-4 mx-6 md:mx-2 md:col-start-2 mt-4"}
-     (mapv (fn [platform]
-             (closable-chip
-              "platforms"
-              platform
-              (platform-chip platform)))
-           platforms)
-     (mapv (fn [tag]
-             (closable-chip
-              "tags"
-              tag
-              (tag-chip tag)))
-           tags)]))
+     (mapv #(closable-chip "platforms" % (platform-chip %)) platforms)
+     (mapv #(closable-chip "tags" % (tag-chip %)) tags)]))
 
 (defn sort-select [value]
-  [:dive {:class "flex justify-end items-center gap-2 col-span-6 md:col-span-4 md:col-start-2"}
+  [:div {:class "flex justify-end items-center gap-2 col-span-6 md:col-span-4 md:col-start-2"
+         :id "sort-select"}
    (icons/bars-arrow-down)
    [:select {:id "sort"
              :name "sort"
              :value (if value (name value) "date")
              :class "rounded-md outline-1 outline-gray-300 border-0 text-sm/5 min-w-40"
              :hx-get "/"
-             :hx-swap "outerHTML"
              :hx-push-url "true"
-             :hx-include "inherit"
              :hx-trigger "change"
              :hx-preserve true}
     [:option {:value "date" :selected (= value :date)} "Last updated"]
@@ -223,7 +206,10 @@
 (defn content [& {:keys [q platforms tags projects next-page sort]}]
   [:main {:id "content"
           :hx-include "select#sort, input#q, input[name='tags'], input[name='platforms']"
-          :hx-target "#content"}
+          :hx-select "#project-list"
+          :hx-select-oob "#filter-bar,#sort-select"
+          :hx-swap "outerHTML"
+          :hx-target "#project-list"}
    [:div {:id "form-container"
           :class "grid grid-cols-6"}
     [:form {:id "form"

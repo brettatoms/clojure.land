@@ -2,26 +2,37 @@ import htmx from "htmx.org";
 
 window.htmx = htmx;
 
-addEventListener("DOMContentLoaded", (event) => {
-    // populate the input value with the value attribute on page reload
-    const input = document.querySelector("input#q");
-    input.value = input.defaultValue;
-});
+function appendParameter(parameters: { [k: string ]: string | Array<string> }, key: string, value: string) {
+    const values = parameters[key]
+    if (typeof values === 'string') {
+        parameters[key] = [values, value]
+    } else if (Array.isArray(values)) {
+        values.push(value)
+    } else {
+        parameters[key] = value
+    }
+}
 
-window.appendPlatformInput = (platform: string) => {
-    const input = document.createElement("input");
-    input.setAttribute("name", "platforms");
-    input.setAttribute("type", "hidden");
-    input.setAttribute("value", platform);
-    const form = document.querySelector("#form");
-    form.appendChild(input);
+// Hang these functions on window to make sure they're included in the bundle.
+window.appendPlatformParameter = (event, platform: string) => {
+    const el = document.querySelector(`input[value="${platform}"]`)
+    if (el) {
+        // cancel the request if the value already exists
+        event.preventDefault()
+        return
+    }
+
+    appendParameter(event.detail.parameters, 'platforms', platform)
 };
 
-window.appendTagInput = (tag: string) => {
-    const input = document.createElement("input");
-    input.setAttribute("name", "tags");
-    input.setAttribute("type", "hidden");
-    input.setAttribute("value", tag);
-    const form = document.querySelector("#form");
-    form.appendChild(input);
+window.appendTagParameter = (event, tag: string) => {
+    console.log(event)
+    const el = document.querySelector(`input[value="${tag}"]`)
+    if (el) {
+        // cancel the request if the value already exists
+        event.preventDefault()
+        return
+    }
+
+    appendParameter(event.detail.parameters, 'tags', tag)
 };
