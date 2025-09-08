@@ -4243,7 +4243,8 @@
   :key :restpect
   :tags #{"Unit Testing" "Web Testing"}}
  {:name "Reveal"
-  :url "https://github.com/vlaaad/reveal"
+  :url "https://vlaaad.github.io/reveal/"
+  :repo-url "https://github.com/vlaaad/reveal"
   :platforms #{"clj" "cljs"}
   :key :reveal
   :tags #{"Data Exploration"}}
