@@ -1691,6 +1691,11 @@
   "Fast, flexible, 0-deps (de)serialization library for Clojure"
   :key :deed
   :tags #{"serialization"}}
+ {:name "Deep Diamond"
+  :key :deep-diamond
+  :url "https://github.com/uncomplicate/deep-diamond"
+  :platforms #{"clj"}
+  :tags #{"AI" "Machine Learning"}}
  {:name "Deep Freeze"
   :url "https://github.com/halgari/deep-freeze"
   :platforms #{"clj"}
