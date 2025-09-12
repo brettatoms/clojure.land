@@ -3790,6 +3790,11 @@
   :tags #{"Binary Data" "Parsing"}
   :ignore true
   :repo-url nil}
+ {:name "partial-cps"
+  :url "https://github.com/simm-is/partial-cps"
+  :key :partial-cps
+  :platforms #{"clj" "cljs"}
+  :tags #{}}
  {:name "Papillon"
   :url "https://github.com/lambda-toolshed/papillon"
   :platforms #{"clj" "cljs"}
