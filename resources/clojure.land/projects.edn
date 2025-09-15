@@ -3875,6 +3875,11 @@
   :description "A fast PostgreSQL driver for Clojure"
   :key :pg2
   :tags #{"postgresql" "sql"}}
+ {:name "PG.bin"
+  :url "https://github.com/igrishaev/pg-bin"
+  :key :pg-bin
+  :platforms #{"clj"}
+  :tags #{"postgresql" "sql"}}
  {:name "phlegyas"
   :url "https://github.com/dspearson/phlegyas"
   :platforms #{"clj"}
