@@ -1254,6 +1254,11 @@
   :platforms #{"cljs"}
   :key :coll_pen
   :tags #{"Data Exploration"}}
+ {:name "color-tools"
+  :key :color-tools
+  :url "https://github.com/jramosg/color-tools"
+  :platforms #{"cljs" "clj" "babashka"}
+  :tags #{"Colors"}}
  {:name "Comb"
   :url "https://github.com/weavejester/comb"
   :platforms #{"clj"}
