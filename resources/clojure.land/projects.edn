@@ -729,7 +729,7 @@
   :url "https://github.com/s312569/clj-biosequence"
   :platforms #{"clj"}
   :tags #{"Bioinformatics"}}
-{:name "clj-check"
+ {:name "clj-check"
   :key :clj-check
   :url "https://github.com/athos/clj-check"
   :platforms #{"clj"}
@@ -2861,6 +2861,11 @@
   :platforms #{"cljs"}
   :key :klipse_plugin
   :tags #{"Interactive Development"}}
+ {:name "Knitty"
+  :url "https://github.com/anjensan/knitty"
+  :platforms #{"clj"}
+  :key :knitty
+  :tags #{"Asynchronous Programming"}}
  {:name "Korma"
   :url "https://github.com/korma/Korma"
   :platforms #{"clj"}
