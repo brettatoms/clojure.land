@@ -1975,6 +1975,16 @@
   :platforms #{"clj"}
   :key :etaoin
   :tags #{"Selenium Webdriver" "Web Testing"}}
+ {:name "ETLP"
+  :key :etlp
+  :url "https://github.com/etlp-clj/etlp"
+  :platforms #{"clj"}
+  :tags #{}}
+ {:name "etlp-mapper"
+  :key :etlp-mapper
+  :url "https://github.com/etlp-clj/etlp-mapper"
+  :platforms #{"clj"}
+  :tags #{}}
  {:name "Euclidean"
   :url "https://github.com/weavejester/euclidean"
   :platforms #{"clj"}
@@ -2254,6 +2264,11 @@
   :platforms #{"clj"}
   :key :grape
   :tags #{"Parsing" "edn"}}
+ {:name "graphcom"
+  :key :graphcom
+  :url "https://github.com/bortexz/graphcom"
+  :platforms #{"clj"}
+  :tags #{}}
  {:name "graphql-clj"
   :url "https://github.com/tendant/graphql-clj"
   :platforms #{"clj"}
@@ -2725,6 +2740,11 @@
   :platforms #{"clj"}
   :key :jungerer
   :tags #{"Data Structures" "Graphs"}}
+ {:name "jute.clj"
+  :url "https://github.com/HealthSamurai/jute.clj"
+  :platforms #{"clj" "cljs"}
+  :key :jute
+  :tags #{"Data Transformation"}}
  {:name "k8s-api"
   :url "https://github.com/nubank/k8s-api"
   :platforms #{"clj"}
@@ -5119,6 +5139,11 @@
   :url "https://github.com/scicloj/tablecloth"
   :platforms #{"clj"}
   :tags #{"data science" "dataframe" "dataset"}}
+ {:name "tacos"
+  :key :tacos
+  :url "https://github.com/bortexz/tacos"
+  :platforms #{"clj"}
+  :tags #{}}
  {:name "Tadam"
   :url "https://tadam-framework.andros.dev/"
   :platforms #{"clj"}
@@ -5698,6 +5723,11 @@
   :platforms #{"clj"},
   :key :willa,
   :tags #{"kafka"}}
+ {:name "Wire",
+  :key :wire
+  :url "https://github.com/troy-west/wire",
+  :platforms #{"clj"},
+  :tags #{}}
  {:name "witchcraft",
   :url "https://github.com/lambdaisland/witchcraft",
   :platforms #{"clj"},
