@@ -3756,6 +3756,11 @@
   :platforms #{"clj"}
   :key :ottla
   :tags #{"kafka"}}
+ {:name "Overarch"
+  :key :overarch
+  :url "https://github.com/soulspace-org/overarch"
+  :platforms #{"clj"}
+  :tags #{}}
  {:name "overload-middleware"
   :url "https://github.com/rkday/overload-middleware"
   :platforms #{"clj"}
