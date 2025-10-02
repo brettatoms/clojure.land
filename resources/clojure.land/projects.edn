@@ -1117,6 +1117,12 @@
   :platforms #{"clj"}
   :key :clojurebot
   :tags #{"irc"}}
+ {:name "ClojureCUDA"
+  :url "https://clojurecuda.uncomplicate.org/"
+  :repo-url "https://github.com/uncomplicate/clojurecuda"
+  :platforms #{"clj"}
+  :key :clojurecuda
+  :tags #{"CUDA" "GPU"}}
  {:name "ClojureCL"
   :url "http://clojurecl.uncomplicate.org/"
   :platforms #{"clj"}
@@ -1985,6 +1991,11 @@
   :url "https://github.com/etlp-clj/etlp-mapper"
   :platforms #{"clj"}
   :tags #{}}
+ {:name "Eucalypt"
+  :key :eucalypt
+  :url "https://github.com/chr15m/eucalypt"
+  :platforms #{"cljs"}
+  :tags #{"Reagent" "Squint"}}
  {:name "Euclidean"
   :url "https://github.com/weavejester/euclidean"
   :platforms #{"clj"}
@@ -2973,6 +2984,11 @@
   :platforms #{"clj"}
   :key :least
   :tags #{"Web API Clients"}}
+ {:name "Legba"
+  :key :legba
+  :url "https://github.com/mpenet/legba"
+  :platforms #{"clj"}
+  :tags #{"OpenAPI"}}
  {:name "lein-ancient"
   :url "https://github.com/xsc/lein-ancient"
   :platforms #{"clj"}
@@ -5498,6 +5514,12 @@
     "Unit Testing"
     "XML Parsers"
     "YAML Parsers"}}
+ {:name "Ty"
+  :url "https://gersak.github.io/ty"
+  :repo-url "https://github.com/gersak/ty"
+  :key :ty
+  :platforms #{"cljs"}
+  :tags #{"Web Components" "HTMX"}}
  {:name "Typed Clojure"
   :url "https://github.com/typedclojure/typedclojure"
   :platforms #{"clj" "cljs"}
@@ -5642,6 +5664,11 @@
   :platforms #{"clj"},
   :key :vim-clojure,
   :tags #{"vim"}}
+ {:name "Virgil",
+  :key :virgil,
+  :url "https://github.com/clj-commons/virgil",
+  :platforms #{"clj"},
+  :tags #{"Java Interop"}}
  {:name "Virhe",
   :url "https://github.com/metosin/virhe",
   :platforms #{"clj" "cljs"},
