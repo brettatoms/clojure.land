@@ -286,6 +286,12 @@
   :platforms #{"clj"}
   :key :bifurcan
   :tags #{"Data Structures" "Performance"}}
+ {:name "BigConfig"
+  :key :bigconfig
+  :url "https://www.big-config.it/"
+  :repo-url "https://github.com/amiorin/big-config"
+  :platforms #{"clj"}
+  :tags #{"Project Templates"}}
  {:name "Bikeshed"
   :url "https://github.com/dakrone/lein-bikeshed"
   :platforms #{"clj"}
@@ -3807,6 +3813,11 @@
   :platforms #{"clj"}
   :key :pandect
   :tags #{"Cryptography" "Hashing"}}
+ {:name "Pavlov"
+  :key :pavlov
+  :url "https://github.com/thomascothran/pavlov"
+  :platforms #{"clj"}
+  :tags #{"Behavorial programming"}}
  {:name "Pantomime"
   :url "https://github.com/michaelklishin/pantomime"
   :platforms #{"clj"}
@@ -4005,6 +4016,11 @@
   :platforms #{"clj"}
   :key :pocheshiro
   :tags #{"Authentication"}}
+ {:name "pod-babashka-go-sqlite3"
+  :key :pod-babashka-go-sqlite3
+  :url "https://github.com/babashka/pod-babashka-go-sqlite3"
+  :platforms #{"babashka"}
+  :tags #{"JDBC" "SQL"}}
  {:name "Pogonos"
   :url "https://github.com/athos/pogonos"
   :platforms #{"clj" "cljs"}
@@ -4758,6 +4774,11 @@
   :platforms #{"clj"}
   :key :shrubbery
   :tags #{"Mocking" "Unit Testing"}}
+ {:name "Si-frame"
+  :key :si-frame
+  :url "https://github.com/metosin/si-frame"
+  :platforms #{"cljs"}
+  :tags #{"React Frameworks" "Web Frameworks"}}
  {:name "sibiro"
   :url "https://github.com/aroemers/sibiro"
   :platforms #{"clj" "cljs"}
@@ -4974,6 +4995,11 @@
   :platforms #{"clj" "cljs"}
   :key :spyscope
   :tags #{"Debugging"}}
+ {:name "sqids-clojure"
+  :key :sqids-clojure
+  :url "https://github.com/sqids/sqids-clojure"
+  :platforms #{"clj"}
+  :tags #{"Hashing"}}
  {:name "SQLingvo"
   :url "https://github.com/r0man/sqlingvo"
   :platforms #{"clj"}
@@ -5301,6 +5327,11 @@
   :description "A Clojure library to easily write tests with files"
   :key :test_with_files
   :tags #{"Mocking" "Unit Testing"}}
+ {:name "Test Filter"
+  :key :test-filter
+  :url "https://github.com/fulcrologic/test-filter"
+  :platforms #{"clj"}
+  :tags #{"Unit Testing" "Continuous Testing"}}
  {:name "thread-expr"
   :url "https://github.com/pallet/thread-expr"
   :platforms #{"clj"}
@@ -5694,6 +5725,11 @@
   :platforms #{"clj"},
   :key :vlad,
   :tags #{"Validation"}}
+ {:name "Vrac",
+  :key :vrac,
+  :url "https://github.com/green-coder/vrac",
+  :platforms #{"clj" "cljs"},
+  :tags #{"Web Frameworks"}}
  {:name "Vura",
   :url "https://github.com/gersak/vura",
   :platforms #{"clj" "cljs"},
