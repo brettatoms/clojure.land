@@ -1521,6 +1521,11 @@
   :platforms #{"clj"}
   :key :cursive
   :tags #{"IDE Integration"}}
+ {:name "cybermonday"
+  :key :cybermonday
+  :url "https://github.com/kiranshila/cybermonday"
+  :platforms #{"clj" "cljs"}
+  :tags #{"Markdown"}}
  {:name "cypress-clojurescript-preprocessor"
   :url "https://github.com/viesti/cypress-clojurescript-preprocessor"
   :platforms #{"cljs"}
@@ -3272,8 +3277,6 @@
  {:name "markdown-clj"
   :url "https://github.com/yogthos/markdown-clj"
   :platforms #{"clj" "cljs"}
-  :description
-  "Clojure based Markdown parsers for both Clojure and ClojureScript"
   :key :markdown_clj
   :tags #{"Markdown"}}
  {:name "Markdown"
