@@ -312,6 +312,11 @@
   :platforms #{"clj"}
   :key :biomass
   :tags #{"Mechanical Turk Clients"}}
+ {:name "bioscoop"
+  :key :bioscoop
+  :url "https://github.com/danielsz/bioscoop"
+  :platforms #{"clj"}
+  :tags #{"FFMPEG" "Video"}}
  {:name "Bishop"
   :url "https://github.com/cmiles74/bishop"
   :platforms #{"clj"}
