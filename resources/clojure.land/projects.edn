@@ -698,6 +698,11 @@
   :platforms #{"clj"}
   :key :clecs
   :tags #{"Game Development"}}
+ {:name "cli"
+  :key :cli
+  :url "https://github.com/lambdaisland/cli"
+  :platforms #{"clj"}
+  :tags #{"Command Line Tools"}}
  {:name "client-ip"
   :url "https://github.com/outskirtslabs/client-ip"
   :platforms #{"clj"}
