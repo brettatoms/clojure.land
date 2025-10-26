@@ -100,6 +100,11 @@
   :platforms #{"clj"}
   :key :analemma
   :tags #{"SVG Generation"}}
+ {:name "EACL"
+  :url "https://github.com/theronic/eacl"
+  :platforms #{"clj"}
+  :key :eacl
+  :tags #{"Authorization" "ReBAC" "Datomic"}}
  {:name "annagreta"
   :url "https://github.com/molst/annagreta"
   :platforms #{"clj"}
