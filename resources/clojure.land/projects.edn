@@ -3904,7 +3904,6 @@
   :url "https://github.com/pangloss/pattern"
   :platforms #{"clj"}
   :key :pattern
-  :description "Extensible combinator-based pattern match and substitution library"
   :tags #{"Pattern Matching" "Data Transformation" "Compilation" "Macros" "Substitution" "Combinators"}}
  {:name "pdfboxing"
   :url "https://github.com/dotemacs/pdfboxing"
