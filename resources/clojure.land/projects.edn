@@ -800,6 +800,11 @@
   :platforms #{"clj"}
   :key :clj-hiera
   :tags #{"Code Analysis"}}
+ {:name "clj-htmltopdf"
+  :key :clj-htmltopdf
+  :url "https://github.com/gered/clj-htmltopdf"
+  :platforms #{"clj"}
+  :tags #{"PDF Generation"}}
  {:name "clj-http"
   :url "https://github.com/dakrone/clj-http"
   :platforms #{"clj"}
