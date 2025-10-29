@@ -29,6 +29,11 @@
   :platforms #{"clj"}
   :key :aero
   :tags #{"Configuration"}}
+ {:name "Aero 1P"
+  :key :aero-1p
+  :url "https://github.com/lukaszkorecki/aero-1p"
+  :platforms #{"clj"}
+  :tags #{"Configuration"}}
  {:name "Again"
   :url "https://github.com/liwp/again"
   :platforms #{"clj"}
@@ -378,7 +383,7 @@
   :url "https://github.com/weavejester/brutha"
   :platforms #{"cljs"}
   :key :brutha
-  :tags #{"React Interfaces"}}
+  :tags #{"React Interfaces" "Front-end framework"}}
  {:name "Buddy"
   :url "https://github.com/funcool/buddy"
   :platforms #{"clj"}
@@ -931,6 +936,11 @@
   :platforms #{"clj"}
   :key :clj_template
   :tags #{"HTML Generation" "Template Languages"}}
+ {:name "Clojure Telegram Bot API"
+  :key :clj-tg-bot-api
+  :url "https://github.com/marksto/clj-tg-bot-api"
+  :platforms #{"clj"}
+  :tags #{}}
  {:name "clj-thymeleaf"
   :url "https://github.com/plakat/clj-thymeleaf"
   :platforms #{"clj"}
@@ -1039,7 +1049,7 @@
   :url "https://github.com/peterhudec/cljsx"
   :platforms #{"clj" "cljs"}
   :key :cljsx
-  :tags #{"React DOM" "React Interfaces"}}
+  :tags #{"React DOM" "React Interfaces" "Front-end framework"}}
  {:name "Clojail"
   :url "https://github.com/flatland/clojail"
   :platforms #{"clj"}
@@ -1382,6 +1392,11 @@
   :platforms #{"clj"}
   :key :context
   :tags #{"Application Frameworks"}}
+ {:name "contract"
+  :url "https://github.com/semantic-namespace/contract"
+  :platforms #{"clj"}
+  :key :contract
+  :tags #{}}
  {:name "convex.cljc"
   :url "https://github.com/Convex-Dev/convex.cljc"
   :platforms #{"clj"}
@@ -1840,6 +1855,11 @@
   :platforms #{"cljs"}
   :key :domo
   :tags #{"DOM Events" "DOM Manipulation"}}
+ {:name "Dompa"
+  :key :dompa
+  :url "https://github.com/askonomm/dompa"
+  :platforms #{"clj"}
+  :tags #{"HTML Parse" "HTML Builder"}}
  {:name "Donkey"
   :url "https://github.com/AppsFlyer/donkey"
   :platforms #{"clj"}
@@ -2167,7 +2187,7 @@
   :url "https://github.com/weavejester/flupot"
   :platforms #{"cljs"}
   :key :flupot
-  :tags #{"React DOM"}}
+  :tags #{"React DOM" "Front-end framework"}}
  {:name "Foundation/PG"
   :url "https://github.com/mikeball/foundation"
   :platforms #{"clj"}
@@ -2182,7 +2202,7 @@
   :url "https://github.com/nextjournal/freerange"
   :platforms #{"cljs"}
   :key :freerange
-  :tags #{"React Frameworks"}}
+  :tags #{"React Frameworks" "Front-end framework"}}
  {:name "Fresnel"
   :url "https://github.com/ckirkendall/fresnel"
   :platforms #{"clj"}
@@ -2209,7 +2229,7 @@
   :url "https://github.com/fulcrologic/fulcro"
   :platforms #{"clj" "cljs"}
   :key :fulcro
-  :tags #{"React Frameworks" "Web Frameworks"}}
+  :tags #{"React Frameworks" "Web Frameworks" "Front-end framework"}}
  {:name "Fulcro RAD"
   :url "https://github.com/fulcrologic/fulcro-rad"
   :platforms #{"clj" "cljs"}
@@ -2350,6 +2370,11 @@
   :key :guardrails
   :tags
   #{"Dynamic Typing" "Schema" "Spec" "Syntax Extensions" "Validation"}}
+ {:name "Guardrails Analyzer"
+  :url "https://github.com/fulcrologic/guardrails-analyzer"
+  :platforms #{"clj"}
+  :key :guardrails-analyzer
+  :tags #{"Code Analysis" "Type checking"}}
  {:name "gudu"
   :url "https://github.com/thatismatt/gudu"
   :platforms #{"clj"}
@@ -2419,7 +2444,7 @@
   :url "https://github.com/lilactown/helix"
   :platforms #{"cljs"}
   :key :helix
-  :tags #{"React Frameworks"}}
+  :tags #{"React Frameworks" "Front-end framework"}}
  {:name "herb"
   :url "https://github.com/roosta/herb"
   :platforms #{"clj" "cljs"}
@@ -2831,12 +2856,12 @@
   :url "https://github.com/ingesolvoll/kee-frame"
   :platforms #{"cljs"}
   :key :kee_frame
-  :tags #{"React Frameworks" "Web Frameworks"}}
+  :tags #{"React Frameworks" "Web Frameworks" "Front-end framework"}}
  {:name "Keechma"
   :url "https://github.com/keechma/keechma"
   :platforms #{"cljs"}
   :key :keechma
-  :tags #{"React Frameworks" "Web Frameworks"}}
+  :tags #{"React Frameworks" "Web Frameworks" "Front-end framework"}}
  {:name "keenest-rube"
   :url "https://github.com/blak3mill3r/keenest-rube"
   :platforms #{"clj"}
@@ -2891,7 +2916,7 @@
   :url "https://github.com/ckirkendall/kioo"
   :platforms #{"cljs"}
   :key :kioo
-  :tags #{"React DOM"}}
+  :tags #{"React DOM" "Front-end framework"}}
  {:name "Kit"
   :url "https://kit-clj.github.io/"
   :platforms #{"clj"}
@@ -3190,6 +3215,11 @@
   :platforms #{"clj"}
   :key :liquid
   :tags #{"Code Editors"}}
+ {:name "LiteLLM Clojure"
+  :key :litellm-clj
+  :url "https://github.com/unravel-team/litellm-clj"
+  :platforms #{"clj"}
+  :tags #{"AI" "LLM"}}
  {:name "Lobos"
   :url "https://github.com/budu/lobos"
   :platforms #{"clj"}
@@ -3506,6 +3536,11 @@
   :platforms #{"clj"}
   :key :monroe
   :tags #{"emacs"}}
+ {:name "Moon Engine"
+  :key :moon
+  :url "https://github.com/damn/moon"
+  :platforms #{"clj"}
+  :tags #{"Game engine"}}
  {:name "more.async"
   :url "https://github.com/bsless/more.async"
   :platforms #{"clj"}
@@ -3718,7 +3753,7 @@
   :url "https://github.com/omcljs/om"
   :platforms #{"cljs"}
   :key :om
-  :tags #{"React Interfaces"}}
+  :tags #{"React Interfaces" "Front-end framework"}}
  {:name "omni-trace"
   :url "https://github.com/cyrik/omni-trace"
   :platforms #{"clj" "cljs"}
@@ -4159,7 +4194,7 @@
   :url "https://github.com/binaryage/pure-frame"
   :platforms #{"cljs"}
   :key :pure_frame
-  :tags #{"React Frameworks"}}
+  :tags #{"React Frameworks" "Front-end framework"}}
  {:name "Pyramid"
   :url "https://github.com/lilactown/pyramid"
   :platforms #{"clj" "cljs"}
@@ -4207,7 +4242,7 @@
   :url "https://github.com/levand/quiescent"
   :platforms #{"cljs"}
   :key :quiescent
-  :tags #{"React Interfaces"}}
+  :tags #{"React Interfaces" "Front-end framework"}}
  {:name "quil"
   :url "https://github.com/quil/quil"
   :platforms #{"clj" "cljs"}
@@ -4234,7 +4269,7 @@
   :url "https://github.com/Day8/re-frame"
   :platforms #{"cljs"}
   :key :re_frame
-  :tags #{"React Frameworks" "Web Frameworks"}}
+  :tags #{"React Frameworks" "Front-end framework"}}
  {:name "Re-Natal"
   :url "https://github.com/drapanjanas/re-natal"
   :platforms #{"cljs"}
@@ -4245,11 +4280,17 @@
   :platforms #{"clj"}
   :key :re_rand
   :tags #{"Random Data Generation"}}
+ {:name "Reagami"
+  :url "https://github.com/borkdude/reagami"
+  :platforms #{"cljs"}
+  :key :reagami
+  :tags #{"Front-end framework"}
+  :repo-url "https://github.com/reagent-project/reagent"}
  {:name "Reagent"
   :url "https://reagent-project.github.io/"
   :platforms #{"cljs"}
   :key :reagent
-  :tags #{"Hiccup Syntax" "React Interfaces"}
+  :tags #{"React Interfaces" "Front-end framework"}
   :repo-url "https://github.com/reagent-project/reagent"}
  {:name "Reagi"
   :url "https://github.com/weavejester/reagi"
@@ -4603,7 +4644,7 @@
   :url "https://github.com/tonsky/rum"
   :platforms #{"cljs"}
   :key :rum
-  :tags #{"React Interfaces"}}
+  :tags #{"React Interfaces" "Front-end framework"}}
  {:name "Rummage"
   :url "https://github.com/cemerick/rummage"
   :platforms #{"clj"}
@@ -4613,7 +4654,7 @@
   :url "https://github.com/r0man/sablono"
   :platforms #{"cljs"}
   :key :sablono
-  :tags #{"Hiccup Syntax" "React DOM"}}
+  :tags #{"Hiccup Syntax" "React DOM" "Front-end framework"}}
  {:name "Safely"
   :url "https://github.com/BrunoBonacci/safely"
   :platforms #{"clj"}
@@ -4801,7 +4842,7 @@
   :key :si-frame
   :url "https://github.com/metosin/si-frame"
   :platforms #{"cljs"}
-  :tags #{"React Frameworks" "Web Frameworks"}}
+  :tags #{"React Frameworks" "Web Frameworks" "Front-end framework"}}
  {:name "sibiro"
   :url "https://github.com/aroemers/sibiro"
   :platforms #{"clj" "cljs"}
@@ -5301,7 +5342,7 @@
   :platforms #{"cljs"}
   :description "Simple React component DSL for Clojure/Script"
   :key :tengen
-  :tags #{"React Frameworks"}
+  :tags #{"React Frameworks" "Front-end framework"}
   :repo-url "https://github.com/taoensso/tengen"}
  {:name "Tentacles"
   :url "https://github.com/clj-commons/tentacles"
@@ -5545,7 +5586,7 @@
   :url "https://github.com/tatut/tuck"
   :platforms #{"cljs"}
   :key :tuck
-  :tags #{"React Frameworks" "Web Frameworks"}}
+  :tags #{"React Frameworks" "Front-end framework"}}
  {:name "Tufte"
   :url "https://www.taoensso.com/tufte"
   :platforms #{"clj" "cljs"}
@@ -5594,7 +5635,7 @@
   :platforms #{"cljs"}
   :description "A simple ClojureScript interface to React."
   :key :uix
-  :tags #{"Hiccup Syntax" "React Interfaces"}}
+  :tags #{"React Interfaces" "Front-end framework"}}
  {:name "UIX.CSS"
   :url "https://github.com/roman01la/uix.css"
   :platforms #{"cljs"}
