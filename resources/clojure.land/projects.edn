@@ -3362,6 +3362,11 @@
   :description "Various utility math functions"
   :key :math_numeric_tower
   :tags #{"Math"}}
+ {:name "MCP SDK"
+  :key :mcp-sdk
+  :url "https://github.com/latacora/mcp-sdk"
+  :platforms #{"clj"}
+  :tags #{"AI" "MCP"}}
  {:name "MCP Server"
   :url "https://github.com/RokLenarcic/mcp-server"
   :platforms #{"clj"}
