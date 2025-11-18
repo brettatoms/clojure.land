@@ -1361,6 +1361,11 @@
   :platforms #{"clj"}
   :key :config
   :tags #{"Configuration"}}
+ {:name "config",
+  :url "https://github.com/lambdaisland/config",
+  :platforms #{"clj"},
+  :key :lambdaisland_config,
+  :tags #{"Configuration"}}
  {:name "conformity"
   :url "https://github.com/qtrfeast/conformity"
   :platforms #{"clj"}
@@ -3025,6 +3030,11 @@
   :platforms #{"clj"}
   :key :lasync
   :tags #{"Concurrency"}}
+ {:name "launchpad",
+  :url "https://github.com/lambdaisland/launchpad",
+  :platforms #{"clj"},
+  :key :launchpad,
+  :tags #{"dev process"}}
  {:name "Lazytest"
   :url "https://github.com/noahtheduke/lazytest"
   :platforms #{"clj"}
@@ -3278,6 +3288,11 @@
   :platforms #{"clj"}
   :key :mailman
   :tags #{"events"}}
+ {:name "makina",
+  :url "https://github.com/lambdaisland/makina",
+  :platforms #{"clj"},
+  :key :makina,
+  :tags #{"Reloaded Workflow"}}
  {:name "malapropism"
   :url "https://github.com/dpassen/malapropism"
   :platforms #{"clj"}
@@ -5958,19 +5973,4 @@
   :url "https://github.com/kkinnear/zprint",
   :platforms #{"clj" "cljs"},
   :key :zprint,
-  :tags #{"Code Formatting Tools"}}
- {:name "config",
-  :url "https://github.com/lambdaisland/config",
-  :platforms #{"clj"},
-  :key :lambdaisland_config,
-  :tags #{"Configuration"}}
- {:name "launchpad",
-  :url "https://github.com/lambdaisland/launchpad",
-  :platforms #{"clj"},
-  :key :launchpad,
-  :tags #{"dev process"}}
- {:name "makina",
-  :url "https://github.com/lambdaisland/makina",
-  :platforms #{"clj"},
-  :key :makina,
-  :tags #{"Reloaded Workflow"}}]
+  :tags #{"Code Formatting Tools"}}]
