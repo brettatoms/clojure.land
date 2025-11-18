@@ -3908,6 +3908,11 @@
   :platforms #{"clj" "cljs"}
   :key :parcera
   :tags #{"Parsing"}}
+ {:name "Parmezan"
+  :key :parmezan
+  :url "https://github.com/borkdude/parmezan"
+  :platforms #{"clj"}
+  :tags #{}}
  {:name "Parkour"
   :url "https://github.com/damballa/parkour"
   :platforms #{"clj"}
