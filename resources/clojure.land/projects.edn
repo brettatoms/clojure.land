@@ -5962,18 +5962,15 @@
  {:name "config",
   :url "https://github.com/lambdaisland/config",
   :platforms #{"clj"},
-  :description "Clojure configuration library",
   :key :lambdaisland_config,
   :tags #{"Configuration"}}
  {:name "launchpad",
   :url "https://github.com/lambdaisland/launchpad",
   :platforms #{"clj"},
-  :description "a Clojure dev process launcher",
   :key :launchpad,
   :tags #{"dev process"}}
  {:name "makina",
   :url "https://github.com/lambdaisland/makina",
   :platforms #{"clj"},
-  :description "Clojure System/component lifecycle management",
   :key :makina,
   :tags #{"Reloaded Workflow"}}]
