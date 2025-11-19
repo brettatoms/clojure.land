@@ -1311,6 +1311,11 @@
   :platforms #{"clj"}
   :key :commandline_clj
   :tags #{"Parsing"}}
+ {:name "Compliment"
+  :key :alexander-yakushev/compliment
+  :url "https://github.com/alexander-yakushev/compliment"
+  :platforms #{"clj"}
+  :tags #{"Completions"}}
  {:name "Compojure"
   :url "https://github.com/weavejester/compojure"
   :platforms #{"clj"}
