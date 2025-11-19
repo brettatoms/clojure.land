@@ -2697,6 +2697,11 @@
   :platforms #{"clj"}
   :key :jackdaw
   :tags #{"kafka"}}
+ {:name "java.doc"
+  :url "https://github.com/clojure/java.doc"
+  :key :clojure/java.doc
+  :platforms #{"clj"}
+  :tags #{"Java Interop" "Documentation Tools"}}
  {:name "java-http-clj"
   :url "https://github.com/schmee/java-http-clj"
   :platforms #{"clj"}
