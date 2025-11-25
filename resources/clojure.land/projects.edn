@@ -4329,8 +4329,7 @@
   :url "https://github.com/borkdude/reagami"
   :platforms #{"cljs"}
   :key :reagami
-  :tags #{"Front-end framework"}
-  :repo-url "https://github.com/reagent-project/reagent"}
+  :tags #{"Front-end framework"}}
  {:name "Reagent"
   :url "https://reagent-project.github.io/"
   :platforms #{"cljs"}
