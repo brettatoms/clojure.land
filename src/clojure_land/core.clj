@@ -107,7 +107,7 @@
            :id "q"
            :name "q",
            :value q
-           :class "block w-full rounded-md bg-white py-1.5 pr-3 pl-10 text-base text-gray-900 outline-1 outline-gray-300 focus:outline-offset-0 focus:outline-2 placeholder:text-gray-500 focus:outline-blue-600 sm:pl-9 sm:text-sm/6 border-0"
+           :class "block w-full rounded-md bg-white py-1.5 pr-3 pl-3 lg:pl-10 text-base text-gray-900 outline-1 outline-gray-300 focus:outline-offset-0 focus:outline-2 placeholder:text-gray-500 focus:outline-blue-600 sm:pl-9 sm:text-sm/6 border-0"
            :placeholder "Search for projects..."
            :autofocus true
            :hx-get "/"
