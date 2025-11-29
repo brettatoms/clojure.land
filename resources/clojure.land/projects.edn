@@ -4185,6 +4185,11 @@
   :platforms #{"clj"}
   :key :potemkin
   :tags #{"Macros" "Namespace Utilities"}}
+ {:name "pows"
+  :url "https://github.com/tatut/pows"
+  :key :tatut/pows
+  :platforms #{"clj"}
+  :tags #{"Playwright" "Web testing"}}
  {:name "pp-grid"
   :url "https://github.com/rorokimdim/pp-grid"
   :platforms #{"clj"}
