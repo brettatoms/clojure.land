@@ -3245,6 +3245,11 @@
   :platforms #{"clj"}
   :key :lifted
   :tags #{"Code Generation" "Macros"}}
+ {:name "Lightweaver"
+  :key :potetm/lightweaver
+  :url "https://github.com/potetm/lightweaver"
+  :platforms #{"clj"}
+  :tags #{"Reloaded Workflow"}}
  {:name "lines"
   :url "https://github.com/rosineygp/lines"
   :platforms #{"clj"}
