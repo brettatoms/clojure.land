@@ -49,14 +49,14 @@
   [:li (merge {:class "relative flex justify-between gap-x-6 py-4 col-span-6 md:col-span-4 mx-6 md:mx-2 md:col-start-2"}
               attrs)
    [:div {:class "flex flex-row w-full"}
-    [:div {:class "flex flex-col gap-2 w-full"}
+    [:div {:class "flex flex-col gap-2 w-full"
+           :title (str "Last updated " last-pushed-at)}
      [:div {:class "flex flex-row gap-4 items-start md:items-center"}
       [:a {:class "font-bold text-2xl hover:underline" :href url} name]
       (when archived
         [:span {:title "archived"} (icons/lock)])
       (when stars
         [:a {:class "flex flex-row flex-1 justify-end gap-2 hover:underline"
-             :title (str "Last updated " last-pushed-at)
              :href repo-url}
          (icons/star)
          [:span stars]])]
