@@ -780,6 +780,11 @@
   :platforms #{"clj"}
   :key :clj_docker_client
   :tags #{"Docker Integration"}}
+ {:name "clj-dot-prompt"
+  :key :julienba/clj-dot-prompt
+  :url "https://github.com/julienba/clj-dot-prompt"
+  :platforms #{"clj"}
+  :tags #{"AI" "LLM"}}
  {:name "clj-excel"
   :url "https://github.com/mebaran/clj-excel"
   :platforms #{"clj"}
@@ -1126,7 +1131,12 @@
  {:name "clojure-mcp"
   :url "https://github.com/bhauman/clojure-mcp"
   :platforms #{"clj"}
-  :key :clojure-mcp
+  :key :bhauman/clojure-mcp
+  :tags #{"AI" "MCP"}}
+ {:name "clojure-mcp-light"
+  :url "https://github.com/bhauman/clojure-mcp-light"
+  :platforms #{"babashka"}
+  :key :bhauman/clojure-mcp-light
   :tags #{"AI" "MCP"}}
  {:name "Clojure Mode"
   :url "https://github.com/clojure-emacs/clojure-mode"
@@ -2046,7 +2056,7 @@
   :url "https://github.com/clj-commons/etaoin"
   :platforms #{"clj"}
   :key :etaoin
-  :tags #{"Selenium Webdriver" "Web Testing"}}
+  :tags #{"Webdriver" "Web Testing"}}
  {:name "ETLP"
   :key :etlp
   :url "https://github.com/etlp-clj/etlp"
@@ -3030,6 +3040,11 @@
   :platforms #{"clj" "cljs"}
   :key :lancaster
   :tags #{"Schema" "serialization"}}
+ {:name "LangChain4Clj"
+  :key :nandoolle/langchain4clj
+  :url "https://github.com/nandoolle/langchain4clj"
+  :platforms #{"clj"}
+  :tags #{"LLM" "AI"}}
  {:name "Langohr"
   :key :langohr
   :url "https://github.com/michaelklishin/langohr"
@@ -5859,6 +5874,11 @@
   :platforms #{"clj" "cljs"},
   :key :walkable,
   :tags #{"sql"}}
+ {:name "Wally"
+  :url "https://github.com/pfeodrippe/wally"
+  :platforms #{"clj"}
+  :key :pfeodrippe/wally
+  :tags #{"Webdriver" "Web Testing"}}
  {:name "watchman",
   :url "https://github.com/pyr/watchman",
   :platforms #{"clj"},
