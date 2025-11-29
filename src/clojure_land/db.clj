@@ -2,6 +2,7 @@
   (:require [clojure-land.projects :as projects]
             [clojure.edn :as edn]
             [clojure.java.io :as io]
+            [clojure.string :as str]
             [integrant.core :as ig]
             [zodiac.ext.sql :as z.sql]))
 
@@ -20,6 +21,11 @@
                                        [:stars :int]
                                        [:url :text [:not nil]]]})))
 
+(defn- to-lower-case-array [values]
+  (->> values
+       (mapv str/lower-case)
+       (to-array)))
+
 (defmethod ig/init-key ::populate [_ {:keys [bucket-name local-projects? s3 zodiac]}]
   (let [db (::z.sql/db zodiac) ;; get the database connection from zodiac
         data (if local-projects?
@@ -33,8 +39,8 @@
         empty-row  (zipmap columns (repeat nil))
         normalize (fn [p]
                     (-> (merge empty-row p)
-                        (update :tags to-array)
-                        (update :platforms to-array)))
+                        (update :tags to-lower-case-array)
+                        (update :platforms to-lower-case-array)))
         values (->> data
                     (remove :ignore)
                     (map normalize)
