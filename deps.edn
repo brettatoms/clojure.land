@@ -7,7 +7,7 @@
         com.cognitect.aws/api       {:mvn/version "0.8.741"}
         com.cognitect.aws/endpoints {:mvn/version "871.2.32.2"}
         com.cognitect.aws/s3        {:mvn/version "871.2.32.2"}
-        com.github.brettatoms/zodiac {:mvn/version "0.7.78"}
+        com.github.brettatoms/zodiac {:mvn/version "0.8.89"}
         com.github.brettatoms/zodiac-assets {:mvn/version "0.3.28"}
         com.github.brettatoms/zodiac-sql {:mvn/version "0.1.12"}
         com.h2database/h2 {:mvn/version "2.3.232"}
