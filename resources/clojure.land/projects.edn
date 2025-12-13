@@ -709,8 +709,13 @@
   :key :clecs
   :tags #{"Game Development"}}
  {:name "cli"
-  :key :cli
+  :key :lambdaisland/cli
   :url "https://github.com/lambdaisland/cli"
+  :platforms #{"clj"}
+  :tags #{"Command Line Tools"}}
+ {:name "CLI-matic"
+  :key :l3nz/cli-matic
+  :url "https://github.com/l3nz/cli-matic"
   :platforms #{"clj"}
   :tags #{"Command Line Tools"}}
  {:name "client-ip"
@@ -1342,6 +1347,11 @@
   :platforms #{"clj" "cljs"}
   :key :component
   :tags #{"Application Frameworks" "Reloaded Workflow"}}
+ {:name "compose"
+  :url "https://github.com/donut-party/compose"
+  :platforms #{"clj" "cljs"}
+  :key :donut-party/compose
+  :tags #{"Data composition"}}
  {:name "compound"
   :url "https://github.com/riverford/compound"
   :platforms #{"clj" "cljs"}
@@ -3265,6 +3275,11 @@
   :platforms #{"clj"}
   :key :liquid
   :tags #{"Code Editors"}}
+ {:name "llama.clj"
+  :key :phronmophobic/llama.clj
+  :url "https://github.com/phronmophobic/llama.clj"
+  :platforms #{"clj"}
+  :tags #{"AI" "LLM"}}
  {:name "LiteLLM Clojure"
   :key :litellm-clj
   :url "https://github.com/unravel-team/litellm-clj"
@@ -5536,12 +5551,12 @@
   :url "https://github.com/clojure/tools.cli"
   :platforms #{"clj"}
   :description "A command line argument parser for Clojure"
-  :key :tools_cli
+  :key :clojure/tools.cli
   :tags #{"Command Line Tools"}}
- {:name "tools.deps.alpha"
-  :url "https://github.com/clojure/tools.deps.alpha"
+ {:name "tools.deps"
+  :url "https://github.com/clojure/tools.deps"
   :platforms #{"clj"}
-  :key :tools_deps_alpha
+  :key :clojure/tools.deps
   :tags #{"Dependency Management" "Java Classpath"}}
  {:name "tools.gitlibs"
   :url "https://github.com/clojure/tools.gitlibs"
