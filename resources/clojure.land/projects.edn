@@ -5858,6 +5858,11 @@
   :platforms #{"clj" "cljs"},
   :key :virhe,
   :tags #{"Pretty Printing"}}
+ {:name "Virtuoso",
+  :url "https://github.com/igrishaev/virtuoso"
+  :platforms #{"clj"}
+  :key :igrishaev/virtuoso
+  :tags #{"Asynchronous Programming"}}
  {:name "Viscous",
   :url "https://github.com/phronmophobic/viscous",
   :platforms #{"clj" "cljs"},
