@@ -4220,6 +4220,11 @@
   :platforms #{"clj"}
   :key :prism
   :tags #{"Continuous Testing"}}
+ {:name "proletarian"
+  :url "https://github.com/msolli/proletarian"
+  :platforms #{"clj"}
+  :key :proletarian
+  :tags #{"Asynchronous Programming" "Scheduling" "Databases"}}
  {:name "promesa"
   :url "https://github.com/funcool/promesa"
   :platforms #{"clj" "cljs"}
