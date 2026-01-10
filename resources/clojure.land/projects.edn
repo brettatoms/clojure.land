@@ -2359,6 +2359,11 @@
   :platforms #{"cljs"}
   :key :helins/timer.cljs
   :tags #{"Asynchronous Programming" "Scheduling"}}
+ {:name "clj-physics"
+  :url "https://github.com/helsingin/clj-physics"
+  :platforms #{"clj"}
+  :key :helsingin/clj-physics
+  :tags #{"Math" "Simulation"}}
  {:name "Hydrox"
   :url "https://github.com/helpshift/hydrox"
   :platforms #{"clj"}
