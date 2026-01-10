@@ -1503,6 +1503,11 @@
   :platforms #{"clj"}
   :key :damballa/parkour
   :tags #{"hadoop" "distributed programming"}}
+ {:name "clamav-clj"
+  :url "https://github.com/damesek/clamav-clj"
+  :platforms #{"clj"}
+  :key :damesek/clamav-clj
+  :tags #{"security"}}
  {:name "Moon Engine"
   :key :damn/moon
   :url "https://github.com/damn/moon"
@@ -4021,6 +4026,11 @@
   :platforms #{"cljs"}
   :key :omcljs/om
   :tags #{"front-end framework" "react"}}
+ {:name "csvx"
+  :url "https://github.com/oneness/csvx"
+  :platforms #{"clj" "cljs"}
+  :key :oneness/csvx
+  :tags #{"csv parsers"}}
  {:name "Onyx"
   :url "https://github.com/onyx-platform/onyx"
   :platforms #{"clj"}
@@ -4112,6 +4122,11 @@
   :platforms #{"clj"}
   :key :paraseba/rrss
   :tags #{"ring sessions"}}
+ {:name "Heretic"
+  :url "https://github.com/parenstech/heretic"
+  :platforms #{"clj"}
+  :key :parenstech/heretic
+  :tags #{"unit testing" "code analysis"}}
  {:name "Pedestal"
   :url "http://pedestal.io/"
   :platforms #{"clj"}
@@ -4131,6 +4146,12 @@
   :platforms #{"clj" "cljs"}
   :key :peterhudec/cljsx
   :tags #{"front-end framework" "react"}}
+ {:name "Recife"
+  :url "https://recife.pfeodrippe.com/"
+  :repo-url "https://github.com/pfeodrippe/recife"
+  :platforms #{"clj"}
+  :key :pfeodrippe/recife
+  :tags #{"formal verification"}}
  {:name "Wally"
   :url "https://github.com/pfeodrippe/wally"
   :platforms #{"clj"}
