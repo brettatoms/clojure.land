@@ -1086,13 +1086,12 @@
   :platforms #{"clj"}
   :key :clojure2d
   :tags #{"Graphics"}}
- {:name "clojure-android"
-  :url "https://github.com/clojure-android"
+ {:name "Neko"
+  :url "https://github.com/clojure-android/neko"
   :platforms #{"clj"}
-  :key :clojure_android
+  :key :neko
   :tags #{"Android"}
-  :deprecated true
-  :ignore true}
+  :deprecated true}
  {:name "clojure-cli-config"
   :url "https://github.com/practicalli/clojure-cli-config"
   :platforms #{"clj"}
@@ -1268,13 +1267,6 @@
   :description "Apache CouchDB client"
   :key :clutch
   :tags #{"CouchDB Clients"}}
- {:name "cMQL"
-  :url "https://cmql.org/documentation/"
-  :platforms #{"clj"}
-  :key :cmql
-  :tags #{"MongoDB"}
-  :ignore true
-  :repo-url nil}
  {:name "Coast"
   :url "https://coast.swlkr.com/"
   :repo-url "https://github.com/coast-framework/coast"
@@ -1581,11 +1573,6 @@
   :platforms #{"clj" "cljs"}
   :key :cuerdas
   :tags #{"String Manipulation"}}
- {:name "Cursive Clojure"
-  :url "https://cursive-ide.com"
-  :platforms #{"clj"}
-  :key :cursive
-  :tags #{"IDE Integration"}}
  {:name "cybermonday"
   :key :cybermonday
   :url "https://github.com/kiranshila/cybermonday"
@@ -1719,12 +1706,6 @@
   :platforms #{"clj" "cljs"}
   :key :datawalk
   :tags #{"Data Exploration"}}
- {:name "Datomic"
-  :url "http://www.datomic.com/"
-  :platforms #{"clj"}
-  :key :datomic
-  :tags #{"Databases"}
-  :repo-url nil}
  {:name "Datomic MCP Server"
   :key :datomic-mcp-server
   :url "https://github.com/xlisp/datomic-mcp-server"
@@ -3316,9 +3297,9 @@
  {:name "Macchiato"
   :url "https://github.com/macchiato-framework"
   :platforms #{"cljs"}
-  :key :macchiato
+  :key :macchiato-framework/macchiato-core
   :tags #{"Project Templates" "Web Frameworks"}
-  :repo-url "macchiato-framework/macchiato-core"}
+  :repo-url "https://github.com/macchiato-framework/macchiato-core"}
  {:name "Madness"
   :url "https://git.madhouse-project.org/algernon/madness"
   :platforms #{"clj"}
@@ -4733,12 +4714,6 @@
   :platforms #{"clj"}
   :key :rp_condition
   :tags #{"Condition Systems"}}
- {:name "rp-jackdaw-clj"
-  :url "https://cljdoc.org/d/com.rentpath/rp-jackdaw-clj"
-  :platforms #{"clj"}
-  :key :rp_jackdaw_clj
-  :tags #{"kafka"}
-  :repo-url nil}
  {:name "RRSS"
   :url "https://github.com/paraseba/rrss"
   :platforms #{"clj"}
