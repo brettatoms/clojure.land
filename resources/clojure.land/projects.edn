@@ -3676,6 +3676,11 @@
   :url "https://github.com/multiplyco/scoped"
   :platforms #{"clj"}
   :tags #{"Concurrency"}}
+ {:name "Pathling"
+  :key :multiplyco/pathling
+  :url "https://github.com/multiplyco/pathling"
+  :platforms #{"clj"}
+  :tags #{"Data Transformation"}}
  {:name "munge-tout"
   :url "https://github.com/flybe-dev/munge-tout"
   :platforms #{"clj"}
