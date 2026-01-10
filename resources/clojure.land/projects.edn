@@ -305,11 +305,21 @@
   :platforms #{"cljs"}
   :key :babashka/obb
   :tags #{"scripting"}}
+ {:name "process"
+  :url "https://github.com/babashka/process"
+  :platforms #{"clj" "babashka"}
+  :key :babashka/process
+  :tags #{"shell"}}
  {:name "pod-babashka-go-sqlite3"
   :key :babashka/pod-babashka-go-sqlite3
   :url "https://github.com/babashka/pod-babashka-go-sqlite3"
   :platforms #{"babashka"}
   :tags #{"jdbc" "sql"}}
+ {:name "sci"
+  :url "https://github.com/babashka/sci"
+  :platforms #{"clj" "cljs"}
+  :key :babashka/sci
+  :tags #{"scripting" "parsing"}}
  {:name "scittle"
   :url "https://github.com/babashka/scittle"
   :platforms #{"cljs"}
@@ -1386,6 +1396,11 @@
   :platforms #{"clj"}
   :key :cnuernber/charred
   :tags #{"csv parsers" "json parsers"}}
+ {:name "dtype-next"
+  :url "https://github.com/cnuernber/dtype-next"
+  :platforms #{"clj"}
+  :key :cnuernber/dtype-next
+  :tags #{"data structures" "performance"}}
  {:name "Coast"
   :url "https://coast.swlkr.com/"
   :repo-url "https://github.com/coast-framework/coast"
@@ -2788,6 +2803,11 @@
   :url "https://github.com/julienba/clj-dot-prompt"
   :platforms #{"clj"}
   :tags #{"llm" "ai"}}
+ {:name "malt"
+  :url "https://github.com/julienvincent/malt"
+  :platforms #{"clj"}
+  :key :julienvincent/malt
+  :tags #{"schema" "validation"}}
  {:name "Aero"
   :url "https://github.com/juxt/aero"
   :platforms #{"clj"}
@@ -4584,6 +4604,11 @@
   :platforms #{"clj"}
   :key :RokLenarcic/mcp-server
   :tags #{"ai" "mcp"}}
+ {:name "solid-cljs"
+  :url "https://github.com/roman01la/solid-cljs"
+  :platforms #{"cljs"}
+  :key :roman01la/solid-cljs
+  :tags #{"front-end framework"}}
  {:name "UIX.CSS"
   :url "https://github.com/roman01la/uix.css"
   :platforms #{"cljs"}
@@ -5123,6 +5148,11 @@
   :platforms #{"clj"}
   :key :tebeka/dr-evil
   :tags #{"debugging"}}
+ {:name "bb-timemachine"
+  :url "https://github.com/teodorlu/bb-timemachine"
+  :platforms #{"babashka"}
+  :key :teodorlu/bb-timemachine
+  :tags #{"git" "continuous testing"}}
  {:name "tech.ml.dataset"
   :key :techascent/tech.ml.dataset
   :url "https://github.com/techascent/tech.ml.dataset"

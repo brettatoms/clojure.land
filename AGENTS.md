@@ -12,17 +12,19 @@ When adding or evaluating projects for inclusion:
 
 ### ✅ DO Include
 
-- **Open-source libraries** - Reusable code packages that other projects can depend on
+- **Open-source libraries** - Reusable code packages that other projects can depend on via `require`
 - **Frameworks** - Application scaffolding or structure (web frameworks, testing frameworks, etc.)
-- **Developer tools that are libraries** - Tools consumed as dependencies (linters, formatters, REPL utilities)
+- **Developer tools that are libraries** - Tools consumed as dependencies (linters, formatters, REPL utilities) that can be required and called from other Clojure projects
 - **Projects primarily written in Clojure** - Must be >90% Clojure, ClojureScript, or other Clojure dialects
 
 ### ❌ DO NOT Include
 
-- **Applications** - End-user software written in Clojure (e.g., a todo app, a blog, a game)
+- **Applications** - End-user software written in Clojure (e.g., a todo app, a blog, a presentation tool, a graphics editor)
+- **Command-line tools that are not libraries** - If the project is only used as a standalone CLI tool and cannot be required as a library in other Clojure projects, exclude it
+- **Starter templates** - Project templates/starters that are cloned rather than required as dependencies
 - **Browser extensions** - Even if they use ClojureScript
 - **Closed-source/proprietary software** - Must be open source
-- **Projects not primarily in Clojure** - If the main language is Java, JavaScript, etc., exclude it
+- **Projects not primarily in Clojure** - If the main language is Java, JavaScript, Rust, etc., exclude it
 
 ## Project Data Format
 
@@ -108,6 +110,8 @@ To verify a project should be included:
    ```bash
    curl -s "https://api.github.com/repos/{org}/{repo}" | jq '{description, topics}'
    ```
+   
+   Also check the README to confirm it can be required as a dependency in other Clojure projects (look for `deps.edn`, `:require`, or similar usage instructions).
 
 2. **Check primary language:**
    ```bash
@@ -117,3 +121,9 @@ To verify a project should be included:
 
 3. **Check if repo exists and is public:**
    A 404 or private repo should not be included.
+
+4. **Check for a project homepage:**
+   ```bash
+   curl -s "https://api.github.com/repos/{org}/{repo}" | jq '{homepage, html_url}'
+   ```
+   If `homepage` is set, use it as `:url` and the GitHub URL as `:repo-url`. Also check the top of the README for a documentation site URL.
