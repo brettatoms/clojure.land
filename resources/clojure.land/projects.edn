@@ -95,7 +95,7 @@
   :url "https://github.com/ams-clj/clansi"
   :platforms #{"clj"}
   :key :ams-clj/clansi
-  :tags #{"terminal utilities"}}
+  :tags #{"terminal"}}
  {:name "Vigil",
   :url "https://github.com/ane/vigil",
   :platforms #{"clj"},
@@ -662,7 +662,7 @@
   :url "https://github.com/cdaddr/gaka"
   :platforms #{"clj"}
   :key :cdaddr/gaka
-  :tags #{"css generation"}}
+  :tags #{"css"}}
  {:name "ksml"
   :url "https://github.com/cddr/ksml"
   :platforms #{"clj"}
@@ -821,7 +821,7 @@
   :description
   "For shelling out to external programs. An alternative to clojure.java.shell"
   :key :clj-commons/conch
-  :tags #{"terminal utilities"}}
+  :tags #{"shell"}}
  {:name "clj-digest"
   :url "https://github.com/clj-commons/digest"
   :platforms #{"clj"}
@@ -900,7 +900,7 @@
   :url "https://github.com/clj-commons/pretty"
   :platforms #{"clj"}
   :key :clj-commons/pretty
-  :tags #{"pretty printing" "exception handling" "terminal utilities"}}
+  :tags #{"terminal" "pretty printing" "exception handling"}}
  {:name "rewrite-clj"
   :url "https://github.com/clj-commons/rewrite-clj"
   :platforms #{"clj" "cljs"}
@@ -1492,7 +1492,7 @@
   :key :damn/moon
   :url "https://github.com/damn/moon"
   :platforms #{"clj"}
-  :tags #{"game engine"}}
+  :tags #{"game development"}}
  {:name "Benjamin"
   :url "https://github.com/danielsz/benjamin"
   :platforms #{"clj"}
@@ -2595,7 +2595,7 @@
   :url "https://github.com/jarzka/stylefy"
   :platforms #{"clj" "cljs"}
   :key :jarzka/stylefy
-  :tags #{"css generation"}}
+  :tags #{"css"}}
  {:name "seqex"
   :url "https://github.com/jclaggett/seqex"
   :platforms #{"clj"}
@@ -2996,7 +2996,7 @@
   :description
   "Styled components library with CSS-generation features for Clojure/Script"
   :key :lambdaisland/ornament
-  :tags #{"css generation"}}
+  :tags #{"css"}}
  {:name "plenish"
   :url "https://github.com/lambdaisland/plenish"
   :platforms #{"clj"}
@@ -3895,7 +3895,7 @@
   :url "https://github.com/noprompt/garden"
   :platforms #{"clj"}
   :key :noprompt/garden
-  :tags #{"css generation"}}
+  :tags #{"css"}}
  {:name "Meander"
   :url "https://github.com/noprompt/meander"
   :platforms #{"clj" "cljs"}
@@ -4076,7 +4076,7 @@
   :url "https://github.com/paraseba/cssgen"
   :platforms #{"clj"}
   :key :paraseba/cssgen
-  :tags #{"css generation"}}
+  :tags #{"css"}}
  {:name "Faker"
   :url "https://github.com/paraseba/faker"
   :platforms #{"clj"}
@@ -4547,7 +4547,7 @@
   :url "https://github.com/roosta/herb"
   :platforms #{"clj" "cljs"}
   :key :roosta/herb
-  :tags #{"css generation"}}
+  :tags #{"css"}}
  {:name "mindra-clj"
   :url "https://github.com/rorokimdim/mindra-clj"
   :platforms #{"clj"}
@@ -4557,7 +4557,7 @@
   :url "https://github.com/rorokimdim/pp-grid"
   :platforms #{"clj"}
   :key :rorokimdim/pp-grid
-  :tags #{"pretty printing" "visualization" "terminal utilities"}}
+  :tags #{"terminal" "pretty printing" "visualization"}}
  {:name "Cortex"
   :url "https://github.com/rosejn/cortex"
   :platforms #{"clj"}
@@ -4843,7 +4843,7 @@
   :url "https://github.com/strojure/ansi-escape"
   :platforms #{"clj"}
   :key :strojure/ansi-escape
-  :tags #{"terminal utilities"}}
+  :tags #{"terminal"}}
  {:name "caffeine-memoize"
   :url "https://github.com/strojure/caffeine-memoize"
   :platforms #{"clj"}
@@ -4903,7 +4903,7 @@
   :url "https://github.com/sunng87/shake"
   :platforms #{"clj"}
   :key :sunng87/shake
-  :tags #{"terminal utilities"}}
+  :tags #{"shell"}}
  {:name "Slacker"
   :url "https://github.com/sunng87/slacker"
   :platforms #{"clj"}
@@ -5310,7 +5310,7 @@
   :platforms #{"clj"}
   :description "A fitter, happier, more productive REPL for Clojure"
   :key :trptcolin/reply
-  :tags #{"repls" "terminal utilities"}}
+  :tags #{"terminal" "repls"}}
  {:name "manifail"
   :url "https://github.com/tulos/manifail"
   :platforms #{"clj"}
