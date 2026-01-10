@@ -477,6 +477,11 @@
   :platforms #{"cljs"}
   :key :borkdude/reagami
   :tags #{"front-end framework"}}
+ {:name "rewrite-edn"
+  :url "https://github.com/borkdude/rewrite-edn"
+  :platforms #{"clj" "cljs" "babashka"}
+  :key :borkdude/rewrite-edn
+  :tags #{"edn" "code generation"}}
  {:name "Unused-deps"
   :key :borkdude/unused-deps
   :url "https://github.com/borkdude/unused-deps"
@@ -746,11 +751,21 @@
   :platforms #{"clj" "cljs"}
   :key :Cirru/calcit-editor
   :tags #{"code editors"}}
+ {:name "m1p"
+  :url "https://github.com/cjohansen/m1p"
+  :platforms #{"clj" "cljs"}
+  :key :cjohansen/m1p
+  :tags #{"i18n" "data transformation"}}
  {:name "Nexus"
   :url "https://github.com/cjohansen/nexus"
   :platforms #{"clj" "cljs"}
   :key :cjohansen/nexus
   :tags #{}}
+ {:name "Powerpack"
+  :url "https://github.com/cjohansen/powerpack"
+  :platforms #{"clj"}
+  :key :cjohansen/powerpack
+  :tags #{"static site generation" "web frameworks"}}
  {:name "Replicant"
   :url "https://replicant.fun"
   :repo-url "https://github.com/cjohansen/replicant"
@@ -1595,6 +1610,11 @@
   :platforms #{"cljs"}
   :key :Day8/re-frame
   :tags #{"front-end framework" "react"}}
+ {:name "re-frame-10x"
+  :url "https://github.com/day8/re-frame-10x"
+  :platforms #{"cljs"}
+  :key :day8/re-frame-10x
+  :tags #{"debugging" "tracing" "react"}}
  {:name "Lancaster"
   :url "https://github.com/deercreeklabs/lancaster"
   :platforms #{"clj" "cljs"}
@@ -1948,6 +1968,11 @@
   :description "A code execution sandboxing library"
   :key :flatland/clojail
   :tags #{"sandboxes"}}
+ {:name "ClojureScriptStorm"
+  :url "https://github.com/flow-storm/clojurescript"
+  :platforms #{"cljs"}
+  :key :flow-storm/clojurescript
+  :tags #{"clojurescript development" "debugging"}}
  {:name "Flow-storm debugger"
   :url "https://github.com/flow-storm/flow-storm-debugger"
   :platforms #{"clj" "cljs"}
