@@ -3843,7 +3843,7 @@
  {:name "1Config"
   :url "https://github.com/BrunoBonacci/1config"
   :platforms #{"clj"}
-  :key :BrunoBonacci/1config
+  :key :BrunoBonacci/_1config
   :tags #{"Configuration"}}
  {:name "Onyx"
   :url "https://github.com/onyx-platform/onyx"
