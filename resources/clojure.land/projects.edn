@@ -3427,6 +3427,11 @@
   :platforms #{"clj"},
   :key :mefesto/wabbitmq,
   :tags #{"message queues" "rabbitmq"}}
+ {:name "clj-threats"
+  :url "https://repo.prod.meissa.de/meissa/clj-threats"
+  :platforms #{"clj"}
+  :key :meissa/clj-threats
+  :tags #{"security"}}
  {:name "JSXGraph"
   :url "https://github.com/mentat-collective/jsxgraph.cljs"
   :platforms #{"cljs"}
@@ -4515,6 +4520,11 @@
   :platforms #{"clj" "cljs"}
   :key :replikativ/hasch
   :tags #{"hashing"}}
+ {:name "konserve"
+  :url "https://github.com/replikativ/konserve"
+  :platforms #{"clj" "cljs"}
+  :key :replikativ/konserve
+  :tags #{"databases" "caching"}}
  {:name "replikativ"
   :url "https://github.com/replikativ/replikativ"
   :platforms #{"clj" "cljs"}
@@ -4599,6 +4609,12 @@
   :key :robwolfe/lein-diagnostics
   :tags #{"leiningen plugins" "dependency management"}
   :ignore true}
+ {:name "clj-artnet"
+  :url "https://robinlahtinen.github.io/clj-artnet/"
+  :repo-url "https://github.com/robinlahtinen/clj-artnet"
+  :platforms #{"clj"}
+  :key :robinlahtinen/clj-artnet
+  :tags #{"hardware"}}
  {:name "MCP Server"
   :url "https://github.com/RokLenarcic/mcp-server"
   :platforms #{"clj"}
@@ -4731,6 +4747,11 @@
   :url "https://github.com/scicloj/tablecloth"
   :platforms #{"clj"}
   :tags #{"dataframe" "dataset" "data science"}}
+ {:name "build-uber-log4j2-handler"
+  :url "https://github.com/seancorfield/build-uber-log4j2-handler"
+  :platforms #{"clj"}
+  :key :seancorfield/build-uber-log4j2-handler
+  :tags #{"build tools" "logging"}}
  {:name "clj-new"
   :url "https://github.com/seancorfield/clj-new"
   :platforms #{"clj"}
@@ -4751,6 +4772,11 @@
   :platforms #{"clj" "cljs"}
   :key :seancorfield/honeysql
   :tags #{"sql"}}
+ {:name "logging4j2"
+  :url "https://github.com/seancorfield/logging4j2"
+  :platforms #{"clj"}
+  :key :seancorfield/logging4j2
+  :tags #{"logging"}}
  {:name "next-jdbc"
   :url "https://github.com/seancorfield/next-jdbc"
   :platforms #{"clj"}
@@ -5326,6 +5352,11 @@
   :description "Used to generate the official Clojure API reference"
   :key :tomfaulhaber/autodoc
   :tags #{"documentation tools"}}
+ {:name "clj-simple-stats"
+  :url "https://github.com/tonsky/clj-simple-stats"
+  :platforms #{"clj"}
+  :key :tonsky/clj-simple-stats
+  :tags #{"metrics" "web frameworks"}}
  {:name "clojure-future-spec"
   :url "https://github.com/tonsky/clojure-future-spec"
   :platforms #{"clj"}
