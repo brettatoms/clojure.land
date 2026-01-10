@@ -3666,11 +3666,16 @@
   :platforms #{"clj"}
   :key :multigrep
   :tags #{"Filesystem Utilities"}}
-{:name "Machine Latch"
+ {:name "Machine Latch"
   :key :multiplyco/machine-latch
   :url "https://github.com/multiplyco/machine-latch"
   :platforms #{"clj"}
   :tags #{"State Machines" "Concurrency"}}
+ {:name "Scoped"
+  :key :multiplyco/scoped
+  :url "https://github.com/multiplyco/scoped"
+  :platforms #{"clj"}
+  :tags #{"Concurrency"}}
  {:name "munge-tout"
   :url "https://github.com/flybe-dev/munge-tout"
   :platforms #{"clj"}
