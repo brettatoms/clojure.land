@@ -6,10 +6,9 @@ Discover open-source Clojure libraries and frameworks.
 
 The project data lives in [resources/clojure.land/projects.edn](./resources/clojure.land/projects.edn).  Each item in the list includes a project with the following keys:
 - `:name`: The display name of that project. Required.
-- `:key`: A keyword that uniquely identifies the project. Must be unique. Required.
-- `:url`: The URL of the project home page. If the URL is a GitHub URL then the project
-  description and number of stars will be synced weekly.
-- `:repo-url`: The URL of the project source repository. Overrides the `:url` for fetching the project data.
+- `:key`: A keyword that uniquely identifies the project using the format `:{org}/{repo}` derived from the repository URL (e.g., `:juxt/aero` for `https://github.com/juxt/aero`). For repos starting with a number, prefix the name with `_` (e.g., `:BrunoBonacci/_1config`). Must be unique. Required. Projects are sorted alphabetically by key.
+- `:url`: The URL of the project home page or repository. Supports GitHub, GitLab, Codeberg, and Bitbucket URLs. If the URL is a GitHub URL then the project description and number of stars will be synced daily.
+- `:repo-url`: The URL of the project source repository. Use this when `:url` points to a project website instead of the repo. Overrides `:url` for fetching project data and deriving the `:key`.
 - `:platforms`: A set of platform name strings. Current support "clj", "cljs" and "babashka".
 - `:tags`: A set of tags strings for the project.  Only the first four tags will be used.
 - `:description`: The project description.  This will override the project description from GitHub.
@@ -17,7 +16,7 @@ The project data lives in [resources/clojure.land/projects.edn](./resources/cloj
 
 To add a new project open a PR to edit  [resources/clojure.land/projects.edn](./resources/clojure.land/projects.edn)
 
-Additional project metadata is synced weekly for repositories with a GitHub repo url.
+Additional project metadata is synced daily for repositories with a GitHub repo url.
 
 ## Local Development
 
