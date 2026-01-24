@@ -2068,6 +2068,11 @@
   :platforms #{"clj" "cljs"}
   :key :fulcrologic/fulcro-rad
   :tags #{"web frameworks"}}
+ {:name "fulcro-spec"
+  :url "https://github.com/fulcrologic/fulcro-spec"
+  :platforms #{"clj" "cljs"}
+  :key :fulcrologic/fulcro-spec
+  :tags #{"unit testing"}}
  {:name "Guardrails"
   :url "https://github.com/fulcrologic/guardrails"
   :platforms #{"clj" "cljs"}
@@ -2190,6 +2195,11 @@
   :platforms #{"cljs"}
   :key :funcool/tubax
   :tags #{"xml parsers"}}
+ {:name "OpusDB"
+  :url "https://github.com/gchape/opusdb"
+  :platforms #{"clj"}
+  :key :gchape/opusdb
+  :tags #{"databases" "data structures"}}
  {:name "Jackdaw"
   :url "https://github.com/FundingCircle/jackdaw"
   :platforms #{"clj"}
@@ -2398,6 +2408,11 @@
   :platforms #{"clj"}
   :key :helpshift/hydrox
   :tags #{"documentation tools"}}
+ {:name "Chronos"
+  :url "https://github.com/henryw374/chronos"
+  :platforms #{"clj" "cljs" "babashka"}
+  :key :henryw374/chronos
+  :tags #{"date and time"}}
  {:name "cljc.java-time"
   :url "https://github.com/henryw374/cljc.java-time"
   :platforms #{"clj" "cljs"}
@@ -2413,6 +2428,11 @@
   :platforms #{"clj" "cljs"}
   :key :henryw374/time-literals
   :tags #{"date and time"}}
+ {:name "hive-mcp"
+  :url "https://github.com/hive-agi/hive-mcp"
+  :platforms #{"clj"}
+  :key :hive-agi/hive-mcp
+  :tags #{"mcp" "ai"}}
  {:name "clojurebot"
   :url "https://github.com/hiredman/clojurebot"
   :platforms #{"clj"}
@@ -3100,6 +3120,11 @@
   :platforms #{"clj"}
   :key :LauJensen/clojureql
   :tags #{"sql"}}
+ {:name "missionary-testkit"
+  :url "https://github.com/LeveringIT/missionary-testkit"
+  :platforms #{"clj" "cljs"}
+  :key :LeveringIT/missionary-testkit
+  :tags #{"unit testing" "asynchronous programming"}}
  {:name "HugSQL"
   :url "http://www.hugsql.org"
   :platforms #{"clj"}
@@ -3241,6 +3266,16 @@
   :url "https://github.com/lukaszkorecki/aero-1p"
   :platforms #{"clj"}
   :tags #{"configuration"}}
+ {:name "fusion-http"
+  :url "https://github.com/lukaszkorecki/fusion-http"
+  :platforms #{"clj"}
+  :key :lukaszkorecki/fusion-http
+  :tags #{"ring adapters" "http servers"}}
+ {:name "omega-red"
+  :url "https://github.com/lukaszkorecki/omega-red"
+  :platforms #{"clj"}
+  :key :lukaszkorecki/omega-red
+  :tags #{"redis"}}
  {:name "Luminus"
   :url "https://luminusweb.com/"
   :platforms #{"clj" "cljs"}
@@ -4540,6 +4575,11 @@
   :platforms #{"clj" "cljs"}
   :key :replikativ/konserve
   :tags #{"databases" "caching"}}
+ {:name "Proximum"
+  :url "https://github.com/replikativ/proximum"
+  :platforms #{"clj"}
+  :key :replikativ/proximum
+  :tags #{"databases" "text search"}}
  {:name "replikativ"
   :url "https://github.com/replikativ/replikativ"
   :platforms #{"clj" "cljs"}
@@ -4804,6 +4844,11 @@
   :platforms #{"clj" "cljs"}
   :key :selfsame/pdfn
   :tags #{"pattern matching"}}
+ {:name "Atlas"
+  :url "https://github.com/semantic-namespace/atlas"
+  :platforms #{"clj"}
+  :key :semantic-namespace/atlas
+  :tags #{"code analysis" "visualization"}}
  {:name "contract"
   :url "https://github.com/semantic-namespace/contract"
   :platforms #{"clj"}
@@ -6048,6 +6093,11 @@
   :url "https://github.com/yonureker/stripe-clojure"
   :platforms #{"clj"}
   :tags #{"stripe"}}
+ {:name "manifest-edn"
+  :url "https://github.com/abogoyavlensky/manifest-edn"
+  :platforms #{"clj" "babashka"}
+  :key :abogoyavlensky/manifest-edn
+  :tags #{"web frameworks"}}
  {:name "datomic-schema"
   :url "https://github.com/Yuppiechef/datomic-schema"
   :platforms #{"clj"}
