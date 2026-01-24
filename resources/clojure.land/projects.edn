@@ -456,6 +456,11 @@
   :platforms #{"clj"}
   :key :boechat107/ring-ttl-session
   :tags #{"ring sessions"}}
+ {:name "shadow-cljs-vite-plugin"
+  :url "https://github.com/bolasblack/shadow-cljs-vite-plugin"
+  :platforms #{"cljs"}
+  :key :bolasblack/shadow-cljs-vite-plugin
+  :tags #{"clojurescript development" "build tools"}}
  {:name "Boot"
   :url "https://boot-clj.github.io/"
   :platforms #{"clj"}
@@ -761,6 +766,11 @@
   :platforms #{"clj" "cljs"}
   :key :Cirru/calcit-editor
   :tags #{"code editors"}}
+ {:name "Dataspex"
+  :url "https://github.com/cjohansen/dataspex"
+  :platforms #{"clj" "cljs"}
+  :key :cjohansen/dataspex
+  :tags #{"debugging" "visualization"}}
  {:name "m1p"
   :url "https://github.com/cjohansen/m1p"
   :platforms #{"clj" "cljs"}
@@ -3810,6 +3820,11 @@
   :url "https://github.com/multiplyco/pathling"
   :platforms #{"clj"}
   :tags #{"data transformation"}}
+ {:name "Quiescent"
+  :url "https://github.com/multiplyco/quiescent"
+  :platforms #{"clj"}
+  :key :multiplyco/quiescent
+  :tags #{"asynchronous programming"}}
  {:name "Scoped"
   :key :multiplyco/scoped
   :url "https://github.com/multiplyco/scoped"
@@ -4881,6 +4896,11 @@
   :platforms #{"clj"}
   :key :sritchie/carbonite
   :tags #{"serialization"}}
+ {:name "deft"
+  :url "https://github.com/sstraust/deft"
+  :platforms #{"clj" "cljs"}
+  :key :sstraust/deft
+  :tags #{"macros" "data structures"}}
  {:name "Gniazdo"
   :url "https://github.com/stalefruits/gniazdo"
   :platforms #{"clj"}
