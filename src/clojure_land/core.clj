@@ -4,6 +4,7 @@
             [clojure-land.icons :as icons]
             [clojure-land.system :as system]
             [clojure.data.json :as json]
+            [clojure.java.io :as io]
             [clojure.string :as str]
             [clojure.tools.logging :as log]
             [dev.onionpancakes.chassis.core :as chassis]
@@ -23,6 +24,19 @@
   attributes"
   [data]
   (json/write-str data :escape-slash false))
+
+(def json-ld
+  "JSON-LD structured data for SEO (rendered once at startup)"
+  (json/write-str
+   {"@context" "https://schema.org"
+    "@type" "WebSite"
+    "name" "Clojure Land"
+    "description" "Search and discover open source Clojure and ClojureScript libraries"
+    "url" "https://clojure.land"
+    "potentialAction" {"@type" "SearchAction"
+                       "target" {"@type" "EntryPoint"
+                                 "urlTemplate" "https://clojure.land/?q={search_term_string}"}
+                       "query-input" "required name=search_term_string"}}))
 
 (defn platform-chip [platform]
   (let [bg-color (case platform
@@ -239,15 +253,50 @@
       [:html
        [:head
         [:meta {:charset "utf-8"}]
-        [:meta {:http-equiv "x-ua-compatible" :content "ie=edge"}]
-        [:title "Clojure Land"]
-        [:meta {:name "description" :content "Discover open-source Clojure projects."}]
         [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]
+
+        ;; Primary Meta Tags
+        [:title "Clojure Land - Search & Discover Open Source Clojure Libraries"]
+        [:meta {:name "title" :content "Clojure Land - Search & Discover Open Source Clojure Libraries"}]
+        [:meta {:name "description" :content "Browse and search open source Clojure and ClojureScript libraries. Find tools for web development, data processing, testing, databases, and more. Regularly updated with GitHub stars and activity."}]
+        [:meta {:name "keywords" :content "Clojure, ClojureScript, libraries, open source, JVM, functional programming, Clojure packages, Clojure tools"}]
+        [:meta {:name "author" :content "Clojure Land"}]
+        [:meta {:name "robots" :content "index, follow"}]
+
+        ;; Canonical URL
+        [:link {:rel "canonical" :href "https://clojure.land/"}]
+
+        ;; Open Graph / Facebook
+        [:meta {:property "og:type" :content "website"}]
+        [:meta {:property "og:url" :content "https://clojure.land/"}]
+        [:meta {:property "og:title" :content "Clojure Land - Search & Discover Open Source Clojure Libraries"}]
+        [:meta {:property "og:description" :content "Browse and search open source Clojure and ClojureScript libraries. Find tools for web development, data processing, testing, and more."}]
+        [:meta {:property "og:image" :content "https://clojure.land/assets/clojure-land-og-image.png"}]
+        [:meta {:property "og:site_name" :content "Clojure Land"}]
+
+        ;; Twitter
+        [:meta {:name "twitter:card" :content "summary_large_image"}]
+        [:meta {:name "twitter:url" :content "https://clojure.land/"}]
+        [:meta {:name "twitter:title" :content "Clojure Land - Search & Discover Open Source Clojure Libraries"}]
+        [:meta {:name "twitter:description" :content "Browse and search open source Clojure and ClojureScript libraries. Find tools for web development, data processing, testing, and more."}]
+        [:meta {:name "twitter:image" :content "https://clojure.land/assets/clojure-land-og-image.png"}]
+
+        ;; Favicon
+        [:link {:rel "icon" :type "image/x-icon" :href "/favicon.ico"}]
+        [:link {:rel "apple-touch-icon" :sizes "180x180" :href "/apple-touch-icon.png"}]
+
+        ;; Theme Color
+        [:meta {:name "theme-color" :content "#5881d8"}]
+
         [:link {:rel "stylesheet" :href (assets "main.css")}]
         [:script {:src (assets "main.ts")}]
         [:script {:async true
                   :data-collect-dnt "true"
-                  :src "https://scripts.simpleanalyticscdn.com/latest.js"}]]
+                  :src "https://scripts.simpleanalyticscdn.com/latest.js"}]
+
+        ;; JSON-LD structured data for SEO
+        [:script {:type "application/ld+json"}
+         (chassis/raw json-ld)]]
        [:body
         [:div {:class "absolute -top-4 -right-4 scale-30"}
          [:a {:href "https://github.com/brettatoms/clojure.land"}
@@ -278,6 +327,12 @@
 (defn routes []
   ["" {:middleware [[ring.logger/wrap-with-logger]]}
    ["/" {:get #'handler}]
+   ["/assets/clojure-land-og-image.png"
+    {:get (fn [_]
+            {:status 200
+             :headers {"Content-Type" "image/png"
+                       "Cache-Control" "public, max-age=31536000, immutable"}
+             :body (io/input-stream (io/resource "static/clojure-land-og-image.png"))})}]
    ["/_status" {:get (constantly {:status 204})}]])
 
 (defn default-handler []
