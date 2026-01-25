@@ -6,6 +6,22 @@ This document provides guidance for AI agents working on the Clojure Land projec
 
 Clojure Land is a directory for discovering open-source Clojure libraries and frameworks. The project data lives in `resources/clojure.land/projects.edn`.
 
+## Working with Project Data
+
+**IMPORTANT: Do NOT read the full `projects.edn` file directly.** The file is large and will consume excessive context. Instead, load it into a Clojure REPL and parse it into a map for analysis:
+
+```clojure
+(def projects (clojure.edn/read-string (slurp "resources/clojure.land/projects.edn")))
+
+;; Example queries:
+(count projects)                                    ; total project count
+(filter #(contains? (:tags %) "web") projects)      ; find projects with a tag
+(filter #(= (:key %) :ring-clojure/ring) projects)  ; find specific project
+(->> projects (mapcat :tags) frequencies (sort-by val >)) ; tag frequency
+```
+
+Use the REPL to search, filter, and analyze projects rather than reading the raw file.
+
 ## Project Inclusion Criteria
 
 When adding or evaluating projects for inclusion:
