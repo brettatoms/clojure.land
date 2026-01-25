@@ -1,6 +1,7 @@
 {:clojure-land.core/zodiac {:build-assets? #boolean #or [#env ZODIAC_ASSETS_BUILD "true"]
                             :reload-per-request? #boolean #or [#env RELOAD_PER_REQUEST "false"]
                             :request-context {:github #ig/ref :clojure-land.github/client}
+                            :jdbc-url "jdbc:h2:mem:clojure-land;DB_CLOSE_DELAY=-1"
                             :port #long #or [#env PORT "3000"]}
  :clojure-land.core/logging {:level #or [#env LOG_LEVEL "DEBUG"]}
  :clojure-land.github/client {:api-token #env GITHUB_API_TOKEN}

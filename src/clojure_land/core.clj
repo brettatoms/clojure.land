@@ -348,7 +348,7 @@
                                     (some-> level str/lower-case keyword)))
 
 (defmethod ig/init-key ::zodiac [_ config]
-  (let [{:keys [build-assets? reload-per-request? request-context port]} config
+  (let [{:keys [build-assets? jdbc-url reload-per-request? request-context port]} config
         project-root "./"
         assets-ext (z.assets/init {;; We use vite.config.js in the Dockerfile
                                    :config-file (str (fs/path project-root "vite.config.dev.ts"))
@@ -357,7 +357,7 @@
                                    :build? build-assets?
                                    :asset-resource-path "clojure.land/build/assets"})
         ;; TODO: setup jdbc options to automatically convert org.h2.jdbc.JdbcArray to a seq
-        sql-ext (z.sql/init {:spec {:jdbcUrl "jdbc:h2:mem:clojure-land;DB_CLOSE_DELAY=-1"}})]
+        sql-ext (z.sql/init {:spec {:jdbcUrl jdbc-url}})]
     (z/start {:extensions [assets-ext sql-ext]
               :reload-per-request? reload-per-request?
               :default-handler (default-handler)
