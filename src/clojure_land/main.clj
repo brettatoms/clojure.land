@@ -1,11 +1,13 @@
 (ns clojure-land.main
   (:gen-class)
-  (:require  [clojure-land.core :as core]
-             [clojure.tools.logging :as log]))
+  (:require [clojure-land.core :as clj.land]
+            [clojure.tools.logging :as log]
+            [zodiac.core :as z]))
 
 (defn -main [& _]
-  (core/start!)
-  (log/info "Server started...")
-  ;; block until process is killed
-  (while true
-    (Thread/sleep 1000)))
+  (let [system (clj.land/start!)
+        ;; Get the Jetty server from the nested zodiac system
+        jetty-server (get-in system [::clj.land/zodiac ::z/jetty])]
+    (log/info "Server started...")
+    ;; Block on the Jetty server thread
+    (.join jetty-server)))
