@@ -1463,6 +1463,7 @@
   :key :clojure/algo.generic
   :group-id "org.clojure"
   :artifact-id "algo.generic"
+  :repository :maven-central
   :tags #{"functional programming"}}
  {:name "algo.monads"
   :url "https://github.com/clojure/algo.monads"
@@ -1472,6 +1473,7 @@
   :key :clojure/algo.monads
   :group-id "org.clojure"
   :artifact-id "algo.monads"
+  :repository :maven-central
   :tags #{"monads" "functional programming"}}
  {:name "core.async"
   :url "https://github.com/clojure/core.async"
@@ -1479,6 +1481,7 @@
   :key :clojure/core.async
   :group-id "org.clojure"
   :artifact-id "core.async"
+  :repository :maven-central
   :tags #{"syntax extensions" "asynchronous programming"}}
  {:name "core.cache"
   :url "https://github.com/clojure/core.cache"
@@ -1487,6 +1490,7 @@
   :key :clojure/core.cache
   :group-id "org.clojure"
   :artifact-id "core.cache"
+  :repository :maven-central
   :tags #{"caching"}}
  {:name "core.incubator"
   :url "https://github.com/clojure/core.incubator"
@@ -1501,6 +1505,7 @@
   :key :clojure/core.logic
   :group-id "org.clojure"
   :artifact-id "core.logic"
+  :repository :maven-central
   :tags #{"logic programming" "syntax extensions"}}
  {:name "core.match"
   :url "https://github.com/clojure/core.match"
@@ -1508,6 +1513,7 @@
   :key :clojure/core.match
   :group-id "org.clojure"
   :artifact-id "core.match"
+  :repository :maven-central
   :tags
   #{"pattern matching" "syntax extensions" "functional programming"}}
  {:name "core.memoize"
@@ -1516,6 +1522,7 @@
   :key :clojure/core.memoize
   :group-id "org.clojure"
   :artifact-id "core.memoize"
+  :repository :maven-central
   :tags #{"caching"}}
  {:name "core.rrb-vector"
   :url "https://github.com/clojure/core.rrb-vector"
@@ -1523,6 +1530,7 @@
   :key :clojure/core.rrb-vector
   :group-id "org.clojure"
   :artifact-id "core.rrb-vector"
+  :repository :maven-central
   :tags #{"data structures"}}
  {:name "data.avl"
   :url "https://github.com/clojure/data.avl"
@@ -1530,6 +1538,7 @@
   :key :clojure/data.avl
   :group-id "org.clojure"
   :artifact-id "data.avl"
+  :repository :maven-central
   :tags #{"data structures"}}
  {:name "data.codec"
   :url "https://github.com/clojure/data.codec"
@@ -1546,6 +1555,7 @@
   :key :clojure/data.csv
   :group-id "org.clojure"
   :artifact-id "data.csv"
+  :repository :maven-central
   :tags #{"csv parsers"}}
  {:name "data.finger-tree"
   :url "https://github.com/clojure/data.finger-tree"
@@ -1553,6 +1563,7 @@
   :key :clojure/data.finger-tree
   :group-id "org.clojure"
   :artifact-id "data.finger-tree"
+  :repository :maven-central
   :tags #{"data structures"}}
  {:name "data.int-map"
   :url "https://github.com/clojure/data.int-map"
@@ -1560,6 +1571,7 @@
   :key :clojure/data.int-map
   :group-id "org.clojure"
   :artifact-id "data.int-map"
+  :repository :maven-central
   :tags #{"data structures" "performance"}}
  {:name "data.json"
   :url "https://github.com/clojure/data.json"
@@ -1568,6 +1580,7 @@
   :key :clojure/data.json
   :group-id "org.clojure"
   :artifact-id "data.json"
+  :repository :maven-central
   :tags #{"json parsers"}}
  {:name "data.priority-map"
   :url "https://github.com/clojure/data.priority-map"
@@ -1575,6 +1588,7 @@
   :key :clojure/data.priority-map
   :group-id "org.clojure"
   :artifact-id "data.priority-map"
+  :repository :maven-central
   :tags #{"data structures"}}
  {:name "data.xml"
   :url "https://github.com/clojure/data.xml"
@@ -1583,6 +1597,7 @@
   :key :clojure/data.xml
   :group-id "org.clojure"
   :artifact-id "data.xml"
+  :repository :maven-central
   :tags #{"xml parsers" "xml generation"}}
  {:name "data.zip"
   :url "https://github.com/clojure/data.zip"
@@ -1590,6 +1605,7 @@
   :key :clojure/data.zip
   :group-id "org.clojure"
   :artifact-id "data.zip"
+  :repository :maven-central
   :tags #{"zippers"}}
  {:name "java.doc"
   :url "https://github.com/clojure/java.doc"
@@ -1602,6 +1618,7 @@
   :key :clojure/java.jdbc
   :group-id "org.clojure"
   :artifact-id "java.jdbc"
+  :repository :maven-central
   :tags #{"sql"}}
  {:name "java.jmx"
   :url "https://github.com/clojure/java.jmx"
@@ -1610,6 +1627,7 @@
   :key :clojure/java.jmx
   :group-id "org.clojure"
   :artifact-id "java.jmx"
+  :repository :maven-central
   :tags #{"java integration"}}
  {:name "math.combinatorics"
   :url "https://github.com/clojure/math.combinatorics"
@@ -1619,6 +1637,7 @@
   :key :clojure/math.combinatorics
   :group-id "org.clojure"
   :artifact-id "math.combinatorics"
+  :repository :maven-central
   :tags #{"math"}}
  {:name "math.numeric-tower"
   :url "https://github.com/clojure/math.numeric-tower"
@@ -1627,6 +1646,7 @@
   :key :clojure/math.numeric-tower
   :group-id "org.clojure"
   :artifact-id "math.numeric-tower"
+  :repository :maven-central
   :tags #{"math"}}
  {:name "spec.alpha"
   :url "https://github.com/clojure/spec.alpha"
@@ -1634,6 +1654,7 @@
   :key :clojure/spec.alpha
   :group-id "org.clojure"
   :artifact-id "spec.alpha"
+  :repository :maven-central
   :tags #{"spec" "validation" "schema" "dynamic typing"}}
  {:name "test.check"
   :url "https://github.com/clojure/test.check"
@@ -1641,6 +1662,7 @@
   :key :clojure/test.check
   :group-id "org.clojure"
   :artifact-id "test.check"
+  :repository :maven-central
   :tags #{"random data generation" "unit testing"}}
  {:name "test.generative"
   :url "https://github.com/clojure/test.generative/"
@@ -1649,6 +1671,7 @@
   :key :clojure/test.generative
   :group-id "org.clojure"
   :artifact-id "test.generative"
+  :repository :maven-central
   :tags #{"random data generation" "test runners"}}
  {:name "tools.build"
   :url "https://github.com/clojure/tools.build"
@@ -1664,6 +1687,7 @@
   :key :clojure/tools.cli
   :group-id "org.clojure"
   :artifact-id "tools.cli"
+  :repository :maven-central
   :tags #{"command line tools"}}
  {:name "tools.deps"
   :url "https://github.com/clojure/tools.deps"
@@ -1671,6 +1695,7 @@
   :key :clojure/tools.deps
   :group-id "org.clojure"
   :artifact-id "tools.deps"
+  :repository :maven-central
   :tags #{"java classpath" "dependency management"}}
  {:name "tools.gitlibs"
   :url "https://github.com/clojure/tools.gitlibs"
@@ -1678,6 +1703,7 @@
   :key :clojure/tools.gitlibs
   :group-id "org.clojure"
   :artifact-id "tools.gitlibs"
+  :repository :maven-central
   :tags #{"git"}}
  {:name "tools.logging"
   :url "https://github.com/clojure/tools.logging"
@@ -1686,6 +1712,7 @@
   :key :clojure/tools.logging
   :group-id "org.clojure"
   :artifact-id "tools.logging"
+  :repository :maven-central
   :tags #{"logging"}}
  {:name "tools.macro"
   :url "https://github.com/clojure/tools.macro"
@@ -1693,6 +1720,7 @@
   :key :clojure/tools.macro
   :group-id "org.clojure"
   :artifact-id "tools.macro"
+  :repository :maven-central
   :tags #{"macros"}}
  {:name "tools.namespace"
   :url "https://github.com/clojure/tools.namespace"
@@ -1700,6 +1728,7 @@
   :key :clojure/tools.namespace
   :group-id "org.clojure"
   :artifact-id "tools.namespace"
+  :repository :maven-central
   :tags #{"namespace utilities"}}
  {:name "nREPL"
   :url "https://github.com/clojure/tools.nrepl"
@@ -1714,6 +1743,7 @@
   :key :clojure/tools.reader
   :group-id "org.clojure"
   :artifact-id "tools.reader"
+  :repository :maven-central
   :tags #{"serialization"}}
  {:name "tools.trace"
   :url "https://github.com/clojure/tools.trace"
@@ -1722,6 +1752,7 @@
   :key :clojure/tools.trace
   :group-id "org.clojure"
   :artifact-id "tools.trace"
+  :repository :maven-central
   :tags #{"tracing" "debugging"}}
  {:name "clojure2d"
   :url "https://github.com/Clojure2D/clojure2d"
@@ -1919,9 +1950,6 @@
   :url "https://github.com/cognitect-labs/test-runner"
   :platforms #{"clj"}
   :key :cognitect-labs/test-runner
-  :group-id "io.github.cognitect-labs"
-  :artifact-id "test-runner"
-  :repository :maven-central
   :tags #{"test runners"}}
  {:name "transcriptor"
   :url "https://github.com/cognitect-labs/transcriptor"
@@ -2662,7 +2690,7 @@
   :url "https://github.com/flow-storm/clojurescript"
   :platforms #{"cljs"}
   :key :flow-storm/clojurescript
-  :group-id "org.clojure"
+  :group-id "com.github.flow-storm"
   :artifact-id "clojurescript"
   :tags #{"clojurescript development" "debugging"}}
  {:name "Flow-storm debugger"
