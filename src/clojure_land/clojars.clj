@@ -4,10 +4,23 @@
             [clojure.string :as str]
             [clojure.tools.logging :as log]
             [hato.client :as hc])
-  (:import [java.util.zip GZIPInputStream]))
+  (:import [java.time LocalDate]
+           [java.time.format DateTimeFormatter]
+           [java.util.zip GZIPInputStream]))
 
 (def stats-url "https://clojars.org/stats/all.edn")
 (def feed-url "https://clojars.org/repo/feed.clj.gz")
+(def daily-stats-url-template "https://repo.clojars.org/stats/downloads-%s.edn")
+
+(def recent-downloads-days
+  "Number of days to include in recent downloads count."
+  10)
+
+(defn recent-downloads-key
+  "Returns the keyword for recent downloads based on the number of days.
+   e.g., 10 -> :downloads-past-10d, 32 -> :downloads-past-32d"
+  [days]
+  (keyword (str "downloads-past-" days "d")))
 
 (def ^:private http-client
   (delay (hc/build-http-client {:redirect-policy :always})))
@@ -33,6 +46,52 @@
   [stats-map {:keys [group-id artifact-id]}]
   (when (and group-id artifact-id)
     (get stats-map [group-id artifact-id])))
+
+;; --- Daily stats files (recent downloads) ---
+
+(def ^:private daily-stats-date-formatter
+  (DateTimeFormatter/ofPattern "yyyyMMdd"))
+
+(defn- fetch-daily-stats
+  "Fetch a single daily stats file. Returns map of [group artifact] -> downloads for that day,
+   or nil if the file doesn't exist."
+  [date]
+  (let [date-str (.format date daily-stats-date-formatter)
+        url (format daily-stats-url-template date-str)]
+    (try
+      (log/debug "Fetching daily stats for" date-str)
+      (let [response (hc/get url {:http-client @http-client
+                                  :as :string})]
+        (when (= 200 (:status response))
+          (edn/read-string (:body response))))
+      (catch Exception e
+        (log/warn "Failed to fetch daily stats for" date-str ":" (.getMessage e))
+        nil))))
+
+(defn fetch-recent-stats
+  "Fetch daily stats for the past n days and sum them.
+   Returns map of [group artifact] -> total downloads over the period."
+  [days]
+  (log/info "Fetching daily stats for past" days "days")
+  (let [today (LocalDate/now)
+        dates (map #(.minusDays today %) (range 1 (inc days)))
+        daily-stats (->> dates
+                         (pmap fetch-daily-stats)
+                         (filter some?))]
+    (log/info "Fetched" (count daily-stats) "of" days "daily stats files")
+    (reduce (fn [acc day-stats]
+              (reduce-kv (fn [m k v]
+                           (update m k (fnil + 0) (reduce + (vals v))))
+                         acc
+                         day-stats))
+            {}
+            daily-stats)))
+
+(defn get-recent-downloads
+  "Look up recent downloads for a project. Returns nil if not found."
+  [recent-stats-map {:keys [group-id artifact-id]}]
+  (when (and group-id artifact-id)
+    (get recent-stats-map [group-id artifact-id])))
 
 ;; --- Feed file (version info) ---
 

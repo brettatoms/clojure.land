@@ -44,20 +44,22 @@
 
 (defn- enrich-with-clojars
   "Enrich project with Clojars data if it has Maven coordinates.
-   Adds :downloads, :latest-version, :latest-release-date, and :description (as fallback).
+   Adds :downloads, :downloads-past-Nd, :latest-version, :latest-release-date, and :description (as fallback).
    Skips projects with :repository :maven-central."
-  [clojars-stats clojars-feed {:keys [repository description] :as project}]
-  (if (or (nil? repository)
-          (= repository :clojars))
+  [clojars-stats clojars-recent-stats clojars-feed {:keys [repository description] :as project}]
+  (if (= repository :maven-central)
+    project
     (let [downloads (clojars/get-downloads clojars-stats project)
+          recent-downloads (clojars/get-recent-downloads clojars-recent-stats project)
+          recent-downloads-key (clojars/recent-downloads-key clojars/recent-downloads-days)
           artifact-info (clojars/get-artifact-info clojars-feed project)]
       (cond-> project
         downloads (assoc :downloads downloads)
+        recent-downloads (assoc recent-downloads-key recent-downloads)
         (:latest-version artifact-info) (assoc :latest-version (:latest-version artifact-info))
         (:latest-release-date artifact-info) (assoc :latest-release-date (:latest-release-date artifact-info))
         ;; Use Clojars description only as fallback if no description exists
-        (and (not description) (:description artifact-info)) (assoc :description (:description artifact-info))))
-    project))
+        (and (not description) (:description artifact-info)) (assoc :description (:description artifact-info))))))
 
 (defn- timestamp-key
   "Generate a timestamped S3 key like 'projects-2026-01-25T02-00-00Z.edn'"
@@ -80,6 +82,7 @@
          token (System/getenv "GITHUB_API_TOKEN")
          github-client (github/->GitHubClient (github/request-factory token))
          clojars-stats (clojars/fetch-stats)
+         clojars-recent-stats (clojars/fetch-recent-stats clojars/recent-downloads-days)
          clojars-feed (clojars/fetch-feed)
          projects (->> (read-projects-edn)
                        (remove :ignore)
@@ -87,7 +90,7 @@
                                (log/debug "Enriching project:" key)
                                (-> project
                                    (enrich-with-github github-client)
-                                   (enrich-with-clojars clojars-stats clojars-feed)))))
+                                   (enrich-with-clojars clojars-stats clojars-recent-stats clojars-feed)))))
          s3-client (s3/client {:endpoint-url (System/getenv "AWS_ENDPOINT_URL_S3")
                                :access-key-id (System/getenv "AWS_ACCESS_KEY_ID")
                                :secret-access-key (System/getenv "AWS_SECRET_ACCESS_KEY")})
