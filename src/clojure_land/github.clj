@@ -9,6 +9,13 @@
 (defprotocol GitHubClientProtocol
   (get-repo [_ name]))
 
+(deftype GitHubClient [request]
+  GitHubClientProtocol
+  (get-repo [_ name]
+    (-> (request (str "/repos/" name) {})
+        :body
+        (json/read-str :key-fn keyword))))
+
 (defn request-factory
   "Return a function to make requests to the OpenAI API with sensible defaults."
   [api-token]
@@ -18,13 +25,6 @@
                         :as :json
                         :oauth-token api-token}
                        options))))
-
-(deftype GitHubClient [request]
-  GitHubClientProtocol
-  (get-repo [_ name]
-    (-> (request (str "/repos/" name) {})
-        :body
-        (json/read-str :key-fn keyword))))
 
 (defmethod ig/init-key ::client [_ {:keys [api-token]}]
   (->GitHubClient (request-factory api-token)))

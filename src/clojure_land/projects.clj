@@ -1,13 +1,16 @@
 (ns clojure-land.projects
-  (:require [clojure-land.github :as github]
+  (:require [clojure-land.clojars :as clojars]
+            [clojure-land.github :as github]
             [clojure-land.s3 :as s3]
             [clojure.edn :as edn]
             [clojure.java.io :as io]
+            [clojure.string :as str]
             [clojure.tools.logging :as log]
             [malli.core :as m]
             [malli.dev.pretty :as mp]
             [malli.dev.virhe :as mv]
-            [malli.error :as me]))
+            [malli.error :as me])
+  (:import [java.time Instant]))
 
 (def Project
   [:map
@@ -32,28 +35,56 @@
       slurp
       edn/read-string))
 
+(defn- enrich-with-github
+  "Enrich project with GitHub data if it has a GitHub URL."
+  [github-client {:keys [repo-url url] :as project}]
+  (if (re-matches #".*?github.*?" (or repo-url url ""))
+    (github/update-project-from-repo github-client project)
+    project))
+
+(defn- enrich-with-clojars
+  "Enrich project with Clojars data if it has Maven coordinates.
+   Adds :downloads, :latest-version, :latest-release-date, and :description (as fallback).
+   Skips projects with :repository :maven-central."
+  [clojars-stats clojars-feed {:keys [repository description] :as project}]
+  (if (or (nil? repository)
+          (= repository :clojars))
+    (let [downloads (clojars/get-downloads clojars-stats project)
+          artifact-info (clojars/get-artifact-info clojars-feed project)]
+      (cond-> project
+        downloads (assoc :downloads downloads)
+        (:latest-version artifact-info) (assoc :latest-version (:latest-version artifact-info))
+        (:latest-release-date artifact-info) (assoc :latest-release-date (:latest-release-date artifact-info))
+        ;; Use Clojars description only as fallback if no description exists
+        (and (not description) (:description artifact-info)) (assoc :description (:description artifact-info))))
+    project))
+
 (defn sync-remote-projects-edn
-  "Update the local projects.edn file with the repo data and store in Tigris/S3."
+  "Update the local projects.edn file with GitHub and Clojars data and store in Tigris/S3."
   ([]
    (sync-remote-projects-edn nil))
   ;; The single arg version is so we can run via a deps.edn alias
   ([_]
-   (let [token (System/getenv "GITHUB_API_TOKEN")
-         request (github/request-factory token)
-         github-client (github/->GitHubClient request)
+   (let [now (Instant/now)
+         token (System/getenv "GITHUB_API_TOKEN")
+         github-client (github/->GitHubClient (github/request-factory token))
+         clojars-stats (clojars/fetch-stats)
+         clojars-feed (clojars/fetch-feed)
          projects (->> (read-projects-edn)
                        (remove :ignore)
-                       (pmap (fn [{:keys [key repo-url url] :as project}]
-                               (log/debug "Updating project: " key)
-                               (if (re-matches #".*?github.*?" (or repo-url url ""))
-                                 (github/update-project-from-repo github-client project)
-                                 project))))
+                       (pmap (fn [{:keys [key] :as project}]
+                               (log/debug "Enriching project:" key)
+                               (-> project
+                                   (enrich-with-github github-client)
+                                   (enrich-with-clojars clojars-stats clojars-feed)))))
          s3-client (s3/client {:endpoint-url (System/getenv "AWS_ENDPOINT_URL_S3")
                                :access-key-id (System/getenv "AWS_ACCESS_KEY_ID")
-                               :secret-access-key (System/getenv "AWS_SECRET_ACCESS_KEY")})]
-     (s3/put-object s3-client {:Bucket (System/getenv "BUCKET_NAME")
-                               :Key "project.edn"
-                               :Body (pr-str projects)}))))
+                               :secret-access-key (System/getenv "AWS_SECRET_ACCESS_KEY")})
+         bucket (System/getenv "BUCKET_NAME")
+         content (pr-str (vec projects))]
+     (s3/put-object s3-client {:Bucket bucket
+                               :Key "projects.edn"
+                               :Body content}))))
 
 ;; override the ::m/explain formatter so we print out the specific project record that
 ;; doesn't validate rather than the entire projects.edn map
