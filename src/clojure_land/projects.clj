@@ -59,8 +59,19 @@
         (and (not description) (:description artifact-info)) (assoc :description (:description artifact-info))))
     project))
 
+(defn- timestamp-key
+  "Generate a timestamped S3 key like 'projects-2026-01-25T02-00-00Z.edn'"
+  [now]
+  (let [ts (-> (.toString now)
+               (str/replace ":" "-"))]
+    (str "projects-" ts ".edn")))
+
 (defn sync-remote-projects-edn
-  "Update the local projects.edn file with GitHub and Clojars data and store in Tigris/S3."
+  "Update the local projects.edn file with GitHub and Clojars data and store in Tigris/S3.
+
+   Writes two files:
+   - projects.edn - latest sync, always overwritten
+   - projects-{timestamp}.edn - historical snapshot, never overwritten"
   ([]
    (sync-remote-projects-edn nil))
   ;; The single arg version is so we can run via a deps.edn alias
@@ -82,6 +93,13 @@
                                :secret-access-key (System/getenv "AWS_SECRET_ACCESS_KEY")})
          bucket (System/getenv "BUCKET_NAME")
          content (pr-str (vec projects))]
+     ;; Write timestamped version (historical record)
+     (log/info "Writing timestamped snapshot:" (timestamp-key now))
+     (s3/put-object s3-client {:Bucket bucket
+                               :Key (timestamp-key now)
+                               :Body content})
+     ;; Write latest version (app reads this)
+     (log/info "Writing latest projects.edn")
      (s3/put-object s3-client {:Bucket bucket
                                :Key "projects.edn"
                                :Body content}))))
