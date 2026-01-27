@@ -1,13 +1,9 @@
 (ns clojure-land.core
   (:require [babashka.fs :as fs]
+            [clojure-land.logging :as log]
             [clojure-land.routes.core :as routes]
-            [clojure-land.system :as system]
-            [clojure.string :as str]
-            [clojure.tools.logging :as log]
             [integrant.core :as ig]
             [reitit.ring]
-            [taoensso.telemere] ;; setup logging side-effects
-            [taoensso.telemere.tools-logging :refer [tools-logging->telemere!]]
             [zodiac.core :as z]
             [zodiac.ext.assets :as z.assets]
             [zodiac.ext.sql :as z.sql]))
@@ -17,12 +13,6 @@
    {:not-found (fn [{:keys [uri]}]
                  (log/debug (str "404 Not found: " uri))
                  {:status 404, :body "", :headers {}})}))
-
-(defmethod ig/init-key ::logging [_ {:keys [level]}]
-  ;; Send clojure.tools.logging message to telemere
-  (tools-logging->telemere!)
-  (taoensso.telemere/set-min-level! :default "clojure-land.*"
-                                    (some-> level str/lower-case keyword)))
 
 (defmethod ig/init-key ::zodiac [_ config]
   (let [{:keys [build-assets? jdbc-url reload-per-request? request-context port]} config

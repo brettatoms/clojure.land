@@ -1,8 +1,8 @@
 (ns clojure-land.clojars
-  (:require [clojure.edn :as edn]
+  (:require [clojure-land.logging :as log]
+            [clojure.edn :as edn]
             [clojure.java.io :as io]
             [clojure.string :as str]
-            [clojure.tools.logging :as log]
             [hato.client :as hc])
   (:import [java.time LocalDate]
            [java.time.format DateTimeFormatter]

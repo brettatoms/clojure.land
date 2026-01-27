@@ -1,11 +1,11 @@
 (ns clojure-land.projects
   (:require [clojure-land.clojars :as clojars]
             [clojure-land.github :as github]
+            [clojure-land.logging :as log]
             [clojure-land.s3 :as s3]
             [clojure.edn :as edn]
             [clojure.java.io :as io]
             [clojure.string :as str]
-            [clojure.tools.logging :as log]
             [malli.core :as m]
             [malli.dev.pretty :as mp]
             [malli.dev.virhe :as mv]
