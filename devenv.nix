@@ -14,6 +14,7 @@ in
     pkgs.git
   ];
 
+  languages.java.jdk.package = pkgs-unstable.jdk25;
   languages.clojure.enable = true;
   languages.typescript.enable = true ;
   languages.javascript = {

@@ -21,6 +21,10 @@ jobs:
     concurrency: deploy-group # optional: ensure only one action runs at a time
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '25'
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - uses: DeLaGuardo/setup-clojure@13.4
         with:
