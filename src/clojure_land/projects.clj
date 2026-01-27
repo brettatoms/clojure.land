@@ -84,13 +84,15 @@
          clojars-stats (clojars/fetch-stats)
          clojars-recent-stats (clojars/fetch-recent-stats clojars/recent-downloads-days)
          clojars-feed (clojars/fetch-feed)
+         update-fn (fn [{:keys [key] :as project}]
+                     (log/debug "Updating project:" key)
+                     (-> project
+                         (enrich-with-github github-client)
+                         (enrich-with-clojars clojars-stats clojars-recent-stats clojars-feed)))
          projects (->> (read-projects-edn)
                        (remove :ignore)
-                       (pmap (fn [{:keys [key] :as project}]
-                               (log/debug "Enriching project:" key)
-                               (-> project
-                                   (enrich-with-github github-client)
-                                   (enrich-with-clojars clojars-stats clojars-recent-stats clojars-feed)))))
+                       (partition-all 8)
+                       (mapcat #(doall (pmap update-fn %))))
          s3-client (s3/client {:endpoint-url (System/getenv "AWS_ENDPOINT_URL_S3")
                                :access-key-id (System/getenv "AWS_ACCESS_KEY_ID")
                                :secret-access-key (System/getenv "AWS_SECRET_ACCESS_KEY")})
