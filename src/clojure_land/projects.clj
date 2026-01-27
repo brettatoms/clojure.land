@@ -12,6 +12,17 @@
             [malli.error :as me])
   (:import [java.time Instant]))
 
+(defn- log-memory-stats
+  "Log current memory usage stats."
+  [label]
+  (let [runtime (Runtime/getRuntime)
+        mb (fn [bytes] (format "%.1f MB" (/ bytes 1024.0 1024.0)))
+        used (- (.totalMemory runtime) (.freeMemory runtime))
+        total (.totalMemory runtime)
+        max (.maxMemory runtime)]
+    (log/info (format "[MEMORY %s] used: %s, allocated: %s, max: %s"
+                      label (mb used) (mb total) (mb max)))))
+
 (def Project
   [:map
    [:name :string]
@@ -87,37 +98,54 @@
    (sync-remote-projects-edn nil))
   ;; The single arg version is so we can run via a deps.edn alias
   ([_]
-   (let [now (Instant/now)
-         token (System/getenv "GITHUB_API_TOKEN")
-         github-client (github/->GitHubClient (github/request-factory token))
-         projects-to-sync (remove :ignore (read-projects-edn))
-         clojars-keys (artifact-keys projects-to-sync)
-         clojars-stats (clojars/fetch-stats clojars-keys)
-         clojars-recent-stats (clojars/fetch-recent-stats clojars/recent-downloads-days clojars-keys)
-         clojars-feed (clojars/fetch-feed clojars-keys)
-         enrich-fn (fn [{:keys [key] :as project}]
-                     (log/debug "Enriching project:" key)
-                     (-> project
-                         (enrich-with-github github-client)
-                         (enrich-with-clojars clojars-stats clojars-recent-stats clojars-feed)))
-         projects (->> projects-to-sync
-                       (partition-all 4)
-                       (mapcat #(doall (pmap enrich-fn %))))
-         s3-client (s3/client {:endpoint-url (System/getenv "AWS_ENDPOINT_URL_S3")
-                               :access-key-id (System/getenv "AWS_ACCESS_KEY_ID")
-                               :secret-access-key (System/getenv "AWS_SECRET_ACCESS_KEY")})
-         bucket (System/getenv "BUCKET_NAME")
-         content (pr-str (vec projects))]
-     ;; Write timestamped version (historical record)
-     (log/info "Writing timestamped snapshot:" (timestamp-key now))
-     (s3/put-object s3-client {:Bucket bucket
-                               :Key (timestamp-key now)
-                               :Body content})
-     ;; Write latest version (app reads this)
-     (log/info "Writing latest projects.edn")
-     (s3/put-object s3-client {:Bucket bucket
-                               :Key "projects.edn"
-                               :Body content}))))
+   (try
+     (log-memory-stats "start")
+     (let [now (Instant/now)
+           token (System/getenv "GITHUB_API_TOKEN")
+           github-client (github/->GitHubClient (github/request-factory token))
+           projects-to-sync (doall (remove :ignore (read-projects-edn)))
+           _ (log-memory-stats "after read-projects-edn")
+           clojars-keys (artifact-keys projects-to-sync)
+           _ (log/info "Fetching Clojars data for" (count clojars-keys) "artifacts")
+           clojars-stats (clojars/fetch-stats clojars-keys)
+           _ (log-memory-stats "after fetch-stats")
+           clojars-recent-stats (clojars/fetch-recent-stats clojars/recent-downloads-days clojars-keys)
+           _ (log-memory-stats "after fetch-recent-stats")
+           clojars-feed (clojars/fetch-feed clojars-keys)
+           _ (log-memory-stats "after fetch-feed")
+           enrich-fn (fn [{:keys [key] :as project}]
+                       (log/debug "Enriching project:" key)
+                       (-> project
+                           (enrich-with-github github-client)
+                           (enrich-with-clojars clojars-stats clojars-recent-stats clojars-feed)))
+           projects (->> projects-to-sync
+                         (partition-all 4)
+                         (mapcat #(doall (pmap enrich-fn %)))
+                         doall)
+           _ (log-memory-stats "after enrichment")
+           s3-client (s3/client {:endpoint-url (System/getenv "AWS_ENDPOINT_URL_S3")
+                                 :access-key-id (System/getenv "AWS_ACCESS_KEY_ID")
+                                 :secret-access-key (System/getenv "AWS_SECRET_ACCESS_KEY")})
+           bucket (System/getenv "BUCKET_NAME")
+           _ (log/info "Serializing" (count projects) "projects")
+           content (pr-str (vec projects))
+           _ (log-memory-stats "after pr-str")]
+       ;; Write timestamped version (historical record)
+       (log/info "Writing timestamped snapshot:" (timestamp-key now))
+       (s3/put-object s3-client {:Bucket bucket
+                                 :Key (timestamp-key now)
+                                 :Body content})
+       ;; Write latest version (app reads this)
+       (log/info "Writing latest projects.edn")
+       (s3/put-object s3-client {:Bucket bucket
+                                 :Key "projects.edn"
+                                 :Body content}))
+     (catch OutOfMemoryError e
+       (log-memory-stats "OOM")
+       (log/error "OutOfMemoryError occurred!")
+       (log/error "Stack trace:")
+       (.printStackTrace e)
+       (throw e)))))
 
 ;; override the ::m/explain formatter so we print out the specific project record that
 ;; doesn't validate rather than the entire projects.edn map
