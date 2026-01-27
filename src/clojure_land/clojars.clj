@@ -109,6 +109,13 @@
 
 ;; --- Feed file (version info) ---
 
+(defn- extract-artifact-key
+  "Extract [group-id artifact-id] from a feed line using regex.
+   Much faster than parsing full EDN - allows filtering before parsing."
+  [line]
+  (when-let [[_ group artifact] (re-find #":group-id \"([^\"]+)\".*:artifact-id \"([^\"]+)\"" line)]
+    [group artifact]))
+
 (defn fetch-feed
   "Fetch Clojars feed file (gzipped). Returns map of [group artifact] -> artifact-info.
    Only keeps :versions, :versions-meta, and :description to minimize memory.
@@ -125,10 +132,12 @@
                      (doall
                       (for [line (line-seq rdr)
                             :when (not (str/blank? line))
-                            :let [artifact (edn/read-string line)
-                                  k [(:group-id artifact) (:artifact-id artifact)]]
-                            :when (or (nil? artifact-keys-set)
-                                      (contains? artifact-keys-set k))]
+                            :let [k (extract-artifact-key line)]
+                            :when (and k
+                                       (or (nil? artifact-keys-set)
+                                           (contains? artifact-keys-set k)))
+                            ;; Only parse lines that pass the filter
+                            :let [artifact (edn/read-string line)]]
                         ;; Only keep fields we actually use in get-artifact-info
                         (select-keys artifact [:group-id :artifact-id :versions :versions-meta :description]))))]
      (log/info "Fetched feed for" (count artifacts) "artifacts"
