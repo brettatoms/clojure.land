@@ -17,6 +17,14 @@ jobs:
       - uses: DeLaGuardo/setup-clojure@13.4
         with:
           cli: 1.12.1.1550
+      - name: Cache Clojure dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.m2/repository
+            ~/.gitlibs
+            ~/.deps.clj
+          key: clj-deps-${{ hashFiles('deps.edn') }}
       - name: Validate projects
         run: clojure -X:validate-projects
       - name: cljfmt
