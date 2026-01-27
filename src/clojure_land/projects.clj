@@ -115,9 +115,9 @@
            _ (log-memory-stats "after fetch-feed")
            enrich-fn (fn [{:keys [key] :as project}]
                        (log/debug "Enriching project:" key)
-                       (-> project
-                           (enrich-with-github github-client)
-                           (enrich-with-clojars clojars-stats clojars-recent-stats clojars-feed)))
+                       (->> project
+                            (enrich-with-github github-client)
+                            (enrich-with-clojars clojars-stats clojars-recent-stats clojars-feed)))
            projects (->> projects-to-sync
                          (partition-all 4)
                          (mapcat #(doall (pmap enrich-fn %)))
@@ -128,27 +128,8 @@
                                  :secret-access-key (System/getenv "AWS_SECRET_ACCESS_KEY")})
            bucket (System/getenv "BUCKET_NAME")
            _ (log/info "Serializing" (count projects) "projects")
-           ;; Serialize each project individually to find any problematic ones
-           _ (doseq [[idx p] (map-indexed vector projects)]
-               (let [s (pr-str p)
-                     size (count s)]
-                 (when (> size 1000)
-                   (log/warn "Large project" idx (:key p) "size:" size))
-                 (when (zero? (mod idx 100))
-                   (log/debug "Serialized" idx "projects"))))
-           _ (log/info "Individual serialization complete, building full content")
-           ;; Use StringWriter to build content incrementally
-           content (let [sw (java.io.StringWriter.)]
-                     (.write sw "[")
-                     (doseq [[idx p] (map-indexed vector projects)]
-                       (when (pos? idx) (.write sw " "))
-                       (binding [*out* sw]
-                         (pr p))
-                       (when (zero? (mod idx 100))
-                         (log/debug "Written" idx "projects")))
-                     (.write sw "]")
-                     (.toString sw))
-           _ (log/info "Content size:" (count content) "chars")
+           content (pr-str (vec projects))
+           _ (log/info "Serialized" (count content) "chars")
            _ (log-memory-stats "after pr-str")]
        ;; Write timestamped version (historical record)
        (log/info "Writing timestamped snapshot:" (timestamp-key now))
