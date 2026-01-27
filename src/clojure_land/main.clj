@@ -1,7 +1,6 @@
 (ns clojure-land.main
   (:gen-class)
   (:require [clojure-land.core :as clj-land]
-            ;; [clojure-land.system :as clj.land]
             [clojure.tools.logging :as log]
             [zodiac.core :as z]))
 

@@ -111,7 +111,7 @@
 
 (defn fetch-feed
   "Fetch Clojars feed file (gzipped). Returns map of [group artifact] -> artifact-info.
-   Each artifact-info contains :versions, :versions-meta, :description, etc.
+   Only keeps :versions, :versions-meta, and :description to minimize memory.
    If artifact-keys is provided, only those artifacts are kept."
   ([]
    (fetch-feed nil))
@@ -125,11 +125,12 @@
                      (doall
                       (for [line (line-seq rdr)
                             :when (not (str/blank? line))
-                            :let [artifact (edn/read-string line)]
+                            :let [artifact (edn/read-string line)
+                                  k [(:group-id artifact) (:artifact-id artifact)]]
                             :when (or (nil? artifact-keys-set)
-                                      (contains? artifact-keys-set
-                                                 [(:group-id artifact) (:artifact-id artifact)]))]
-                        artifact)))]
+                                      (contains? artifact-keys-set k))]
+                        ;; Only keep fields we actually use in get-artifact-info
+                        (select-keys artifact [:group-id :artifact-id :versions :versions-meta :description]))))]
      (log/info "Fetched feed for" (count artifacts) "artifacts"
                (when artifact-keys (str "(filtered from full feed)")))
      (into {}
