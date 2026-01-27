@@ -29,17 +29,24 @@
 
 (defn fetch-stats
   "Fetch Clojars stats file. Returns map of [group artifact] -> total-downloads.
-   Downloads are summed across all versions."
-  []
-  (log/info "Fetching Clojars stats from" stats-url)
-  (let [response (hc/get stats-url {:http-client @http-client
-                                    :as :string})
-        raw (edn/read-string (:body response))]
-    (log/info "Fetched stats for" (count raw) "artifacts")
-    (into {}
-          (map (fn [[k version-downloads]]
-                 [k (reduce + (vals version-downloads))]))
-          raw)))
+   Downloads are summed across all versions.
+   If artifact-keys is provided, only those artifacts are kept."
+  ([]
+   (fetch-stats nil))
+  ([artifact-keys]
+   (log/info "Fetching Clojars stats from" stats-url)
+   (let [response (hc/get stats-url {:http-client @http-client
+                                     :as :string})
+         raw (edn/read-string (:body response))
+         stats (into {}
+                     (map (fn [[k version-downloads]]
+                            [k (reduce + (vals version-downloads))]))
+                     raw)]
+     (log/info "Fetched stats for" (count raw) "artifacts"
+               (when artifact-keys (str "(filtering to " (count artifact-keys) ")")))
+     (if artifact-keys
+       (select-keys stats artifact-keys)
+       stats))))
 
 (defn get-downloads
   "Look up total downloads for a project. Returns nil if not found."
@@ -70,22 +77,29 @@
 
 (defn fetch-recent-stats
   "Fetch daily stats for the past n days and sum them.
-   Returns map of [group artifact] -> total downloads over the period."
-  [days]
-  (log/info "Fetching daily stats for past" days "days")
-  (let [today (LocalDate/now)
-        dates (map #(.minusDays today %) (range 1 (inc days)))
-        daily-stats (->> dates
-                         (pmap fetch-daily-stats)
-                         (filter some?))]
-    (log/info "Fetched" (count daily-stats) "of" days "daily stats files")
-    (reduce (fn [acc day-stats]
-              (reduce-kv (fn [m k v]
-                           (update m k (fnil + 0) (reduce + (vals v))))
-                         acc
-                         day-stats))
-            {}
-            daily-stats)))
+   Returns map of [group artifact] -> total downloads over the period.
+   If artifact-keys is provided, only those artifacts are kept."
+  ([days]
+   (fetch-recent-stats days nil))
+  ([days artifact-keys]
+   (log/info "Fetching daily stats for past" days "days")
+   (let [today (LocalDate/now)
+         dates (map #(.minusDays today %) (range 1 (inc days)))
+         daily-stats (->> dates
+                          (pmap fetch-daily-stats)
+                          (filter some?))
+         stats (reduce (fn [acc day-stats]
+                         (reduce-kv (fn [m k v]
+                                      (update m k (fnil + 0) (reduce + (vals v))))
+                                    acc
+                                    day-stats))
+                       {}
+                       daily-stats)]
+     (log/info "Fetched" (count daily-stats) "of" days "daily stats files"
+               (when artifact-keys (str "(filtering to " (count artifact-keys) ")")))
+     (if artifact-keys
+       (select-keys stats artifact-keys)
+       stats))))
 
 (defn get-recent-downloads
   "Look up recent downloads for a project. Returns nil if not found."
@@ -97,22 +111,31 @@
 
 (defn fetch-feed
   "Fetch Clojars feed file (gzipped). Returns map of [group artifact] -> artifact-info.
-   Each artifact-info contains :versions, :versions-meta, :description, etc."
-  []
-  (log/info "Fetching Clojars feed from" feed-url)
-  (let [response (hc/get feed-url {:http-client @http-client
-                                   :as :stream})
-        artifacts (with-open [gzip (GZIPInputStream. (:body response))
-                              rdr (io/reader gzip)]
-                    (doall
-                     (for [line (line-seq rdr)
-                           :when (not (str/blank? line))]
-                       (edn/read-string line))))]
-    (log/info "Fetched feed for" (count artifacts) "artifacts")
-    (into {}
-          (map (fn [{:keys [group-id artifact-id] :as artifact}]
-                 [[group-id artifact-id] artifact]))
-          artifacts)))
+   Each artifact-info contains :versions, :versions-meta, :description, etc.
+   If artifact-keys is provided, only those artifacts are kept."
+  ([]
+   (fetch-feed nil))
+  ([artifact-keys]
+   (log/info "Fetching Clojars feed from" feed-url)
+   (let [response (hc/get feed-url {:http-client @http-client
+                                    :as :stream})
+         artifact-keys-set (when artifact-keys (set artifact-keys))
+         artifacts (with-open [gzip (GZIPInputStream. (:body response))
+                               rdr (io/reader gzip)]
+                     (doall
+                      (for [line (line-seq rdr)
+                            :when (not (str/blank? line))
+                            :let [artifact (edn/read-string line)]
+                            :when (or (nil? artifact-keys-set)
+                                      (contains? artifact-keys-set
+                                                 [(:group-id artifact) (:artifact-id artifact)]))]
+                        artifact)))]
+     (log/info "Fetched feed for" (count artifacts) "artifacts"
+               (when artifact-keys (str "(filtered from full feed)")))
+     (into {}
+           (map (fn [{:keys [group-id artifact-id] :as artifact}]
+                  [[group-id artifact-id] artifact]))
+           artifacts))))
 
 (defn stable-version?
   "Returns true if version string does not contain pre-release qualifiers.

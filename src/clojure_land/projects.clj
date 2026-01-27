@@ -61,6 +61,15 @@
         ;; Use Clojars description only as fallback if no description exists
         (and (not description) (:description artifact-info)) (assoc :description (:description artifact-info))))))
 
+(defn- artifact-keys
+  "Extract set of [group-id artifact-id] pairs from projects for Clojars lookup."
+  [projects]
+  (->> projects
+       (keep (fn [{:keys [group-id artifact-id]}]
+               (when (and group-id artifact-id)
+                 [group-id artifact-id])))
+       set))
+
 (defn- timestamp-key
   "Generate a timestamped S3 key like 'projects-2026-01-25T02-00-00Z.edn'"
   [now]
@@ -81,18 +90,19 @@
    (let [now (Instant/now)
          token (System/getenv "GITHUB_API_TOKEN")
          github-client (github/->GitHubClient (github/request-factory token))
-         clojars-stats (clojars/fetch-stats)
-         clojars-recent-stats (clojars/fetch-recent-stats clojars/recent-downloads-days)
-         clojars-feed (clojars/fetch-feed)
-         update-fn (fn [{:keys [key] :as project}]
-                     (log/debug "Updating project:" key)
+         projects-to-sync (remove :ignore (read-projects-edn))
+         clojars-keys (artifact-keys projects-to-sync)
+         clojars-stats (clojars/fetch-stats clojars-keys)
+         clojars-recent-stats (clojars/fetch-recent-stats clojars/recent-downloads-days clojars-keys)
+         clojars-feed (clojars/fetch-feed clojars-keys)
+         enrich-fn (fn [{:keys [key] :as project}]
+                     (log/debug "Enriching project:" key)
                      (-> project
                          (enrich-with-github github-client)
                          (enrich-with-clojars clojars-stats clojars-recent-stats clojars-feed)))
-         projects (->> (read-projects-edn)
-                       (remove :ignore)
-                       (partition-all 8)
-                       (mapcat #(doall (pmap update-fn %))))
+         projects (->> projects-to-sync
+                       (partition-all 4)
+                       (mapcat #(doall (pmap enrich-fn %))))
          s3-client (s3/client {:endpoint-url (System/getenv "AWS_ENDPOINT_URL_S3")
                                :access-key-id (System/getenv "AWS_ACCESS_KEY_ID")
                                :secret-access-key (System/getenv "AWS_SECRET_ACCESS_KEY")})
