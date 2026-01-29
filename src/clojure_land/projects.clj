@@ -40,7 +40,7 @@
 
 (defn fetch-remote-projects [s3-client bucket-name]
   (-> (s3/get-object s3-client {:Bucket bucket-name
-                                :Key "project.edn"})
+                                :Key "projects.edn"})
 
       :Body
       slurp
