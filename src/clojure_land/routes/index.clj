@@ -54,7 +54,7 @@
     [:option {:value "date" :selected (= value :date)} "Last updated"]
     [:option {:value "name" :selected (= value :name)} "Name"]
     [:option {:value "popularity" :selected (= value :popularity)} "Popularity"]
-    [:option {:value "stars" :selected (= value :stars)} "Stars"]]])
+    #_[:option {:value "stars" :selected (= value :stars)} "Stars"]]])
 
 (defn js
   "This function is mostly used for passing a clojure map as a js object in html
@@ -68,12 +68,13 @@
                    "cljs" "bg-[#5881d8]"
                    "babashka" "bg-[#ed474a]"
                    "bg-black")]
-    [:span {:class (str "rounded-lg text-white text-sm font-bold px-2 py-1 text-nowrap lowercase "
+    [:span {:class (str "rounded-lg text-white text-xs font-bold px-2 py-1 text-nowrap lowercase hover:opacity-80 "
                         bg-color)}
      platform]))
 
 (defn tag-chip [category]
-  [:span {:class "rounded-lg text-white text-sm bg-slate-600 font-bold px-2 py-1 text-nowrap lowercase"}
+  [:span {:class "rounded-lg text-slate-600 text-xs border-2 border-slate-600 font-bold px-2 py-1 text-nowrap lowercase hover:bg-slate-200"}
+
    category])
 
 (defn filter-bar [& {:keys [platforms tags]}]
@@ -103,40 +104,37 @@
         "babashka" 2}
        p))
 
-(defn- days-since [timestamp]
-  (when timestamp
-    (let [now (java.time.Instant/now)
-          then (.toInstant timestamp)]
-      (.toDays (java.time.Duration/between then now)))))
-
 (defn project-list-item [{:project/keys [archived description downloads-per-day last-pushed-at
                                          latest-release-date name platforms popularity-score
-                                         repo-url stars tags url]}
+                                         latest-version
+                                         group-id artifact-id repo-url repository stars tags url]}
                          & {:keys [attrs]}]
-  (let [days-since-release (days-since latest-release-date)]
-    [:li (merge {:class "relative flex justify-between gap-x-6 py-4 col-span-6 md:col-span-4 mx-6 md:mx-2 md:col-start-2"}
+  (let [popover-data (cond-> {}
+                       stars (assoc :stars stars)
+                       downloads-per-day (assoc :downloadsPerDay downloads-per-day)
+                       latest-release-date (assoc :releaseDate (.toInstant latest-release-date))
+                       last-pushed-at (assoc :lastUpdated (.toInstant last-pushed-at))
+                       popularity-score (assoc :popularity popularity-score))]
+    [:li (merge {:class "relative flex justify-between gap-x-6 py-4 col-span-6 md:col-span-4 mx-6 md:mx-2 md:col-start-2"
+                 :data-popover (json/write-str popover-data)}
                 attrs)
      [:div {:class "flex flex-row w-full"}
       [:div {:class "flex flex-col gap-2 w-full"}
-       [:div {:class "flex flex-row gap-4 items-start md:items-center"
-              :title (str "Last updated " last-pushed-at)}
+       [:div {:class "flex flex-row gap-4 items-start md:items-center justify-between"}
         [:a {:class "font-bold text-2xl hover:underline" :href url} name]
         (when archived
           [:span {:title "archived"} (icons/lock)])
-        (when stars
-          [:a {:class "flex flex-row flex-1 justify-end gap-2 hover:underline"
-               :href repo-url}
-           (icons/star)
-           [:span stars]])
-        ;; DEBUG: stars / daily downloads / days since release / popularity score
-        #_[:a {:class "flex flex-row flex-1 justify-end gap-2 hover:underline text-sm"
-               :href repo-url
-               :title "stars / downloads per day / days since release / popularity score"}
-           (icons/star)
-           [:span (str (or stars "-") " / "
-                       (if downloads-per-day (format "%.0f" downloads-per-day) "-") " / "
-                       (or days-since-release "-") "d / "
-                       (if popularity-score (format "%.1f" popularity-score) "-"))]]]
+        (when (and artifact-id
+                   (or (nil? repository)
+                       (= repository :clojars)))
+          [:a {:class "hover:underline"
+               :href (str "https://clojars.org/" group-id "/" artifact-id)}
+           [:div {:class "flex flex-row gap-2 items-center"}
+            [:span "[ "]
+            [:span (str group-id "/" artifact-id)]
+            " "
+            [:span latest-version]
+            [:span " ]"]]])]
        [:span {:class "text-lg text-neutral-800 pb-4"} description]
        [:div {:class "flex flex-col md:flex-row justify-between gap-4"}
         [:div {:class "flex flex-row gap-2 flex-wrap"}
@@ -311,6 +309,18 @@
         [:script {:type "application/ld+json"}
          (chassis/raw json-ld)]]
        [:body
+        [:div {:id "project-popover"}]
+        [:template {:id "popover-template"}
+         [:div {:class "popover-row" :data-field "stars"}
+          (icons/star) [:span {:data-value ""}]]
+         [:div {:class "popover-row" :data-field "downloadsPerDay"}
+          (icons/download) [:span {:data-value ""}]]
+         [:div {:class "popover-row" :data-field "releaseDate"}
+          (icons/package) [:span {:data-value ""}]]
+         [:div {:class "popover-row" :data-field "lastUpdated"}
+          (icons/refresh-cw) [:span {:data-value ""}]]
+         #_[:div {:class "popover-row" :data-field "popularity"}
+            (icons/trending-up) [:span {:data-value ""}]]]
         [:div {:class "absolute -top-4 -right-4 scale-30"}
          [:a {:href "https://github.com/brettatoms/clojure.land"}
           (icons/github)]]

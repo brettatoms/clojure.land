@@ -5,7 +5,6 @@
             [clojure-land.s3 :as s3]
             [clojure.edn :as edn]
             [clojure.java.io :as io]
-            [clojure.string :as str]
             [malli.core :as m]
             [malli.dev.pretty :as mp]
             [malli.dev.virhe :as mv]
@@ -38,29 +37,40 @@
       (slurp)
       (edn/read-string)))
 
+(defn downloads-per-day
+  "Calculate downloads per day from a project's recent downloads field.
+   Finds the :downloads-past-Nd key and divides by N."
+  [project]
+  (let [recent-downloads-key (clojars/recent-downloads-key clojars/recent-downloads-days)]
+    (when-let [recent-downloads (get project recent-downloads-key)]
+      (/ (double recent-downloads) clojars/recent-downloads-days))))
+
+(defn- to-instant [v]
+  (cond
+    (nil? v) nil
+    (string? v) (.toInstant (java.time.OffsetDateTime/parse v))
+    (instance? java.util.Date v) (.toInstant v)
+    :else (.toInstant v)))
+
+(defn- staleness-decay
+  "Calculate a decay factor based on how long since the project was last released
+   or pushed to. Returns 1.0 for projects active within 180 days, then decreases
+   by 0.2 per year, with a minimum of 0.1."
+  [{:keys [latest-release-date last-pushed-at]}]
+  (let [last-instant (or (to-instant latest-release-date) (to-instant last-pushed-at))
+        days-stale (if last-instant
+                     (.toDays (Duration/between last-instant (Instant/now)))
+                     1000)]
+    (if (< days-stale 180)
+      1.0
+      (max 0.1 (- 1.0 (min 0.9 (* 0.2 (/ (- days-stale 180) 365.0))))))))
+
 (defn popularity-score
-  "Calculate a popularity score for a project based on stars, recent downloads,
-   and staleness (days since last release).
+  "Calculate a popularity score for a project.
 
-   Formula: log10(stars + 1) + 1.5 * log10(recent_downloads + 1) - staleness_penalty
-
-   Staleness penalty:
-   - 0 if released within last 6 months
-   - Increases by 0.3 per year after that
-   - Capped at 2.0 (reached at ~7 years stale)"
-  [{:keys [stars latest-release-date] :as project}]
-  (let [recent-downloads-key (clojars/recent-downloads-key clojars/recent-downloads-days)
-        recent-downloads (or (get project recent-downloads-key) 0)
-        stars (or stars 0)
-        days-since-release (if latest-release-date
-                             (.toDays (Duration/between (.toInstant latest-release-date) (Instant/now)))
-                             1000) ; default to ~3 years if unknown
-        staleness-penalty (if (< days-since-release 180)
-                            0.0
-                            (min 2.0 (* 0.3 (/ (- days-since-release 180) 365.0))))]
-    (- (+ (Math/log10 (+ stars 1))
-          (* 1.5 (Math/log10 (+ recent-downloads 1))))
-       staleness-penalty)))
+   Formula: stars * staleness_decay"
+  [project]
+  (* (or (:stars project) 0) (staleness-decay project)))
 
 (defn fetch-remote-projects [s3-client bucket-name]
   (-> (s3/get-object s3-client {:Bucket bucket-name
@@ -106,10 +116,10 @@
        set))
 
 (defn- timestamp-key
-  "Generate a timestamped S3 key like 'projects-2026-01-25T02-00-00Z.edn'"
+  "Generate a timestamped S3 key like 'projects-2026-01-25T02-00-00.00Z.edn'"
   [now]
-  (let [ts (-> (.toString now)
-               (str/replace ":" "-"))]
+  (let [formatter (java.time.format.DateTimeFormatter/ofPattern "yyyy-MM-dd'T'HH-mm-ss.SS'Z'")
+        ts (.format (.atZone now java.time.ZoneOffset/UTC) formatter)]
     (str "projects-" ts ".edn")))
 
 (defn sync-remote-projects-edn

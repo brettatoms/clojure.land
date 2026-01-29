@@ -7,3 +7,36 @@ body {
     font-family: "Satoshi-Medium", sans-serif;
     letter-spacing: 0.07rem;
 }
+
+/* Project info popover */
+#project-popover {
+    position: fixed;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0;
+    transition: opacity 0.15s;
+    background: #1f2937;
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 280px;
+}
+
+#project-popover.visible {
+    opacity: 1;
+}
+
+#project-popover .popover-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+}
+
+#project-popover .popover-row svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+}

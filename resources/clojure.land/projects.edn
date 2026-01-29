@@ -7102,8 +7102,6 @@
   :platforms #{"clj"}
   :description "The original Clojure build tool"
   :key :technomancy/leiningen
-  :group-id "jark"
-  :artifact-id "leiningen"
   :tags #{"build tools"}}
  {:name "Slamhound"
   :url "https://github.com/technomancy/slamhound"
