@@ -10,7 +10,7 @@
             [malli.dev.pretty :as mp]
             [malli.dev.virhe :as mv]
             [malli.error :as me])
-  (:import [java.time Instant]))
+  (:import [java.time Duration Instant]))
 
 (defn- log-memory-stats
   "Log current memory usage stats."
@@ -37,6 +37,30 @@
   (-> (io/resource "clojure.land/projects.edn")
       (slurp)
       (edn/read-string)))
+
+(defn popularity-score
+  "Calculate a popularity score for a project based on stars, recent downloads,
+   and staleness (days since last release).
+
+   Formula: log10(stars + 1) + 1.5 * log10(recent_downloads + 1) - staleness_penalty
+
+   Staleness penalty:
+   - 0 if released within last 6 months
+   - Increases by 0.3 per year after that
+   - Capped at 2.0 (reached at ~7 years stale)"
+  [{:keys [stars latest-release-date] :as project}]
+  (let [recent-downloads-key (clojars/recent-downloads-key clojars/recent-downloads-days)
+        recent-downloads (or (get project recent-downloads-key) 0)
+        stars (or stars 0)
+        days-since-release (if latest-release-date
+                             (.toDays (Duration/between (.toInstant latest-release-date) (Instant/now)))
+                             1000) ; default to ~3 years if unknown
+        staleness-penalty (if (< days-since-release 180)
+                            0.0
+                            (min 2.0 (* 0.3 (/ (- days-since-release 180) 365.0))))]
+    (- (+ (Math/log10 (+ stars 1))
+          (* 1.5 (Math/log10 (+ recent-downloads 1))))
+       staleness-penalty)))
 
 (defn fetch-remote-projects [s3-client bucket-name]
   (-> (s3/get-object s3-client {:Bucket bucket-name

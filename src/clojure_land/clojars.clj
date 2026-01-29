@@ -22,6 +22,14 @@
   [days]
   (keyword (str "downloads-past-" days "d")))
 
+(defn parse-recent-downloads-days
+  "Extract the number of days from a recent downloads key.
+   e.g., :downloads-past-10d -> 10, :downloads-past-32d -> 32
+   Returns nil if the key doesn't match the expected format."
+  [k]
+  (when-let [[_ days-str] (re-find #"^downloads-past-(\d+)d$" (name k))]
+    (parse-long days-str)))
+
 (def ^:private http-client
   (delay (hc/build-http-client {:redirect-policy :always})))
 

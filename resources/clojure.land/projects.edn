@@ -2394,8 +2394,8 @@
   :url "https://github.com/duct-framework/duct"
   :platforms #{"clj" "cljs"}
   :key :duct-framework/duct
-  :group-id "duct"
-  :artifact-id "duct"
+  :group-id "org.duct-framework"
+  :artifact-id "main"
   :tags #{"web frameworks" "project templates"}}
  {:name "Duct-Figwheel-Component"
   :url "https://github.com/duct-framework/duct-figwheel-component"
@@ -5304,8 +5304,7 @@
   :url "https://github.com/nextjournal/freerange"
   :platforms #{"cljs"}
   :key :nextjournal/freerange
-  :group-id "re-frame"
-  :artifact-id "re-frame"
+  :ignore true
   :tags #{"front-end framework" "react"}}
  {:name "lezer-clojure"
   :url "https://github.com/nextjournal/lezer-clojure"

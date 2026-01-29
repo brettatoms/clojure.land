@@ -53,6 +53,7 @@
              :hx-preserve true}
     [:option {:value "date" :selected (= value :date)} "Last updated"]
     [:option {:value "name" :selected (= value :name)} "Name"]
+    [:option {:value "popularity" :selected (= value :popularity)} "Popularity"]
     [:option {:value "stars" :selected (= value :stars)} "Stars"]]])
 
 (defn js
@@ -102,44 +103,62 @@
         "babashka" 2}
        p))
 
-(defn project-list-item [{:project/keys [archived description last-pushed-at name platforms repo-url stars tags url]}
+(defn- days-since [timestamp]
+  (when timestamp
+    (let [now (java.time.Instant/now)
+          then (.toInstant timestamp)]
+      (.toDays (java.time.Duration/between then now)))))
+
+(defn project-list-item [{:project/keys [archived description downloads-per-day last-pushed-at
+                                         latest-release-date name platforms popularity-score
+                                         repo-url stars tags url]}
                          & {:keys [attrs]}]
-  [:li (merge {:class "relative flex justify-between gap-x-6 py-4 col-span-6 md:col-span-4 mx-6 md:mx-2 md:col-start-2"}
-              attrs)
-   [:div {:class "flex flex-row w-full"}
-    [:div {:class "flex flex-col gap-2 w-full"}
-     [:div {:class "flex flex-row gap-4 items-start md:items-center"
-            :title (str "Last updated " last-pushed-at)}
-      [:a {:class "font-bold text-2xl hover:underline" :href url} name]
-      (when archived
-        [:span {:title "archived"} (icons/lock)])
-      (when stars
-        [:a {:class "flex flex-row flex-1 justify-end gap-2 hover:underline"
-             :href repo-url}
-         (icons/star)
-         [:span stars]])]
-     [:span {:class "text-lg text-neutral-800 pb-4"} description]
-     [:div {:class "flex flex-col md:flex-row justify-between gap-4"}
-      [:div {:class "flex flex-row gap-2 flex-wrap"}
-       (mapv (fn [platform]
-               [:a {:class "cursor-pointer"
-                    :hx-get "/"
-                    :hx-push-url "true"
-                    :hx-include "inherit"
-                    :hx-on:htmx:config-request (format "appendPlatformParameter(event, '%s')" platform)}
-                (platform-chip platform)])
-             ;; override sort order of platforms
-             (some->> (.getArray (or platforms (array-map)))
-                      (sort-by sort-platforms-keyfn)))]
-      [:div {:class "flex flex-row gap-2 flex-wrap"}
-       (mapv (fn [tag]
-               [:a {:class "cursor-pointer"
-                    :hx-get "/"
-                    :hx-push-url "true"
-                    :hx-include "inherit"
-                    :hx-on:htmx:config-request (format "appendTagParameter(event, '%s')" tag)}
-                (tag-chip tag)])
-             (some->> (.getArray tags) (take 4) (sort)))]]]]])
+  (let [days-since-release (days-since latest-release-date)]
+    [:li (merge {:class "relative flex justify-between gap-x-6 py-4 col-span-6 md:col-span-4 mx-6 md:mx-2 md:col-start-2"}
+                attrs)
+     [:div {:class "flex flex-row w-full"}
+      [:div {:class "flex flex-col gap-2 w-full"}
+       [:div {:class "flex flex-row gap-4 items-start md:items-center"
+              :title (str "Last updated " last-pushed-at)}
+        [:a {:class "font-bold text-2xl hover:underline" :href url} name]
+        (when archived
+          [:span {:title "archived"} (icons/lock)])
+        (when stars
+          [:a {:class "flex flex-row flex-1 justify-end gap-2 hover:underline"
+               :href repo-url}
+           (icons/star)
+           [:span stars]])
+        ;; DEBUG: stars / daily downloads / days since release / popularity score
+        #_[:a {:class "flex flex-row flex-1 justify-end gap-2 hover:underline text-sm"
+               :href repo-url
+               :title "stars / downloads per day / days since release / popularity score"}
+           (icons/star)
+           [:span (str (or stars "-") " / "
+                       (if downloads-per-day (format "%.0f" downloads-per-day) "-") " / "
+                       (or days-since-release "-") "d / "
+                       (if popularity-score (format "%.1f" popularity-score) "-"))]]]
+       [:span {:class "text-lg text-neutral-800 pb-4"} description]
+       [:div {:class "flex flex-col md:flex-row justify-between gap-4"}
+        [:div {:class "flex flex-row gap-2 flex-wrap"}
+         (mapv (fn [platform]
+                 [:a {:class "cursor-pointer"
+                      :hx-get "/"
+                      :hx-push-url "true"
+                      :hx-include "inherit"
+                      :hx-on:htmx:config-request (format "appendPlatformParameter(event, '%s')" platform)}
+                  (platform-chip platform)])
+               ;; override sort order of platforms
+               (some->> (.getArray (or platforms (array-map)))
+                        (sort-by sort-platforms-keyfn)))]
+        [:div {:class "flex flex-row gap-2 flex-wrap"}
+         (mapv (fn [tag]
+                 [:a {:class "cursor-pointer"
+                      :hx-get "/"
+                      :hx-push-url "true"
+                      :hx-include "inherit"
+                      :hx-on:htmx:config-request (format "appendTagParameter(event, '%s')" tag)}
+                  (tag-chip tag)])
+               (some->> (.getArray tags) (take 4) (sort)))]]]]]))
 
 (defn project-list [projects & {:keys [next-page]}]
   (let [num-projects (count projects)]
@@ -181,9 +200,10 @@
         tags-conds (mapv #(vector :array_contains :tags %) tags)
         order-by (case sort
                    :name [[[:lower :name]]]
-                   :date [[:last-pushed-at  :desc]]
-                   :stars [[:stars  :desc]]
-                   [[:last-pushed-at  :desc]])]
+                   :date [[:last-pushed-at :desc]]
+                   :popularity [[:popularity-score :desc :nulls-last]]
+                   :stars [[:stars :desc]]
+                   [[:last-pushed-at :desc]])]
     (cond-> {:select [:*]
              :from :project
              :where [:and true]
@@ -211,7 +231,7 @@
 (def QueryParams
   [:map
    [:q :string]
-   [:sort {:decode/params keyword} [:enum :date :name :stars]]
+   [:sort {:decode/params keyword} [:enum :date :name :popularity :stars]]
    [:page [:int {:min 1 :default 1}]]
    [:page-size {:default 20} [:int {:min 10}]]
    [:tags {:decode/params (fn [v]
