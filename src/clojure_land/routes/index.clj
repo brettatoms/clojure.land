@@ -109,9 +109,13 @@
                                          latest-version group-id artifact-id repo-url repository
                                          stars tags url]}
                          & {:keys [attrs]}]
-  (let [popover-data (cond-> {}
+  (let [clojars? (and group-id artifact-id
+                          (or (nil? repository) (= repository "clojars")))
+        effective-dpd (or downloads-per-day
+                          (when clojars? 0.0))
+        popover-data (cond-> {}
                        stars (assoc :stars stars)
-                       downloads-per-day (assoc :downloadsPerDay downloads-per-day)
+                       effective-dpd (assoc :downloadsPerDay effective-dpd)
                        latest-release-date (assoc :releaseDate (.toInstant latest-release-date))
                        last-pushed-at (assoc :lastUpdated (.toInstant last-pushed-at))
                        popularity-score (assoc :popularity popularity-score))]
