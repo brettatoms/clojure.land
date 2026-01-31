@@ -106,8 +106,8 @@
 
 (defn project-list-item [{:project/keys [archived description downloads-per-day last-pushed-at
                                          latest-release-date name platforms popularity-score
-                                         latest-version
-                                         group-id artifact-id repo-url repository stars tags url]}
+                                         latest-version group-id artifact-id repo-url repository
+                                         stars tags url]}
                          & {:keys [attrs]}]
   (let [popover-data (cond-> {}
                        stars (assoc :stars stars)
@@ -130,11 +130,11 @@
           [:a {:class "hover:underline"
                :href (str "https://clojars.org/" group-id "/" artifact-id)}
            [:div {:class "flex flex-row gap-2 items-center"}
-            [:span "[ "]
+            [:span {:class "text-black/50"} "[ "]
             [:span (str group-id "/" artifact-id)]
             " "
             [:span latest-version]
-            [:span " ]"]]])]
+            [:span {:class "text-black/50"} " ]"]]])]
        [:span {:class "text-lg text-neutral-800 pb-4"} description]
        [:div {:class "flex flex-col md:flex-row justify-between gap-4"}
         [:div {:class "flex flex-row gap-2 flex-wrap"}
