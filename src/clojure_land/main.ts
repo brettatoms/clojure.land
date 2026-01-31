@@ -4,6 +4,7 @@ window.htmx = htmx;
 
 // Format popover field values
 const fieldFormatters: Record<string, (v: unknown) => string> = {
+  name: (v) => v as string,
   stars: (v) => `${(v as number).toLocaleString()} stars`,
   downloadsPerDay: (v) =>
     `${Math.round(v as number).toLocaleString()} downloads/day`,
@@ -117,7 +118,7 @@ function initDesktopPopover() {
   });
 }
 
-// Touch: tap info icon to show popover with close button
+// Touch: tap info icon to show popover, icon becomes ✕ to close
 function initTouchPopover() {
   const popover = document.getElementById("project-popover");
   const template = document.getElementById(
@@ -125,7 +126,18 @@ function initTouchPopover() {
   ) as HTMLTemplateElement;
   if (!popover || !template) return;
 
-  function hidePopover() {
+  let activeTrigger: HTMLElement | null = null;
+  let activeTriggerOriginalHTML: string = "";
+
+  const closeX =
+    '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>';
+
+  function deactivateTrigger() {
+    if (activeTrigger) {
+      activeTrigger.innerHTML = activeTriggerOriginalHTML;
+      activeTrigger = null;
+      activeTriggerOriginalHTML = "";
+    }
     popover!.classList.remove("visible");
   }
 
@@ -138,19 +150,22 @@ function initTouchPopover() {
       e.preventDefault();
       e.stopPropagation();
 
+      // Tapping the active trigger closes the popover
+      if (trigger === activeTrigger) {
+        deactivateTrigger();
+        return;
+      }
+
+      // Close any previously active trigger
+      deactivateTrigger();
+
       const data = JSON.parse(trigger.dataset.popover || "{}");
       if (!fillPopover(popover, template, data)) return;
 
-      // Add close button
-      const closeBtn = document.createElement("button");
-      closeBtn.className = "popover-close";
-      closeBtn.setAttribute("aria-label", "Close");
-      closeBtn.textContent = "\u00d7";
-      closeBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        hidePopover();
-      });
-      popover.prepend(closeBtn);
+      // Swap icon to ✕
+      activeTriggerOriginalHTML = trigger.innerHTML;
+      activeTrigger = trigger;
+      trigger.innerHTML = closeX;
 
       // Position near the trigger icon
       const rect = trigger.getBoundingClientRect();
@@ -171,7 +186,7 @@ function initTouchPopover() {
       popover.style.left = `${x}px`;
       popover.style.top = `${y}px`;
     } else if (!popover.contains(e.target as Node)) {
-      hidePopover();
+      deactivateTrigger();
     }
   });
 }
