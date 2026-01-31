@@ -46,7 +46,7 @@
    [:select {:id "sort"
              :name "sort"
              :value (if value (name value) "date")
-             :class "rounded-md outline-1 outline-gray-300 border-0 text-sm/5 min-w-40"
+             :class "rounded-md outline-1 outline-gray-300 border-0 text-sm/5 min-w-42"
              :hx-get "/"
              :hx-push-url "true"
              :hx-trigger "change"
@@ -54,7 +54,8 @@
     [:option {:value "date" :selected (= value :date)} "Last updated"]
     [:option {:value "name" :selected (= value :name)} "Name"]
     [:option {:value "popularity" :selected (= value :popularity)} "Popularity"]
-    #_[:option {:value "stars" :selected (= value :stars)} "Stars"]]])
+    [:option {:value "stars" :selected (= value :stars)} "Stars"]
+    [:option {:value "downloads" :selected (= value :downloads)} "Downloads/day"]]])
 
 (defn js
   "This function is mostly used for passing a clojure map as a js object in html
@@ -212,7 +213,8 @@
                    :name [[[:lower :name]]]
                    :date [[:last-pushed-at :desc]]
                    :popularity [[:popularity-score :desc :nulls-last]]
-                   :stars [[:stars :desc]]
+                   :stars [[:stars :desc :nulls-last]]
+                   :downloads [[:downloads-per-day :desc :nulls-last]]
                    [[:last-pushed-at :desc]])]
     (cond-> {:select [:*]
              :from :project
@@ -241,7 +243,7 @@
 (def QueryParams
   [:map
    [:q :string]
-   [:sort {:decode/params keyword} [:enum :date :name :popularity :stars]]
+   [:sort {:decode/params keyword} [:enum :date :name :popularity :stars :downloads]]
    [:page [:int {:min 1 :default 1}]]
    [:page-size {:default 20} [:int {:min 10}]]
    [:tags {:decode/params (fn [v]
