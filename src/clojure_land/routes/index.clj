@@ -116,7 +116,7 @@
                       (or (nil? repository) (= repository "clojars")))
         effective-dpd (or downloads-per-day
                           (when clojars? 0.0))
-        popover-data (cond-> {}
+        popover-data (cond-> {:name name}
                        stars (assoc :stars stars)
                        effective-dpd (assoc :downloadsPerDay effective-dpd)
                        latest-release-date (assoc :releaseDate (.toInstant latest-release-date))
@@ -326,6 +326,8 @@
        [:body
         [:div {:id "project-popover"}]
         [:template {:id "popover-template"}
+         [:div {:class "popover-name" :data-field "name"}
+          [:span {:data-value ""}]]
          [:div {:class "popover-row" :data-field "stars"}
           (icons/star) [:span {:data-value ""}]]
          [:div {:class "popover-row" :data-field "downloadsPerDay"}
