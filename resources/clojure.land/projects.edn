@@ -346,7 +346,7 @@
   :key :athos/pogonos
   :group-id "pogonos"
   :artifact-id "pogonos"
-  :tags #{"template languages"}}
+  :tags #{"template languages" "mustache syntax"}}
  {:name "Postmortem"
   :url "https://github.com/athos/postmortem"
   :platforms #{"clj" "cljs"}
