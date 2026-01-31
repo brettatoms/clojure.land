@@ -6255,7 +6255,7 @@
   :key :ring-clojure/ring
   :group-id "ring"
   :artifact-id "ring-core"
-  :tags #{"http servers"}}
+  :tags #{"http servers" "web frameworks"}}
  {:name "ring-anti-forgery"
   :url "https://github.com/ring-clojure/ring-anti-forgery"
   :platforms #{"clj"}

@@ -53,31 +53,23 @@
     :else (.toInstant v)))
 
 (defn- staleness-decay
-  "Calculate a decay factor based on how long since the project was last released
-   or pushed to. Returns 1.0 for projects active within 180 days, then decreases
-   by 0.2 per year, with a minimum of 0.1."
-  [{:keys [latest-release-date last-pushed-at]}]
-  (let [last-instant (or (to-instant latest-release-date) (to-instant last-pushed-at))
+  "Calculate a decay factor based on how long since the project was last active.
+   For Clojars projects, uses the latest release date since that reflects when
+   users last got a new version. For non-Clojars projects, uses last push date.
+   Returns 1.0 for projects active within 180 days, then decreases by 0.1 per
+   year, with a minimum of 0.3."
+  [{:keys [latest-release-date last-pushed-at group-id artifact-id repository]}]
+  (let [clojars? (and group-id artifact-id
+                      (or (nil? repository) (= repository :clojars)))
+        last-instant (if clojars?
+                       (or (to-instant latest-release-date) (to-instant last-pushed-at))
+                       (or (to-instant last-pushed-at) (to-instant latest-release-date)))
         days-stale (if last-instant
                      (.toDays (Duration/between last-instant (Instant/now)))
                      1000)]
     (if (< days-stale 180)
       1.0
-      (max 0.1 (- 1.0 (min 0.9 (* 0.2 (/ (- days-stale 180) 365.0))))))))
-
-(defn- download-penalty
-  "Penalize Clojars-published projects with very low downloads.
-   Only applies to projects with Clojars artifacts (repository nil or :clojars)
-   AND where we have actual download stats (downloads-per-day is non-nil).
-   Uses a log10 curve so the penalty scales smoothly: 0 dpd → 0.3, ~100 dpd → 1.0.
-   Returns a multiplier between 0.3 and 1.0."
-  [{:keys [group-id artifact-id downloads-per-day repository]}]
-  (if-not (and group-id artifact-id
-               (or (nil? repository) (= repository :clojars))
-               (some? downloads-per-day))
-    1.0
-    (min 1.0 (+ 0.3 (* 0.7 (/ (Math/log10 (+ downloads-per-day 1))
-                              (Math/log10 100)))))))
+      (max 0.3 (- 1.0 (min 0.7 (* 0.1 (/ (- days-stale 180) 365.0))))))))
 
 (defn- archived-penalty
   "Penalize archived projects. Returns 0.1 for archived projects, 1.0 otherwise."
@@ -87,12 +79,22 @@
 (defn popularity-score
   "Calculate a popularity score for a project.
 
-   Formula: stars * staleness_decay * download_penalty * archived_penalty"
+   Uses the geometric mean of stars and downloads-per-day when download data is
+   available, otherwise falls back to stars alone. The geometric mean naturally
+   balances both signals — transitive dependencies with high downloads but few
+   stars are dampened, while projects need both community interest (stars) and
+   real-world usage (downloads) to rank highly.
+
+   The result is further adjusted by staleness decay and an archived penalty."
   [project]
-  (* (or (:stars project) 0)
-     (staleness-decay project)
-     (download-penalty project)
-     (archived-penalty project)))
+  (let [stars (double (or (:stars project) 0))
+        dpd (downloads-per-day project)
+        base (if (and dpd (pos? dpd))
+               (Math/sqrt (* stars dpd))
+               stars)]
+    (* base
+       (staleness-decay project)
+       (archived-penalty project))))
 
 (defn fetch-remote-projects [s3-client bucket-name]
   (-> (s3/get-object s3-client {:Bucket bucket-name
