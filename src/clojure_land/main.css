@@ -40,3 +40,37 @@ body {
     height: 1rem;
     flex-shrink: 0;
 }
+
+#project-popover .popover-close {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+    background: none;
+    border: none;
+    color: white;
+    opacity: 0.6;
+    cursor: pointer;
+    font-size: 1.125rem;
+    line-height: 1;
+    padding: 0.25rem;
+}
+
+#project-popover .popover-close:hover {
+    opacity: 1;
+}
+
+/* Info icon: hidden on desktop, visible on touch devices */
+.popover-trigger {
+    display: none;
+}
+
+@media (pointer: coarse) {
+    .popover-trigger {
+        display: flex;
+        align-items: center;
+    }
+
+    #project-popover.visible {
+        pointer-events: auto;
+    }
+}

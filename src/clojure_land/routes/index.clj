@@ -127,10 +127,15 @@
      [:div {:class "flex flex-row w-full"}
       [:div {:class "flex flex-col gap-2 w-full"}
        [:div {:class "flex flex-row flex-wrap lg:gap-4 items-start md:items-center justify-between"}
-        [:span {:class "w-full md:w-auto "}
-         [:a {:class "font-bold text-2xl hover:underline" :href url} name]
-         (when archived
-           [:span {:title "archived"} (icons/lock)])]
+        [:span {:class "w-full md:w-auto flex flex-row items-center justify-between gap-2"}
+         [:span
+          [:a {:class "font-bold text-2xl hover:underline" :href url} name]
+          (when archived
+            [:span {:title "archived"} (icons/lock)])]
+         [:button {:class "popover-trigger text-gray-400 hover:text-gray-600 cursor-pointer"
+                   :data-popover (json/write-str popover-data)
+                   :aria-label "Show project info"}
+          (icons/info)]]
         (when (and artifact-id
                    (or (nil? repository)
                        (= repository :clojars)))
