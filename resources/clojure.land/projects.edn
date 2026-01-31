@@ -346,7 +346,7 @@
   :key :athos/pogonos
   :group-id "pogonos"
   :artifact-id "pogonos"
-  :tags #{"template languages" "mustache syntax"}}
+  :tags #{"template languages"}}
  {:name "Postmortem"
   :url "https://github.com/athos/postmortem"
   :platforms #{"clj" "cljs"}
@@ -843,7 +843,8 @@
   :platforms #{"clj"}
   :key :camsaul/lein-docstring-checker
   :group-id "docstring-checker"
-  :artifact-id "latest-version.svg"
+  :atifiact-id "docstring-checker"
+  :archived true
   :tags #{"leiningen plugins" "code analysis"}}
  {:name "Joker"
   :url "https://github.com/candid82/joker"
@@ -4600,7 +4601,7 @@
   :platforms #{"clj" "cljs"}
   :key :markmandel/brute
   :group-id "brute"
-  :artifact-id "latest-version.svg"
+  :artifact-id "brute"
   :tags #{"game development"}}
  {:name "Clojure Telegram Bot API"
   :key :marksto/clj-tg-bot-api
@@ -6830,7 +6831,7 @@
   :platforms #{"clj"}
   :key :sunng87/hbs
   :group-id "hbs"
-  :artifact-id "latest-version.svg"
+  :artifact-id "hbs"
   :tags #{"template languages" "mustache syntax"}}
  {:name "ring-jetty9-adapter"
   :url "https://github.com/sunng87/ring-jetty9-adapter"
@@ -6893,7 +6894,7 @@
   :platforms #{"clj"}
   :key :tadam-framework/tadam-core
   :group-id "tadam-core"
-  :artifact-id "latest-version.svg"
+  :artifact-id "tadam-core"
   :tags #{"web frameworks" "project templates"}
   :repo-url "https://github.com/tadam-framework/tadam-core"}
  {:name "cljs-priority-map"
