@@ -65,12 +65,19 @@
       1.0
       (max 0.1 (- 1.0 (min 0.9 (* 0.2 (/ (- days-stale 180) 365.0))))))))
 
+(defn- archived-penalty
+  "Penalize archived projects. Returns 0.1 for archived projects, 1.0 otherwise."
+  [project]
+  (if (:archived project) 0.1 1.0))
+
 (defn popularity-score
   "Calculate a popularity score for a project.
 
-   Formula: stars * staleness_decay"
+   Formula: stars * staleness_decay * archived_penalty"
   [project]
-  (* (or (:stars project) 0) (staleness-decay project)))
+  (* (or (:stars project) 0)
+     (staleness-decay project)
+     (archived-penalty project)))
 
 (defn fetch-remote-projects [s3-client bucket-name]
   (-> (s3/get-object s3-client {:Bucket bucket-name
