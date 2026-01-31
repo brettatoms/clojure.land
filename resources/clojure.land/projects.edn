@@ -1935,6 +1935,13 @@
   :group-id "com.roomkey"
   :artifact-id "annotate"
   :tags #{"syntax extensions" "validation" "dynamic typing"}}
+ {:name "Clojure Desktop Toolkit"
+  :url "https://github.com/coconutpalm/clojure-desktop-toolkit"
+  :platforms #{"clj"}
+  :key :coconutpalm/clojure-desktop-toolkit
+  :group-id "io.github.coconutpalm"
+  :artifact-id "clojure-desktop-toolkit"
+  :tags #{"guis"}}
  {:name "Anomalies"
   :url "https://github.com/cognitect-labs/anomalies"
   :platforms #{"clj" "cljs"}
@@ -2148,6 +2155,13 @@
   :group-id "darkleaf"
   :artifact-id "router"
   :tags #{"http routing"}}
+ {:name "Datalevin"
+  :url "https://github.com/datalevin/datalevin"
+  :platforms #{"clj" "babashka"}
+  :key :datalevin/datalevin
+  :group-id "datalevin"
+  :artifact-id "datalevin"
+  :tags #{"databases" "datalog"}}
  {:name "ring-netty-adapter"
   :url "https://github.com/datskos/ring-netty-adapter"
   :platforms #{"clj"}
@@ -2735,6 +2749,20 @@
   :group-id "fogus"
   :artifact-id "minderbinder"
   :tags #{"measurement units"}}
+ {:name "rv"
+  :url "https://github.com/fogus/rv"
+  :platforms #{"clj"}
+  :key :fogus/rv
+  :group-id "me.fogus"
+  :artifact-id "rv"
+  :tags #{"logic programming"}}
+ {:name "thneed"
+  :url "https://github.com/fogus/thneed"
+  :platforms #{"clj"}
+  :key :fogus/thneed
+  :group-id "me.fogus"
+  :artifact-id "thneed"
+  :tags #{"utility libraries"}}
  {:name "clj-alpakka-kafka"
   :url "https://github.com/fr33m0nk/clj-alpakka-kafka"
   :platforms #{"clj"}
@@ -6498,6 +6526,13 @@
   :group-id "scicloj"
   :artifact-id "clojisr"
   :tags #{"data science" "math" "machine learning"}}
+ {:name "Glance"
+  :url "https://github.com/scicloj/glance"
+  :platforms #{"clj"}
+  :key :scicloj/glance
+  :group-id "org.scicloj"
+  :artifact-id "glance"
+  :tags #{"visualization" "data science"}}
  {:name "Noj"
   :key :scicloj/noj
   :url "https://github.com/scicloj/noj"
@@ -7132,6 +7167,11 @@
   :artifact-id "lein-retest"
   :tags #{"leiningen plugins" "testing"}
   :archived true}
+ {:name "lein-unused-deps"
+  :url "https://codeberg.org/technomancy/lein-unused-deps"
+  :platforms #{"clj"}
+  :key :technomancy/lein-unused-deps
+  :tags #{"leiningen plugins" "code analysis"}}
  {:name "Leiningen"
   :url "https://github.com/technomancy/leiningen"
   :platforms #{"clj"}
@@ -7268,6 +7308,11 @@
   :group-id "tech.thomascothran"
   :artifact-id "pavlov"
   :tags #{}}
+ {:name "charm.clj"
+  :url "https://github.com/TimoKramer/charm.clj"
+  :platforms #{"clj" "babashka"}
+  :key :TimoKramer/charm.clj
+  :tags #{"terminal" "guis"}}
  {:name "Webica",
   :url "https://github.com/tmarble/webica",
   :platforms #{"clj"},
@@ -7282,6 +7327,13 @@
   :group-id "org.tobereplaced"
   :artifact-id "lettercase"
   :tags #{"string manipulation"}}
+ {:name "datastar-pedestal-adapter"
+  :url "https://github.com/tobias/datastar-pedestal-adapter"
+  :platforms #{"clj"}
+  :key :tobias/datastar-pedestal-adapter
+  :group-id "org.tcrawley"
+  :artifact-id "datastar-pedestal-adapter"
+  :tags #{"web frameworks"}}
  {:name "Webmine",
   :url "https://github.com/tol/webmine",
   :platforms #{"clj"},
