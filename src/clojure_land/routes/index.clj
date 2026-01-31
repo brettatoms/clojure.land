@@ -247,7 +247,8 @@
 (defn handler [{:keys [headers params ::z/context] :as _request}]
   (let [{::z.assets/keys [assets]
          ::z.sql/keys [db]} context
-        hx-request? (= (get headers "hx-request") "true")
+        hx-request? (and (= (get headers "hx-request") "true")
+                         (not= (get headers "hx-history-restore-request") "true"))
         {:keys [q page page-size platforms sort tags]} (m/decode QueryParams params params-transformer)
         stmt (projects-stmt :q q
                             :platforms platforms
