@@ -69,16 +69,15 @@
   "Penalize Clojars-published projects with very low downloads.
    Only applies to projects with Clojars artifacts (repository nil or :clojars)
    AND where we have actual download stats (downloads-per-day is non-nil).
+   Uses a log10 curve so the penalty scales smoothly: 0 dpd → 0.3, ~100 dpd → 1.0.
    Returns a multiplier between 0.3 and 1.0."
   [{:keys [group-id artifact-id downloads-per-day repository]}]
   (if-not (and group-id artifact-id
                (or (nil? repository) (= repository :clojars))
                (some? downloads-per-day))
     1.0
-    (let [threshold 5.0]
-      (if (>= downloads-per-day threshold)
-        1.0
-        (+ 0.3 (* 0.7 (/ downloads-per-day threshold)))))))
+    (min 1.0 (+ 0.3 (* 0.7 (/ (Math/log10 (+ downloads-per-day 1))
+                              (Math/log10 100)))))))
 
 (defn- archived-penalty
   "Penalize archived projects. Returns 0.1 for archived projects, 1.0 otherwise."
