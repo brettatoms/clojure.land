@@ -7335,7 +7335,7 @@
   :key :tolitius/mount
   :group-id "mount"
   :artifact-id "mount"
-  :tags #{"application frameworks"}}
+  :tags #{"application frameworks" "state management"}}
  {:name "hikari-cp"
   :url "https://github.com/tomekw/hikari-cp"
   :platforms #{"clj"}
@@ -7956,7 +7956,7 @@
   :key :weavejester/integrant
   :group-id "integrant"
   :artifact-id "integrant"
-  :tags #{"application frameworks"}}
+  :tags #{"application frameworks" "state management"}}
  {:name "Intentions"
   :url "https://github.com/weavejester/intentions"
   :platforms #{"clj" "cljs"}
