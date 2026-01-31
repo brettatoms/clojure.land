@@ -6540,11 +6540,6 @@
   :group-id "io.github.seancorfield"
   :artifact-id "deps-new"
   :tags #{"tools.deps"}}
- {:name "dot-clojure-deps.edn"
-  :url "https://github.com/seancorfield/dot-clojure"
-  :platforms #{"clj"}
-  :key :seancorfield/dot-clojure
-  :tags #{"tools.deps"}}
  {:name "Honey SQL"
   :url "https://github.com/seancorfield/honeysql"
   :platforms #{"clj" "cljs"}
