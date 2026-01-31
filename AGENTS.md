@@ -62,6 +62,9 @@ Each project entry requires:
 Optional keys:
 - `:repo-url` - Use when `:url` is a project website, not the repo
 - `:description` - Overrides the GitHub description
+- `:group-id` - Maven group ID (e.g., `"org.clojure"`, `"metosin"`)
+- `:artifact-id` - Maven artifact ID (e.g., `"core.async"`, `"reitit"`)
+- `:repository` - Set to `:maven-central` if the artifact is on Maven Central instead of Clojars. Omit for Clojars (the default).
 - `:ignore` - Set to `true` to hide the project
 - `:deprecated` - Set to `true` for deprecated projects
 - `:archived` - Set to `true` for archived projects
@@ -100,7 +103,39 @@ When suggesting tags for a new project:
 3. Determine the key from the repo URL (`:org/repo` format)
 4. Find the correct alphabetical position by key
 5. Choose appropriate existing tags (check tag list first)
-6. Add the entry and run validation: `clj -X:validate-projects`
+6. Discover Maven coordinates (see below)
+7. Add the entry and run validation: `clj -X:validate-projects`
+
+### Discovering Maven Coordinates
+
+Most Clojure libraries are published to Clojars. Some (e.g., `org.clojure/*`) are on Maven Central. Always check for coordinates when adding a project.
+
+**Check the project README first** — most libraries document their coordinates in installation/usage sections (look for `deps.edn`, Leiningen, or Maven snippets).
+
+**Then verify on Clojars:**
+```bash
+curl -s "https://clojars.org/api/artifacts/{group-id}/{artifact-id}" | jq '{group_name, jar_name, latest_version}'
+```
+
+Common group-id patterns to try:
+- Same as repo org/name: `{org}/{repo}` (e.g., `datalevin/datalevin`)
+- Reversed domain: `io.github.{org}/{repo}`, `com.github.{org}/{repo}`
+- Custom group: `me.{author}/{repo}`, `net.clojars.{author}/{repo}`
+- Org-based: `org.{org}/{repo}`, `com.{org}/{repo}`
+
+You can also search Clojars:
+```bash
+curl -s "https://clojars.org/search?q={project-name}&format=json" | jq '.results[:3] | .[] | {group_name, jar_name}'
+```
+
+**Check Maven Central** (for org.clojure projects or if not on Clojars):
+```bash
+curl -s "https://search.maven.org/solrsearch/select?q=a:{artifact-id}+AND+g:{group-id}&rows=1&wt=json" | jq '.response.docs[0] | {g, a, latestVersion}'
+```
+
+If a project is on Maven Central (not Clojars), add `:repository :maven-central` to the entry.
+
+If a project has no published artifacts (git-dep only), omit `:group-id` and `:artifact-id`.
 
 ### Validating Projects
 
