@@ -65,6 +65,21 @@
       1.0
       (max 0.1 (- 1.0 (min 0.9 (* 0.2 (/ (- days-stale 180) 365.0))))))))
 
+(defn- download-penalty
+  "Penalize Clojars-published projects with very low downloads.
+   Only applies to projects with Clojars artifacts (repository nil or :clojars)
+   AND where we have actual download stats (downloads-per-day is non-nil).
+   Returns a multiplier between 0.3 and 1.0."
+  [{:keys [group-id artifact-id downloads-per-day repository]}]
+  (if-not (and group-id artifact-id
+               (or (nil? repository) (= repository :clojars))
+               (some? downloads-per-day))
+    1.0
+    (let [threshold 5.0]
+      (if (>= downloads-per-day threshold)
+        1.0
+        (+ 0.3 (* 0.7 (/ downloads-per-day threshold)))))))
+
 (defn- archived-penalty
   "Penalize archived projects. Returns 0.1 for archived projects, 1.0 otherwise."
   [project]
@@ -73,10 +88,11 @@
 (defn popularity-score
   "Calculate a popularity score for a project.
 
-   Formula: stars * staleness_decay * archived_penalty"
+   Formula: stars * staleness_decay * download_penalty * archived_penalty"
   [project]
   (* (or (:stars project) 0)
      (staleness-decay project)
+     (download-penalty project)
      (archived-penalty project)))
 
 (defn fetch-remote-projects [s3-client bucket-name]

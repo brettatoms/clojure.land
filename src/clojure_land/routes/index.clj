@@ -110,7 +110,7 @@
                                          stars tags url]}
                          & {:keys [attrs]}]
   (let [clojars? (and group-id artifact-id
-                          (or (nil? repository) (= repository "clojars")))
+                      (or (nil? repository) (= repository "clojars")))
         effective-dpd (or downloads-per-day
                           (when clojars? 0.0))
         popover-data (cond-> {}
