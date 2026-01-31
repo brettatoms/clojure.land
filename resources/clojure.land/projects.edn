@@ -3548,8 +3548,8 @@
   :url "https://biffweb.com/"
   :platforms #{"clj"}
   :key :jacobobryant/biff
-  :group-id "com.biffweb"
-  :artifact-id "biff"
+  ;; :group-id "com.biffweb"
+  ;; :artifact-id "biff"
   :tags #{"web frameworks"}
   :repo-url "https://github.com/jacobobryant/biff"}
  {:name "test-refresh"
