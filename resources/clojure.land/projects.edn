@@ -32,7 +32,8 @@
   :key :ajoberstar/cljj
   :group-id "org.ajoberstar"
   :artifact-id "cljj"
-  :tags #{"java integration"}}
+  :tags #{"java integration"}
+  :archived true}
  {:name "fast-zip"
   :url "https://github.com/akhudek/fast-zip"
   :platforms #{"clj"}
@@ -301,7 +302,8 @@
   :key :arrdem/detritus
   :group-id "me.arrdem"
   :artifact-id "detritus"
-  :tags #{"utility libraries"}}
+  :tags #{"utility libraries"}
+  :archived true}
  {:name "astar"
   :url "https://github.com/arttuka/astar"
   :platforms #{"clj" "cljs"}
@@ -801,7 +803,8 @@
   :url "https://github.com/bsless/corelli"
   :platforms #{"clj"}
   :key :bsless/corelli
-  :tags #{"asynchronous programming"}}
+  :tags #{"asynchronous programming"}
+  :archived true}
  {:name "more.async"
   :url "https://github.com/bsless/more.async"
   :platforms #{"clj"}
@@ -837,7 +840,8 @@
   :key :camsaul/lein-check-namespace-decls
   :group-id "lein-check-namespace-decls"
   :artifact-id "lein-check-namespace-decls"
-  :tags #{"leiningen plugins" "code analysis"}}
+  :tags #{"leiningen plugins" "code analysis"}
+  :archived true}
  {:name "lein-docstring-checker"
   :url "https://github.com/camsaul/lein-docstring-checker"
   :platforms #{"clj"}
@@ -885,7 +889,8 @@
   :key :ccann/gregor
   :group-id "io.weft"
   :artifact-id "gregor"
-  :tags #{"kafka"}}
+  :tags #{"kafka"}
+  :archived true}
  {:name "http.async.client"
   :url "https://github.com/cch1/http.async.client"
   :platforms #{"clj"}
@@ -931,7 +936,8 @@
   :key :cemerick/friend
   :group-id "com.cemerick"
   :artifact-id "friend"
-  :tags #{"authentication" "authorization"}}
+  :tags #{"authentication" "authorization"}
+  :archived true}
  {:name "Rummage"
   :url "https://github.com/cemerick/rummage"
   :platforms #{"clj"}
@@ -1362,7 +1368,8 @@
   :group-id "neko"
   :artifact-id "neko"
   :tags #{}
-  :deprecated true}
+  :deprecated true
+  :archived true}
  {:name "Clutch"
   :url "https://github.com/clojure-clutch/clutch"
   :platforms #{"clj"}
@@ -1499,7 +1506,8 @@
   :key :clojure/core.incubator
   :group-id "org.clojars.mccraigmccraig"
   :artifact-id "core.incubator"
-  :tags #{"functional programming"}}
+  :tags #{"functional programming"}
+  :archived true}
  {:name "core.logic"
   :url "https://github.com/clojure/core.logic"
   :platforms #{"clj" "cljs"}
@@ -1775,7 +1783,8 @@
   :key :clojurephant/clojurephant
   :group-id "dev.clojurephant"
   :artifact-id "clojurephant-tools"
-  :tags #{"build tools"}}
+  :tags #{"build tools"}
+  :archived true}
  {:name "clojuresque"
   :url "https://github.com/clojuresque/base"
   :platforms #{"clj"}
@@ -1946,7 +1955,8 @@
   :platforms #{"clj"}
   :key :cognitect-labs/REBL-distro
   :tags #{"data exploration" "datomic"}
-  :repo-url "https://github.com/cognitect-labs/REBL-distro"}
+  :repo-url "https://github.com/cognitect-labs/REBL-distro"
+  :archived true}
  {:name "test-runner"
   :url "https://github.com/cognitect-labs/test-runner"
   :platforms #{"clj"}
@@ -2144,7 +2154,8 @@
   :key :datskos/ring-netty-adapter
   :group-id "ring-netty-adapter"
   :artifact-id "ring-netty-adapter"
-  :tags #{"ring adapters"}}
+  :tags #{"ring adapters"}
+  :archived true}
  {:name "Uruk"
   :url "https://github.com/daveliepmann/uruk"
   :platforms #{"clj"}
@@ -2577,7 +2588,8 @@
   :key :exoscale/clojure-kubernetes-client
   :group-id "exoscale"
   :artifact-id "clojure-kubernetes-client"
-  :tags #{"kubernetes"}}
+  :tags #{"kubernetes"}
+  :archived true}
  {:name "coax"
   :url "https://github.com/exoscale/coax"
   :platforms #{"clj" "cljs"}
@@ -2612,7 +2624,8 @@
   :key :facebookarchive/duckling_old
   :group-id "wit"
   :artifact-id "duckling"
-  :tags #{"date and time" "natural language"}}
+  :tags #{"date and time" "natural language"}
+  :archived true}
  {:name "Advenjure"
   :url "https://github.com/facundoolano/advenjure"
   :platforms #{"clj" "cljs"}
@@ -3117,7 +3130,8 @@
   :group-id "org.graphqlize"
   :artifact-id "graphqlize"
   :tags #{"graphql"}
-  :repo-url "https://github.com/graphqlize/graphqlize"}
+  :repo-url "https://github.com/graphqlize/graphqlize"
+  :archived true}
  {:name "html-to-hiccup"
   :url "https://github.com/green-coder/html-to-hiccup"
   :platforms #{"clj" "cljs"}
@@ -3208,7 +3222,8 @@
   :key :healthfinch/depstar
   :group-id "com.healthfinch"
   :artifact-id "depstar"
-  :tags #{"tools.deps"}}
+  :tags #{"tools.deps"}
+  :archived true}
  {:name "jute.clj"
   :url "https://github.com/HealthSamurai/jute.clj"
   :platforms #{"clj" "cljs"}
@@ -3499,7 +3514,8 @@
   :key :into-docker/clj-docker-client
   :group-id "lispyclouds"
   :artifact-id "clj-docker-client"
-  :tags #{"docker integration"}}
+  :tags #{"docker integration"}
+  :archived true}
  {:name "Pocheshiro"
   :url "https://github.com/inventi/Pocheshiro"
   :platforms #{"clj"}
@@ -3646,7 +3662,8 @@
   :key :jeluard/lucuma
   :group-id "lucuma"
   :artifact-id "lucuma"
-  :tags #{"dom manipulation"}}
+  :tags #{"dom manipulation"}
+  :archived true}
  {:name "jmh-clojure"
   :url "https://github.com/jgpc42/jmh-clojure"
   :platforms #{"clj"}
@@ -4256,7 +4273,8 @@
   :key :lerouxrgd/celtuce
   :group-id "celtuce"
   :artifact-id "celtuce"
-  :tags #{"redis"}}
+  :tags #{"redis"}
+  :archived true}
  {:name "clj-hclust"
   :url "https://github.com/lerouxrgd/clj-hclust"
   :platforms #{"clj"}
@@ -4331,12 +4349,14 @@
   :key :liquidz/misaki
   :group-id "narkisr"
   :artifact-id "misaki"
-  :tags #{"static site generation"}}
+  :tags #{"static site generation"}
+  :archived true}
  {:name "vim-iced",
   :url "https://github.com/liquidz/vim-iced",
   :platforms #{"clj"},
   :key :liquidz/vim-iced,
-  :tags #{"vim"}}
+  :tags #{"vim"}
+  :archived true}
  {:name "contajners"
   :url "https://github.com/lispyclouds/contajners"
   :platforms #{"clj"}
@@ -4873,7 +4893,8 @@
   :key :MichaelDrogalis/dire
   :group-id "dire"
   :artifact-id "dire"
-  :tags #{"exception handling"}}
+  :tags #{"exception handling"}
+  :archived true}
  {:name "Langohr"
   :key :michaelklishin/langohr
   :url "https://github.com/michaelklishin/langohr"
@@ -5139,7 +5160,8 @@
   :key :mpenet/casyn
   :group-id "cc.qbits"
   :artifact-id "casyn"
-  :tags #{"cassandra"}}
+  :tags #{"cassandra"}
+  :archived true}
  {:name "Legba"
   :key :mpenet/legba
   :url "https://github.com/mpenet/legba"
@@ -5188,7 +5210,8 @@
   :key :multiformats/clj-multihash
   :group-id "mvxcvi"
   :artifact-id "multihash"
-  :tags #{"cryptography" "hashing"}}
+  :tags #{"cryptography" "hashing"}
+  :archived true}
  {:name "Machine Latch"
   :key :multiplyco/machine-latch
   :url "https://github.com/multiplyco/machine-latch"
@@ -5340,7 +5363,8 @@
   :group-id "ring-middleware-format"
   :artifact-id "ring-middleware-format"
   :tags
-  #{"ring middleware" "content negotiation"}}
+  #{"ring middleware" "content negotiation"}
+  :archived true}
  {:name "Goose"
   :url "https://github.com/nilenso/goose"
   :platforms #{"clj"}
@@ -5474,7 +5498,8 @@
   :key :oakes/play-clj
   :group-id "play-clj"
   :artifact-id "play-clj"
-  :tags #{"game development"}}
+  :tags #{"game development"}
+  :archived true}
  {:name "play-cljc"
   :url "https://github.com/oakes/play-cljc"
   :platforms #{"clj" "cljs"}
@@ -5488,7 +5513,8 @@
   :key :oakes/play-cljs
   :group-id "play-cljs"
   :artifact-id "play-cljs"
-  :tags #{"game development"}}
+  :tags #{"game development"}
+  :archived true}
  {:name "lein-uber-shade"
   :url "https://github.com/obohrer/lein-uber-shade"
   :platforms #{"clj"}
@@ -5547,7 +5573,8 @@
   :key :onyx-platform/onyx
   :group-id "org.onyxplatform"
   :artifact-id "onyx"
-  :tags #{"distributed programming"}}
+  :tags #{"distributed programming"}
+  :archived true}
  {:name "Clara"
   :url "http://www.clara-rules.org/"
   :platforms #{"clj" "cljs"}
@@ -5754,7 +5781,8 @@
   :key :piranha/ring-undertow-adapter
   :group-id "ring-undertow-adapter"
   :artifact-id "ring-undertow-adapter"
-  :tags #{"ring adapters"}}
+  :tags #{"ring adapters"}
+  :archived true}
  {:name "UIx"
   :url "https://github.com/pitch-io/uix"
   :platforms #{"cljs"}
@@ -5796,7 +5824,8 @@
   :key :plexus/chestnut
   :group-id "chestnut"
   :artifact-id "lein-template"
-  :tags #{"project templates"}}
+  :tags #{"project templates"}
+  :archived true}
  {:name "Dommy"
   :url "https://github.com/plumatic/dommy"
   :platforms #{"cljs"}
@@ -6158,14 +6187,16 @@
   :key :remvee/ring-basic-authentication
   :group-id "ring-basic-authentication"
   :artifact-id "ring-basic-authentication"
-  :tags #{"authentication"}}
+  :tags #{"authentication"}
+  :archived true}
  {:name "rp.condition"
   :url "https://github.com/rentpath/rp-condition-clj"
   :platforms #{"clj"}
   :key :rentpath/rp-condition-clj
   :group-id "com.rentpath"
   :artifact-id "rp-condition-clj"
-  :tags #{"functional programming"}}
+  :tags #{"functional programming"}
+  :archived true}
  {:name "hasch"
   :url "https://github.com/replikativ/hasch"
   :platforms #{"clj" "cljs"}
@@ -6338,7 +6369,8 @@
   :key :roosta/herb
   :group-id "herb"
   :artifact-id "herb"
-  :tags #{"css"}}
+  :tags #{"css"}
+  :archived true}
  {:name "mindra-clj"
   :url "https://github.com/rorokimdim/mindra-clj"
   :platforms #{"clj"}
@@ -6556,7 +6588,8 @@
   :key :semantic-namespace/contract
   :group-id "com.github.semantic-namespace"
   :artifact-id "contract"
-  :tags #{}}
+  :tags #{}
+  :archived true}
  {:name "Quasi una fantasia"
   :url "https://github.com/shashurup/quasi-una-fantasia"
   :platforms #{"clj" "cljs"}
@@ -6584,7 +6617,8 @@
   :key :sicmutils/sicmutils
   :group-id "sicmutils"
   :artifact-id "sicmutils"
-  :tags #{"math" "functional programming"}}
+  :tags #{"math" "functional programming"}
+  :archived true}
  {:name "partial-cps"
   :url "https://github.com/simm-is/partial-cps"
   :key :simm-is/partial-cps
@@ -6603,7 +6637,8 @@
   :key :simongray/datalinguist
   :group-id "dk.simongray"
   :artifact-id "datalinguist"
-  :tags #{"natural language"}}
+  :tags #{"natural language"}
+  :archived true}
  {:name "Red Tape"
   :url "https://github.com/sjl/red-tape"
   :platforms #{"clj"}
@@ -6650,7 +6685,8 @@
   :key :smnirven/biomass
   :group-id "com.smnirven"
   :artifact-id "biomass"
-  :tags #{"aws"}}
+  :tags #{"aws"}
+  :archived true}
  {:name "Overarch"
   :key :soulspace-org/overarch
   :url "https://github.com/soulspace-org/overarch"
@@ -7073,7 +7109,8 @@
   :url "https://github.com/tebeka/dr-evil"
   :platforms #{"clj"}
   :key :tebeka/dr-evil
-  :tags #{"debugging"}}
+  :tags #{"debugging"}
+  :archived true}
  {:name "bb-timemachine"
   :url "https://github.com/teodorlu/bb-timemachine"
   :platforms #{"babashka"}
@@ -7090,14 +7127,16 @@
   :url "https://github.com/technomancy/grenchman"
   :platforms #{"clj"}
   :key :technomancy/grenchman
-  :tags #{"preloaders"}}
+  :tags #{"preloaders"}
+  :archived true}
  {:name "lein-retest"
   :url "https://github.com/technomancy/lein-retest"
   :platforms #{"clj"}
   :key :technomancy/lein-retest
   :group-id "lein-retest"
   :artifact-id "lein-retest"
-  :tags #{"leiningen plugins" "testing"}}
+  :tags #{"leiningen plugins" "testing"}
+  :archived true}
  {:name "Leiningen"
   :url "https://github.com/technomancy/leiningen"
   :platforms #{"clj"}
@@ -7110,7 +7149,8 @@
   :key :technomancy/slamhound
   :group-id "slamhound"
   :artifact-id "slamhound"
-  :tags #{"code generation"}}
+  :tags #{"code generation"}
+  :archived true}
  {:name "aave"
   :url "https://github.com/teknql/aave"
   :platforms #{"clj" "cljs"}
@@ -7146,7 +7186,8 @@
   :key :tendant/graphql-clj
   :group-id "graphql-clj"
   :artifact-id "graphql-clj"
-  :tags #{"graphql"}}
+  :tags #{"graphql"}
+  :archived true}
  {:name "Hiccups"
   :url "https://github.com/teropa/hiccups"
   :platforms #{"cljs"}
@@ -7471,7 +7512,8 @@
   :key :uswitch/opencensus-clojure
   :group-id "uswitch"
   :artifact-id "opencensus-clojure"
-  :tags #{"tracing"}}
+  :tags #{"tracing"}
+  :archived true}
  {:name "necessary-evil"
   :url "https://github.com/Vaelatern/necessary-evil"
   :platforms #{"clj"}
@@ -7569,7 +7611,8 @@
   :key :victorysoftworks/snes-gamepad-cljs
   :group-id "snes-gamepad"
   :artifact-id "snes-gamepad"
-  :tags #{"game development"}}
+  :tags #{"game development"}
+  :archived true}
  {:name "Codox Klipse Theme"
   :url "https://github.com/viebel/codox-klipse-theme"
   :platforms #{"clj" "cljs"}
@@ -8149,21 +8192,24 @@
   :key :xsc/kithara
   :group-id "kithara"
   :artifact-id "kithara"
-  :tags #{"message queues" "rabbitmq"}}
+  :tags #{"message queues" "rabbitmq"}
+  :archived true}
  {:name "lein-ancient"
   :url "https://github.com/xsc/lein-ancient"
   :platforms #{"clj"}
   :key :xsc/lein-ancient
   :group-id "lein-ancient"
   :artifact-id "lein-ancient"
-  :tags #{"leiningen plugins" "dependency management"}}
+  :tags #{"leiningen plugins" "dependency management"}
+  :archived true}
  {:name "Pandect"
   :url "https://github.com/xsc/pandect"
   :platforms #{"clj"}
   :key :xsc/pandect
   :group-id "pandect"
   :artifact-id "pandect"
-  :tags #{"cryptography" "hashing"}}
+  :tags #{"cryptography" "hashing"}
+  :archived true}
  {:name "Bolth"
   :url "https://github.com/yeller/bolth"
   :platforms #{"clj"}
@@ -8299,21 +8345,24 @@
   :key :ztellman/automat
   :group-id "automat"
   :artifact-id "automat"
-  :tags #{"state machines" "performance" "parsing"}}
+  :tags #{"state machines" "performance" "parsing"}
+  :archived true}
  {:name "Calx"
   :url "https://github.com/ztellman/calx"
   :platforms #{"clj"}
   :key :ztellman/calx
   :group-id "calx"
   :artifact-id "calx"
-  :tags #{"gpu computing"}}
+  :tags #{"gpu computing"}
+  :archived true}
  {:name "clj-tuple"
   :url "https://github.com/ztellman/clj-tuple"
   :platforms #{"clj"}
   :key :ztellman/clj-tuple
   :group-id "clj-tuple"
   :artifact-id "clj-tuple"
-  :tags #{"data structures" "performance"}}
+  :tags #{"data structures" "performance"}
+  :archived true}
  {:name "Lamina"
   :url "https://github.com/ztellman/lamina"
   :platforms #{"clj"}
@@ -8321,21 +8370,24 @@
   :key :ztellman/lamina
   :group-id "lamina"
   :artifact-id "lamina"
-  :tags #{"asynchronous programming"}}
+  :tags #{"asynchronous programming"}
+  :archived true}
  {:name "Penumbra"
   :url "https://github.com/ztellman/penumbra"
   :platforms #{"clj"}
   :key :ztellman/penumbra
   :group-id "penumbra"
   :artifact-id "penumbra"
-  :tags #{"graphics"}}
+  :tags #{"graphics"}
+  :archived true}
  {:name "Proteus"
   :url "https://github.com/ztellman/proteus"
   :platforms #{"clj"}
   :key :ztellman/proteus
   :group-id "proteus"
   :artifact-id "proteus"
-  :tags #{"performance"}}
+  :tags #{"performance"}
+  :archived true}
  {:name "Riddley"
   :url "https://github.com/ztellman/riddley"
   :platforms #{"clj"}
@@ -8349,11 +8401,13 @@
   :key :ztellman/sleight
   :group-id "lein-sleight"
   :artifact-id "lein-sleight"
-  :tags #{"code generation"}}
+  :tags #{"code generation"}
+  :archived true}
  {:name "Vertigo",
   :url "https://github.com/ztellman/vertigo",
   :platforms #{"clj"},
   :key :ztellman/vertigo,
   :group-id "vertigo"
   :artifact-id "vertigo"
-  :tags #{"performance"}}]
+  :tags #{"performance"}
+  :archived true}]
