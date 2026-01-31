@@ -104,6 +104,8 @@
         "babashka" 2}
        p))
 
+(def grid-classes "col-span-10 col-start-2 md:col-span-10 md:col-start-2 xl:col-span-6 xl:col-start-4")
+
 (defn project-list-item [{:project/keys [archived description downloads-per-day last-pushed-at
                                          latest-release-date name platforms popularity-score
                                          latest-version group-id artifact-id repo-url repository
@@ -119,26 +121,27 @@
                        latest-release-date (assoc :releaseDate (.toInstant latest-release-date))
                        last-pushed-at (assoc :lastUpdated (.toInstant last-pushed-at))
                        popularity-score (assoc :popularity popularity-score))]
-    [:li (merge {:class "relative flex justify-between gap-x-6 py-4 col-span-6 md:col-span-4 mx-6 md:mx-2 md:col-start-2"
+    [:li (merge {:class [grid-classes "relative flex justify-between gap-x-6 py-4"]
                  :data-popover (json/write-str popover-data)}
                 attrs)
      [:div {:class "flex flex-row w-full"}
       [:div {:class "flex flex-col gap-2 w-full"}
-       [:div {:class "flex flex-row gap-4 items-start md:items-center justify-between"}
-        [:a {:class "font-bold text-2xl hover:underline" :href url} name]
-        (when archived
-          [:span {:title "archived"} (icons/lock)])
+       [:div {:class "flex flex-row flex-wrap lg:gap-4 items-start md:items-center justify-between"}
+        [:span {:class "w-full md:w-auto "}
+         [:a {:class "font-bold text-2xl hover:underline" :href url} name]
+         (when archived
+           [:span {:title "archived"} (icons/lock)])]
         (when (and artifact-id
                    (or (nil? repository)
                        (= repository :clojars)))
-          [:a {:class "hover:underline"
+          [:a {:class "inline-block hover:underline"
                :href (str "https://clojars.org/" group-id "/" artifact-id)}
-           [:div {:class "flex flex-row gap-2 items-center"}
-            [:span {:class "text-black/50"} "[ "]
-            [:span (str group-id "/" artifact-id)]
-            " "
+           [:div {:class "flex flex-row flex-wrap md:gap-2 items-center  "}
+            [:span {:class "hidden lg:inline text-black/50"} "[ "]
+            [:span {:class "w-full md:w-auto"} (str group-id "/" artifact-id)]
+            [:span {:class "hidden lg:inline"} " "]
             [:span latest-version]
-            [:span {:class "text-black/50"} " ]"]]])]
+            [:span {:class "text-black/50 hidden lg:inline"} " ]"]]])]
        [:span {:class "text-lg text-neutral-800 pb-4"} description]
        [:div {:class "flex flex-col md:flex-row justify-between gap-4"}
         [:div {:class "flex flex-row gap-2 flex-wrap"}
@@ -165,7 +168,7 @@
 (defn project-list [projects & {:keys [next-page]}]
   (let [num-projects (count projects)]
     [:ul {:id "project-list"
-          :class "grid grid-cols-6 gap-2 divide-y divide-gray-100"}
+          :class "grid grid-cols-12 gap-2 divide-y divide-gray-100"}
      (vec (map-indexed (fn [idx p]
                          (let [attrs (when (and (= idx (- num-projects 2))
                                                 (> num-projects 10))
@@ -189,9 +192,9 @@
           :hx-swap "outerHTML"
           :hx-target "#project-list"}
    [:div {:id "form-container"
-          :class "grid grid-cols-6"}
+          :class "grid grid-cols-12"}
     [:form {:id "form"
-            :class "col-span-6 md:col-span-4 md:col-start-2 px-6 md:px-2 md:pt-2 w-full"}
+            :class [grid-classes "w-full"]}
      (search-input q)
      (filter-bar :platforms platforms :tags tags)
      (sort-select sort)]]
@@ -329,7 +332,7 @@
         [:div {:class "absolute -top-4 -right-4 scale-30"}
          [:a {:href "https://github.com/brettatoms/clojure.land"}
           (icons/github)]]
-        [:div {:class "flex flex-col gap-8 m-auto max-w-[1024px]"}
+        [:div {:class "flex flex-col gap-8 m-auto"}
          [:a {:class "self-center pt-8 px-4 md:px-0"
               :href "/"}
           [:img {:src (assets "clojure-land-logo-small.jpg")
