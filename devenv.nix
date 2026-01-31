@@ -10,6 +10,7 @@ in
     pkgs-unstable.cljfmt
     pkgs-unstable.emacs-lsp-booster
     pkgs-unstable.flyctl
+    pkgs-unstable.babashka
     pkgs.docker
     pkgs.git
   ];
