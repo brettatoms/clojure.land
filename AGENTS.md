@@ -6,6 +6,11 @@ This document provides guidance for AI agents working on the Clojure Land projec
 
 Clojure Land is a directory for discovering open-source Clojure libraries and frameworks. The project data lives in `resources/clojure.land/projects.edn`.
 
+## Development tips
+
+- Use user/stop and user/go to restart the service when connected to the repl.
+- After making changes always evaluate the changes in the repl so the user can see them in the browser immediately.
+
 ## Working with Project Data
 
 **IMPORTANT: Do NOT read the full `projects.edn` file directly.** The file is large and will consume excessive context. Instead, load it into a Clojure REPL and parse it into a map for analysis:
@@ -126,7 +131,7 @@ To verify a project should be included:
    ```bash
    curl -s "https://api.github.com/repos/{org}/{repo}" | jq '{description, topics}'
    ```
-   
+
    Also check the README to confirm it can be required as a dependency in other Clojure projects (look for `deps.edn`, `:require`, or similar usage instructions).
 
 2. **Check primary language:**
