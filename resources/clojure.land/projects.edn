@@ -3699,6 +3699,13 @@
   :group-id "jmh-clojure"
   :artifact-id "jmh-clojure"
   :tags #{"benchmarking"}}
+ {:name "insn"
+  :url "https://github.com/jgpc42/insn"
+  :platforms #{"clj"}
+  :key :jgpc42/insn
+  :group-id "insn"
+  :artifact-id "insn"
+  :tags #{"code generation"}}
  {:name "Keycloak-Clojure"
   :url "https://github.com/jgrodziski/keycloak-clojure"
   :platforms #{"clj"}
