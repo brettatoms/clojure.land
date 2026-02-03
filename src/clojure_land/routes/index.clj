@@ -105,7 +105,7 @@
         "babashka" 2}
        p))
 
-(def grid-classes "col-span-10 col-start-2 md:col-span-10 md:col-start-2 xl:col-span-6 xl:col-start-4")
+(def grid-classes "col-span-10 col-start-2 md:col-span-10 md:col-start-2 xl:col-span-6 xl:col-start-4 2xl:col-span-4 2xl:col-start-5")
 
 (defn project-list-item [{:project/keys [archived description downloads-per-day last-pushed-at
                                          latest-release-date name platforms popularity-score
