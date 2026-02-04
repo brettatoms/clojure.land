@@ -722,6 +722,13 @@
   :group-id "com.github.brettatoms"
   :artifact-id "zodiac-assets"
   :tags #{"web frameworks" "build tools"}}
+ {:name "Zodiac Headers",
+  :url "https://github.com/brettatoms/zodiac-headers",
+  :platforms #{"clj"},
+  :key :brettatoms/zodiac-headers,
+  :group-id "com.github.brettatoms"
+  :artifact-id "zodiac-headers"
+  :tags #{"security" "ring middleware"}}
  {:name "Zodiac SQL",
   :url "https://github.com/brettatoms/zodiac-sql",
   :platforms #{"clj"},
