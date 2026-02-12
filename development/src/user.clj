@@ -1,8 +1,8 @@
 (ns user
   (:require [clojure-land.core :as core]
+            [integrant.core :as ig]
             [zodiac.core :as z]
-            [zodiac.ext.sql :as z.sql]
-            [integrant.core :as ig]))
+            [zodiac.ext.sql :as z.sql]))
 
 (add-tap println)
 

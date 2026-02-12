@@ -106,9 +106,13 @@
 
 (defn- enrich-with-github
   "Enrich project with GitHub data if it has a GitHub URL."
-  [github-client {:keys [repo-url url] :as project}]
+  [github-client {:keys [repo-url url key] :as project}]
   (if (re-matches #".*?github.*?" (or repo-url url ""))
-    (github/update-project-from-repo github-client project)
+    (try
+      (github/update-project-from-repo github-client project)
+      (catch Exception e
+        (log/error e "Failed to enrich project from GitHub:" key)
+        project))
     project))
 
 (defn- enrich-with-clojars
