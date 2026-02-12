@@ -3293,6 +3293,7 @@
   :key :helsingin/clj-physics
   :group-id "net.clojars.helsingin"
   :artifact-id "physics"
+  :ignore true
   :tags #{"math" "game development"}}
  {:name "Hydrox"
   :url "https://github.com/helpshift/hydrox"
