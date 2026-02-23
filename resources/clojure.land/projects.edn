@@ -432,6 +432,11 @@
   :platforms #{"cljs"}
   :key :babashka/scittle
   :tags #{"web frameworks" "clojurescript development"}}
+ {:name "libpython-clj-uv"
+  :url "https://github.com/behrica/libpython-clj-uv"
+  :platforms #{"clj"}
+  :key :behrica/libpython-clj-uv
+  :tags #{"java integration" "machine learning"}}
  {:name "MrAnderson"
   :url "https://github.com/benedekfazekas/mranderson"
   :platforms #{"clj"}
@@ -2160,6 +2165,14 @@
   :platforms #{"clj"}
   :key :danlarkin/subrosa
   :tags #{"message queues"}}
+ {:name "clj-uuid"
+  :url "http://danlentz.github.io/clj-uuid/"
+  :repo-url "https://github.com/danlentz/clj-uuid"
+  :platforms #{"clj"}
+  :key :danlentz/clj-uuid
+  :group-id "danlentz"
+  :artifact-id "clj-uuid"
+  :tags #{"id generators"}}
  {:name "di"
   :url "https://github.com/darkleaf/di"
   :platforms #{"clj"}
@@ -4504,6 +4517,11 @@
   :platforms #{"clj"}
   :key :lukaszkorecki/fusion-http
   :tags #{"ring adapters" "http servers"}}
+ {:name "MCP 2000XL"
+  :url "https://github.com/lukaszkorecki/mcp2000xl"
+  :platforms #{"clj"}
+  :key :lukaszkorecki/mcp2000xl
+  :tags #{"mcp" "ring middleware"}}
  {:name "omega-red"
   :url "https://github.com/lukaszkorecki/omega-red"
   :platforms #{"clj"}
@@ -5229,6 +5247,13 @@
   :artifact-id "casyn"
   :tags #{"cassandra"}
   :archived true}
+ {:name "hirundo"
+  :url "https://github.com/mpenet/hirundo"
+  :platforms #{"clj"}
+  :key :mpenet/hirundo
+  :group-id "com.s-exp"
+  :artifact-id "hirundo"
+  :tags #{"ring adapters" "http servers"}}
  {:name "Legba"
   :key :mpenet/legba
   :url "https://github.com/mpenet/legba"
@@ -5236,6 +5261,13 @@
   :group-id "com.s-exp"
   :artifact-id "legba"
   :tags #{"rest"}}
+ {:name "ok-http"
+  :url "https://github.com/mpenet/ok-http"
+  :platforms #{"clj"}
+  :key :mpenet/ok-http
+  :group-id "com.s-exp"
+  :artifact-id "ok-http"
+  :tags #{"http clients"}}
  {:name "Spandex"
   :url "https://github.com/mpenet/spandex"
   :platforms #{"clj"}
@@ -6595,6 +6627,13 @@
   :group-id "scicloj"
   :artifact-id "clojisr"
   :tags #{"data science" "math" "machine learning"}}
+ {:name "dataset-io"
+  :url "https://github.com/scicloj/dataset-io"
+  :platforms #{"clj"}
+  :key :scicloj/dataset-io
+  :group-id "org.scicloj"
+  :artifact-id "dataset-io"
+  :tags #{"data science" "serialization"}}
  {:name "Glance"
   :url "https://github.com/scicloj/glance"
   :platforms #{"clj"}
@@ -6616,6 +6655,14 @@
   :group-id "org.scicloj"
   :artifact-id "noj"
   :tags #{"data science"}}
+ {:name "pocket"
+  :url "https://scicloj.github.io/pocket/"
+  :repo-url "https://github.com/scicloj/pocket"
+  :platforms #{"clj"}
+  :key :scicloj/pocket
+  :group-id "org.scicloj"
+  :artifact-id "pocket"
+  :tags #{"caching" "data science"}}
  {:name "scicloj.ml"
   :url "https://github.com/scicloj/scicloj.ml"
   :platforms #{"clj"}
@@ -6630,6 +6677,14 @@
   :group-id "scicloj"
   :artifact-id "tablecloth"
   :tags #{"data science"}}
+ {:name "tableplot"
+  :url "https://scicloj.github.io/tableplot/"
+  :repo-url "https://github.com/scicloj/tableplot"
+  :platforms #{"clj"}
+  :key :scicloj/tableplot
+  :group-id "org.scicloj"
+  :artifact-id "tableplot"
+  :tags #{"visualization" "data science"}}
  {:name "build-uber-log4j2-handler"
   :url "https://github.com/seancorfield/build-uber-log4j2-handler"
   :platforms #{"clj"}
@@ -6674,6 +6729,13 @@
   :group-id "com.github.seancorfield"
   :artifact-id "next.jdbc"
   :tags #{"sql"}}
+ {:name "ring-data-json"
+  :url "https://github.com/seancorfield/ring-data-json"
+  :platforms #{"clj"}
+  :key :seancorfield/ring-data-json
+  :group-id "com.github.seancorfield"
+  :artifact-id "ring-data-json"
+  :tags #{"ring middleware" "json parsers"}}
  {:name "pdfn"
   :url "https://github.com/selfsame/pdfn"
   :platforms #{"clj" "cljs"}
@@ -7197,6 +7259,13 @@
   :key :tatut/pows
   :platforms #{"clj"}
   :tags #{"web testing" "webdriver"}}
+ {:name "ripley"
+  :url "https://github.com/tatut/ripley"
+  :platforms #{"clj"}
+  :key :tatut/ripley
+  :group-id "io.github.tatut"
+  :artifact-id "ripley"
+  :tags #{"web frameworks" "websockets"}}
  {:name "specql"
   :url "https://github.com/tatut/specql"
   :platforms #{"clj" "cljs"}
