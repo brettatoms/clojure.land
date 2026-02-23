@@ -637,6 +637,13 @@
   :group-id "io.github.borkdude"
   :artifact-id "grasp"
   :tags #{"edn" "parsing"}}
+ {:name "html"
+  :url "https://github.com/borkdude/html"
+  :platforms #{"clj" "cljs"}
+  :key :borkdude/html
+  :group-id "io.github.borkdude"
+  :artifact-id "html"
+  :tags #{"html" "hiccup"}}
  {:name "Parmezan"
   :key :borkdude/parmezan
   :url "https://github.com/borkdude/parmezan"
@@ -806,6 +813,11 @@
   :group-id "com.brunobonacci"
   :artifact-id "where"
   :tags #{"data transformation"}}
+ {:name "clojure-elisp"
+  :url "https://github.com/BuddhiLW/clojure-elisp"
+  :platforms #{"clj"}
+  :key :BuddhiLW/clojure-elisp
+  :tags #{"emacs" "code generation"}}
  {:name "corelli"
   :url "https://github.com/bsless/corelli"
   :platforms #{"clj"}
@@ -2542,6 +2554,13 @@
   :platforms #{"clj"}
   :key :epiccastle/spire
   :tags #{"infrastructure provisioning"}}
+ {:name "clara-eql"
+  :url "https://github.com/eraserhd/clara-eql"
+  :platforms #{"clj"}
+  :key :eraserhd/clara-eql
+  :group-id "net.eraserhead"
+  :artifact-id "clara-eql"
+  :tags #{"eql" "rule engine"}}
  {:name "Stencil Core"
   :url "https://github.com/erdos/stencil"
   :platforms #{"clj"}
@@ -3522,6 +3541,11 @@
   :group-id "org.immutant"
   :artifact-id "immutant"
   :tags #{"http servers"}}
+ {:name "unlazy"
+  :url "https://github.com/imrekoszo/unlazy"
+  :platforms #{"clj"}
+  :key :imrekoszo/unlazy
+  :tags #{"linter" "code analysis"}}
  {:name "Incanter"
   :url "http://incanter.org/"
   :platforms #{"clj"}
@@ -5458,6 +5482,13 @@
   :group-id "io.github.noahtheduke"
   :artifact-id "splint"
   :tags #{"linter" "code analysis"}}
+ {:name "hipflask"
+  :url "https://github.com/NyanCAD/hipflask"
+  :platforms #{"cljs"}
+  :key :NyanCAD/hipflask
+  :group-id "org.clojars.pepijndevos"
+  :artifact-id "hipflask"
+  :tags #{"databases" "state management"}}
  {:name "Garden"
   :url "https://github.com/noprompt/garden"
   :platforms #{"clj"}
@@ -5898,6 +5929,14 @@
   :artifact-id "schema"
   :tags
   #{"random data generation" "syntax extensions" "validation" "dynamic typing"}}
+ {:name "PluMCP"
+  :url "https://plumce.github.io/plumcp-docs/"
+  :repo-url "https://github.com/plumce/plumcp"
+  :platforms #{"clj" "cljs"}
+  :key :plumce/plumcp
+  :group-id "io.github.plumce"
+  :artifact-id "plumcp.core"
+  :tags #{"mcp" "ai"}}
  {:name "multigrep"
   :url "https://github.com/pmonks/multigrep"
   :platforms #{"clj"}
@@ -6101,6 +6140,14 @@
   :group-id "sqlingvo"
   :artifact-id "sqlingvo"
   :tags #{"sql"}}
+ {:name "bankster"
+  :url "https://randomseed.io/software/bankster/"
+  :repo-url "https://github.com/randomseed-io/bankster"
+  :platforms #{"clj"}
+  :key :randomseed-io/bankster
+  :group-id "io.randomseed"
+  :artifact-id "bankster"
+  :tags #{"data structures" "validation"}}
  {:name "clj-message-digest"
   :url "https://github.com/ray1729/clj-message-digest"
   :platforms #{"clj"}
@@ -6268,6 +6315,13 @@
   :group-id "io.replikativ"
   :artifact-id "replikativ"
   :tags #{"distributed programming"}}
+ {:name "yggdrasil"
+  :url "https://github.com/replikativ/yggdrasil"
+  :platforms #{"clj"}
+  :key :replikativ/yggdrasil
+  :group-id "org.replikativ"
+  :artifact-id "yggdrasil"
+  :tags #{"distributed programming" "git"}}
  {:name "Penkala"
   :url "https://github.com/retro/penkala"
   :platforms #{"clj"}
@@ -6548,6 +6602,13 @@
   :group-id "org.scicloj"
   :artifact-id "glance"
   :tags #{"visualization" "data science"}}
+ {:name "kindly"
+  :url "https://github.com/scicloj/kindly"
+  :platforms #{"clj" "cljs"}
+  :key :scicloj/kindly
+  :group-id "org.scicloj"
+  :artifact-id "kindly"
+  :tags #{"visualization" "data exploration"}}
  {:name "Noj"
   :key :scicloj/noj
   :url "https://github.com/scicloj/noj"
@@ -6985,6 +7046,13 @@
   :group-id "tailrecursion"
   :artifact-id "cljs-priority-map"
   :tags #{"data structures"}}
+ {:name "restructure"
+  :url "https://github.com/tailrecursion/restructure"
+  :platforms #{"clj"}
+  :key :tailrecursion/restructure
+  :group-id "com.github.tailrecursion"
+  :artifact-id "restructure"
+  :tags #{"data transformation" "macros"}}
  {:name "clj-camel"
   :url "https://github.com/TakeoffTech/clj-camel"
   :platforms #{"clj"}
@@ -8272,6 +8340,13 @@
   :artifact-id "pandect"
   :tags #{"cryptography" "hashing"}
   :archived true}
+ {:name "yamlstar"
+  :url "https://github.com/yaml/yamlstar"
+  :platforms #{"clj"}
+  :key :yaml/yamlstar
+  :group-id "org.yamlstar"
+  :artifact-id "yamlstar"
+  :tags #{"parsing" "serialization"}}
  {:name "Bolth"
   :url "https://github.com/yeller/bolth"
   :platforms #{"clj"}
