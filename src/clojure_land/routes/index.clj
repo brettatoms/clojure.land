@@ -211,11 +211,11 @@
         tags-conds (mapv #(vector :array_contains :tags %) tags)
         order-by (case sort
                    :name [[[:lower :name]]]
-                   :date [[:last-pushed-at :desc]]
+                   :date [[:last-pushed-at :desc :nulls-last]]
                    :popularity [[:popularity-score :desc :nulls-last]]
                    :stars [[:stars :desc :nulls-last]]
                    :downloads [[:downloads-per-day :desc :nulls-last]]
-                   [[:last-pushed-at :desc]])]
+                   [[:last-pushed-at :desc :nulls-last]])]
     (cond-> {:select [:*]
              :from :project
              :where [:and true]
