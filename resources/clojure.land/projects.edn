@@ -318,6 +318,18 @@
   :group-id "lein-asciidoctor"
   :artifact-id "lein-asciidoctor"
   :tags #{"documentation tools" "leiningen plugins"}}
+{:name "dompa"
+  :url "https://git.nmm.ee/asko/dompa"
+  :platforms #{"clj"}
+  :key :asko/dompa
+  :tags #{"html" "parsing"}}
+{:name "ruuter"
+  :url "https://git.nmm.ee/asko/ruuter"
+  :platforms #{"clj"}
+  :key :asko/ruuter
+  :group-id "org.clojars.askonomm"
+  :artifact-id "ruuter"
+  :tags #{"http routing"}}
  {:name "Dompa"
   :key :askonomm/dompa
   :url "https://github.com/askonomm/dompa"
@@ -377,6 +389,11 @@
   :group-id "babashka"
   :artifact-id "babashka"
   :tags #{"scripting"}}
+{:name "babashka-sql-pods"
+  :url "https://github.com/babashka/babashka-sql-pods"
+  :platforms #{"babashka"}
+  :key :babashka/babashka-sql-pods
+  :tags #{"sql" "databases"}}
  {:name "babashka.nrepl"
   :url "https://github.com/babashka/babashka.nrepl"
   :platforms #{"clj"}
@@ -398,6 +415,11 @@
   :group-id "org.babashka"
   :artifact-id "http-server"
   :tags #{"http servers"}}
+{:name "instaparse-bb"
+  :url "https://github.com/babashka/instaparse-bb"
+  :platforms #{"babashka"}
+  :key :babashka/instaparse-bb
+  :tags #{"parsing"}}
  {:name "nbb"
   :url "https://github.com/babashka/nbb"
   :platforms #{"cljs"}
@@ -621,6 +643,11 @@
   :artifact-id "boot"
   :tags #{"build tools"}
   :repo-url "https://github.com/boot-clj/boot"}
+{:name "cream"
+  :url "https://github.com/borkdude/cream"
+  :platforms #{"clj"}
+  :key :borkdude/cream
+  :tags #{"build tools" "performance"}}
  {:name "deps.clj"
   :url "https://github.com/borkdude/deps.clj"
   :platforms #{"clj" "babashka"}
@@ -1061,6 +1088,13 @@
   :group-id "no.cjohansen"
   :artifact-id "nexus"
   :tags #{}}
+{:name "portfolio"
+  :url "https://github.com/cjohansen/portfolio"
+  :platforms #{"cljs"}
+  :key :cjohansen/portfolio
+  :group-id "no.cjohansen"
+  :artifact-id "portfolio"
+  :tags #{"clojurescript development"}}
  {:name "Powerpack"
   :url "https://github.com/cjohansen/powerpack"
   :platforms #{"clj"}
@@ -1454,6 +1488,20 @@
   :group-id "lein-autoexpect"
   :artifact-id "lein-autoexpect"
   :tags #{"leiningen plugins" "testing"}}
+{:name "ecbjure"
+  :url "https://github.com/clojure-finance/ecbjure"
+  :platforms #{"clj"}
+  :key :clojure-finance/ecbjure
+  :group-id "com.github.clojure-finance"
+  :artifact-id "ecbjure"
+  :tags #{"finance"}}
+{:name "clj-yfinance"
+  :url "https://github.com/clojure-finance/clj-yfinance"
+  :platforms #{"clj"}
+  :key :clojure-finance/clj-yfinance
+  :group-id "com.github.clojure-finance"
+  :artifact-id "clj-yfinance"
+  :tags #{"finance"}}
  {:name "clj-async-profiler"
   :url "https://github.com/clojure-goes-fast/clj-async-profiler"
   :platforms #{"clj"}
@@ -1477,6 +1525,14 @@
   :artifact-id "liberator"
   :tags #{"rest" "content negotiation"}
   :repo-url "https://github.com/clojure-liberator/liberator"}
+{:name "clojure-lsp"
+  :url "https://clojure-lsp.io"
+  :repo-url "https://github.com/clojure-lsp/clojure-lsp"
+  :platforms #{"clj"}
+  :key :clojure-lsp/clojure-lsp
+  :group-id "com.github.clojure-lsp"
+  :artifact-id "clojure-lsp"
+  :tags #{"code analysis" "code editors"}}
  {:name "expresso"
   :url "https://github.com/clojure-numerics/expresso"
   :platforms #{"clj"}
@@ -1730,6 +1786,14 @@
   :artifact-id "tools.deps"
   :repository :maven-central
   :tags #{"java integration" "dependency management"}}
+{:name "tools.deps.edn"
+  :url "https://github.com/clojure/tools.deps.edn"
+  :platforms #{"clj"}
+  :key :clojure/tools.deps.edn
+  :group-id "org.clojure"
+  :artifact-id "tools.deps.edn"
+  :repository :maven-central
+  :tags #{"tools.deps" "parsing"}}
  {:name "tools.gitlibs"
   :url "https://github.com/clojure/tools.gitlibs"
   :platforms #{"clj"}
@@ -2484,6 +2548,13 @@
   :group-id "talaria"
   :artifact-id "talaria"
   :tags #{"websockets"}}
+{:name "hyper"
+  :url "https://github.com/dynamic-alpha/hyper"
+  :platforms #{"clj"}
+  :key :dynamic-alpha/hyper
+  :group-id "hyper-clj"
+  :artifact-id "hyper-clj"
+  :tags #{"web frameworks"}}
  {:name "ring-rewrite"
   :url "https://github.com/ebaxt/ring-rewrite"
   :platforms #{"clj"}
@@ -2519,6 +2590,13 @@
   :group-id "clojure-msgpack"
   :artifact-id "clojure-msgpack"
   :tags #{"serialization"}}
+{:name "pp"
+  :url "https://github.com/eerohele/pp"
+  :platforms #{"clj"}
+  :key :eerohele/pp
+  :group-id "me.flowthing"
+  :artifact-id "pp"
+  :tags #{"debugging"}}
  {:name "Datawalk"
   :url "https://github.com/eggsyntax/datawalk"
   :platforms #{"clj" "cljs"}
@@ -2614,6 +2692,13 @@
   :group-id "tracks"
   :artifact-id "tracks"
   :tags #{"data transformation"}}
+{:name "coll-tracker"
+  :url "https://github.com/esuomi/coll-tracker"
+  :platforms #{"clj"}
+  :key :esuomi/coll-tracker
+  :group-id "eu.esuomi.code"
+  :artifact-id "coll-tracker"
+  :tags #{"data structures" "debugging"}}
  {:name "ETLP"
   :key :etlp-clj/etlp
   :url "https://github.com/etlp-clj/etlp"
@@ -2738,6 +2823,18 @@
   :group-id "de.ubercode.clostache"
   :artifact-id "clostache"
   :tags #{"template languages" "mustache syntax"}}
+{:name "sqlatom"
+  :url "https://github.com/filipesilva/sqlatom"
+  :platforms #{"clj"}
+  :key :filipesilva/sqlatom
+  :tags #{"sql" "state management"}}
+{:name "inst"
+  :url "https://github.com/filipesilva/inst"
+  :platforms #{"clj" "cljs" "babashka"}
+  :key :filipesilva/inst
+  :group-id "inst"
+  :artifact-id "inst"
+  :tags #{"date and time"}}
  {:name "Fleet"
   :url "https://github.com/Flamefork/fleet"
   :platforms #{"clj"}
@@ -3086,6 +3183,13 @@
   :group-id "clj-htmltopdf"
   :artifact-id "clj-htmltopdf"
   :tags #{"pdf generation"}}
+{:name "patcho"
+  :url "https://github.com/gersak/patcho"
+  :platforms #{"clj"}
+  :key :gersak/patcho
+  :group-id "dev.gersak"
+  :artifact-id "patcho"
+  :tags #{"data transformation" "utility libraries"}}
  {:name "Timing"
   :url "https://github.com/gersak/timing"
   :platforms #{"clj"}
@@ -3109,6 +3213,11 @@
   :artifact-id "timing"
   :tags #{"date and time"},
   :ignore true}
+{:name "gloat"
+  :url "https://github.com/gloathub/gloat"
+  :platforms #{"clj"}
+  :key :gloathub/gloat
+  :tags #{"build tools" "code generation"}}
  {:name "Couplet"
   :url "https://github.com/glts/couplet"
   :platforms #{"clj"}
@@ -3467,6 +3576,13 @@
   :group-id "org.suskalo"
   :artifact-id "coffi"
   :tags #{"ffi"}}
+{:name "any"
+  :url "https://github.com/igrishaev/any"
+  :platforms #{"clj"}
+  :key :igrishaev/any
+  :group-id "com.github.igrishaev"
+  :artifact-id "any"
+  :tags #{"testing"}}
  {:name "Bogus"
   :url "https://github.com/igrishaev/bogus"
   :platforms #{"clj"}
@@ -4022,6 +4138,13 @@
   :group-id "keechma"
   :artifact-id "keechma"
   :tags #{"front-end frameworks" "web frameworks" "react"}}
+{:name "kaven"
+  :url "https://github.com/kepler16/kaven"
+  :platforms #{"clj"}
+  :key :kepler16/kaven
+  :group-id "com.kepler16"
+  :artifact-id "kaven"
+  :tags #{"dependency management" "build tools"}}
  {:name "defun"
   :url "https://github.com/killme2008/defun"
   :platforms #{"clj"}
@@ -4311,6 +4434,13 @@
   :group-id "clojureql"
   :artifact-id "clojureql"
   :tags #{"sql"}}
+{:name "neanderthal-blas-like"
+  :url "https://github.com/leafclick/neanderthal-blas-like"
+  :platforms #{"clj"}
+  :key :leafclick/neanderthal-blas-like
+  :group-id "com.leafclick"
+  :artifact-id "neanderthal-blas-like"
+  :tags #{"math" "machine learning"}}
  {:name "missionary-testkit"
   :url "https://github.com/LeveringIT/missionary-testkit"
   :platforms #{"clj" "cljs"}
@@ -4479,6 +4609,13 @@
   :group-id "org.soulspace"
   :artifact-id "qclojure"
   :tags #{}}
+{:name "qclojure-braket"
+  :url "https://github.com/lsolbach/qclojure-braket"
+  :platforms #{"clj"}
+  :key :lsolbach/qclojure-braket
+  :group-id "org.soulspace"
+  :artifact-id "qclojure-braket"
+  :tags #{"math"}}
  {:name "Clojush"
   :url "https://github.com/lspector/Clojush"
   :platforms #{"clj"}
@@ -5514,6 +5651,28 @@
   :group-id "io.github.noahtheduke"
   :artifact-id "splint"
   :tags #{"linter" "code analysis"}}
+{:name "nREPL"
+  :url "https://nrepl.org"
+  :repo-url "https://github.com/nrepl/nrepl"
+  :platforms #{"clj"}
+  :key :nrepl/nrepl
+  :group-id "nrepl"
+  :artifact-id "nrepl"
+  :tags #{"repls"}}
+{:name "drawbridge"
+  :url "https://github.com/nrepl/drawbridge"
+  :platforms #{"clj"}
+  :key :nrepl/drawbridge
+  :group-id "nrepl"
+  :artifact-id "drawbridge"
+  :tags #{"repls"}}
+{:name "splint"
+  :url "https://github.com/NoahTheDuke/splint"
+  :platforms #{"clj"}
+  :key :NoahTheDuke/splint
+  :group-id "io.github.noahtheduke"
+  :artifact-id "splint"
+  :tags #{"linter" "code analysis"}}
  {:name "hipflask"
   :url "https://github.com/NyanCAD/hipflask"
   :platforms #{"cljs"}
@@ -5860,6 +6019,13 @@
   :group-id "philoskim"
   :artifact-id "debux"
   :tags #{"debugging"}}
+{:name "clj-media"
+  :url "https://github.com/phronmophobic/clj-media"
+  :platforms #{"clj"}
+  :key :phronmophobic/clj-media
+  :group-id "com.phronemophobic"
+  :artifact-id "clj-media"
+  :tags #{"audio" "video"}}
  {:name "llama.clj"
   :key :phronmophobic/llama.clj
   :url "https://github.com/phronmophobic/llama.clj"
@@ -6009,6 +6175,13 @@
   :platforms #{"clj"}
   :key :practicalli/clojure-cli-config
   :tags #{"tools.deps"}}
+{:name "get-port"
+  :url "https://github.com/prestancedesign/get-port"
+  :platforms #{"clj"}
+  :key :prestancedesign/get-port
+  :group-id "prestancedesign"
+  :artifact-id "get-port"
+  :tags #{"utility libraries"}}
  {:name "Schmetterling"
   :url "https://github.com/prismofeverything/schmetterling"
   :platforms #{"clj"}
@@ -6319,6 +6492,13 @@
   :artifact-id "rp-condition-clj"
   :tags #{"functional programming"}
   :archived true}
+{:name "beichte"
+  :url "https://github.com/replikativ/beichte"
+  :platforms #{"clj"}
+  :key :replikativ/beichte
+  :group-id "org.replikativ"
+  :artifact-id "beichte"
+  :tags #{"code analysis"}}
  {:name "hasch"
   :url "https://github.com/replikativ/hasch"
   :platforms #{"clj" "cljs"}
@@ -6333,6 +6513,13 @@
   :group-id "replikativ"
   :artifact-id "konserve"
   :tags #{"databases" "caching"}}
+{:name "persistent-sorted-set"
+  :url "https://github.com/replikativ/persistent-sorted-set"
+  :platforms #{"clj" "cljs"}
+  :key :replikativ/persistent-sorted-set
+  :group-id "org.replikativ"
+  :artifact-id "persistent-sorted-set"
+  :tags #{"data structures"}}
  {:name "Proximum"
   :url "https://github.com/replikativ/proximum"
   :platforms #{"clj"}
@@ -6347,6 +6534,21 @@
   :group-id "io.replikativ"
   :artifact-id "replikativ"
   :tags #{"distributed programming"}}
+{:name "superficie"
+  :url "https://github.com/replikativ/superficie"
+  :platforms #{"clj" "babashka"}
+  :key :replikativ/superficie
+  :group-id "org.replikativ"
+  :artifact-id "superficie"
+  :tags #{"syntax extensions"}}
+{:name "stratum"
+  :url "https://datahike.io/stratum"
+  :repo-url "https://github.com/replikativ/stratum"
+  :platforms #{"clj"}
+  :key :replikativ/stratum
+  :group-id "org.replikativ"
+  :artifact-id "stratum"
+  :tags #{"databases"}}
  {:name "yggdrasil"
   :url "https://github.com/replikativ/yggdrasil"
   :platforms #{"clj"}
@@ -6526,6 +6728,11 @@
   :platforms #{"clj"}
   :key :rosineygp/lines
   :tags #{"infrastructure provisioning"}}
+{:name "igor"
+  :url "https://github.com/routaverra/igor"
+  :platforms #{"clj"}
+  :key :routaverra/igor
+  :tags #{"math" "functional programming"}}
  {:name "Ojo"
   :url "https://github.com/rplevy/ojo"
   :platforms #{"clj"}
@@ -6648,6 +6855,21 @@
   :group-id "org.scicloj"
   :artifact-id "kindly"
   :tags #{"visualization" "data exploration"}}
+{:name "metamorph.ml"
+  :url "https://github.com/scicloj/metamorph.ml"
+  :platforms #{"clj"}
+  :key :scicloj/metamorph.ml
+  :group-id "org.scicloj"
+  :artifact-id "metamorph.ml"
+  :tags #{"machine learning" "data science"}}
+{:name "lalinea"
+  :url "https://scicloj.github.io/lalinea/"
+  :repo-url "https://github.com/scicloj/lalinea"
+  :platforms #{"clj"}
+  :key :scicloj/lalinea
+  :group-id "org.scicloj"
+  :artifact-id "lalinea"
+  :tags #{"math" "data science"}}
  {:name "Noj"
   :key :scicloj/noj
   :url "https://github.com/scicloj/noj"
@@ -6765,6 +6987,13 @@
   "Quasi una fantasia is a rich Clojure REPL, shell and a lot more."
   :key :shashurup/quasi-una-fantasia
   :tags #{"repls" "shell"}}
+{:name "leinpad"
+  :url "https://github.com/shipclojure/leinpad"
+  :platforms #{"clj"}
+  :key :shipclojure/leinpad
+  :group-id "com.shipclojure"
+  :artifact-id "leinpad"
+  :tags #{"leiningen plugins" "build tools"}}
  {:name "Simulflow"
   :key :shipclojure/simulflow
   :url "https://github.com/shipclojure/simulflow"
@@ -7682,6 +7911,13 @@
   :group-id "uncomplicate"
   :artifact-id "deep-diamond"
   :tags #{"ai" "machine learning"}}
+{:name "diamond-onnxrt"
+  :url "https://github.com/uncomplicate/diamond-onnxrt"
+  :platforms #{"clj"}
+  :key :uncomplicate/diamond-onnxrt
+  :group-id "org.uncomplicate"
+  :artifact-id "diamond-onnxrt"
+  :tags #{"machine learning" "ai"}}
  {:name "Fluokitten"
   :url "http://fluokitten.uncomplicate.org/"
   :platforms #{"clj"}
@@ -8452,6 +8688,11 @@
   :group-id "clj-rss"
   :artifact-id "clj-rss"
   :tags #{"rss generation"}}
+{:name "clojure.jdbc"
+  :url "https://github.com/yogthos/clojure.jdbc"
+  :platforms #{"clj"}
+  :key :yogthos/clojure.jdbc
+  :tags #{"sql" "databases"}}
  {:name "markdown-clj"
   :url "https://github.com/yogthos/markdown-clj"
   :platforms #{"clj" "cljs"}
@@ -8466,6 +8707,12 @@
   :group-id "migratus"
   :artifact-id "migratus"
   :tags #{"database migrations"}}
+{:name "mycelium"
+  :url "https://mycelium-clj.github.io/"
+  :repo-url "https://github.com/yogthos/mycelium"
+  :platforms #{"clj"}
+  :key :yogthos/mycelium
+  :tags #{"application frameworks" "state management" "ai"}}
  {:name "Selmer"
   :url "https://github.com/yogthos/Selmer"
   :platforms #{"clj"}
