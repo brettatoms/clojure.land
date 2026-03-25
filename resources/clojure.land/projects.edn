@@ -5028,6 +5028,13 @@
   :group-id "metabase"
   :artifact-id "connection-pool"
   :tags #{"databases"}}
+{:name "hawk"
+  :url "https://github.com/metabase/hawk"
+  :platforms #{"clj"}
+  :key :metabase/hawk
+  :group-id "io.github.metabase"
+  :artifact-id "hawk"
+  :tags #{"testing"}}
  {:name "Toucan"
   :url "https://github.com/metabase/toucan"
   :platforms #{"clj"}
@@ -5634,6 +5641,13 @@
   :group-id "netizer"
   :artifact-id "relational-mapper"
   :tags #{"sql"}}
+{:name "beholder"
+  :url "https://github.com/nextjournal/beholder"
+  :platforms #{"clj"}
+  :key :nextjournal/beholder
+  :group-id "com.nextjournal"
+  :artifact-id "beholder"
+  :tags #{"filesystem utilities"}}
  {:name "clojure-mode"
   :url "https://github.com/nextjournal/clojure-mode"
   :platforms #{"cljs"}
