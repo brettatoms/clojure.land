@@ -609,6 +609,14 @@
   :group-id "org.blancas"
   :artifact-id "morph"
   :tags #{"functional programming"}}
+{:name "spel"
+  :url "https://blockether.github.io/spel/"
+  :repo-url "https://github.com/Blockether/spel"
+  :platforms #{"clj"}
+  :key :Blockether/spel
+  :group-id "com.blockether"
+  :artifact-id "spel"
+  :tags #{"web testing" "testing"}}
  {:name "clj-airbrake"
   :url "https://github.com/bmabey/clj-airbrake"
   :platforms #{"clj"}
@@ -693,6 +701,13 @@
   :group-id "borkdude"
   :artifact-id "rewrite-edn"
   :tags #{"edn" "code generation"}}
+{:name "text-diff"
+  :url "https://github.com/borkdude/text-diff"
+  :platforms #{"clj" "cljs" "babashka"}
+  :key :borkdude/text-diff
+  :group-id "io.github.borkdude"
+  :artifact-id "text-diff"
+  :tags #{"utility libraries"}}
  {:name "Unused-deps"
   :key :borkdude/unused-deps
   :url "https://github.com/borkdude/unused-deps"
@@ -740,6 +755,14 @@
   :group-id "fipp"
   :artifact-id "fipp"
   :tags #{"code formatting"}}
+{:name "livewire"
+  :url "https://github.com/brdloush/livewire"
+  :platforms #{"clj"}
+  :key :brdloush/livewire
+  :group-id "net.brdloush"
+  :artifact-id "livewire"
+  :repository :maven-central
+  :tags #{"repls" "java integration"}}
  {:name "clj-template"
   :url "https://github.com/brennonyork/clj-template"
   :platforms #{"clj"}
@@ -1074,6 +1097,13 @@
   :group-id "no.cjohansen"
   :artifact-id "dataspex"
   :tags #{"debugging" "visualization"}}
+{:name "lookup"
+  :url "https://github.com/cjohansen/lookup"
+  :platforms #{"clj"}
+  :key :cjohansen/lookup
+  :group-id "no.cjohansen"
+  :artifact-id "lookup"
+  :tags #{"hiccup" "html"}}
  {:name "m1p"
   :url "https://github.com/cjohansen/m1p"
   :platforms #{"clj" "cljs"}
@@ -1501,6 +1531,13 @@
   :key :clojure-finance/clj-yfinance
   :group-id "com.github.clojure-finance"
   :artifact-id "clj-yfinance"
+  :tags #{"finance"}}
+{:name "edgarjure"
+  :url "https://github.com/clojure-finance/edgarjure"
+  :platforms #{"clj"}
+  :key :clojure-finance/edgarjure
+  :group-id "com.github.clojure-finance"
+  :artifact-id "edgarjure"
   :tags #{"finance"}}
  {:name "clj-async-profiler"
   :url "https://github.com/clojure-goes-fast/clj-async-profiler"
@@ -2229,6 +2266,13 @@
   :platforms #{"clj"}
   :key :danlarkin/subrosa
   :tags #{"message queues"}}
+{:name "clj-figlet"
+  :url "https://github.com/danlentz/clj-figlet"
+  :platforms #{"clj"}
+  :key :danlentz/clj-figlet
+  :group-id "com.github.danlentz"
+  :artifact-id "clj-figlet"
+  :tags #{"utility libraries"}}
  {:name "clj-uuid"
   :url "http://danlentz.github.io/clj-uuid/"
   :repo-url "https://github.com/danlentz/clj-uuid"
@@ -2664,6 +2708,13 @@
   :platforms #{"clj"}
   :key :erdos/uclj
   :tags #{"scripting"}}
+{:name "rewrite-json"
+  :url "https://github.com/ericdallo/rewrite-json"
+  :platforms #{"clj"}
+  :key :ericdallo/rewrite-json
+  :group-id "dev.ericdallo"
+  :artifact-id "rewrite-json"
+  :tags #{"json parsers"}}
  {:name "squarepeg"
   :url "https://github.com/ericnormand/squarepeg"
   :platforms #{"clj"}
@@ -3893,6 +3944,13 @@
   :group-id "talltale"
   :artifact-id "talltale"
   :tags #{"random data generation" "mocking" "testing"}}
+{:name "aimee"
+  :url "https://github.com/jhancock/aimee"
+  :platforms #{"clj"}
+  :key :jhancock/aimee
+  :group-id "net.clojars.jhancock"
+  :artifact-id "aimee"
+  :tags #{"ai" "llm"}}
  {:name "enclog"
   :url "https://github.com/jimpil/enclog"
   :platforms #{"clj"}
@@ -5369,6 +5427,13 @@
   :group-id "cc.qbits"
   :artifact-id "alia"
   :tags #{"cassandra"}}
+{:name "appia"
+  :url "https://github.com/mpenet/appia"
+  :platforms #{"clj"}
+  :key :mpenet/appia
+  :group-id "com.s-exp"
+  :artifact-id "appia"
+  :tags #{"http routing"}}
  {:name "auspex"
   :url "https://github.com/mpenet/auspex"
   :platforms #{"clj"}
@@ -6892,6 +6957,27 @@
   :group-id "scicloj"
   :artifact-id "scicloj.ml"
   :tags #{"machine learning"}}
+{:name "sklearn-clj"
+  :url "https://github.com/scicloj/sklearn-clj"
+  :platforms #{"clj"}
+  :key :scicloj/sklearn-clj
+  :group-id "org.scicloj"
+  :artifact-id "sklearn-clj"
+  :tags #{"machine learning" "data science"}}
+{:name "scicloj.ml.xgboost"
+  :url "https://github.com/scicloj/scicloj.ml.xgboost"
+  :platforms #{"clj"}
+  :key :scicloj/scicloj.ml.xgboost
+  :group-id "org.scicloj"
+  :artifact-id "scicloj.ml.xgboost"
+  :tags #{"machine learning" "data science"}}
+{:name "scicloj.ml.smile"
+  :url "https://github.com/scicloj/scicloj.ml.smile"
+  :platforms #{"clj"}
+  :key :scicloj/scicloj.ml.smile
+  :group-id "org.scicloj"
+  :artifact-id "scicloj.ml.smile"
+  :tags #{"machine learning" "data science"}}
  {:name "Tablecloth"
   :key :scicloj/tablecloth
   :url "https://github.com/scicloj/tablecloth"
