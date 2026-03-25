@@ -770,6 +770,13 @@
   :group-id "clj-template"
   :artifact-id "clj-template"
   :tags #{"html" "template languages"}}
+{:name "ring-hot-reload"
+  :url "https://github.com/brettatoms/ring-hot-reload"
+  :platforms #{"clj"}
+  :key :brettatoms/ring-hot-reload
+  :group-id "com.github.brettatoms"
+  :artifact-id "ring-hot-reload"
+  :tags #{"ring middleware" "interactive development"}}
  {:name "Zodiac",
   :url "https://github.com/brettatoms/zodiac",
   :platforms #{"clj"},
@@ -791,6 +798,13 @@
   :group-id "com.github.brettatoms"
   :artifact-id "zodiac-headers"
   :tags #{"security" "ring middleware"}}
+{:name "zodiac-hot-reload"
+  :url "https://github.com/brettatoms/zodiac-hot-reload"
+  :platforms #{"clj"}
+  :key :brettatoms/zodiac-hot-reload
+  :group-id "com.github.brettatoms"
+  :artifact-id "zodiac-hot-reload"
+  :tags #{"web frameworks" "interactive development"}}
  {:name "Zodiac SQL",
   :url "https://github.com/brettatoms/zodiac-sql",
   :platforms #{"clj"},
