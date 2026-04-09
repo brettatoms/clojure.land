@@ -368,6 +368,14 @@
   :group-id "postmortem"
   :artifact-id "postmortem"
   :tags #{"debugging"}}
+ {:name "BareDOM"
+  :url "https://avanelsas.github.io/baredom/"
+  :repo-url "https://github.com/avanelsas/baredom"
+  :platforms #{"cljs"}
+  :key :avanelsas/baredom
+  :group-id "com.github.avanelsas"
+  :artifact-id "baredom"
+  :tags #{"front-end frameworks"}}
  {:name "Rook"
   :url "https://github.com/AvisoNovate/rook"
   :platforms #{"clj"}
@@ -1456,6 +1464,13 @@
   :group-id "cljfx"
   :artifact-id "cljfx"
   :tags #{"graphics" "guis"}}
+ {:name "plorer"
+  :url "https://github.com/cljfx/plorer"
+  :platforms #{"clj"}
+  :key :cljfx/plorer
+  :group-id "io.github.cljfx"
+  :artifact-id "plorer"
+  :tags #{"debugging" "javafx"}}
  {:name "clojupyter"
   :url "https://github.com/clojupyter/clojupyter"
   :platforms #{"clj"}
@@ -1464,14 +1479,12 @@
   :artifact-id "clojupyter"
   :tags #{"visualization"}}
  {:name "Neko"
-  :url "https://github.com/clojure-android/neko"
+  :url "https://github.com/clj-android/neko"
   :platforms #{"clj"}
-  :key :clojure-android/neko
+  :key :clj-android/neko
   :group-id "neko"
   :artifact-id "neko"
-  :tags #{}
-  :deprecated true
-  :archived true}
+  :tags #{"android"}}
  {:name "Clutch"
   :url "https://github.com/clojure-clutch/clutch"
   :platforms #{"clj"}
@@ -2233,6 +2246,20 @@
   :url "https://github.com/damn/moon"
   :platforms #{"clj"}
   :tags #{"game development"}}
+ {:name "clj-doc-browse"
+  :url "https://github.com/dcj/clj-doc-browse"
+  :platforms #{"clj"}
+  :key :dcj/clj-doc-browse
+  :group-id "com.dcj"
+  :artifact-id "clj-doc-browse"
+  :tags #{"documentation"}}
+ {:name "codox-md"
+  :url "https://github.com/dcj/codox-md"
+  :platforms #{"clj"}
+  :key :dcj/codox-md
+  :group-id "com.dcj"
+  :artifact-id "codox-md"
+  :tags #{"documentation"}}
  {:name "Benjamin"
   :url "https://github.com/danielsz/benjamin"
   :platforms #{"clj"}
@@ -2287,6 +2314,13 @@
   :group-id "com.github.danlentz"
   :artifact-id "clj-figlet"
   :tags #{"utility libraries"}}
+ {:name "clj-format"
+  :url "https://github.com/danlentz/clj-format"
+  :platforms #{"clj" "cljs" "babashka"}
+  :key :danlentz/clj-format
+  :group-id "com.github.danlentz"
+  :artifact-id "clj-format"
+  :tags #{"formatting"}}
  {:name "clj-uuid"
   :url "http://danlentz.github.io/clj-uuid/"
   :repo-url "https://github.com/danlentz/clj-uuid"
@@ -2936,6 +2970,19 @@
   :group-id "munge-tout"
   :artifact-id "munge-tout"
   :tags #{"java integration"}}
+ {:name "lasagna-pattern"
+  :url "https://pattern.flybot.sg"
+  :repo-url "https://github.com/flybot-sg/lasagna-pattern"
+  :platforms #{"clj" "cljs"}
+  :key :flybot-sg/lasagna-pattern
+  :group-id "sg.flybot"
+  :artifact-id "lasagna-pattern"
+  :tags #{"data transformation" "parsing"}}
+ {:name "infix"
+  :url "https://github.com/Flexiana/infix"
+  :platforms #{"clj"}
+  :key :Flexiana/infix
+  :tags #{"math" "macros"}}
  {:name "Bacwn"
   :url "https://github.com/fogus/bacwn"
   :platforms #{"clj"}
@@ -3241,6 +3288,13 @@
   :group-id "franks42"
   :artifact-id "debug-repl"
   :tags #{"debugging"}}
+ {:name "clua"
+  :url "https://github.com/galatyn/clua"
+  :platforms #{"clj"}
+  :key :galatyn/clua
+  :group-id "io.github.galatyn"
+  :artifact-id "clua"
+  :tags #{"java integration" "scripting"}}
  {:name "clj-htmltopdf"
   :key :gered/clj-htmltopdf
   :url "https://github.com/gered/clj-htmltopdf"
@@ -3429,6 +3483,45 @@
   :group-id "mvxcvi"
   :artifact-id "whidbey"
   :tags #{"code formatting" "nrepl middleware"}}
+ {:name "clj-gridx"
+  :url "https://grid-coordination.energy"
+  :repo-url "https://github.com/grid-coordination/clj-gridx"
+  :platforms #{"clj"}
+  :key :grid-coordination/clj-gridx
+  :group-id "energy.grid-coordination"
+  :artifact-id "clj-gridx"
+  :tags #{"http clients"}}
+ {:name "clj-mdns"
+  :url "https://grid-coordination.energy"
+  :repo-url "https://github.com/grid-coordination/clj-mdns"
+  :platforms #{"clj"}
+  :key :grid-coordination/clj-mdns
+  :group-id "energy.grid-coordination"
+  :artifact-id "clj-mdns"
+  :tags #{"networking"}}
+ {:name "clj-midas"
+  :url "https://github.com/grid-coordination/clj-midas"
+  :platforms #{"clj"}
+  :key :grid-coordination/clj-midas
+  :group-id "energy.grid-coordination"
+  :artifact-id "clj-midas"
+  :tags #{"http clients"}}
+ {:name "clj-oa3"
+  :url "https://grid-coordination.energy"
+  :repo-url "https://github.com/grid-coordination/clj-oa3"
+  :platforms #{"clj"}
+  :key :grid-coordination/clj-oa3
+  :group-id "energy.grid-coordination"
+  :artifact-id "clj-oa3"
+  :tags #{"http clients"}}
+ {:name "clj-oa3-client"
+  :url "https://grid-coordination.energy"
+  :repo-url "https://github.com/grid-coordination/clj-oa3-client"
+  :platforms #{"clj"}
+  :key :grid-coordination/clj-oa3-client
+  :group-id "energy.grid-coordination"
+  :artifact-id "clj-oa3-client"
+  :tags #{"http clients"}}
  {:name "awyeah-api"
   :url "https://github.com/grzm/awyeah-api"
   :platforms #{"babashka" "clj"}
@@ -5470,6 +5563,13 @@
   :artifact-id "casyn"
   :tags #{"cassandra"}
   :archived true}
+ {:name "flux"
+  :url "https://github.com/mpenet/flux"
+  :platforms #{"clj"}
+  :key :mpenet/flux
+  :group-id "com.s-exp"
+  :artifact-id "flux"
+  :tags #{"concurrency"}}
  {:name "hirundo"
   :url "https://github.com/mpenet/hirundo"
   :platforms #{"clj"}
@@ -5477,6 +5577,13 @@
   :group-id "com.s-exp"
   :artifact-id "hirundo"
   :tags #{"ring adapters" "http servers"}}
+ {:name "k7"
+  :url "https://github.com/mpenet/k7"
+  :platforms #{"clj"}
+  :key :mpenet/k7
+  :group-id "com.s-exp"
+  :artifact-id "k7"
+  :tags #{"data structures" "message queues"}}
  {:name "Legba"
   :key :mpenet/legba
   :url "https://github.com/mpenet/legba"
@@ -5955,6 +6062,12 @@
   :group-id "com.outskirtslabs"
   :artifact-id "sfv"
   :tags #{"http clients"}}
+ {:name "llx"
+  :url "https://docs.outskirtslabs.com/ol.llx/next/"
+  :repo-url "https://github.com/outskirtslabs/llx"
+  :platforms #{"clj" "cljs"}
+  :key :outskirtslabs/llx
+  :tags #{"ai"}}
  {:name "at-at"
   :url "https://github.com/overtone/at-at"
   :platforms #{"clj"}
@@ -6585,6 +6698,13 @@
   :artifact-id "rp-condition-clj"
   :tags #{"functional programming"}
   :archived true}
+ {:name "ansatz"
+  :url "https://github.com/replikativ/ansatz"
+  :platforms #{"clj"}
+  :key :replikativ/ansatz
+  :group-id "org.replikativ"
+  :artifact-id "ansatz"
+  :tags #{"math" "type systems"}}
  {:name "beichte"
   :url "https://github.com/replikativ/beichte"
   :platforms #{"clj"}
@@ -7108,6 +7228,13 @@
   :group-id "com.shipclojure"
   :artifact-id "leinpad"
   :tags #{"leiningen plugins" "build tools"}}
+ {:name "re-frame-query"
+  :url "https://github.com/shipclojure/re-frame-query"
+  :platforms #{"cljs"}
+  :key :shipclojure/re-frame-query
+  :group-id "com.shipclojure"
+  :artifact-id "re-frame-query"
+  :tags #{"react" "state management"}}
  {:name "Simulflow"
   :key :shipclojure/simulflow
   :url "https://github.com/shipclojure/simulflow"
@@ -8759,6 +8886,13 @@
   :artifact-id "pandect"
   :tags #{"cryptography" "hashing"}
   :archived true}
+ {:name "meme-clj"
+  :url "https://github.com/xpojure-lang/meme-clj"
+  :platforms #{"clj" "cljs" "babashka"}
+  :key :xpojure-lang/meme-clj
+  :group-id "io.github.xpojure-lang"
+  :artifact-id "meme-clj"
+  :tags #{"macros" "parsing"}}
  {:name "yamlstar"
   :url "https://github.com/yaml/yamlstar"
   :platforms #{"clj"}
