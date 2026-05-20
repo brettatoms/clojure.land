@@ -2760,6 +2760,12 @@
   :group-id "ubergraph"
   :artifact-id "ubergraph"
   :tags #{"graphs" "data structures"}}
+ {:name "bbssh"
+  :url "https://epiccastle.io/bbssh"
+  :repo-url "https://github.com/epiccastle/bbssh"
+  :platforms #{"babashka"}
+  :key :epiccastle/bbssh
+  :tags #{"shell" "scripting"}}
  {:name "spire"
   :url "https://github.com/epiccastle/spire"
   :platforms #{"clj"}
@@ -3025,6 +3031,13 @@
   :group-id "fogus"
   :artifact-id "bacwn"
   :tags #{"datalog"}}
+ {:name "lexical-chocolate"
+  :url "https://github.com/fogus/lexical-chocolate"
+  :platforms #{"clj"}
+  :key :fogus/lexical-chocolate
+  :group-id "me.fogus"
+  :artifact-id "lexical-chocolate"
+  :tags #{"macros"}}
  {:name "Minderbinder"
   :url "https://github.com/fogus/minderbinder"
   :platforms #{"clj"}
@@ -3777,6 +3790,13 @@
   :group-id "org.suskalo"
   :artifact-id "coffi"
   :tags #{"ffi"}}
+ {:name "alike"
+  :url "https://github.com/igrishaev/alike"
+  :platforms #{"clj"}
+  :key :igrishaev/alike
+  :group-id "com.github.igrishaev"
+  :artifact-id "alike"
+  :tags #{"testing"}}
  {:name "any"
   :url "https://github.com/igrishaev/any"
   :platforms #{"clj"}
@@ -6311,6 +6331,14 @@
   :group-id "com.phronemophobic"
   :artifact-id "viscous"
   :tags #{"code formatting" "visualization"}}
+ {:name "kairos"
+  :url "https://cljdoc.org/d/org.pilosus/kairos"
+  :repo-url "https://github.com/pilosus/kairos"
+  :platforms #{"clj"}
+  :key :pilosus/kairos
+  :group-id "org.pilosus"
+  :artifact-id "kairos"
+  :tags #{"scheduling" "parsing"}}
  {:name "ring-undertow-adapter"
   :url "https://github.com/piranha/ring-undertow-adapter"
   :platforms #{"clj"}
@@ -7169,6 +7197,14 @@
   :group-id "org.scicloj"
   :artifact-id "noj"
   :tags #{"data science"}}
+ {:name "plotje"
+  :url "https://scicloj.github.io/plotje/"
+  :repo-url "https://github.com/scicloj/plotje"
+  :platforms #{"clj"}
+  :key :scicloj/plotje
+  :group-id "org.scicloj"
+  :artifact-id "plotje"
+  :tags #{"visualization" "data science"}}
  {:name "pocket"
   :url "https://scicloj.github.io/pocket/"
   :repo-url "https://github.com/scicloj/pocket"
@@ -8992,6 +9028,15 @@
   :group-id "io.github.xpojure-lang"
   :artifact-id "meme-clj"
   :tags #{"macros" "parsing"}}
+ {:name "XTDB"
+  :url "https://xtdb.com"
+  :repo-url "https://github.com/xtdb/xtdb"
+  :platforms #{"clj"}
+  :key :xtdb/xtdb
+  :group-id "com.xtdb"
+  :artifact-id "xtdb-api"
+  :repository :maven-central
+  :tags #{"databases" "sql" "datalog" "datomic"}}
  {:name "yamlstar"
   :url "https://github.com/yaml/yamlstar"
   :platforms #{"clj"}
