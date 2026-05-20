@@ -5191,7 +5191,7 @@
   :tags #{"office documents"}}
  {:name "layoutz"
   :url "https://layoutz.dev"
-  :repo-url "https://github.com/mattlianje/layoutz/tree/master/layoutz-clj"
+  :repo-url "https://github.com/mattlianje/layoutz"
   :platforms #{"clj"}
   :key :mattlianje/layoutz
   :group-id "xyz.matthieucourt"
