@@ -1190,6 +1190,13 @@
   :group-id "kioo"
   :artifact-id "kioo"
   :tags #{"front-end frameworks" "react"}}
+ {:name "graal-build-time"
+  :url "https://github.com/clj-easy/graal-build-time"
+  :platforms #{"clj"}
+  :key :clj-easy/graal-build-time
+  :group-id "com.github.clj-easy"
+  :artifact-id "graal-build-time"
+  :tags #{"java integration" "build tools"}}
  {:name "Aleph"
   :url "https://github.com/clj-commons/aleph"
   :platforms #{"clj"}
@@ -1471,6 +1478,13 @@
   :group-id "cljfx"
   :artifact-id "cljfx"
   :tags #{"graphics" "guis"}}
+ {:name "ghosttyfx"
+  :url "https://github.com/cljfx/ghosttyfx"
+  :platforms #{"clj"}
+  :key :cljfx/ghosttyfx
+  :group-id "io.github.cljfx"
+  :artifact-id "ghosttyfx"
+  :tags #{"terminal" "guis"}}
  {:name "plorer"
   :url "https://github.com/cljfx/plorer"
   :platforms #{"clj"}
@@ -1642,6 +1656,11 @@
   :artifact-id "core.async"
   :repository :maven-central
   :tags #{"syntax extensions" "asynchronous programming"}}
+ {:name "core.async.flow-monitor"
+  :url "https://github.com/clojure/core.async.flow-monitor"
+  :platforms #{"clj"}
+  :key :clojure/core.async.flow-monitor
+  :tags #{"asynchronous programming" "debugging" "visualization"}}
  {:name "core.cache"
   :url "https://github.com/clojure/core.cache"
   :platforms #{"clj"}
@@ -1692,6 +1711,14 @@
   :artifact-id "core.rrb-vector"
   :repository :maven-central
   :tags #{"data structures"}}
+ {:name "core.unify"
+  :url "https://github.com/clojure/core.unify"
+  :platforms #{"clj"}
+  :key :clojure/core.unify
+  :group-id "org.clojure"
+  :artifact-id "core.unify"
+  :repository :maven-central
+  :tags #{"logic programming"}}
  {:name "data.avl"
   :url "https://github.com/clojure/data.avl"
   :platforms #{"clj" "cljs"}
@@ -2458,6 +2485,13 @@
   :group-id "re-frame"
   :artifact-id "re-frame"
   :tags #{"front-end frameworks" "react"}}
+ {:name "de-dupe"
+  :url "https://github.com/day8/de-dupe"
+  :platforms #{"cljs"}
+  :key :day8/de-dupe
+  :group-id "day8"
+  :artifact-id "de-dupe"
+  :tags #{"serialization" "data structures"}}
  {:name "re-frame-10x"
   :url "https://github.com/day8/re-frame-10x"
   :platforms #{"cljs"}
@@ -2465,6 +2499,12 @@
   :group-id "day8.re-frame"
   :artifact-id "re-frame-10x"
   :tags #{"debugging" "tracing" "react"}}
+ {:name "re-frame2"
+  :url "https://day8.github.io/re-frame2/"
+  :repo-url "https://github.com/day8/re-frame2"
+  :platforms #{"cljs"}
+  :key :day8/re-frame2
+  :tags #{"front-end frameworks" "react" "state management"}}
  {:name "Lancaster"
   :url "https://github.com/deercreeklabs/lancaster"
   :platforms #{"clj" "cljs"}
@@ -2576,6 +2616,13 @@
   :group-id "party.donut"
   :artifact-id "dbxray"
   :tags #{"databases"}}
+ {:name "generate"
+  :url "https://github.com/donut-party/generate"
+  :platforms #{"clj"}
+  :key :donut-party/generate
+  :group-id "party.donut"
+  :artifact-id "generate"
+  :tags #{"code generation" "project templates"}}
  {:name "donut.system"
   :key :donut-party/system
   :url "https://github.com/donut-party/system"
@@ -2668,6 +2715,13 @@
   :group-id "talaria"
   :artifact-id "talaria"
   :tags #{"websockets"}}
+ {:name "ducktape"
+  :url "https://github.com/dynamic-alpha/ducktape"
+  :platforms #{"clj"}
+  :key :dynamic-alpha/ducktape
+  :group-id "ai.dyal"
+  :artifact-id "ducktape"
+  :tags #{"databases" "data science"}}
  {:name "hyper"
   :url "https://github.com/dynamic-alpha/hyper"
   :platforms #{"clj"}
@@ -3372,6 +3426,14 @@
   :group-id "dev.gersak"
   :artifact-id "ty"
   :tags #{"web frameworks"}}
+ {:name "Tyrell"
+  :url "https://gersak.github.io/tyrell/"
+  :repo-url "https://github.com/gersak/tyrell"
+  :key :gersak/tyrell
+  :platforms #{"cljs"}
+  :group-id "dev.gersak"
+  :artifact-id "tyrell"
+  :tags #{"front-end frameworks" "web frameworks"}}
  {:name "Vura",
   :url "https://github.com/gersak/vura",
   :platforms #{"clj" "cljs"},
@@ -3695,6 +3757,13 @@
   :platforms #{"clj"}
   :key :hiredman/clojurebot
   :tags #{"irc"}}
+ {:name "cli-tools"
+  :url "https://github.com/hlship/cli-tools"
+  :platforms #{"clj" "babashka"}
+  :key :hlship/cli-tools
+  :group-id "io.github.hlship"
+  :artifact-id "cli-tools"
+  :tags #{"command line tools"}}
  {:name "Castra"
   :url "https://github.com/hoplon/castra"
   :platforms #{"clj" "cljs"}
@@ -4684,6 +4753,11 @@
   :artifact-id "hugsql"
   :tags #{"sql"}
   :repo-url "https://github.com/layerware/hugsql"}
+ {:name "clj-p4"
+  :url "https://github.com/leifericf/clj-p4"
+  :platforms #{"clj"}
+  :key :leifericf/clj-p4
+  :tags #{"git" "version control"}}
  {:name "clope"
   :url "https://github.com/leonoel/clope"
   :platforms #{"clj" "cljs"}
@@ -5263,6 +5337,13 @@
   :artifact-id "muuntaja"
   :tags
   #{"ring middleware" "content negotiation"}}
+ {:name "oksa"
+  :url "https://github.com/metosin/oksa"
+  :platforms #{"clj" "cljs"}
+  :key :metosin/oksa
+  :group-id "fi.metosin"
+  :artifact-id "oksa"
+  :tags #{"graphql"}}
  {:name "pohjavirta"
   :url "https://github.com/metosin/pohjavirta"
   :platforms #{"clj"}
@@ -5539,6 +5620,13 @@
   :group-id "dk.ative"
   :artifact-id "docjure"
   :tags #{"office documents"}}
+ {:name "gsheetplus"
+  :url "https://github.com/mlimotte/gsheetplus"
+  :platforms #{"clj"}
+  :key :mlimotte/gsheetplus
+  :group-id "io.github.mlimotte"
+  :artifact-id "gsheetplus"
+  :tags #{"google cloud" "web api clients"}}
  {:name "clj-json"
   :url "https://github.com/mmcgrana/clj-json"
   :platforms #{"clj"}
@@ -5610,6 +5698,13 @@
   :group-id "com.monkeyprojects"
   :artifact-id "mailman-core"
   :tags #{}}
+ {:name "martian-aleph"
+  :url "https://github.com/monkey-projects/martian-aleph"
+  :platforms #{"clj"}
+  :key :monkey-projects/martian-aleph
+  :group-id "com.monkeyprojects"
+  :artifact-id "martian-aleph"
+  :tags #{"http clients" "rest"}}
  {:name "Alia"
   :url "https://github.com/mpenet/alia"
   :platforms #{"clj"}
@@ -5641,6 +5736,13 @@
   :artifact-id "casyn"
   :tags #{"cassandra"}
   :archived true}
+ {:name "Drip"
+  :url "https://github.com/mpenet/drip"
+  :platforms #{"clj"}
+  :key :mpenet/drip
+  :group-id "com.s-exp"
+  :artifact-id "drip"
+  :tags #{"message queues" "databases" "scheduling"}}
  {:name "flux"
   :url "https://github.com/mpenet/flux"
   :platforms #{"clj"}
@@ -6840,6 +6942,13 @@
   :group-id "org.replikativ"
   :artifact-id "raster"
   :tags #{"math" "data science" "performance"}}
+ {:name "rechentafel"
+  :url "https://github.com/replikativ/rechentafel"
+  :platforms #{"clj" "cljs"}
+  :key :replikativ/rechentafel
+  :group-id "org.replikativ"
+  :artifact-id "rechentafel"
+  :tags #{"office documents" "parsing"}}
  {:name "replikativ"
   :url "https://github.com/replikativ/replikativ"
   :platforms #{"clj" "cljs"}
@@ -6847,6 +6956,13 @@
   :group-id "io.replikativ"
   :artifact-id "replikativ"
   :tags #{"distributed programming"}}
+ {:name "spindel"
+  :url "https://github.com/replikativ/spindel"
+  :platforms #{"clj" "cljs"}
+  :key :replikativ/spindel
+  :group-id "org.replikativ"
+  :artifact-id "spindel"
+  :tags #{"reactive programming" "state management"}}
  {:name "superficie"
   :url "https://github.com/replikativ/superficie"
   :platforms #{"clj" "babashka"}
@@ -7256,6 +7372,14 @@
   :group-id "org.scicloj"
   :artifact-id "tableplot"
   :tags #{"visualization" "data science"}}
+ {:name "zulipdata"
+  :url "https://scicloj.github.io/zulipdata/"
+  :repo-url "https://github.com/scicloj/zulipdata"
+  :platforms #{"clj"}
+  :key :scicloj/zulipdata
+  :group-id "org.scicloj"
+  :artifact-id "zulipdata"
+  :tags #{"data science" "web api clients"}}
  {:name "build-uber-log4j2-handler"
   :url "https://github.com/seancorfield/build-uber-log4j2-handler"
   :platforms #{"clj"}
@@ -7300,6 +7424,13 @@
   :group-id "com.github.seancorfield"
   :artifact-id "next.jdbc"
   :tags #{"sql"}}
+ {:name "rephrase"
+  :url "https://github.com/seancorfield/rephrase"
+  :platforms #{"clj"}
+  :key :seancorfield/rephrase
+  :group-id "org.corfield"
+  :artifact-id "rephrase"
+  :tags #{"exception handling" "repls"}}
  {:name "ring-data-json"
   :url "https://github.com/seancorfield/ring-data-json"
   :platforms #{"clj"}
@@ -8474,6 +8605,14 @@
   :group-id "vivid"
   :artifact-id "clojure-maven-plugin"
   :tags #{"build tools"}}
+ {:name "GhosttyFX"
+  :url "https://github.com/vlaaad/ghosttyfx"
+  :platforms #{"clj"}
+  :key :vlaaad/ghosttyfx
+  :group-id "io.github.vlaaad"
+  :artifact-id "ghosttyfx"
+  :repository :maven-central
+  :tags #{"terminal" "guis"}}
  {:name "Reveal"
   :url "https://vlaaad.github.io/reveal/"
   :repo-url "https://github.com/vlaaad/reveal"
@@ -8874,6 +9013,13 @@
   :group-id "strowger"
   :artifact-id "strowger"
   :tags #{"dom events"}}
+ {:name "TeensyP"
+  :url "https://github.com/weavejester/teensyp"
+  :platforms #{"clj"}
+  :key :weavejester/teensyp
+  :group-id "dev.weavejester"
+  :artifact-id "teensyp"
+  :tags #{"http servers" "asynchronous i/o"}}
  {:name "Valip"
   :url "https://github.com/weavejester/valip"
   :platforms #{"clj"}
