@@ -3578,6 +3578,14 @@
   :group-id "perun"
   :artifact-id "perun"
   :tags #{"static site generation"}}
+ {:name "Bisql"
+  :url "https://hatappo.github.io/bisql/"
+  :repo-url "https://github.com/hatappo/bisql"
+  :platforms #{"clj"}
+  :key :hatappo/bisql
+  :group-id "io.github.hatappo"
+  :artifact-id "bisql"
+  :tags #{"sql" "databases"}}
  {:name "Depstar"
   :url "https://github.com/healthfinch/depstar"
   :platforms #{"clj"}
@@ -7396,6 +7404,12 @@
   :group-id "org.sqids"
   :artifact-id "sqids-clojure"
   :tags #{"hashing"}}
+ {:name "squint"
+  :url "https://squint-cljs.github.io/squint"
+  :repo-url "https://github.com/squint-cljs/squint"
+  :platforms #{"cljs"}
+  :key :squint-cljs/squint
+  :tags #{"clojurescript development" "javascript generation"}}
  {:name "Carbonite"
   :url "https://github.com/sritchie/carbonite"
   :platforms #{"clj"}
@@ -8881,6 +8895,13 @@
   :group-id "com.workframe"
   :artifact-id "artemis"
   :tags #{"graphql"}}
+ {:name "cljs-mjml"
+  :url "https://github.com/WBSemple/cljs-mjml"
+  :platforms #{"cljs" "babashka"}
+  :key :WBSemple/cljs-mjml
+  :group-id "io.github.wbsemple"
+  :artifact-id "cljs-mjml"
+  :tags #{"email sending" "hiccup" "html"}}
  {:name "Leona"
   :url "https://github.com/WorksHub/leona"
   :platforms #{"clj"}
