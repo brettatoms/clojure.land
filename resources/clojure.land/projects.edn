@@ -625,6 +625,13 @@
   :group-id "com.blockether"
   :artifact-id "spel"
   :tags #{"web testing" "testing"}}
+ {:name "svar"
+  :url "https://github.com/Blockether/svar"
+  :platforms #{"clj"}
+  :key :Blockether/svar
+  :group-id "com.blockether"
+  :artifact-id "svar"
+  :tags #{"ai" "llm"}}
  {:name "clj-airbrake"
   :url "https://github.com/bmabey/clj-airbrake"
   :platforms #{"clj"}
@@ -6784,6 +6791,13 @@
   :group-id "org.replikativ"
   :artifact-id "persistent-sorted-set"
   :tags #{"data structures"}}
+ {:name "pg-datahike"
+  :url "https://github.com/replikativ/pg-datahike"
+  :platforms #{"clj"}
+  :key :replikativ/pg-datahike
+  :group-id "org.replikativ"
+  :artifact-id "pg-datahike"
+  :tags #{"databases" "postgresql" "datalog"}}
  {:name "Proximum"
   :url "https://github.com/replikativ/proximum"
   :platforms #{"clj"}
