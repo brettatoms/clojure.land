@@ -2260,6 +2260,20 @@
   :group-id "com.dcj"
   :artifact-id "codox-md"
   :tags #{"documentation"}}
+ {:name "ordered-collections"
+  :url "https://github.com/dco-dev/ordered-collections"
+  :platforms #{"clj"}
+  :key :dco-dev/ordered-collections
+  :group-id "com.dean"
+  :artifact-id "ordered-collections"
+  :tags #{"data structures"}}
+ {:name "beeld"
+  :url "https://github.com/danielsz/beeld"
+  :platforms #{"clj"}
+  :key :danielsz/beeld
+  :group-id "com.github.danielsz"
+  :artifact-id "beeld"
+  :tags #{"graphics"}}
  {:name "Benjamin"
   :url "https://github.com/danielsz/benjamin"
   :platforms #{"clj"}
@@ -2329,6 +2343,13 @@
   :group-id "danlentz"
   :artifact-id "clj-uuid"
   :tags #{"id generators"}}
+ {:name "clj-xref"
+  :url "https://github.com/danlentz/clj-xref"
+  :platforms #{"clj"}
+  :key :danlentz/clj-xref
+  :group-id "com.github.danlentz"
+  :artifact-id "clj-xref"
+  :tags #{"code analysis" "ai" "leiningen plugins"}}
  {:name "di"
   :url "https://github.com/darkleaf/di"
   :platforms #{"clj"}
@@ -2914,6 +2935,13 @@
   :group-id "clucie"
   :artifact-id "clucie"
   :tags #{"text search"}}
+ {:name "csp-clj"
+  :url "https://github.com/fgasperino/csp-clj"
+  :platforms #{"clj"}
+  :key :fgasperino/csp-clj
+  :group-id "org.clojars.fgasperino"
+  :artifact-id "csp-clj"
+  :tags #{"concurrency" "asynchronous programming"}}
  {:name "Clostache"
   :url "https://github.com/fhd/clostache"
   :platforms #{"clj"}
@@ -4905,6 +4933,13 @@
   :group-id "com.magnars"
   :artifact-id "confair"
   :tags #{"configuration"}}
+ {:name "datomic-type-extensions"
+  :url "https://github.com/magnars/datomic-type-extensions"
+  :platforms #{"clj"}
+  :key :magnars/datomic-type-extensions
+  :group-id "datomic-type-extensions"
+  :artifact-id "datomic-type-extensions"
+  :tags #{"datomic"}}
  {:name "Optimus"
   :url "https://github.com/magnars/optimus"
   :platforms #{"clj"}
@@ -5045,6 +5080,14 @@
   :group-id "org.clojars.mjdowney"
   :artifact-id "excel-clj"
   :tags #{"office documents"}}
+ {:name "layoutz"
+  :url "https://layoutz.dev"
+  :repo-url "https://github.com/mattlianje/layoutz/tree/master/layoutz-clj"
+  :platforms #{"clj"}
+  :key :mattlianje/layoutz
+  :group-id "xyz.matthieucourt"
+  :artifact-id "layoutz"
+  :tags #{"terminal" "command line tools"}}
  {:name "Flake"
   :url "https://github.com/maxcountryman/flake"
   :platforms #{"clj"}
@@ -6740,6 +6783,13 @@
   :group-id "org.replikativ"
   :artifact-id "proximum"
   :tags #{"databases" "text search"}}
+ {:name "raster"
+  :url "https://github.com/replikativ/raster"
+  :platforms #{"clj"}
+  :key :replikativ/raster
+  :group-id "org.replikativ"
+  :artifact-id "raster"
+  :tags #{"math" "data science" "performance"}}
  {:name "replikativ"
   :url "https://github.com/replikativ/replikativ"
   :platforms #{"clj" "cljs"}
@@ -6893,6 +6943,13 @@
   :group-id "org.clojars.roklenarcic"
   :artifact-id "mcp-server"
   :tags #{"ai" "mcp"}}
+ {:name "Memento"
+  :url "https://github.com/RokLenarcic/memento"
+  :platforms #{"clj"}
+  :key :RokLenarcic/memento
+  :group-id "org.clojars.roklenarcic"
+  :artifact-id "memento"
+  :tags #{"caching"}}
  {:name "solid-cljs"
   :url "https://github.com/roman01la/solid-cljs"
   :platforms #{"cljs"}
@@ -8473,6 +8530,13 @@
   :group-id "walmartlabs"
   :artifact-id "vizdeps"
   :tags #{"leiningen plugins"}}
+ {:name "Hermes"
+  :url "https://github.com/wardle/hermes"
+  :platforms #{"clj"}
+  :key :wardle/hermes
+  :group-id "com.eldrix"
+  :artifact-id "hermes"
+  :tags #{"text search" "natural language" "databases"}}
  {:name "Brutha"
   :url "https://github.com/weavejester/brutha"
   :platforms #{"cljs"}
