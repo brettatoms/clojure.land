@@ -221,9 +221,7 @@
              :where [:and true]
              :order-by order-by}
       (seq q)
-      (update :where #(conj % [:or
-                               [:ilike :name (str "%" (str/lower-case q) "%")]
-                               [:ilike :description (str "%" (str/lower-case q) "%")]]))
+      (update :where #(conj % [:ilike :search-text (str "%" (str/lower-case q) "%")]))
       (seq platforms-conds)
       (update :where #(into % platforms-conds))
 

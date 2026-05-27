@@ -25,6 +25,8 @@
                                        [:repo-url :text]
                                        [:repository :text]
                                        [:tags :text :array]
+                                       [:github_topics :text :array]
+                                       [:search_text :text]
                                        [:stars :int]
                                        [:url :text [:not nil]]]})))
 
@@ -45,14 +47,24 @@
         columns [#_:key :archived :artifact-id :description :downloads-per-day
                  :group-id :last-pushed-at :latest-release-date :latest-version
                  :platforms :name :popularity-score :repo-url :repository
-                 :stars :tags :url]
+                 :stars :tags :github-topics :search-text :url]
         empty-row (zipmap columns (repeat nil))
+        build-search-text (fn [p]
+                            (->> [(:name p)
+                                  (:description p)
+                                  (some->> (:tags p) (str/join " "))
+                                  (some->> (:github-topics p) (str/join " "))]
+                                 (remove str/blank?)
+                                 (str/join " ")
+                                 str/lower-case))
         normalize (fn [p]
                     (-> (merge empty-row p)
                         (assoc :popularity-score (projects/popularity-score p))
                         (assoc :downloads-per-day (projects/downloads-per-day p))
+                        (assoc :search-text (build-search-text p))
                         (update :repository #(when % (name %)))
                         (update :tags to-lower-case-array)
+                        (update :github-topics to-lower-case-array)
                         (update :platforms to-lower-case-array)))
         values (->> active-data
                     (map normalize)

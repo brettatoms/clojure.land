@@ -36,10 +36,13 @@
                         url (re-matches url-rx url))
         _ (when-not repo-name (throw (ex-info "Could not get repo name for project" {:project project})))
         repo-name (str/lower-case repo-name)
-        {:keys [description stargazers_count pushed_at]} (.get-repo github-client repo-name)]
+        {:keys [description stargazers_count pushed_at topics]} (.get-repo github-client repo-name)]
     (cond-> project
       (empty? (:description project))
       (assoc :description description)
+
+      (seq topics)
+      (assoc :github-topics (set topics))
 
       :always
       ;; We only need to explicitly assoc keys if we want them to use a different name in
