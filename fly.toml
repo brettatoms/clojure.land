@@ -3,7 +3,7 @@ primary_region = "atl"
 
 [env]
   ZODIAC_ASSETS_BUILD=false
-  JAVA_TOOL_OPTIONS="-Duser.timezone=UTC -XX:MaxRAMPercentage=50.0"
+  JAVA_TOOL_OPTIONS="-Duser.timezone=UTC -XX:MaxRAMPercentage=80.0 -XX:+UseCompactObjectHeaders -XX:+UseStringDeduplication -XX:+ExitOnOutOfMemoryError -XX:-OmitStackTraceInFastThrow -XX:MaxGCPauseMillis=100"
   PORT=8080
 
 [[vm]]
