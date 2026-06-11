@@ -409,6 +409,13 @@
   :group-id "babashka"
   :artifact-id "babashka.nrepl"
   :tags #{"repls"}}
+ {:name "cli"
+  :url "https://github.com/babashka/cli"
+  :platforms #{"clj" "cljs" "babashka"}
+  :key :babashka/cli
+  :group-id "org.babashka"
+  :artifact-id "cli"
+  :tags #{"command line tools"}}
  {:name "babashka.fs"
   :url "https://github.com/babashka/fs"
   :platforms #{"clj"}
@@ -2858,6 +2865,13 @@
   :group-id "squarepeg"
   :artifact-id "squarepeg"
   :tags #{"parsing"}}
+ {:name "code-bubble"
+  :url "https://github.com/ertugrulcetin/code-bubble"
+  :platforms #{"clj" "cljs"}
+  :key :ertugrulcetin/code-bubble
+  :group-id "io.github.ertugrulcetin"
+  :artifact-id "code-bubble"
+  :tags #{"interactive development" "visualization"}}
  {:name "kezban"
   :url "https://github.com/ertugrulcetin/kezban"
   :platforms #{"clj"}
@@ -3181,6 +3195,13 @@
   :group-id "fulcrologic"
   :artifact-id "fulcro-spec"
   :tags #{"testing"}}
+ {:name "fulcro-tui"
+  :url "https://github.com/fulcrologic/fulcro-tui"
+  :platforms #{"clj" "babashka"}
+  :key :fulcrologic/fulcro-tui
+  :group-id "com.fulcrologic"
+  :artifact-id "fulcro-tui"
+  :tags #{"terminal" "front-end frameworks"}}
  {:name "Guardrails"
   :url "https://github.com/fulcrologic/guardrails"
   :platforms #{"clj" "cljs"}
@@ -4687,6 +4708,13 @@
   :group-id "lambdaisland"
   :artifact-id "regal"
   :tags #{"parsing"}}
+ {:name "ring-node-adapter"
+  :url "https://github.com/lambdaisland/ring-node-adapter"
+  :platforms #{"cljs"}
+  :key :lambdaisland/ring-node-adapter
+  :group-id "com.lambdaisland"
+  :artifact-id "ring-node-adapter"
+  :tags #{"ring adapters" "http servers"}}
  {:name "Trikl"
   :url "https://github.com/lambdaisland/trikl"
   :platforms #{"clj"}
