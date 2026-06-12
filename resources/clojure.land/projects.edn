@@ -3193,6 +3193,13 @@
   :group-id "com.fulcrologic"
   :artifact-id "fulcro-rad"
   :tags #{"web frameworks"}}
+ {:name "fulcro-rad-tui"
+  :url "https://github.com/fulcrologic/fulcro-rad-tui"
+  :platforms #{"clj"}
+  :key :fulcrologic/fulcro-rad-tui
+  :group-id "com.fulcrologic"
+  :artifact-id "fulcro-rad-tui"
+  :tags #{"terminal" "front-end frameworks"}}
  {:name "fulcro-spec"
   :url "https://github.com/fulcrologic/fulcro-spec"
   :platforms #{"clj" "cljs"}
@@ -4306,6 +4313,13 @@
   :group-id "com.github.jramosg"
   :artifact-id "color-tools"
   :tags #{"visualization"}}
+ {:name "jon-nested-menu"
+  :url "https://github.com/jramosg/jon-nested-menu"
+  :platforms #{"cljs"}
+  :key :jramosg/jon-nested-menu
+  :group-id "io.github.jramosg"
+  :artifact-id "reagent-mui-nested-menu"
+  :tags #{"react"}}
  {:name "Hanami"
   :url "https://github.com/jsa-aerial/hanami"
   :platforms #{"clj" "cljs"}
@@ -4516,6 +4530,11 @@
   :group-id "zprint"
   :artifact-id "zprint"
   :tags #{"code formatting"}}
+ {:name "atomstream"
+  :url "https://github.com/kpassapk/atomstream"
+  :platforms #{"clj" "babashka"}
+  :key :kpassapk/atomstream
+  :tags #{"terminal" "guis"}}
  {:name "Yaclot",
   :url "https://github.com/konrad-garus/yaclot",
   :platforms #{"clj"},
@@ -6961,6 +6980,13 @@
   :group-id "replikativ"
   :artifact-id "konserve"
   :tags #{"databases" "caching"}}
+ {:name "kontor"
+  :url "https://github.com/replikativ/kontor"
+  :platforms #{"clj"}
+  :key :replikativ/kontor
+  :group-id "org.replikativ"
+  :artifact-id "kontor"
+  :tags #{"finance" "datalog"}}
  {:name "persistent-sorted-set"
   :url "https://github.com/replikativ/persistent-sorted-set"
   :platforms #{"clj" "cljs"}
