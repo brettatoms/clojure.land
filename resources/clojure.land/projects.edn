@@ -2070,6 +2070,11 @@
   :group-id "lambda-ml"
   :artifact-id "lambda-ml"
   :tags #{"machine learning"}}
+ {:name "lambda-sketch"
+  :url "https://github.com/cloudkj/lambda-sketch"
+  :platforms #{"clj"}
+  :key :cloudkj/lambda-sketch
+  :tags #{"data structures" "math"}}
  {:name "cloverage"
   :url "https://github.com/cloverage/cloverage"
   :platforms #{"clj"}
@@ -4989,6 +4994,13 @@
   :platforms #{"clj"}
   :key :lukaszkorecki/mcp2000xl
   :tags #{"mcp" "ring middleware"}}
+ {:name "mokujin"
+  :url "https://github.com/lukaszkorecki/mokujin"
+  :platforms #{"clj"}
+  :key :lukaszkorecki/mokujin
+  :group-id "org.clojars.lukaszkorecki"
+  :artifact-id "mokujin"
+  :tags #{"logging"}}
  {:name "omega-red"
   :url "https://github.com/lukaszkorecki/omega-red"
   :platforms #{"clj"}
@@ -6935,6 +6947,13 @@
   :group-id "io.replikativ"
   :artifact-id "hasch"
   :tags #{"hashing"}}
+ {:name "katzen"
+  :url "https://github.com/replikativ/katzen"
+  :platforms #{"clj"}
+  :key :replikativ/katzen
+  :group-id "org.replikativ"
+  :artifact-id "katzen"
+  :tags #{"math" "type systems"}}
  {:name "konserve"
   :url "https://github.com/replikativ/konserve"
   :platforms #{"clj" "cljs"}
@@ -7144,6 +7163,13 @@
   :group-id "org.clojars.roklenarcic"
   :artifact-id "memento"
   :tags #{"caching"}}
+ {:name "memento-redis"
+  :url "https://github.com/RokLenarcic/memento-redis"
+  :platforms #{"clj"}
+  :key :RokLenarcic/memento-redis
+  :group-id "org.clojars.roklenarcic"
+  :artifact-id "memento-redis"
+  :tags #{"caching" "redis"}}
  {:name "solid-cljs"
   :url "https://github.com/roman01la/solid-cljs"
   :platforms #{"cljs"}
