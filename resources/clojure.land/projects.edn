@@ -4942,6 +4942,11 @@
   :key :liquidz/vim-iced,
   :tags #{"vim"}
   :archived true}
+ {:name "claxon"
+  :url "https://github.com/lispyclouds/claxon"
+  :platforms #{"clj" "babashka"}
+  :key :lispyclouds/claxon
+  :tags #{"message queues" "networking"}}
  {:name "contajners"
   :url "https://github.com/lispyclouds/contajners"
   :platforms #{"clj"}
@@ -5327,10 +5332,12 @@
   :group-id "com.mefesto"
   :artifact-id "wabbitmq"
   :tags #{"message queues" "rabbitmq"}}
- {:name "clj-threats"
-  :url "https://repo.prod.meissa.de/meissa/clj-threats"
+ {:name "dda-tara"
+  :url "https://codeberg.org/meissa/dda-tara"
   :platforms #{"clj"}
-  :key :meissa/clj-threats
+  :key :meissa/dda-tara
+  :group-id "org.domaindrivenarchitecture"
+  :artifact-id "dda-tara"
   :tags #{"security"}}
  {:name "JSXGraph"
   :url "https://github.com/mentat-collective/jsxgraph.cljs"
@@ -6987,6 +6994,11 @@
   :group-id "org.replikativ"
   :artifact-id "dvergr"
   :tags #{"ai" "llm" "reactive programming"}}
+ {:name "evoc-rstr"
+  :url "https://github.com/replikativ/evoc-rstr"
+  :platforms #{"clj"}
+  :key :replikativ/evoc-rstr
+  :tags #{"machine learning" "data science"}}
  {:name "hasch"
   :url "https://github.com/replikativ/hasch"
   :platforms #{"clj" "cljs"}
@@ -7079,6 +7091,11 @@
   :group-id "org.replikativ"
   :artifact-id "stratum"
   :tags #{"databases"}}
+ {:name "umap-rstr"
+  :url "https://github.com/replikativ/umap-rstr"
+  :platforms #{"clj"}
+  :key :replikativ/umap-rstr
+  :tags #{"machine learning" "data science" "math"}}
  {:name "yggdrasil"
   :url "https://github.com/replikativ/yggdrasil"
   :platforms #{"clj"}
@@ -7291,6 +7308,13 @@
   :group-id "swiss-arrows"
   :artifact-id "swiss-arrows"
   :tags #{"macros"}}
+ {:name "clj-pytorch"
+  :url "https://github.com/rthadani/clj-pytorch"
+  :platforms #{"clj"}
+  :key :rthadani/clj-pytorch
+  :group-id "io.github.rthadani"
+  :artifact-id "clj-pytorch"
+  :tags #{"machine learning" "python interop"}}
  {:name "ring-middleware-accept"
   :url "https://github.com/rufoa/ring-middleware-accept"
   :platforms #{"clj"}
@@ -7330,6 +7354,13 @@
   :group-id "clj-biosequence"
   :artifact-id "clj-biosequence"
   :tags #{}}
+ {:name "ehr-adapter"
+  :url "https://github.com/SamuelCarriles/ehr-adapter"
+  :platforms #{"clj"}
+  :key :SamuelCarriles/ehr-adapter
+  :group-id "io.github.samuelcarriles"
+  :artifact-id "ehr-adapter"
+  :tags #{"http clients" "validation"}}
  {:name "Monroe"
   :url "https://github.com/sanel/monroe"
   :platforms #{"clj"}
