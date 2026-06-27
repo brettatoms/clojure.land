@@ -2832,6 +2832,13 @@
   :platforms #{"babashka"}
   :key :epiccastle/bbssh
   :tags #{"shell" "scripting"}}
+ {:name "clojuressh"
+  :url "https://github.com/epiccastle/clojuressh"
+  :platforms #{"clj" "babashka"}
+  :key :epiccastle/clojuressh
+  :group-id "io.epiccastle"
+  :artifact-id "clojuressh"
+  :tags #{"ssh" "networking"}}
  {:name "spire"
   :url "https://github.com/epiccastle/spire"
   :platforms #{"clj"}
@@ -4064,6 +4071,20 @@
   ;; :artifact-id "biff"
   :tags #{"web frameworks"}
   :repo-url "https://github.com/jacobobryant/biff"}
+ {:name "biff.config"
+  :url "https://github.com/jacobobryant/biff/tree/v2.x/libs/config"
+  :platforms #{"clj"}
+  :key :jacobobryant/biff.config
+  :group-id "com.biffweb"
+  :artifact-id "config"
+  :tags #{"configuration"}}
+ {:name "biff.fx"
+  :url "https://github.com/jacobobryant/biff/tree/v2.x/libs/fx"
+  :platforms #{"clj"}
+  :key :jacobobryant/biff.fx
+  :group-id "com.biffweb"
+  :artifact-id "fx"
+  :tags #{"state machines" "functional programming"}}
  {:name "test-refresh"
   :url "https://github.com/jakemcc/test-refresh"
   :platforms #{"clj"}
@@ -6959,6 +6980,13 @@
   :group-id "org.replikativ"
   :artifact-id "beichte"
   :tags #{"code analysis"}}
+ {:name "dvergr"
+  :url "https://github.com/replikativ/dvergr"
+  :platforms #{"clj"}
+  :key :replikativ/dvergr
+  :group-id "org.replikativ"
+  :artifact-id "dvergr"
+  :tags #{"ai" "llm" "reactive programming"}}
  {:name "hasch"
   :url "https://github.com/replikativ/hasch"
   :platforms #{"clj" "cljs"}
@@ -7603,6 +7631,11 @@
   :artifact-id "datalinguist"
   :tags #{"natural language"}
   :archived true}
+ {:name "eventstore"
+  :url "https://github.com/simplemono/eventstore"
+  :platforms #{"clj"}
+  :key :simplemono/eventstore
+  :tags #{"event sourcing" "databases"}}
  {:name "Red Tape"
   :url "https://github.com/sjl/red-tape"
   :platforms #{"clj"}
@@ -8203,6 +8236,13 @@
   :group-id "io.mandoline"
   :artifact-id "mandoline-core"
   :tags #{"databases"}}
+ {:name "clj-colors"
+  :url "https://github.com/TheFakeLorLyons/clj-colors"
+  :platforms #{"clj"}
+  :key :TheFakeLorLyons/clj-colors
+  :group-id "com.github.thefakelorlyons"
+  :artifact-id "clj-colors"
+  :tags #{"color" "graphics"}}
  {:name "clj-ulid"
   :url "https://github.com/theikkila/clj-ulid"
   :platforms #{"clj"}
@@ -9311,6 +9351,11 @@
   :platforms #{"clj"}
   :key :yogthos/clojure.jdbc
   :tags #{"sql" "databases"}}
+ {:name "Flatiron"
+  :url "https://github.com/yogthos/flatiron"
+  :platforms #{"clj"}
+  :key :yogthos/flatiron
+  :tags #{"databases" "data science" "performance" "graphs"}}
  {:name "markdown-clj"
   :url "https://github.com/yogthos/markdown-clj"
   :platforms #{"clj" "cljs"}
