@@ -4077,6 +4077,7 @@
   :key :jacobobryant/biff.config
   :group-id "com.biffweb"
   :artifact-id "config"
+  :description "A light Biff wrapper around Aero."
   :tags #{"configuration"}}
  {:name "biff.fx"
   :url "https://github.com/jacobobryant/biff/tree/v2.x/libs/fx"
@@ -4084,6 +4085,7 @@
   :key :jacobobryant/biff.fx
   :group-id "com.biffweb"
   :artifact-id "fx"
+  :description "Turn your functions into pure state machines."
   :tags #{"state machines" "functional programming"}}
  {:name "test-refresh"
   :url "https://github.com/jakemcc/test-refresh"

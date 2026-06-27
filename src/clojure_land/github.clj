@@ -30,7 +30,7 @@
   (->GitHubClient (request-factory api-token)))
 
 (defn update-project-from-repo [github-client {:keys [repo-url url] :as project}]
-  (let [url-rx #"^https?://github.com/(.*?)/?$"
+  (let [url-rx #"^https?://github\.com/([^/]+/[^/]+?)(?:\.git)?(?:/.*)?$"
         [_ repo-name] (cond
                         repo-url (re-matches url-rx repo-url)
                         url (re-matches url-rx url))
