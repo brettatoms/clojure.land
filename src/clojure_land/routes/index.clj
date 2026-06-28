@@ -318,6 +318,10 @@
                   :data-collect-dnt "true"
                   :src "https://scripts.simpleanalyticscdn.com/latest.js"}]
 
+        [:script {:data-goatcounter "https://clojure-land.goatcounter.com/count"
+                  :async true
+                  :src "//gc.zgo.at/count.js"}]
+
         ;; JSON-LD structured data for SEO
         [:script {:type "application/ld+json"}
          (chassis/raw json-ld)]]
