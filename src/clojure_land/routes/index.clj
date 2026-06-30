@@ -130,7 +130,10 @@
        [:div {:class "flex flex-row flex-wrap lg:gap-4 items-start md:items-center justify-between"}
         [:span {:class "w-full md:w-auto flex flex-row items-center justify-between gap-2"}
          [:span
-          [:a {:class "font-bold text-2xl hover:underline" :href url} name]
+          [:a {:class "font-bold text-2xl hover:underline"
+               :href url
+               :data-goatcounter-click (str "outbound/" name)
+               :data-goatcounter-title name} name]
           (when archived
             [:span {:title "archived"} (icons/lock)])]
          [:button {:class "popover-trigger text-gray-400 hover:text-gray-600 cursor-pointer"
@@ -141,7 +144,9 @@
                    (or (nil? repository)
                        (= repository :clojars)))
           [:a {:class "inline-block hover:underline"
-               :href (str "https://clojars.org/" group-id "/" artifact-id)}
+               :href (str "https://clojars.org/" group-id "/" artifact-id)
+               :data-goatcounter-click (str "clojars/" group-id "/" artifact-id)
+               :data-goatcounter-title name}
            [:div {:class "flex flex-row flex-wrap md:gap-2 items-center  "}
             [:span {:class "hidden lg:inline text-black/50"} "[ "]
             [:span {:class "w-full md:w-auto"} (str group-id "/" artifact-id)]
@@ -186,7 +191,11 @@
                                         :hx-swap "beforeend"
                                         :hx-include "inherit"
                                         :hx-vals (js {"page" next-page})
-                                        :hx-trigger "revealed"})]
+                                        :hx-trigger "revealed"
+                                        ;; Track scroll depth: count once per page boundary
+                                        :hx-on:htmx:config-request
+                                        (format "window.goatcounter?.count?.({path: 'page/%d', event: true})"
+                                                next-page)})]
                            (project-list-item p :attrs attrs)))
                        projects))]))
 
@@ -314,9 +323,6 @@
 
         [:link {:rel "stylesheet" :href (assets "main.css")}]
         [:script {:src (assets "main.ts")}]
-        [:script {:async true
-                  :data-collect-dnt "true"
-                  :src "https://scripts.simpleanalyticscdn.com/latest.js"}]
 
         [:script {:data-goatcounter "https://clojure-land.goatcounter.com/count"
                   :async true

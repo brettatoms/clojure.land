@@ -1,5 +1,26 @@
 import htmx from "htmx.org";
 
+// htmx fires `htmx:config-request` with the outgoing request parameters in detail.
+type ConfigRequestEvent = CustomEvent<{
+  parameters: { [k: string]: string | Array<string> };
+}>;
+
+declare global {
+  interface Window {
+    htmx: typeof htmx;
+    goatcounter?: {
+      count?: (opts: {
+        path?: string | ((p: string) => string);
+        title?: string;
+        referrer?: string;
+        event?: boolean;
+      }) => void;
+    };
+    appendPlatformParameter: (event: ConfigRequestEvent, platform: string) => void;
+    appendTagParameter: (event: ConfigRequestEvent, tag: string) => void;
+  }
+}
+
 window.htmx = htmx;
 
 // Format popover field values
@@ -225,11 +246,11 @@ window.appendPlatformParameter = (event, platform: string) => {
     return;
   }
 
+  window.goatcounter?.count?.({ path: `platform/${platform}`, event: true });
   appendParameter(event.detail.parameters, "platforms", platform);
 };
 
 window.appendTagParameter = (event, tag: string) => {
-  console.log(event);
   const el = document.querySelector(`input[value="${tag}"]`);
   if (el) {
     // cancel the request if the value already exists
@@ -237,5 +258,6 @@ window.appendTagParameter = (event, tag: string) => {
     return;
   }
 
+  window.goatcounter?.count?.({ path: `tag/${tag}`, event: true });
   appendParameter(event.detail.parameters, "tags", tag);
 };
