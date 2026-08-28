@@ -874,6 +874,13 @@
   :group-id "com.github.brianium"
   :artifact-id "html.yeah"
   :tags #{"hiccup" "html"}}
+ {:name "Pottery"
+  :url "https://github.com/brightin/pottery"
+  :platforms #{"clj"}
+  :key :brightin/pottery
+  :group-id "brightin"
+  :artifact-id "pottery"
+  :tags #{"i18n"}}
  {:name "Lambda-Kube"
   :url "https://github.com/brosenan/lambda-kube"
   :platforms #{"clj"}
