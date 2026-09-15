@@ -873,7 +873,8 @@
   :platforms #{"clj"}
   :group-id "com.github.brianium"
   :artifact-id "html.yeah"
-  :tags #{"hiccup" "html"}}
+  :tags #{"hiccup" "html"}
+  :ignore true}
  {:name "Pottery"
   :url "https://github.com/brightin/pottery"
   :platforms #{"clj"}
@@ -9685,7 +9686,8 @@
   :key :zcaudate/hara
   :group-id "zcaudate"
   :artifact-id "hara"
-  :tags #{}}
+  :tags #{}
+  :ignore true}
  {:name "Ribol"
   :url "https://github.com/zcaudate/ribol"
   :platforms #{"clj" "cljs"}

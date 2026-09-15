@@ -63,6 +63,11 @@
    still contribute to the score instead of being multiplied by zero."
   0.1)
 
+(def ^:private min-stars
+  "Floor applied to projects with no stars so that downloads still contribute
+   to the score instead of being multiplied by zero."
+  0.1)
+
 (defn- staleness-decay
   "Calculate a decay factor based on how long since the project was last active.
    For Clojars projects, uses the latest release date since that reflects when
@@ -99,11 +104,13 @@
    min-downloads-per-day rather than zero, so a quiet artifact still ranks by
    stars without outscoring projects that have real downloads. Projects with no
    Clojars coordinates have no download signal at all and fall back to stars
-   alone.
+   alone. Likewise, projects with no stars are treated as having min-stars so
+   that downloads still count.
 
    The result is further adjusted by staleness decay and an archived penalty."
   [project]
-  (let [stars (double (or (:stars project) 0))
+  (let [stars (let [n (or (:stars project) 0)]
+                (if (pos? n) (double n) min-stars))
         dpd (downloads-per-day project)
         dpd (cond
               (and dpd (pos? dpd)) dpd
