@@ -18,12 +18,14 @@
 (defmethod ig/init-key ::zodiac [_ config]
   (let [{:keys [build-assets? jdbc-url reload-per-request? request-context port]} config
         project-root "./"
-        assets-ext (z.assets/init {;; We use vite.config.js in the Dockerfile
-                                   :config-file (str (fs/path project-root "vite.config.dev.ts"))
-                                   :package-json-dir project-root
-                                   :manifest-path  "clojure.land/build/.vite/manifest.json"
-                                   :build? build-assets?
-                                   :asset-resource-path "clojure.land/build/assets"})
+        assets-ext (z.assets/init {:manifest-path  "clojure.land/build/.vite/manifest.json"
+                                   :asset-resource-path "clojure.land/build/assets"
+                                   ;; The Dockerfile builds assets with vite.config.ts at
+                                   ;; image build time and skips vite at runtime.
+                                   :vite (when build-assets?
+                                           {:mode :build
+                                            :config-file (str (fs/path project-root "vite.config.dev.ts"))
+                                            :package-json-dir project-root})})
         ;; TODO: setup jdbc options to automatically convert org.h2.jdbc.JdbcArray to a seq
         sql-ext (z.sql/init {:spec {:jdbcUrl jdbc-url}})]
     (z/start {:extensions [assets-ext sql-ext]
