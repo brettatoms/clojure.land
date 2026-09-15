@@ -52,15 +52,25 @@
     (instance? java.util.Date v) (.toInstant v)
     :else (.toInstant v)))
 
+(defn- clojars-project?
+  "Returns true if the project has Maven coordinates published to Clojars."
+  [{:keys [group-id artifact-id repository]}]
+  (boolean (and group-id artifact-id
+                (or (nil? repository) (= repository :clojars)))))
+
+(def ^:private min-downloads-per-day
+  "Floor applied to Clojars projects with no recent downloads so that stars
+   still contribute to the score instead of being multiplied by zero."
+  0.1)
+
 (defn- staleness-decay
   "Calculate a decay factor based on how long since the project was last active.
    For Clojars projects, uses the latest release date since that reflects when
    users last got a new version. For non-Clojars projects, uses last push date.
    Returns 1.0 for projects active within 180 days, then decreases by 0.1 per
    year, with a minimum of 0.3."
-  [{:keys [latest-release-date last-pushed-at group-id artifact-id repository]}]
-  (let [clojars? (and group-id artifact-id
-                      (or (nil? repository) (= repository :clojars)))
+  [{:keys [latest-release-date last-pushed-at] :as project}]
+  (let [clojars? (clojars-project? project)
         last-instant (if clojars?
                        (or (to-instant latest-release-date) (to-instant last-pushed-at))
                        (or (to-instant last-pushed-at) (to-instant latest-release-date)))
@@ -80,16 +90,26 @@
   "Calculate a popularity score for a project.
 
    Uses the geometric mean of stars and downloads-per-day when download data is
-   available, otherwise falls back to stars alone. The geometric mean naturally
-   balances both signals — transitive dependencies with high downloads but few
-   stars are dampened, while projects need both community interest (stars) and
-   real-world usage (downloads) to rank highly.
+   available. The geometric mean naturally balances both signals — transitive
+   dependencies with high downloads but few stars are dampened, while projects
+   need both community interest (stars) and real-world usage (downloads) to
+   rank highly.
+
+   Clojars projects with no recent downloads are treated as having
+   min-downloads-per-day rather than zero, so a quiet artifact still ranks by
+   stars without outscoring projects that have real downloads. Projects with no
+   Clojars coordinates have no download signal at all and fall back to stars
+   alone.
 
    The result is further adjusted by staleness decay and an archived penalty."
   [project]
   (let [stars (double (or (:stars project) 0))
         dpd (downloads-per-day project)
-        base (if (and dpd (pos? dpd))
+        dpd (cond
+              (and dpd (pos? dpd)) dpd
+              (clojars-project? project) min-downloads-per-day
+              :else nil)
+        base (if dpd
                (Math/sqrt (* stars dpd))
                stars)]
     (* base
