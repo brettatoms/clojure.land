@@ -2744,12 +2744,13 @@
   :artifact-id "phlegyas"
   :tags #{"filesystem utilities"}}
  {:name "Duct"
-  :url "https://github.com/duct-framework/duct"
+  :url "https://duct-framework.org"
+  :repo-url "https://github.com/duct-framework/duct"
   :platforms #{"clj" "cljs"}
   :key :duct-framework/duct
   :group-id "org.duct-framework"
   :artifact-id "main"
-  :tags #{"web frameworks" "project templates"}}
+  :tags #{"web frameworks"}}
  {:name "Duct-Figwheel-Component"
   :url "https://github.com/duct-framework/duct-figwheel-component"
   :platforms #{"clj"}
@@ -4147,8 +4148,8 @@
   :url "https://biffweb.com/"
   :platforms #{"clj"}
   :key :jacobobryant/biff
-  ;; :group-id "com.biffweb"
-  ;; :artifact-id "biff"
+  :group-id "com.biffweb"
+  :artifact-id "core"
   :tags #{"web frameworks"}
   :repo-url "https://github.com/jacobobryant/biff"}
  {:name "biff.config"
