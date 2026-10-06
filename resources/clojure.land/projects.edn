@@ -2192,6 +2192,13 @@
   :group-id "cnuernber"
   :artifact-id "dtype-next"
   :tags #{"data structures" "performance"}}
+ {:name "ham-fisted"
+  :url "https://github.com/cnuernber/ham-fisted"
+  :platforms #{"clj"}
+  :key :cnuernber/ham-fisted
+  :group-id "com.cnuernber"
+  :artifact-id "ham-fisted"
+  :tags #{"data structures" "performance"}}
  {:name "Coast"
   :url "https://coast.swlkr.com/"
   :repo-url "https://github.com/coast-framework/coast"
@@ -9510,12 +9517,29 @@
   :group-id "karras"
   :artifact-id "karras"
   :tags #{"mongodb"}}
+ {:name "clj-gdal"
+  :url "https://github.com/willcohen/clj-gdal"
+  :platforms #{"clj" "cljs"}
+  :description "GDAL for the JVM and JavaScript"
+  :key :willcohen/clj-gdal
+  :group-id "net.willcohen"
+  :artifact-id "gdal"
+  :tags #{"geospatial" "ffi"}}
  {:name "clj-native"
   :url "https://github.com/willcohen/clj-native"
   :platforms #{"clj" "cljs"}
   :description "Helpers for binding native and WASM C libraries in Clojure and Squint"
   :key :willcohen/clj-native
+  :group-id "net.willcohen"
+  :artifact-id "native"
   :tags #{"ffi"}}
+ {:name "clj-proj"
+  :url "https://github.com/willcohen/clj-proj"
+  :platforms #{"clj" "cljs"}
+  :key :willcohen/clj-proj
+  :group-id "net.willcohen"
+  :artifact-id "proj"
+  :tags #{"geospatial" "ffi"}}
  {:name "cljc-flow"
   :url "https://github.com/willcohen/cljc-flow"
   :platforms #{"cljs"}
