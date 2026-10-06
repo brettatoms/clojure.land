@@ -148,6 +148,11 @@
   :group-id "no.anteo"
   :artifact-id "broch"
   :tags #{"measurement units"}}
+ {:name "clojev"
+  :url "https://github.com/antlobach/clojev"
+  :platforms #{"clj"}
+  :key :antlobach/clojev
+  :tags #{"web api clients"}}
  {:name "clj-rethinkdb"
   :url "https://github.com/apa512/clj-rethinkdb"
   :platforms #{"clj"}
@@ -404,6 +409,12 @@
   :group-id "aysylu"
   :artifact-id "loom"
   :tags #{"graphs" "data structures"}}
+ {:name "mcp-tkx"
+  :url "https://b12n-oss.github.io/mcp-tkx/"
+  :repo-url "https://github.com/b12n-oss/mcp-tkx"
+  :platforms #{"clj" "cljs" "babashka"}
+  :key :b12n-oss/mcp-tkx
+  :tags #{"mcp" "ai"}}
  {:name "babashka"
   :url "https://github.com/babashka/babashka"
   :platforms #{"clj"}
@@ -430,6 +441,13 @@
   :group-id "org.babashka"
   :artifact-id "cli"
   :tags #{"command line tools"}}
+ {:name "babashka.ffi"
+  :url "https://github.com/babashka/ffi"
+  :platforms #{"clj" "cljs" "babashka"}
+  :key :babashka/ffi
+  :group-id "org.babashka"
+  :artifact-id "ffi"
+  :tags #{"ffi"}}
  {:name "babashka.fs"
   :url "https://github.com/babashka/fs"
   :platforms #{"clj"}
@@ -1238,6 +1256,13 @@
   :group-id "kioo"
   :artifact-id "kioo"
   :tags #{"front-end frameworks" "react"}}
+ {:name "Failjure"
+  :url "https://github.com/clj-commons/failjure"
+  :platforms #{"clj" "cljs" "babashka"}
+  :key :clj-commons/failjure
+  :group-id "failjure"
+  :artifact-id "failjure"
+  :tags #{"exception handling" "functional programming"}}
  {:name "graal-build-time"
   :url "https://github.com/clj-easy/graal-build-time"
   :platforms #{"clj"}
@@ -1696,6 +1721,14 @@
   :artifact-id "algo.monads"
   :repository :maven-central
   :tags #{"functional programming"}}
+ {:name "clojure-cli.repl"
+  :url "https://github.com/clojure/clojure-cli.repl"
+  :platforms #{"clj"}
+  :key :clojure/clojure-cli.repl
+  :group-id "io.github.clojure"
+  :artifact-id "clojure-cli.repl-server"
+  :repository :maven-central
+  :tags #{"repls" "terminal"}}
  {:name "core.async"
   :url "https://github.com/clojure/core.async"
   :platforms #{"clj" "cljs"}
@@ -4783,6 +4816,13 @@
   :group-id "com.lambdaisland"
   :artifact-id "config"
   :tags #{"configuration"}}
+ {:name "dbus-client"
+  :url "https://github.com/lambdaisland/dbus-client"
+  :platforms #{"clj" "babashka"}
+  :key :lambdaisland/dbus-client
+  :group-id "com.lambdaisland"
+  :artifact-id "dbus-client"
+  :tags #{"rpc"}}
  {:name "deja-fu"
   :url "https://github.com/lambdaisland/deja-fu"
   :platforms #{"cljs"}
@@ -4902,6 +4942,20 @@
   :group-id "com.lambdaisland"
   :artifact-id "witchcraft"
   :tags #{"game development"}}
+ {:name "fx"
+  :url "https://github.com/lambdaseq/fx"
+  :platforms #{"clj" "cljs"}
+  :key :lambdaseq/fx
+  :group-id "io.github.conjurernix"
+  :artifact-id "fx.core"
+  :tags #{"functional programming" "asynchronous programming"}}
+ {:name "relm"
+  :url "https://github.com/lambdaseq/relm"
+  :platforms #{"cljs"}
+  :key :lambdaseq/relm
+  :group-id "io.github.conjurernix"
+  :artifact-id "relm.core"
+  :tags #{"front-end frameworks" "state management"}}
  {:name "MCP SDK"
   :key :latacora/mcp-sdk
   :url "https://github.com/latacora/mcp-sdk"
@@ -5108,6 +5162,13 @@
   :group-id "nl.loudai"
   :artifact-id "hiccup-templating"
   :tags #{"hiccup" "template languages"}}
+ {:name "test-doc-blocks"
+  :url "https://github.com/lread/test-doc-blocks"
+  :platforms #{"clj" "cljs"}
+  :key :lread/test-doc-blocks
+  :group-id "lread"
+  :artifact-id "test-doc-blocks"
+  :tags #{"testing" "documentation tools"}}
  {:name "QClojure"
   :url "https://github.com/lsolbach/qclojure"
   :platforms #{"clj"}
@@ -7381,6 +7442,21 @@
   :group-id "nvd-clojure"
   :artifact-id "nvd-clojure"
   :tags #{"vulnerability checking"}}
+ {:name "Rich Comment Tests"
+  :url "https://github.com/robertluo/rich-comment-tests"
+  :platforms #{"clj" "babashka"}
+  :key :robertluo/rich-comment-tests
+  :group-id "io.github.robertluo"
+  :artifact-id "rich-comment-tests"
+  :tags #{"testing"}}
+ {:name "lein-junit-xml"
+  :url "https://robinlahtinen.github.io/lein-junit-xml/"
+  :repo-url "https://github.com/robinlahtinen/lein-junit-xml"
+  :platforms #{"clj"}
+  :key :robinlahtinen/lein-junit-xml
+  :group-id "com.github.robinlahtinen"
+  :artifact-id "lein-junit-xml"
+  :tags #{"leiningen plugins" "testing"}}
  {:name "lein-diagnostics"
   :url "https://github.com/robwolfe/lein-diagnostics"
   :platforms #{"clj"}
@@ -9440,6 +9516,12 @@
   :description "Helpers for binding native and WASM C libraries in Clojure and Squint"
   :key :willcohen/clj-native
   :tags #{"ffi"}}
+ {:name "cljc-flow"
+  :url "https://github.com/willcohen/cljc-flow"
+  :platforms #{"cljs"}
+  :description "Port of clojure.core.async.flow to squint"
+  :key :willcohen/cljc-flow
+  :tags #{"asynchronous programming" "clojurescript development"}}
  {:name "resource-tracker"
   :url "https://github.com/willcohen/resource-tracker"
   :platforms #{"cljs"}
