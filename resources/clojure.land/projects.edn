@@ -153,6 +153,11 @@
   :platforms #{"clj"}
   :key :antlobach/clojev
   :tags #{"web api clients"}}
+ {:name "Clorch"
+  :url "https://github.com/antlobach/clorch"
+  :platforms #{"clj"}
+  :key :antlobach/clorch
+  :tags #{"machine learning" "ffi"}}
  {:name "clj-rethinkdb"
   :url "https://github.com/apa512/clj-rethinkdb"
   :platforms #{"clj"}
@@ -508,6 +513,14 @@
   :platforms #{"cljs"}
   :key :babashka/scittle
   :tags #{"web frameworks" "clojurescript development"}}
+ {:name "agentspaces-clj"
+  :url "https://www.badmonkey.ai/agentspaces/index.html"
+  :repo-url "https://github.com/badmonkeyai/agentspaces-clj"
+  :platforms #{"clj"}
+  :key :badmonkeyai/agentspaces-clj
+  :group-id "ai.badmonkey.agentspaces"
+  :artifact-id "agentspaces-clj"
+  :tags #{"ai" "distributed programming"}}
  {:name "libpython-clj-uv"
   :url "https://github.com/behrica/libpython-clj-uv"
   :platforms #{"clj"}
@@ -1965,6 +1978,14 @@
   :artifact-id "tools.deps"
   :repository :maven-central
   :tags #{"java integration" "dependency management"}}
+ {:name "tools.deps.config"
+  :url "https://github.com/clojure/tools.deps.config"
+  :platforms #{"clj"}
+  :key :clojure/tools.deps.config
+  :group-id "org.clojure"
+  :artifact-id "tools.deps.config"
+  :repository :maven-central
+  :tags #{"tools.deps" "configuration"}}
  {:name "tools.deps.edn"
   :url "https://github.com/clojure/tools.deps.edn"
   :platforms #{"clj"}
@@ -3787,6 +3808,12 @@
   :group-id "energy.grid-coordination"
   :artifact-id "clj-oa3-client"
   :tags #{"http clients"}}
+ {:name "clj-urpx"
+  :url "https://github.com/grid-coordination/clj-urpx"
+  :platforms #{"clj"}
+  :key :grid-coordination/clj-urpx
+  :group-id "energy.grid-coordination"
+  :artifact-id "clj-urpx"}
  {:name "awyeah-api"
   :url "https://github.com/grzm/awyeah-api"
   :platforms #{"babashka" "clj"}
@@ -4669,6 +4696,13 @@
   :group-id "net.modulolotus"
   :artifact-id "truegrit"
   :tags #{"resilience"}}
+ {:name "volley"
+  :url "https://github.com/kirahowe/volley"
+  :platforms #{"clj" "babashka"}
+  :key :kirahowe/volley
+  :group-id "com.kirahowe"
+  :artifact-id "volley"
+  :tags #{"testing"}}
  {:name "cybermonday"
   :key :kiranshila/cybermonday
   :url "https://github.com/kiranshila/cybermonday"
@@ -5714,6 +5748,13 @@
   :group-id "cljs-bean"
   :artifact-id "cljs-bean"
   :tags #{"javascript interop"}}
+ {:name "trombi"
+  :url "https://github.com/mhjort/trombi"
+  :platforms #{"clj"}
+  :key :mhjort/trombi
+  :group-id "com.github.mhjort"
+  :artifact-id "trombi"
+  :tags #{"testing" "performance"}}
  {:name "shadow-env"
   :url "https://github.com/mhuebert/shadow-env"
   :platforms #{"clj" "cljs"}
@@ -6123,6 +6164,13 @@
   :group-id "co.multiply"
   :artifact-id "quiescent"
   :tags #{"asynchronous programming"}}
+ {:name "remontoire"
+  :url "https://github.com/multiplyco/remontoire"
+  :platforms #{"clj"}
+  :key :multiplyco/remontoire
+  :group-id "co.multiply"
+  :artifact-id "remontoire"
+  :tags #{"mcp" "ai" "repls"}}
  {:name "Scoped"
   :key :multiplyco/scoped
   :url "https://github.com/multiplyco/scoped"
@@ -7216,6 +7264,13 @@
   :platforms #{"clj"}
   :key :replikativ/evoc-rstr
   :tags #{"machine learning" "data science"}}
+ {:name "Foerster"
+  :url "https://github.com/replikativ/foerster"
+  :platforms #{"clj" "cljs"}
+  :key :replikativ/foerster
+  :group-id "org.replikativ"
+  :artifact-id "foerster"
+  :tags #{"machine learning" "math" "data science"}}
  {:name "Geschichte"
   :url "https://github.com/replikativ/geschichte"
   :platforms #{"clj" "cljs"}
@@ -7867,6 +7922,11 @@
   :artifact-id "contract"
   :tags #{}
   :archived true}
+ {:name "Eve"
+  :url "https://github.com/SeniorCareMarket/eve"
+  :platforms #{"clj" "cljs" "babashka"}
+  :key :SeniorCareMarket/eve
+  :tags #{"data structures" "serialization"}}
  {:name "Quasi una fantasia"
   :url "https://github.com/shashurup/quasi-una-fantasia"
   :platforms #{"clj" "cljs"}
@@ -7874,6 +7934,12 @@
   "Quasi una fantasia is a rich Clojure REPL, shell and a lot more."
   :key :shashurup/quasi-una-fantasia
   :tags #{"repls" "shell"}}
+ {:name "statechart-viz"
+  :url "https://sheluchin.github.io/statechart-viz/"
+  :repo-url "https://github.com/sheluchin/statechart-viz"
+  :platforms #{"clj" "cljs" "babashka"}
+  :key :sheluchin/statechart-viz
+  :tags #{"state machines" "visualization"}}
  {:name "dbos-clj"
   :url "https://github.com/shipclojure/dbos-clj"
   :platforms #{"clj"}
@@ -7937,6 +8003,13 @@
   :artifact-id "datalinguist"
   :tags #{"natural language"}
   :archived true}
+ {:name "drop-in-search"
+  :url "https://github.com/simongray/drop-in-search"
+  :platforms #{"clj" "cljs"}
+  :key :simongray/drop-in-search
+  :group-id "dk.simongray"
+  :artifact-id "drop-in-search"
+  :tags #{"text search"}}
  {:name "eventstore"
   :url "https://github.com/simplemono/eventstore"
   :platforms #{"clj"}
@@ -8529,6 +8602,11 @@
   :artifact-id "graphql-clj"
   :tags #{"graphql"}
   :archived true}
+ {:name "deltatest"
+  :url "https://github.com/teodorlu/deltatest"
+  :platforms #{"clj" "babashka"}
+  :key :teodorlu/deltatest
+  :tags #{"testing"}}
  {:name "Hiccups"
   :url "https://github.com/teropa/hiccups"
   :platforms #{"cljs"}
@@ -9109,6 +9187,14 @@
   :group-id "borneo"
   :artifact-id "borneo"
   :tags #{"neo4j clients"}}
+ {:name "Wagoe"
+  :url "https://wagoe.org"
+  :repo-url "https://github.com/wagoebv/wagoe"
+  :platforms #{"clj"}
+  :key :wagoebv/wagoe
+  :group-id "com.wagoe"
+  :artifact-id "wagoe-core"
+  :tags #{"web frameworks" "application frameworks"}}
  {:name "Walkable",
   :url "https://github.com/walkable-server/walkable",
   :platforms #{"clj" "cljs"},
@@ -9467,6 +9553,13 @@
   :group-id "valip"
   :artifact-id "valip"
   :tags #{"validation"}}
+ {:name "uni.style"
+  :url "https://github.com/WhimsicalCode/uni.style"
+  :platforms #{"clj" "cljs"}
+  :key :WhimsicalCode/uni.style
+  :group-id "com.whimsical"
+  :artifact-id "uni.style"
+  :tags #{"css"}}
  {:name "CLJC Misc"
   :url "https://github.com/wilkerlucio/cljc-misc"
   :platforms #{"clj" "cljs"}
